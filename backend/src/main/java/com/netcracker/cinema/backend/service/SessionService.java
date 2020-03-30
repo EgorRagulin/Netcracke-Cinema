@@ -15,4 +15,8 @@ public interface SessionService {
     Session findSessionById(Long id);
 
     Session setSession(Session session);
+
+    void deleteSession(Session session);
+
+    void deleteSessionById(Long id);
 }

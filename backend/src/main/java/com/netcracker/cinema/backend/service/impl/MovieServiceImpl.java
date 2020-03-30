@@ -32,4 +32,14 @@ public class MovieServiceImpl implements MovieService {
     public Movie setMovie(Movie movie) {
         return movieRepository.save(movie);
     }
+
+    @Override
+    public void deleteMovie(Movie movie) {
+        movieRepository.delete(movie);
+    }
+
+    @Override
+    public void deleteMovieById(Long id) {
+        movieRepository.deleteById(id);
+    }
 }

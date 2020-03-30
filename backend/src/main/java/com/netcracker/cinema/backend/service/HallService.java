@@ -14,4 +14,8 @@ public interface HallService {
     Hall findHallById(Long id);
 
     Hall setHall(Hall hall);
+
+    void deleteHall(Hall hall);
+
+    void deleteHallById(Long id);
 }

@@ -34,13 +34,6 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="cinema: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="cinema: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="hall: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -142,7 +135,7 @@
       <workItem from="1585386669974" duration="33876000" />
       <workItem from="1585494978467" duration="7416000" />
       <workItem from="1585503348582" duration="775000" />
-      <workItem from="1585504827165" duration="34986000" />
+      <workItem from="1585504827165" duration="37293000" />
     </task>
     <servers />
   </component>
@@ -162,10 +155,10 @@
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="159" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1304.768@62.0.1304.768" timestamp="1585309675511" />
-    <state x="519" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1585606868510">
+    <state x="519" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1585610745191">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="519" y="68" key="#com.intellij.ide.util.MemberChooser/62.0.1304.768@62.0.1304.768" timestamp="1585606868510" />
+    <state x="519" y="68" key="#com.intellij.ide.util.MemberChooser/62.0.1304.768@62.0.1304.768" timestamp="1585610745191" />
     <state x="308" y="309" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1585590240656">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
@@ -178,38 +171,38 @@
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="494" y="139" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1585503978970" />
-    <state width="1261" height="236" key="GridCell.Tab.0.bottom" timestamp="1585607705076">
+    <state width="1261" height="236" key="GridCell.Tab.0.bottom" timestamp="1585611793232">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.0.bottom/62.0.1304.768@62.0.1304.768" timestamp="1585607705076" />
-    <state width="1261" height="236" key="GridCell.Tab.0.center" timestamp="1585607705074">
+    <state width="1261" height="236" key="GridCell.Tab.0.bottom/62.0.1304.768@62.0.1304.768" timestamp="1585611793232" />
+    <state width="1261" height="236" key="GridCell.Tab.0.center" timestamp="1585611793229">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.0.center/62.0.1304.768@62.0.1304.768" timestamp="1585607705074" />
-    <state width="1261" height="236" key="GridCell.Tab.0.left" timestamp="1585607705074">
+    <state width="1261" height="236" key="GridCell.Tab.0.center/62.0.1304.768@62.0.1304.768" timestamp="1585611793229" />
+    <state width="1261" height="236" key="GridCell.Tab.0.left" timestamp="1585611793229">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.0.left/62.0.1304.768@62.0.1304.768" timestamp="1585607705074" />
-    <state width="1261" height="236" key="GridCell.Tab.0.right" timestamp="1585607705075">
+    <state width="1261" height="236" key="GridCell.Tab.0.left/62.0.1304.768@62.0.1304.768" timestamp="1585611793229" />
+    <state width="1261" height="236" key="GridCell.Tab.0.right" timestamp="1585611793229">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.0.right/62.0.1304.768@62.0.1304.768" timestamp="1585607705075" />
-    <state width="1261" height="236" key="GridCell.Tab.1.bottom" timestamp="1585607705077">
+    <state width="1261" height="236" key="GridCell.Tab.0.right/62.0.1304.768@62.0.1304.768" timestamp="1585611793229" />
+    <state width="1261" height="236" key="GridCell.Tab.1.bottom" timestamp="1585611793233">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.1.bottom/62.0.1304.768@62.0.1304.768" timestamp="1585607705077" />
-    <state width="1261" height="236" key="GridCell.Tab.1.center" timestamp="1585607705077">
+    <state width="1261" height="236" key="GridCell.Tab.1.bottom/62.0.1304.768@62.0.1304.768" timestamp="1585611793233" />
+    <state width="1261" height="236" key="GridCell.Tab.1.center" timestamp="1585611793232">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.1.center/62.0.1304.768@62.0.1304.768" timestamp="1585607705077" />
-    <state width="1261" height="236" key="GridCell.Tab.1.left" timestamp="1585607705077">
+    <state width="1261" height="236" key="GridCell.Tab.1.center/62.0.1304.768@62.0.1304.768" timestamp="1585611793232" />
+    <state width="1261" height="236" key="GridCell.Tab.1.left" timestamp="1585611793232">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.1.left/62.0.1304.768@62.0.1304.768" timestamp="1585607705077" />
-    <state width="1261" height="236" key="GridCell.Tab.1.right" timestamp="1585607705077">
+    <state width="1261" height="236" key="GridCell.Tab.1.left/62.0.1304.768@62.0.1304.768" timestamp="1585611793232" />
+    <state width="1261" height="236" key="GridCell.Tab.1.right" timestamp="1585611793233">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.1.right/62.0.1304.768@62.0.1304.768" timestamp="1585607705077" />
+    <state width="1261" height="236" key="GridCell.Tab.1.right/62.0.1304.768@62.0.1304.768" timestamp="1585611793233" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1585298912219">
       <screen x="62" y="0" width="1304" height="768" />
     </state>

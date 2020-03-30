@@ -19,4 +19,6 @@ public interface WalletRepository extends CrudRepository<Wallet, Long> {
     Wallet save(Wallet wallet);
 
     void delete(Wallet wallet);
+
+    void deleteById(Long id);
 }

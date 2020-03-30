@@ -32,4 +32,14 @@ public class HallServiceImpl implements HallService {
     public Hall setHall(Hall hall) {
         return hallRepository.save(hall);
     }
+
+    @Override
+    public void deleteHall(Hall hall) {
+        hallRepository.delete(hall);
+    }
+
+    @Override
+    public void deleteHallById(Long id) {
+        hallRepository.deleteById(id);
+    }
 }

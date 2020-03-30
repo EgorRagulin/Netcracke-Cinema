@@ -19,4 +19,6 @@ public interface TicketRepository extends CrudRepository<Ticket, Long> {
     Ticket save(Ticket ticket);
 
     void delete(Ticket ticket);
+
+    void deleteById(Long id);
 }

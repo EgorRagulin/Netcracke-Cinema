@@ -19,4 +19,6 @@ public interface SessionRepository extends CrudRepository<Session, Long> {
     Session save(Session session);
 
     void delete(Session session);
+
+    void deleteById(Long id);
 }

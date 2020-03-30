@@ -34,4 +34,14 @@ public class WalletServiceImpl implements WalletService {
     public Wallet setWallet(Wallet wallet) {
         return walletRepository.save(wallet);
     }
+
+    @Override
+    public void deleteWallet(Wallet wallet) {
+        walletRepository.delete(wallet);
+    }
+
+    @Override
+    public void deleteWalletById(Long id) {
+        walletRepository.deleteById(id);
+    }
 }

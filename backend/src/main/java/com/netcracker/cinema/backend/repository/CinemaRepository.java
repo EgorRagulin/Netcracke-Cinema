@@ -18,4 +18,6 @@ public interface CinemaRepository extends CrudRepository<Cinema, Long> {
     Cinema save(Cinema cinema);
 
     void delete(Cinema cinema);
+
+    void deleteById(Long id);
 }

@@ -35,4 +35,14 @@ public class CinemaServiceImpl implements CinemaService {
         cinemaRepository.save(cinema);
         return cinema;
     }
+
+    @Override
+    public void deleteCinema(Cinema cinema) {
+        cinemaRepository.delete(cinema);
+    }
+
+    @Override
+    public void deleteCinemaById(Long id) {
+        cinemaRepository.deleteById(id);
+    }
 }

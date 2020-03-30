@@ -15,4 +15,8 @@ public interface WalletService {
     Wallet findWalletById(Long id);
 
     Wallet setWallet(Wallet wallet);
+
+    void deleteWallet(Wallet wallet);
+
+    void deleteWalletById(Long id);
 }

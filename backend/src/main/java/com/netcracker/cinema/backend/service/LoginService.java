@@ -14,4 +14,8 @@ public interface LoginService {
     Login findLoginById(int id);
 
     Login setLogin(Login login);
+
+    void deleteLogin(Login login);
+
+    void deleteLoginById(Long id);
 }

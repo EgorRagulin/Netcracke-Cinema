@@ -32,4 +32,14 @@ public class CinemaController {
     public Cinema setCinema(@RequestBody Cinema cinema) {
         return cinemaService.setCinema(cinema);
     }
+
+    @RequestMapping(value = "/", method = RequestMethod.DELETE)
+    public void deleteCinema(@RequestBody Cinema cinema) {
+        cinemaService.deleteCinema(cinema);
+    }
+
+    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
+    public void deleteCinemaById(@PathVariable(name = "id") Long id) {
+        cinemaService.deleteCinemaById(id);
+    }
 }

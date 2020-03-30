@@ -32,4 +32,14 @@ public class LoginServiceImpl implements LoginService {
     public Login setLogin(Login login) {
         return loginRepository.save(login);
     }
+
+    @Override
+    public void deleteLogin(Login login) {
+        loginRepository.delete(login);
+    }
+
+    @Override
+    public void deleteLoginById(Long id) {
+        loginRepository.deleteById(id);
+    }
 }

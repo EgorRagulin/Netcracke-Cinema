@@ -1,5 +1,6 @@
 package com.netcracker.cinema.backend.controller;
 
+import com.netcracker.cinema.backend.entity.Hall;
 import com.netcracker.cinema.backend.entity.Session;
 import com.netcracker.cinema.backend.entity.Ticket;
 import com.netcracker.cinema.backend.entity.User;
@@ -34,5 +35,15 @@ public class TicketController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public Ticket setCinema(@RequestBody Ticket ticket) {
         return ticketService.setTicket(ticket);
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.DELETE)
+    public void deleteTicket(@RequestBody Ticket ticket) {
+        ticketService.deleteTicket(ticket);
+    }
+
+    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
+    public void deleteTicketById(@PathVariable(name = "id") Long id) {
+        ticketService.deleteTicketById(id);
     }
 }

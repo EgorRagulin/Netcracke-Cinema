@@ -15,4 +15,8 @@ public interface CinemaService {
     Cinema findCinemaById(Long id);
 
     Cinema setCinema(Cinema cinema);
+
+    void deleteCinema(Cinema cinema);
+
+    void deleteCinemaById(Long id);
 }

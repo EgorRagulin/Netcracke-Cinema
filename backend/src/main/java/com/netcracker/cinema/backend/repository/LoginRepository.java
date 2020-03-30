@@ -18,4 +18,6 @@ public interface LoginRepository extends CrudRepository<Login, Long> {
     Login save(Login login);
 
     void delete(Login login);
+
+    void deleteById(Long id);
 }

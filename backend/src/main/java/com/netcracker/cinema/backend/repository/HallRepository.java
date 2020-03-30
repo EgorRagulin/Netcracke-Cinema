@@ -18,4 +18,6 @@ public interface HallRepository extends CrudRepository<Hall, Long> {
     Hall save(Hall hall);
 
     void delete(Hall hall);
+
+    void deleteById(Long id);
 }

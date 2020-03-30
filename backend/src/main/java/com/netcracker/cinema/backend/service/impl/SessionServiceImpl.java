@@ -33,4 +33,14 @@ public class SessionServiceImpl implements SessionService {
     public Session setSession(Session session) {
         return sessionRepository.save(session);
     }
+
+    @Override
+    public void deleteSession(Session session) {
+        sessionRepository.delete(session);
+    }
+
+    @Override
+    public void deleteSessionById(Long id) {
+        sessionRepository.deleteById(id);
+    }
 }

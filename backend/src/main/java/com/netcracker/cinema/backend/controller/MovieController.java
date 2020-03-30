@@ -1,5 +1,6 @@
 package com.netcracker.cinema.backend.controller;
 
+import com.netcracker.cinema.backend.entity.Hall;
 import com.netcracker.cinema.backend.entity.Movie;
 import com.netcracker.cinema.backend.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,15 @@ public class MovieController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public Movie setMovie(@RequestBody Movie movie) {
         return movieService.setMovie(movie);
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.DELETE)
+    public void deleteMovie(@RequestBody Movie movie) {
+        movieService.deleteMovie(movie);
+    }
+
+    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
+    public void deleteMovieById(@PathVariable(name = "id") Long id) {
+        movieService.deleteMovieById(id);
     }
 }
