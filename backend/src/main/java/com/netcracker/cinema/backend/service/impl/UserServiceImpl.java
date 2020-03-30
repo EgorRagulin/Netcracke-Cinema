@@ -13,11 +13,24 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+
     @Override
-    public List<User> find(String firstName){
-        return userRepository.findByFirstName(firstName);
+    public List<User> findAllUser() {
+        return userRepository.findAll();
     }
 
     @Override
-    public List<User> findAll() { return userRepository.findAll(); }
+    public List<User> findAllUserByFirstName(String firstName) {
+        return userRepository.findAllByFirstName(firstName);
+    }
+
+    @Override
+    public User findUserById(Long id) {
+        return userRepository.findById(id).get();
+    }
+
+    @Override
+    public User setUser(User user) {
+        return userRepository.save(user);
+    }
 }

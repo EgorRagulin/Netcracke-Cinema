@@ -7,14 +7,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class CinemaServiceImpl implements CinemaService {
     @Autowired
     private CinemaRepository cinemaRepository;
 
+
     @Override
-    public List<Cinema> find(String cinema) {
-        return cinemaRepository.findByCinemaName(cinema);
+    public List<Cinema> findAllCinema() {
+        return cinemaRepository.findAll();
+    }
+
+    @Override
+    public List<Cinema> findAllCinemaByCinemaName(String cinemaName) {
+        return cinemaRepository.findAllByCinemaName(cinemaName);
+    }
+
+    @Override
+    public Cinema findCinemaById(Long id) {
+        return cinemaRepository.findById(id).get();
+    }
+
+    @Override
+    public Cinema setCinema(Cinema cinema) {
+        cinemaRepository.save(cinema);
+        return cinema;
     }
 }

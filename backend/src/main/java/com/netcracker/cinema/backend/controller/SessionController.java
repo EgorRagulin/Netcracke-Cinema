@@ -3,10 +3,9 @@ package com.netcracker.cinema.backend.controller;
 import com.netcracker.cinema.backend.entity.Session;
 import com.netcracker.cinema.backend.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -16,7 +15,23 @@ public class SessionController {
     private SessionService sessionService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<Session> GetAllSession() {
-        return sessionService.findAll();
+    public List<Session> getAllCinema() {
+        return sessionService.findAllSession();
+    }
+
+    @RequestMapping(value = "/{date}", method = RequestMethod.GET)
+    public List<Session> getCinemaByCinemaName(@PathVariable(name = "date") Date date) {
+        return sessionService.findSessionByDate(date);
+    }
+
+    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
+    public Session getCinemaById(@PathVariable(name = "id") Long id) {
+        return sessionService.findSessionById(id);
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public Session setCinema(@RequestBody Session session) {
+        return sessionService.setSession(session);
     }
 }
+

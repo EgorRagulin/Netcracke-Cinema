@@ -7,5 +7,11 @@ import java.util.List;
 
 @Component
 public interface MovieService {
-    List<Movie> findAll();
+    List<Movie> findAllMovie();
+
+    Movie findMovieByTitle(String title);
+
+    Movie findMovieById(Long id);
+
+    Movie setMovie(Movie movie);
 }

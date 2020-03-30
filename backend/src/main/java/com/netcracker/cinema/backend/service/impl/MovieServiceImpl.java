@@ -14,7 +14,22 @@ public class MovieServiceImpl implements MovieService {
     private MovieRepository movieRepository;
 
     @Override
-    public List<Movie> findAll() {
+    public List<Movie> findAllMovie() {
         return movieRepository.findAll();
+    }
+
+    @Override
+    public Movie findMovieByTitle(String title) {
+        return movieRepository.findByTitle(title);
+    }
+
+    @Override
+    public Movie findMovieById(Long id) {
+        return movieRepository.findById(id).get();
+    }
+
+    @Override
+    public Movie setMovie(Movie movie) {
+        return movieRepository.save(movie);
     }
 }

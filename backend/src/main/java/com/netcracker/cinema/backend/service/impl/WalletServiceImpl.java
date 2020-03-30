@@ -1,5 +1,6 @@
 package com.netcracker.cinema.backend.service.impl;
 
+import com.netcracker.cinema.backend.entity.User;
 import com.netcracker.cinema.backend.entity.Wallet;
 import com.netcracker.cinema.backend.repository.WalletRepository;
 import com.netcracker.cinema.backend.service.WalletService;
@@ -13,8 +14,24 @@ public class WalletServiceImpl implements WalletService {
     @Autowired
     private WalletRepository walletRepository;
 
+
     @Override
-    public List<Wallet> findAll() {
+    public List<Wallet> findAllWallet() {
         return walletRepository.findAll();
+    }
+
+    @Override
+    public Wallet findWalletByUser(User user) {
+        return walletRepository.findByUser(user);
+    }
+
+    @Override
+    public Wallet findWalletById(Long id) {
+        return walletRepository.findById(id).get();
+    }
+
+    @Override
+    public Wallet setWallet(Wallet wallet) {
+        return walletRepository.save(wallet);
     }
 }

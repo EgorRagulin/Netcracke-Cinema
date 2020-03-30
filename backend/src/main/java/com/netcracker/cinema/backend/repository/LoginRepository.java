@@ -4,7 +4,18 @@ import com.netcracker.cinema.backend.entity.Login;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface LoginRepository extends CrudRepository<Login, Long> {
-    Login findByUsername(String username);
+    List<Login> findAllByUsername(String username);
+
+    List<Login> findAll();
+
+    Optional<Login> findById(int id);
+
+    Login save(Login login);
+
+    void delete(Login login);
 }

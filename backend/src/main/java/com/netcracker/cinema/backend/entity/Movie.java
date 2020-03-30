@@ -86,3 +86,15 @@ public class Movie {
         this.categories = category;
     }
 }
+
+enum category{
+    Adventure,
+    Action,
+    Thriller,
+    Horrror,
+    Comedy,
+    Musical,
+    Romance,
+    Drama,
+    Fantasy
+}

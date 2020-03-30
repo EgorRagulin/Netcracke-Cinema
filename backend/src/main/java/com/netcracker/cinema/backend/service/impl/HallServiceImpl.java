@@ -12,8 +12,24 @@ import java.util.List;
 public class HallServiceImpl implements HallService {
     @Autowired
     private HallRepository hallRepository;
+
     @Override
-    public List<Hall> find(String number) {
-        return hallRepository.findByHallNumber(Integer.parseInt(number));
+    public List<Hall> findAllHall() {
+        return hallRepository.findAll();
+    }
+
+    @Override
+    public List<Hall> findAllHallByHallNumber(int number) {
+        return hallRepository.findByHallNumber(number);
+    }
+
+    @Override
+    public Hall findHallById(Long id) {
+        return hallRepository.findById(id).get();
+    }
+
+    @Override
+    public Hall setHall(Hall hall) {
+        return hallRepository.save(hall);
     }
 }

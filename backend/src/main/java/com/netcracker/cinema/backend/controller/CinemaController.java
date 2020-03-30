@@ -3,10 +3,7 @@ package com.netcracker.cinema.backend.controller;
 import com.netcracker.cinema.backend.entity.Cinema;
 import com.netcracker.cinema.backend.service.CinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,8 +13,23 @@ public class CinemaController {
     @Autowired
     private CinemaService cinemaService;
 
-    @RequestMapping(value = "/{cinema}", method = RequestMethod.GET)
-    public List<Cinema> getCinemaByCinemaName(@PathVariable(name = "cinema") String cinema) {
-        return cinemaService.find(cinema);
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public List<Cinema> getAllCinema() {
+        return cinemaService.findAllCinema();
+    }
+
+    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
+    public List<Cinema> getCinemaByCinemaName(@PathVariable(name = "name") String cinemaName) {
+        return cinemaService.findAllCinemaByCinemaName(cinemaName);
+    }
+
+    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
+    public Cinema getCinemaById(@PathVariable(name = "id") Long id) {
+        return cinemaService.findCinemaById(id);
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public Cinema setCinema(@RequestBody Cinema cinema) {
+        return cinemaService.setCinema(cinema);
     }
 }

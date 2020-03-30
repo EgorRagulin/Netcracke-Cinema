@@ -7,5 +7,11 @@ import java.util.List;
 
 @Component
 public interface HallService {
-    List<Hall> find(String hallNumber);
+    List<Hall> findAllHall();
+
+    List<Hall> findAllHallByHallNumber(int hallNumber);
+
+    Hall findHallById(Long id);
+
+    Hall setHall(Hall hall);
 }

@@ -1,15 +1,16 @@
 package com.netcracker.cinema.backend.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 
 @Entity
 public class Wallet {
     private Long id;
     private String name;
     private String balance;
+    @JsonBackReference
+    private User user;
 
     @Id
     @Column(name = "id")
@@ -39,5 +40,14 @@ public class Wallet {
 
     public void setBalance(String balance) {
         this.balance = balance;
+    }
+
+    @OneToOne(mappedBy = "wallet")
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

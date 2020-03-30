@@ -1,5 +1,8 @@
 package com.netcracker.cinema.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -9,8 +12,12 @@ public class User {
     private String firstName;
     private String secondName;
     private String role;
-//    private Wallet idWallet;
-//    private List<Ticket> tickets;
+    @JsonBackReference
+    private Login login;
+    @JsonManagedReference
+    private Wallet Wallet;
+    @JsonManagedReference
+    private List<Ticket> tickets;
 
     @Id
     @Column(name = "id")
@@ -52,23 +59,37 @@ public class User {
         this.role = role;
     }
 
-//    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinColumn(name= "wallet_id")
-//    public Wallet getIdWallet() {
-//        return idWallet;
-//    }
-//
-//    public void setIdWallet(Wallet idWallet) {
-//        this.idWallet = idWallet;
-//    }
-//
-//    @OneToMany
-//    @JoinColumn(name = "user_id", referencedColumnName = "id")
-//    public List<Ticket> getTickets() {
-//        return tickets;
-//    }
-//
-//    public void setTickets(List<Ticket> tickets) {
-//        this.tickets = tickets;
-//    }
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name= "wallet_id")
+    public Wallet getWallet() {
+        return Wallet;
+    }
+
+    public void setWallet(Wallet idWallet) {
+        this.Wallet = idWallet;
+    }
+
+    @OneToMany(mappedBy = "user")
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
+    @OneToOne(mappedBy="user")
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
+    }
+}
+
+enum role{
+    admin,
+    user,
+    blockedUser
 }

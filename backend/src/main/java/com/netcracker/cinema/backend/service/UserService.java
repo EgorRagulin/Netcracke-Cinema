@@ -7,7 +7,11 @@ import java.util.List;
 
 @Component
 public interface UserService {
-    List<User> find(String userName);
+    List<User> findAllUser();
 
-    List<User> findAll();
+    List<User> findAllUserByFirstName(String firstName);
+
+    User findUserById(Long id);
+
+    User setUser(User user);
 }

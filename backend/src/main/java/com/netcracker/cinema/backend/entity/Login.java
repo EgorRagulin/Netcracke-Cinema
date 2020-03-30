@@ -1,5 +1,7 @@
 package com.netcracker.cinema.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,7 +9,8 @@ public class Login {
     private Long id;
     private String username;
     private String password;
-    private User userId;
+    @JsonManagedReference
+    private User user;
 
     @Id
     @Column(name = "id")
@@ -41,11 +44,11 @@ public class Login {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="user_id")
-    public User getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(User userId) {
-        this.userId = userId;
+    public void setUser(User userId) {
+        this.user = userId;
     }
 }

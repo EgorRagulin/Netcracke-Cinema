@@ -1,25 +1,26 @@
 package com.netcracker.cinema.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Cinema {
-    private int id;
+    private Long id;
     private String cinemaName;
     private String address;
     private String cinemaPicture;
-
-    @OneToMany(mappedBy = "cinema")
+    @JsonManagedReference
     private List<Hall> halls;
 
     @Id
     @Column(name = "id")
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -51,5 +52,14 @@ public class Cinema {
 
     public void setCinemaPicture(String cinemaPicture) {
         this.cinemaPicture = cinemaPicture;
+    }
+
+    @OneToMany(mappedBy = "cinema")
+    public List<Hall> getHalls() {
+        return halls;
+    }
+
+    public void setHalls(List<Hall> halls) {
+        this.halls = halls;
     }
 }

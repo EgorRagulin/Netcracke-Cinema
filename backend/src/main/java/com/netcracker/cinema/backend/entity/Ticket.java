@@ -1,5 +1,7 @@
 package com.netcracker.cinema.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,7 +11,8 @@ public class Ticket {
     private int rowNumber;
     private double cost;
     private Session session;
-    private Long userId;
+    @JsonBackReference
+    private User user;
 
     @Id
     @Column(name = "id")
@@ -61,13 +64,13 @@ public class Ticket {
         this.session = session;
     }
 
-    @Basic
-    @Column(name = "user_id")
-    public Long getUserId() {
-        return userId;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name= "user_id")
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

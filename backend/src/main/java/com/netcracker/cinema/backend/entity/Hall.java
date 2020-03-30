@@ -1,11 +1,14 @@
 package com.netcracker.cinema.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
 public class Hall {
     private Long id;
     private int hallNumber;
+    @JsonBackReference
     private Cinema cinema;
 
     @Id
