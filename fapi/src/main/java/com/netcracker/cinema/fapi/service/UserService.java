@@ -1,6 +1,6 @@
 package com.netcracker.cinema.fapi.service;
 
-import com.netcracker.cinema.fapi.models.User;
+import com.netcracker.cinema.fapi.model.User;
 
 import java.util.List;
 

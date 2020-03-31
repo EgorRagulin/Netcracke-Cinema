@@ -24,7 +24,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public Login findLoginById(int id) {
+    public Login findLoginById(Long id) {
         return loginRepository.findById(id).get();
     }
 

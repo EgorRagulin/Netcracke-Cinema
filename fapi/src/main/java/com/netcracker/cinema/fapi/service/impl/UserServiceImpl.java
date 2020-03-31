@@ -1,6 +1,6 @@
 package com.netcracker.cinema.fapi.service.impl;
 
-import com.netcracker.cinema.fapi.models.User;
+import com.netcracker.cinema.fapi.model.User;
 import com.netcracker.cinema.fapi.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

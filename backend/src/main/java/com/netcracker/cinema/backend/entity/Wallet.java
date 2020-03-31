@@ -9,7 +9,6 @@ public class Wallet {
     private Long id;
     private String name;
     private String balance;
-    @JsonBackReference
     private User user;
 
     @Id
@@ -43,6 +42,7 @@ public class Wallet {
     }
 
     @OneToOne(mappedBy = "wallet")
+    @JsonBackReference(value = "user-wallet")
     public User getUser() {
         return user;
     }

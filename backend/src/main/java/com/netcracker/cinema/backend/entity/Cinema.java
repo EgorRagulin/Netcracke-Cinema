@@ -11,11 +11,11 @@ public class Cinema {
     private String cinemaName;
     private String address;
     private String cinemaPicture;
-    @JsonManagedReference
     private List<Hall> halls;
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
@@ -55,6 +55,7 @@ public class Cinema {
     }
 
     @OneToMany(mappedBy = "cinema")
+    @JsonManagedReference(value = "cinema-hall")
     public List<Hall> getHalls() {
         return halls;
     }

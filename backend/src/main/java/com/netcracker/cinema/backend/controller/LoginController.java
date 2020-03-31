@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/login")
+@RequestMapping("/api/logins")
 public class LoginController {
     @Autowired
     private LoginService loginService;
@@ -25,7 +25,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Login getLoginById(@PathVariable(name = "id") int id) {
+    public Login getLoginById(@PathVariable(name = "id") Long id) {
         return loginService.findLoginById(id);
     }
 

@@ -9,7 +9,6 @@ public class Login {
     private Long id;
     private String username;
     private String password;
-    @JsonManagedReference
     private User user;
 
     @Id
@@ -44,6 +43,7 @@ public class Login {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="user_id")
+    @JsonManagedReference(value = "login-user")
     public User getUser() {
         return user;
     }

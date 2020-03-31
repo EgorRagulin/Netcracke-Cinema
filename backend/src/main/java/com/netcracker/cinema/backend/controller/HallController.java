@@ -1,6 +1,5 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.entity.Cinema;
 import com.netcracker.cinema.backend.entity.Hall;
 import com.netcracker.cinema.backend.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;

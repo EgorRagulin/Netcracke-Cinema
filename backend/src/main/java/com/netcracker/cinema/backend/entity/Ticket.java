@@ -11,7 +11,6 @@ public class Ticket {
     private int rowNumber;
     private double cost;
     private Session session;
-    @JsonBackReference
     private User user;
 
     @Id
@@ -54,8 +53,9 @@ public class Ticket {
         this.cost = cost;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name= "session_id")
+    @JsonBackReference(value = "session-ticket")
     public Session getSession() {
         return session;
     }
@@ -64,8 +64,9 @@ public class Ticket {
         this.session = session;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name= "user_id")
+    @JsonBackReference(value = "user-ticket")
     public User getUser() {
         return user;
     }

@@ -1,7 +1,7 @@
 package com.netcracker.cinema.fapi.controller;
 
-import com.netcracker.cinema.fapi.models.User;
-import com.netcracker.cinema.fapi.service.UserService;
+import com.netcracker.cinema.fapi.model.Movie;
+import com.netcracker.cinema.fapi.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
-public class UserContoller {
+@RequestMapping("/api/movies")
+public class MovieController {
     @Autowired
-    private UserService userService;
+    private MovieService movieService;
 
     @RequestMapping(value="/", method = RequestMethod.GET)
-    public List<User> getAllUsers(){
-        return userService.findAll();
+    public List<Movie> getAllMovie(){
+        return movieService.findAll();
     }
 }

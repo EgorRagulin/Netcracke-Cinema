@@ -13,7 +13,7 @@ public interface LoginRepository extends CrudRepository<Login, Long> {
 
     List<Login> findAll();
 
-    Optional<Login> findById(int id);
+    Optional<Login> findById(Long id);
 
     Login save(Login login);
 

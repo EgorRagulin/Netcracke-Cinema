@@ -12,11 +12,8 @@ public class User {
     private String firstName;
     private String secondName;
     private String role;
-    @JsonBackReference
     private Login login;
-    @JsonManagedReference
     private Wallet Wallet;
-    @JsonManagedReference
     private List<Ticket> tickets;
 
     @Id
@@ -59,8 +56,19 @@ public class User {
         this.role = role;
     }
 
+    @OneToOne(mappedBy="user")
+    @JsonBackReference(value = "login-user")
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
+    }
+
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name= "wallet_id")
+    @JsonManagedReference(value = "user-wallet")
     public Wallet getWallet() {
         return Wallet;
     }
@@ -70,6 +78,7 @@ public class User {
     }
 
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference(value = "user-ticket")
     public List<Ticket> getTickets() {
         return tickets;
     }
@@ -77,19 +86,10 @@ public class User {
     public void setTickets(List<Ticket> tickets) {
         this.tickets = tickets;
     }
-
-    @OneToOne(mappedBy="user")
-    public Login getLogin() {
-        return login;
-    }
-
-    public void setLogin(Login login) {
-        this.login = login;
-    }
 }
 
 enum role{
     admin,
-    user,
-    blockedUser
+    client,
+    blocked
 }

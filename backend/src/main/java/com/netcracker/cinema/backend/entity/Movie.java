@@ -1,10 +1,10 @@
 package com.netcracker.cinema.backend.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 import java.sql.Time;
+import java.util.List;
 
 @Entity
 public class Movie {
@@ -15,6 +15,7 @@ public class Movie {
     private int ageLimit;
     private Time duration;
     private String categories;
+    private List<Session> sessions;
 
     @Id
     @Column(name = "id")
@@ -85,13 +86,23 @@ public class Movie {
     public void setCategory(String category) {
         this.categories = category;
     }
+
+    @OneToMany(mappedBy = "movie")
+    @JsonBackReference(value = "session-movie")
+    public List<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(List<Session> sessions) {
+        this.sessions = sessions;
+    }
 }
 
 enum category{
     Adventure,
     Action,
     Thriller,
-    Horrror,
+    Horror,
     Comedy,
     Musical,
     Romance,

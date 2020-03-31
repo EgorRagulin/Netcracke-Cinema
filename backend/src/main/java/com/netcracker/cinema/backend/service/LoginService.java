@@ -11,7 +11,7 @@ public interface LoginService {
 
     List<Login> findAllLoginByUserName(String userName);
 
-    Login findLoginById(int id);
+    Login findLoginById(Long id);
 
     Login setLogin(Login login);
 

@@ -1,8 +1,12 @@
 package com.netcracker.cinema.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
+import java.util.List;
 
 
 @Entity
@@ -13,6 +17,7 @@ public class Session {
     private String mode;
     private Hall hall;
     private Movie movie;
+    private List<Ticket> tickets;
 
     @Id
     @Column(name = "id")
@@ -54,8 +59,9 @@ public class Session {
         this.mode = mode;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name= "hall_id")
+    @JsonBackReference(value = "hall-session")
     public Hall getHall() {
         return hall;
     }
@@ -64,13 +70,24 @@ public class Session {
         this.hall = idHall;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name= "movie_id")
+    @JsonManagedReference(value = "session-movie")
     public Movie getMovie() {
         return movie;
     }
 
     public void setMovie(Movie idMovie) {
         this.movie = idMovie;
+    }
+
+    @OneToMany(mappedBy = "session")
+    @JsonManagedReference(value = "session-ticket")
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }
