@@ -5,5 +5,15 @@ import com.netcracker.cinema.fapi.model.Login;
 import java.util.List;
 
 public interface LoginService {
-    List<Login> findAll();
+    List<Login> findAllLogin();
+
+    List<Login> findAllLoginByUserName(String userName);
+
+    Login findLoginById(Long id);
+
+    Login setLogin(Login login);
+
+    void deleteLogin(Login login);
+
+    void deleteLoginById(Long id);
 }

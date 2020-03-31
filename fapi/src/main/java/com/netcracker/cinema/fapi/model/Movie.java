@@ -1,6 +1,7 @@
 package com.netcracker.cinema.fapi.model;
 
 import java.sql.Time;
+import java.util.List;
 
 public class Movie {
     private Long id;
@@ -10,6 +11,7 @@ public class Movie {
     private int ageLimit;
     private Time duration;
     private String categories;
+    private List<Session> sessions;
 
     public Long getId() {
         return id;
@@ -65,5 +67,13 @@ public class Movie {
 
     public void setCategories(String categories) {
         this.categories = categories;
+    }
+
+    public List<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(List<Session> sessions) {
+        this.sessions = sessions;
     }
 }

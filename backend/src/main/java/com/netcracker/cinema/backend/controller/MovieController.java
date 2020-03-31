@@ -20,7 +20,7 @@ public class MovieController {
     }
 
     @RequestMapping(value = "/{title}", method = RequestMethod.GET)
-    public Movie getMovieByTitle(@PathVariable(name = "title") String title) {
+    public List<Movie>  getMovieByTitle(@PathVariable(name = "title") String title) {
         return movieService.findMovieByTitle(title);
     }
 

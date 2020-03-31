@@ -16,9 +16,39 @@ public class LoginServiceImpl implements LoginService {
     private String backendServerUrl;
 
     @Override
-    public List<Login> findAll() {
+    public List<Login> findAllLogin() {
         RestTemplate restTemplate = new RestTemplate();
-        Login[] loginResponse = restTemplate.getForObject(backendServerUrl + "/api/login/", Login[].class);
+        Login[] loginResponse = restTemplate.getForObject(backendServerUrl + "/api/logins/", Login[].class);
         return loginResponse == null ? Collections.emptyList() : Arrays.asList(loginResponse);
+    }
+
+    @Override
+    public List<Login> findAllLoginByUserName(String userName) {
+        RestTemplate restTemplate = new RestTemplate();
+        Login[] cinemasResponse = restTemplate.getForObject(backendServerUrl + "/api/logins/" + userName, Login[].class);
+        return cinemasResponse == null ? Collections.emptyList() : Arrays.asList(cinemasResponse);
+    }
+
+    @Override
+    public Login findLoginById(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(backendServerUrl + "/api/logins/id=" + id, Login.class);
+    }
+
+    @Override
+    public Login setLogin(Login login) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForEntity(backendServerUrl + "/api/logins/", login, Login.class).getBody();
+    }
+
+    @Override
+    public void deleteLogin(Login login) {
+
+    }
+
+    @Override
+    public void deleteLoginById(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.delete(backendServerUrl + "/api/logins/id=" + id);
     }
 }

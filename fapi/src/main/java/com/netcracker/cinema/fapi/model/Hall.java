@@ -1,9 +1,12 @@
 package com.netcracker.cinema.fapi.model;
 
+import java.util.List;
+
 public class Hall {
     private Long id;
     private int hallNumber;
     private Cinema cinema;
+    private List<Session> sessions;
 
     public Long getId() {
         return id;
@@ -27,5 +30,13 @@ public class Hall {
 
     public void setCinema(Cinema cinema) {
         this.cinema = cinema;
+    }
+
+    public List<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(List<Session> sessions) {
+        this.sessions = sessions;
     }
 }

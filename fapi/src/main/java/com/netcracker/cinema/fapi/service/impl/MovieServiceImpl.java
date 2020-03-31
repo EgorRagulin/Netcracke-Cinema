@@ -16,9 +16,39 @@ public class MovieServiceImpl implements MovieService {
     private String backendServerUrl;
 
     @Override
-    public List<Movie> findAll() {
+    public List<Movie> findAllMovie() {
         RestTemplate restTemplate = new RestTemplate();
         Movie[] moviesResponse = restTemplate.getForObject(backendServerUrl + "/api/movies/", Movie[].class);
         return moviesResponse == null ? Collections.emptyList() : Arrays.asList(moviesResponse);
+    }
+
+    @Override
+    public List<Movie>  findMovieByTitle(String title) {
+        RestTemplate restTemplate = new RestTemplate();
+        Movie[] moviesResponse = restTemplate.getForObject(backendServerUrl + "/api/movies/" + title, Movie[].class);
+        return moviesResponse == null ? Collections.emptyList() : Arrays.asList(moviesResponse);
+    }
+
+    @Override
+    public Movie findMovieById(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(backendServerUrl + "/api/movies/id=" + id, Movie.class);
+    }
+
+    @Override
+    public Movie setMovie(Movie movie) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForEntity(backendServerUrl + "/api/movies/", movie, Movie.class).getBody();
+    }
+
+    @Override
+    public void deleteMovie(Movie movie) {
+
+    }
+
+    @Override
+    public void deleteMovieById(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.delete(backendServerUrl + "/api/movies/id=" + id);
     }
 }

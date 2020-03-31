@@ -1,11 +1,10 @@
 package com.netcracker.cinema.fapi.controller;
 
 import com.netcracker.cinema.fapi.model.Ticket;
+import com.netcracker.cinema.fapi.model.User;
 import com.netcracker.cinema.fapi.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,8 +14,33 @@ public class TicketController {
     @Autowired
     private TicketService ticketService;
 
-    @RequestMapping(value="/", method = RequestMethod.GET)
-    public List<Ticket> getAllTicket(){
-        return ticketService.findAll();
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public List<Ticket> getAllCinema() {
+        return ticketService.findAllTicket();
+    }
+    //Переделать запрос value = "/user"
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public List<Ticket> getCinemaByCinemaName(@RequestBody User user) {
+        return ticketService.findAllTicketByUser(user);
+    }
+
+    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
+    public Ticket getCinemaById(@PathVariable(name = "id") Long id) {
+        return ticketService.findTicketById(id);
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public Ticket setCinema(@RequestBody Ticket ticket) {
+        return ticketService.setTicket(ticket);
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.DELETE)
+    public void deleteTicket(@RequestBody Ticket ticket) {
+        ticketService.deleteTicket(ticket);
+    }
+
+    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
+    public void deleteTicketById(@PathVariable(name = "id") Long id) {
+        ticketService.deleteTicketById(id);
     }
 }

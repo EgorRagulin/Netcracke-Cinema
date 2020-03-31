@@ -16,9 +16,38 @@ public class CinemaServiceImpl implements CinemaService {
     private String backendServerUrl;
 
     @Override
-    public List<Cinema> findAll() {
+    public List<Cinema> findAllCinema() {
         RestTemplate restTemplate = new RestTemplate();
         Cinema[] cinemasResponse = restTemplate.getForObject(backendServerUrl + "/api/cinemas/", Cinema[].class);
         return cinemasResponse == null ? Collections.emptyList() : Arrays.asList(cinemasResponse);
+    }
+
+    @Override
+    public List<Cinema> findAllCinemaByCinemaName(String cinemaName) {
+        RestTemplate restTemplate = new RestTemplate();
+        Cinema[] cinemasResponse = restTemplate.getForObject(backendServerUrl + "/api/cinemas/" + cinemaName, Cinema[].class);
+        return cinemasResponse == null ? Collections.emptyList() : Arrays.asList(cinemasResponse);
+    }
+
+    @Override
+    public Cinema findCinemaById(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(backendServerUrl + "/api/cinemas/id=" + id, Cinema.class);
+    }
+
+    @Override
+    public Cinema setCinema(Cinema cinema) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForEntity(backendServerUrl + "/api/cinemas/", cinema, Cinema.class).getBody();
+    }
+
+    @Override
+    public void deleteCinema(Cinema cinema) {
+    }
+
+    @Override
+    public void deleteCinemaById(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.delete(backendServerUrl + "/api/cinemas/id=" + id);
     }
 }
