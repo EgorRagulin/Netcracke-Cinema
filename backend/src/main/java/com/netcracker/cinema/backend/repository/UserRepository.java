@@ -11,13 +11,11 @@ import java.util.Optional;
 public interface UserRepository extends CrudRepository<User, Long> {
     List<User> findAll();
 
-    List<User> findAllByFirstName(String firstName);
+    List<User> findAllByFirstNameAndSecondName(String firstName, String secondName);
 
     Optional<User> findById(Long Id);
 
     User save(User user);
-
-    void delete(User user);
 
     void deleteById(Long id);
 }

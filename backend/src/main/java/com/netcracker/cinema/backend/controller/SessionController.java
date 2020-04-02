@@ -1,6 +1,5 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.entity.Hall;
 import com.netcracker.cinema.backend.entity.Session;
 import com.netcracker.cinema.backend.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,17 +26,12 @@ public class SessionController {
 
     @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
     public Session getCinemaById(@PathVariable(name = "id") Long id) {
-        return sessionService.findSessionById(id);
+        return sessionService.findSessionById(id).get();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public Session setCinema(@RequestBody Session session) {
         return sessionService.setSession(session);
-    }
-
-    @RequestMapping(value = "/", method = RequestMethod.DELETE)
-    public void deleteSession(@RequestBody Session session) {
-        sessionService.deleteSession(session);
     }
 
     @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)

@@ -1,12 +1,15 @@
 package com.netcracker.cinema.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.List;
 
 @Entity
+@Table(name = "movie")
 public class Movie {
     private Long id;
     private String title;

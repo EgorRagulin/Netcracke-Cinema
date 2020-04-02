@@ -21,24 +21,19 @@ public class CinemaServiceImpl implements CinemaService {
     }
 
     @Override
-    public List<Cinema> findAllCinemaByCinemaName(String cinemaName) {
-        return cinemaRepository.findAllByCinemaName(cinemaName);
+    public Optional<Cinema> findCinemaByCinemaName(String cinemaName) {
+        return cinemaRepository.findByCinemaName(cinemaName);
     }
 
     @Override
-    public Cinema findCinemaById(Long id) {
-        return cinemaRepository.findById(id).get();
+    public Optional<Cinema> findCinemaById(Long id) {
+        return cinemaRepository.findById(id);
     }
 
     @Override
     public Cinema setCinema(Cinema cinema) {
         cinemaRepository.save(cinema);
         return cinema;
-    }
-
-    @Override
-    public void deleteCinema(Cinema cinema) {
-        cinemaRepository.delete(cinema);
     }
 
     @Override

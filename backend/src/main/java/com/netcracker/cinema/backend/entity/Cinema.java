@@ -1,14 +1,12 @@
 package com.netcracker.cinema.backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "cinema")
-@JsonIgnoreProperties("halls")
 public class Cinema {
     private Long id;
     private String cinemaName;
@@ -58,7 +56,7 @@ public class Cinema {
     }
 
     @OneToMany(mappedBy = "cinema")
-    @JsonManagedReference(value = "cinema-hall")
+    @JsonBackReference(value = "cinema-hall")
     public List<Hall> getHalls() {
         return halls;
     }

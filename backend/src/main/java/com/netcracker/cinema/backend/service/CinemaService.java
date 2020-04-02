@@ -10,13 +10,11 @@ import java.util.Optional;
 public interface CinemaService {
     List<Cinema> findAllCinema();
 
-    List<Cinema> findAllCinemaByCinemaName(String cinemaName);
+    Optional<Cinema> findCinemaByCinemaName(String cinemaName);
 
-    Cinema findCinemaById(Long id);
+    Optional<Cinema> findCinemaById(Long id);
 
     Cinema setCinema(Cinema cinema);
-
-    void deleteCinema(Cinema cinema);
 
     void deleteCinemaById(Long id);
 }

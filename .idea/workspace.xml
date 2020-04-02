@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="70077eb3-9b3b-46fe-b196-877bebf501fe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Hall.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Hall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/netcracker/cinema/backend/entity/Wallet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/controller/MovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/controller/MovieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Hall.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Hall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Session.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Ticket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Wallet.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/Wallet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/category.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/role.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/entity/role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/repository/MovieRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/repository/MovieRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/MovieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/impl/MovieServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/impl/MovieServiceImpl.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ZxQpL0HTp4cAfoXFvxXF1CgNZa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70077eb3-9b3b-46fe-b196-877bebf501fe" name="Default Changelist" comment="" />
+      <created>1585778453260</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585778453260</updated>
+      <workItem from="1585778470060" duration="140000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="494" y="139" key="FileChooserDialogImpl" timestamp="1585778615918">
+      <screen x="62" y="0" width="1304" height="768" />
+    </state>
+    <state x="494" y="139" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1585778615918" />
+    <state x="409" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1585778481698">
+      <screen x="62" y="0" width="1304" height="768" />
+    </state>
+    <state x="409" y="208" key="com.intellij.ide.util.TipDialog/62.0.1304.768@62.0.1304.768" timestamp="1585778481698" />
+  </component>
+</project>

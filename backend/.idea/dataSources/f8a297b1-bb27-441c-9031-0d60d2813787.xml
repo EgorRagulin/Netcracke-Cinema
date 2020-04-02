@@ -1324,295 +1324,295 @@
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="288" name="user_id">
-      <Position>4</Position>
-      <DataType>int|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="332" parent="288" name="login_id_uindex">
+    <index id="331" parent="288" name="login_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="333" parent="288" name="login_user_id_fk">
-      <ColNames>user_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="334" parent="288" name="PRIMARY">
+    <key id="332" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="335" parent="288" name="login_id_uindex">
+    <key id="333" parent="288" name="login_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>login_id_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="336" parent="288" name="login_user_id_fk">
-      <ColNames>user_id</ColNames>
-      <RefTableName>user</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="337" parent="289" name="id">
+    <column id="334" parent="289" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="289" name="title">
+    <column id="335" parent="289" name="title">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="289" name="picture">
+    <column id="336" parent="289" name="picture">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="289" name="descriptions">
+    <column id="337" parent="289" name="descriptions">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="341" parent="289" name="age_limit">
+    <column id="338" parent="289" name="age_limit">
       <Position>5</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="342" parent="289" name="duration">
+    <column id="339" parent="289" name="duration">
       <Position>6</Position>
       <DataType>time|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="343" parent="289" name="categories">
+    <column id="340" parent="289" name="categories">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="344" parent="289" name="movie_id_uindex">
+    <index id="341" parent="289" name="movie_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="345" parent="289" name="PRIMARY">
+    <key id="342" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="346" parent="289" name="movie_id_uindex">
+    <key id="343" parent="289" name="movie_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>movie_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="347" parent="290" name="id">
+    <column id="344" parent="290" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="290" name="date">
+    <column id="345" parent="290" name="date">
       <Position>2</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="290" name="time">
+    <column id="346" parent="290" name="time">
       <Position>3</Position>
       <DataType>time|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="290" name="mode">
+    <column id="347" parent="290" name="mode">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="351" parent="290" name="hall_id">
+    <column id="348" parent="290" name="hall_id">
       <Position>5</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="352" parent="290" name="movie_id">
+    <column id="349" parent="290" name="movie_id">
       <Position>6</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="353" parent="290" name="session_id_uindex">
+    <index id="350" parent="290" name="session_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="354" parent="290" name="session_hall_id_fk">
+    <index id="351" parent="290" name="session_hall_id_fk">
       <ColNames>hall_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="355" parent="290" name="session_movie_id_fk">
+    <index id="352" parent="290" name="session_movie_id_fk">
       <ColNames>movie_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="356" parent="290" name="PRIMARY">
+    <key id="353" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="357" parent="290" name="session_id_uindex">
+    <key id="354" parent="290" name="session_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>session_id_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="358" parent="290" name="session_hall_id_fk">
+    <foreign-key id="355" parent="290" name="session_hall_id_fk">
       <ColNames>hall_id</ColNames>
       <RefTableName>hall</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="359" parent="290" name="session_movie_id_fk">
+    <foreign-key id="356" parent="290" name="session_movie_id_fk">
       <ColNames>movie_id</ColNames>
       <RefTableName>movie</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="360" parent="291" name="id">
+    <column id="357" parent="291" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="361" parent="291" name="place_number">
+    <column id="358" parent="291" name="place_number">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="291" name="row_number">
+    <column id="359" parent="291" name="row_number">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="363" parent="291" name="cost">
+    <column id="360" parent="291" name="cost">
       <Position>4</Position>
       <DataType>double|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="364" parent="291" name="session_id">
+    <column id="361" parent="291" name="session_id">
       <Position>5</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="365" parent="291" name="user_id">
+    <column id="362" parent="291" name="user_id">
       <Position>6</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="366" parent="291" name="place_id_uindex">
+    <index id="363" parent="291" name="place_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="367" parent="291" name="ticket_session_id_fk">
+    <index id="364" parent="291" name="ticket_session_id_fk">
       <ColNames>session_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="368" parent="291" name="ticket_user_id_fk">
+    <index id="365" parent="291" name="ticket_user_id_fk">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="369" parent="291" name="PRIMARY">
+    <key id="366" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="370" parent="291" name="place_id_uindex">
+    <key id="367" parent="291" name="place_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>place_id_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="371" parent="291" name="ticket_session_id_fk">
+    <foreign-key id="368" parent="291" name="ticket_session_id_fk">
       <ColNames>session_id</ColNames>
       <RefTableName>session</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="372" parent="291" name="ticket_user_id_fk">
+    <foreign-key id="369" parent="291" name="ticket_user_id_fk">
       <ColNames>user_id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="373" parent="292" name="id">
+    <column id="370" parent="292" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="292" name="first_name">
+    <column id="371" parent="292" name="first_name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="292" name="second_name">
+    <column id="372" parent="292" name="second_name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="292" name="role">
+    <column id="373" parent="292" name="role">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="292" name="wallet_id">
+    <column id="374" parent="292" name="login_id">
       <Position>5</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="378" parent="292" name="user_id_uindex">
+    <index id="375" parent="292" name="user_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="379" parent="292" name="user_wallet_id_fk">
-      <ColNames>wallet_id</ColNames>
+    <index id="376" parent="292" name="user_login_id_fk">
+      <ColNames>login_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="380" parent="292" name="PRIMARY">
+    <key id="377" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="381" parent="292" name="user_id_uindex">
+    <key id="378" parent="292" name="user_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>user_id_uindex</UnderlyingIndexName>
     </key>
-    <foreign-key id="382" parent="292" name="user_wallet_id_fk">
-      <ColNames>wallet_id</ColNames>
-      <RefTableName>wallet</RefTableName>
+    <foreign-key id="379" parent="292" name="user_login_id_fk">
+      <ColNames>login_id</ColNames>
+      <RefTableName>login</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="383" parent="293" name="id">
+    <column id="380" parent="293" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="384" parent="293" name="name">
+    <column id="381" parent="293" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="385" parent="293" name="balance">
+    <column id="382" parent="293" name="balance">
       <Position>3</Position>
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="386" parent="293" name="wallet_id_uindex">
+    <column id="383" parent="293" name="user_id">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="384" parent="293" name="wallet_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="387" parent="293" name="PRIMARY">
+    <index id="385" parent="293" name="wallet_user_id_fk">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="386" parent="293" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="388" parent="293" name="wallet_id_uindex">
+    <key id="387" parent="293" name="wallet_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>wallet_id_uindex</UnderlyingIndexName>
     </key>
+    <foreign-key id="388" parent="293" name="wallet_user_id_fk">
+      <ColNames>user_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

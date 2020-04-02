@@ -4,18 +4,17 @@ import com.netcracker.cinema.backend.entity.Login;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public interface LoginService {
     List<Login> findAllLogin();
 
-    List<Login> findAllLoginByUserName(String userName);
+    Optional<Login> findLoginByUsernameAndPassword(String username, String password);
 
-    Login findLoginById(Long id);
+    Optional<Login> findLoginById(Long id);
 
     Login setLogin(Login login);
-
-    void deleteLogin(Login login);
 
     void deleteLoginById(Long id);
 }

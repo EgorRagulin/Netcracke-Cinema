@@ -1,10 +1,12 @@
 package com.netcracker.cinema.backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name = "ticket")
 public class Ticket {
     private Long id;
     private int placeNumber;
@@ -56,7 +58,8 @@ public class Ticket {
 
     @ManyToOne
     @JoinColumn(name= "session_id")
-    @JsonBackReference(value = "session-ticket")
+    @JsonManagedReference(value = "ticket-session")
+    @JsonIgnore
     public Session getSession() {
         return session;
     }
@@ -67,7 +70,8 @@ public class Ticket {
 
     @ManyToOne
     @JoinColumn(name= "user_id")
-    @JsonBackReference(value = "user-ticket")
+    @JsonManagedReference(value = "ticket-user")
+    @JsonIgnore
     public User getUser() {
         return user;
     }

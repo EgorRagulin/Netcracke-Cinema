@@ -1,10 +1,13 @@
 package com.netcracker.cinema.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name = "login")
 public class Login {
     private Long id;
     private String username;
@@ -42,9 +45,8 @@ public class Login {
         this.password = password;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="user_id")
-    @JsonManagedReference(value = "login-user")
+    @OneToOne(mappedBy = "login")
+    @JsonBackReference(value = "user-login")
     public User getUser() {
         return user;
     }

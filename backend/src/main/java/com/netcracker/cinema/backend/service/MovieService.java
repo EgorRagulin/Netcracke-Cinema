@@ -4,6 +4,7 @@ import com.netcracker.cinema.backend.entity.Movie;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public interface MovieService {
@@ -11,11 +12,9 @@ public interface MovieService {
 
     List<Movie>  findMovieByTitle(String title);
 
-    Movie findMovieById(Long id);
+    Optional<Movie> findMovieById(Long id);
 
     Movie setMovie(Movie movie);
-
-    void deleteMovie(Movie movie);
 
     void deleteMovieById(Long id);
 }

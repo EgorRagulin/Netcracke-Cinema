@@ -11,13 +11,11 @@ import java.util.Optional;
 public interface CinemaRepository extends CrudRepository<Cinema, Long> {
     List<Cinema> findAll();
 
-    List<Cinema> findAllByCinemaName(String cinemaName);
+    Optional<Cinema> findByCinemaName(String cinemaName);
 
     Optional<Cinema> findById(Long id);
 
     Cinema save(Cinema cinema);
-
-    void delete(Cinema cinema);
 
     void deleteById(Long id);
 }

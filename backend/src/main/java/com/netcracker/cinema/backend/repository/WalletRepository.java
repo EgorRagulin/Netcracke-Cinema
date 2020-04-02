@@ -12,13 +12,11 @@ import java.util.Optional;
 public interface WalletRepository extends CrudRepository<Wallet, Long> {
     List<Wallet> findAll();
 
-    Wallet findByUser(User user);
+    Optional<Wallet>  findByUser(User user);
 
     Optional<Wallet> findById(Long id);
 
     Wallet save(Wallet wallet);
-
-    void delete(Wallet wallet);
 
     void deleteById(Long id);
 }

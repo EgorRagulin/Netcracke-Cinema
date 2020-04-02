@@ -4,18 +4,15 @@ import com.netcracker.cinema.backend.entity.Hall;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public interface HallService {
     List<Hall> findAllHall();
 
-    List<Hall> findAllHallByHallNumber(int hallNumber);
-
-    Hall findHallById(Long id);
+    Optional<Hall> findHallById(Long id);
 
     Hall setHall(Hall hall);
-
-    void deleteHall(Hall hall);
 
     void deleteHallById(Long id);
 }

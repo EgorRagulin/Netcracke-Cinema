@@ -1,19 +1,22 @@
 package com.netcracker.cinema.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "user")
 public class User {
     private Long id;
     private String firstName;
     private String secondName;
     private String role;
     private Login login;
-    private Wallet Wallet;
+    private Wallet wallet;
     private List<Ticket> tickets;
 
     @Id
@@ -57,8 +60,10 @@ public class User {
         this.role = role;
     }
 
-    @OneToOne(mappedBy="user")
-    @JsonBackReference(value = "login-user")
+    @OneToOne
+    @JoinColumn(name = "login_id")
+    @JsonManagedReference(value = "user-login")
+    @JsonIgnore
     public Login getLogin() {
         return login;
     }
@@ -67,19 +72,18 @@ public class User {
         this.login = login;
     }
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name= "wallet_id")
-    @JsonManagedReference(value = "user-wallet")
+    @OneToOne(mappedBy = "user")
+    @JsonBackReference(value = "wallet-user")
     public Wallet getWallet() {
-        return Wallet;
+        return wallet;
     }
 
     public void setWallet(Wallet idWallet) {
-        this.Wallet = idWallet;
+        this.wallet = idWallet;
     }
 
     @OneToMany(mappedBy = "user")
-    @JsonManagedReference(value = "user-ticket")
+    @JsonBackReference(value = "ticket-user")
     public List<Ticket> getTickets() {
         return tickets;
     }

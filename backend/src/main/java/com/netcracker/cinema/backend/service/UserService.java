@@ -4,18 +4,17 @@ import com.netcracker.cinema.backend.entity.User;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public interface UserService {
     List<User> findAllUser();
 
-    List<User> findAllUserByFirstName(String firstName);
+    List<User> findAllUserByFirstNameAndSecondName(String firstName, String secondName);
 
-    User findUserById(Long id);
+    Optional<User> findUserById(Long id);
 
     User setUser(User user);
-
-    void deleteUser(User user);
 
     void deleteUserById(Long id);
 }

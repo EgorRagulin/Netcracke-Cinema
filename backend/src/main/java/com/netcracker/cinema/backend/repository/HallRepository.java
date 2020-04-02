@@ -11,13 +11,9 @@ import java.util.Optional;
 public interface HallRepository extends CrudRepository<Hall, Long> {
     List<Hall> findAll();
 
-    List<Hall> findByHallNumber(int hallNumber);
-
     Optional<Hall> findById(Long id);
 
     Hall save(Hall hall);
-
-    void delete(Hall hall);
 
     void deleteById(Long id);
 }

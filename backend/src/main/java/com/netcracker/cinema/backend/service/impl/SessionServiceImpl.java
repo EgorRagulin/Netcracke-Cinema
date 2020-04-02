@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class SessionServiceImpl implements SessionService {
@@ -25,18 +26,13 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
-    public Session findSessionById(Long id) {
-        return sessionRepository.findById(id).get();
+    public Optional<Session> findSessionById(Long id) {
+        return sessionRepository.findById(id);
     }
 
     @Override
     public Session setSession(Session session) {
         return sessionRepository.save(session);
-    }
-
-    @Override
-    public void deleteSession(Session session) {
-        sessionRepository.delete(session);
     }
 
     @Override

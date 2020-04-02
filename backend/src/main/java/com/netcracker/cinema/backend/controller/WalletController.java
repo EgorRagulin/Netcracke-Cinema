@@ -1,6 +1,5 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.entity.Hall;
 import com.netcracker.cinema.backend.entity.User;
 import com.netcracker.cinema.backend.entity.Wallet;
 import com.netcracker.cinema.backend.service.WalletService;
@@ -15,29 +14,24 @@ public class WalletController {
     @Autowired
     private WalletService walletService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<Wallet> getAllWallet() {
         return walletService.findAllWallet();
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public Wallet getWalletByUser(@RequestBody User user) {
-        return walletService.findWalletByUser(user);
+        return walletService.findWalletByUser(user).get();
     }
 
     @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
     public Wallet getWalletById(@PathVariable(name = "id") Long id) {
-        return walletService.findWalletById(id);
+        return walletService.findWalletById(id).get();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public Wallet setWallet(@RequestBody Wallet wallet) {
         return walletService.setWallet(wallet);
-    }
-
-    @RequestMapping(value = "/", method = RequestMethod.DELETE)
-    public void deleteWallet(@RequestBody Wallet wallet) {
-        walletService.deleteWallet(wallet);
     }
 
     @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)

@@ -12,13 +12,9 @@ import java.util.Optional;
 public interface TicketRepository extends CrudRepository<Ticket, Long> {
     List<Ticket> findAll();
 
-    List<Ticket> findAllByUser(User user);
-
     Optional<Ticket> findById(Long id);
 
     Ticket save(Ticket ticket);
-
-    void delete(Ticket ticket);
 
     void deleteById(Long id);
 }

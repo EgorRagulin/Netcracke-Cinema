@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class UserServiceImpl implements UserService {
@@ -20,23 +21,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAllUserByFirstName(String firstName) {
-        return userRepository.findAllByFirstName(firstName);
+    public List<User> findAllUserByFirstNameAndSecondName(String firstName, String secondName) {
+        return userRepository.findAllByFirstNameAndSecondName(firstName, secondName);
     }
 
     @Override
-    public User findUserById(Long id) {
-        return userRepository.findById(id).get();
+    public Optional<User> findUserById(Long id) {
+        return userRepository.findById(id);
     }
 
     @Override
     public User setUser(User user) {
         return userRepository.save(user);
-    }
-
-    @Override
-    public void deleteUser(User user) {
-        userRepository.delete(user);
     }
 
     @Override

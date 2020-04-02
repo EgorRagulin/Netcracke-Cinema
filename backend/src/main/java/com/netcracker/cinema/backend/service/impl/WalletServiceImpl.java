@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class WalletServiceImpl implements WalletService {
@@ -21,23 +22,18 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public Wallet findWalletByUser(User user) {
+    public Optional<Wallet> findWalletByUser(User user) {
         return walletRepository.findByUser(user);
     }
 
     @Override
-    public Wallet findWalletById(Long id) {
-        return walletRepository.findById(id).get();
+    public Optional<Wallet>  findWalletById(Long id) {
+        return walletRepository.findById(id);
     }
 
     @Override
     public Wallet setWallet(Wallet wallet) {
         return walletRepository.save(wallet);
-    }
-
-    @Override
-    public void deleteWallet(Wallet wallet) {
-        walletRepository.delete(wallet);
     }
 
     @Override

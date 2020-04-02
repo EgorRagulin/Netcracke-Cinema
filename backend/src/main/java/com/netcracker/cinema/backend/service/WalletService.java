@@ -5,18 +5,17 @@ import com.netcracker.cinema.backend.entity.Wallet;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public interface WalletService {
     List<Wallet> findAllWallet();
 
-    Wallet findWalletByUser(User user);
+    Optional<Wallet> findWalletByUser(User user);
 
-    Wallet findWalletById(Long id);
+    Optional<Wallet> findWalletById(Long id);
 
     Wallet setWallet(Wallet wallet);
-
-    void deleteWallet(Wallet wallet);
 
     void deleteWalletById(Long id);
 }

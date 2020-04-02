@@ -9,15 +9,13 @@ import java.util.Optional;
 
 @Repository
 public interface LoginRepository extends CrudRepository<Login, Long> {
-    List<Login> findAllByUsername(String username);
-
     List<Login> findAll();
 
     Optional<Login> findById(Long id);
 
-    Login save(Login login);
+    Optional<Login> findByUsernameAndPassword(String username, String password);
 
-    void delete(Login login);
+    Login save(Login login);
 
     void deleteById(Long id);
 }

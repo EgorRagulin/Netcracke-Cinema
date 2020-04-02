@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class HallServiceImpl implements HallService {
@@ -19,23 +20,13 @@ public class HallServiceImpl implements HallService {
     }
 
     @Override
-    public List<Hall> findAllHallByHallNumber(int number) {
-        return hallRepository.findByHallNumber(number);
-    }
-
-    @Override
-    public Hall findHallById(Long id) {
-        return hallRepository.findById(id).get();
+    public Optional<Hall> findHallById(Long id) {
+        return hallRepository.findById(id);
     }
 
     @Override
     public Hall setHall(Hall hall) {
         return hallRepository.save(hall);
-    }
-
-    @Override
-    public void deleteHall(Hall hall) {
-        hallRepository.delete(hall);
     }
 
     @Override

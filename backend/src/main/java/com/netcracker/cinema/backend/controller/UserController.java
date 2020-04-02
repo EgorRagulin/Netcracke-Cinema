@@ -1,7 +1,5 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.entity.Hall;
-import com.netcracker.cinema.backend.entity.Ticket;
 import com.netcracker.cinema.backend.entity.User;
 import com.netcracker.cinema.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +18,14 @@ public class UserController {
         return userService.findAllUser();
     }
 
-    @RequestMapping(value = "/{first name}", method = RequestMethod.GET)
-    public List<User> getUserByFirstName(@PathVariable(name = "first name") String firstName) {
-        return userService.findAllUserByFirstName(firstName);
+    @RequestMapping(value = "/{firstName}+{secondName}", method = RequestMethod.GET)
+    public List<User> getUserByFirstNameAndSecondName(@PathVariable(name = "firstName") String firstName, @PathVariable(name = "secondName") String secondName) {
+        return userService.findAllUserByFirstNameAndSecondName(firstName, secondName);
     }
 
     @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
     public User getUserById(@PathVariable(name = "id") Long id) {
-        return userService.findUserById(id);
+        return userService.findUserById(id).get();
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
@@ -35,10 +33,6 @@ public class UserController {
         return userService.setUser(user);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.DELETE)
-    public void deleteUser(@RequestBody User user) {
-        userService.deleteUser(user);
-    }
 
     @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
     public void deleteUserById(@PathVariable(name = "id") Long id) {
