@@ -1,9 +1,7 @@
 package com.netcracker.cinema.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.List;
@@ -63,7 +61,6 @@ public class User {
     @OneToOne
     @JoinColumn(name = "login_id")
     @JsonManagedReference(value = "user-login")
-    @JsonIgnore
     public Login getLogin() {
         return login;
     }

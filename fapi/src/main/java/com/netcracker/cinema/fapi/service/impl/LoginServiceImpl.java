@@ -42,11 +42,6 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public void deleteLogin(Login login) {
-
-    }
-
-    @Override
     public void deleteLoginById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.delete(backendServerUrl + "/api/logins/id=" + id);

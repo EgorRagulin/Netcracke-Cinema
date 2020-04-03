@@ -1,5 +1,7 @@
 package com.netcracker.cinema.fapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.sql.Time;
 import java.util.List;
 
@@ -11,6 +13,7 @@ public class Movie {
     private int ageLimit;
     private Time duration;
     private String categories;
+    @JsonIgnore
     private List<Session> sessions;
 
     public Long getId() {

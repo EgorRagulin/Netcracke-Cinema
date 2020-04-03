@@ -42,11 +42,6 @@ public class HallServiceImpl implements HallService {
     }
 
     @Override
-    public void deleteHall(Hall hall) {
-
-    }
-
-    @Override
     public void deleteHallById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.delete(backendServerUrl + "/api/halls/id=" + id);

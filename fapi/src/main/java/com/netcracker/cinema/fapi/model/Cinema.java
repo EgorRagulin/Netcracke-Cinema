@@ -1,7 +1,6 @@
 package com.netcracker.cinema.fapi.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 
 public class Cinema {
@@ -9,6 +8,7 @@ public class Cinema {
     private String cinemaName;
     private String address;
     private String cinemaPicture;
+    @JsonIgnore
     private List<Hall> halls;
 
     public Long getId() {

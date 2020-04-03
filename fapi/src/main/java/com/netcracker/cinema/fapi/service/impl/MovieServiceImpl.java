@@ -42,11 +42,6 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public void deleteMovie(Movie movie) {
-
-    }
-
-    @Override
     public void deleteMovieById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.delete(backendServerUrl + "/api/movies/id=" + id);

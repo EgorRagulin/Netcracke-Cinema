@@ -59,7 +59,6 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name= "session_id")
     @JsonManagedReference(value = "ticket-session")
-    @JsonIgnore
     public Session getSession() {
         return session;
     }
@@ -71,7 +70,6 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name= "user_id")
     @JsonManagedReference(value = "ticket-user")
-    @JsonIgnore
     public User getUser() {
         return user;
     }

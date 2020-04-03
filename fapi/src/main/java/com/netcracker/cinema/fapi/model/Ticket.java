@@ -1,11 +1,15 @@
 package com.netcracker.cinema.fapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Ticket {
     private Long id;
     private int placeNumber;
     private int rowNumber;
     private double cost;
+    @JsonIgnore
     private Session session;
+    @JsonIgnore
     private User user;
 
     public Long getId() {

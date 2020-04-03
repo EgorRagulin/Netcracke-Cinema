@@ -13,7 +13,5 @@ public interface UserService {
 
     User setUser(User user);
 
-    void deleteUser(User user);
-
     void deleteUserById(Long id);
 }

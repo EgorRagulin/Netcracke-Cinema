@@ -65,7 +65,6 @@ public class Session {
     @ManyToOne
     @JoinColumn(name= "hall_id")
     @JsonManagedReference(value = "hall-session")
-    @JsonIgnore
     public Hall getHall() {
         return hall;
     }
@@ -77,7 +76,6 @@ public class Session {
     @ManyToOne
     @JoinColumn(name= "movie_id")
     @JsonManagedReference(value = "session-movie")
-    @JsonIgnore
     public Movie getMovie() {
         return movie;
     }

@@ -41,11 +41,6 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public void deleteTicket(Ticket ticket) {
-
-    }
-
-    @Override
     public void deleteTicketById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.delete(backendServerUrl + "/api/tickets/id=" + id);

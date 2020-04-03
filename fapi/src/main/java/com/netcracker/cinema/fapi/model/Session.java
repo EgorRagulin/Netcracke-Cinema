@@ -1,5 +1,7 @@
 package com.netcracker.cinema.fapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
@@ -11,6 +13,7 @@ public class Session {
     private String mode;
     private Hall hall;
     private Movie movie;
+    @JsonIgnore
     private List<Ticket> tickets;
 
     public Long getId() {

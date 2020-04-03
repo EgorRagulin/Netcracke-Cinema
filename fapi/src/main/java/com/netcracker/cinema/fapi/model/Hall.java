@@ -1,11 +1,14 @@
 package com.netcracker.cinema.fapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 public class Hall {
     private Long id;
     private int hallNumber;
     private Cinema cinema;
+    @JsonIgnore
     private List<Session> sessions;
 
     public Long getId() {

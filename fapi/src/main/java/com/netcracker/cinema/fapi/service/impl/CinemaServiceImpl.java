@@ -42,10 +42,6 @@ public class CinemaServiceImpl implements CinemaService {
     }
 
     @Override
-    public void deleteCinema(Cinema cinema) {
-    }
-
-    @Override
     public void deleteCinemaById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.delete(backendServerUrl + "/api/cinemas/id=" + id);

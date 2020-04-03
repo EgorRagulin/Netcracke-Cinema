@@ -14,7 +14,5 @@ public interface SessionService {
 
     Session setSession(Session session);
 
-    void deleteSession(Session session);
-
     void deleteSessionById(Long id);
 }

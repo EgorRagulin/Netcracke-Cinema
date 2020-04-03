@@ -43,11 +43,6 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
-    public void deleteSession(Session session) {
-
-    }
-
-    @Override
     public void deleteSessionById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.delete(backendServerUrl + "/api/sessions/id=" + id);
