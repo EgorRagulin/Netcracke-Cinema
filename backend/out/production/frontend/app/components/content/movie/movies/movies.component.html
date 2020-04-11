@@ -1,0 +1,27 @@
+<section class="movies">
+  <h2>Movies</h2>
+  <ul class="movie">
+    <li *ngFor="let movie of movies">
+      <a routerLink="movie/", movie.id>
+        <div class="picture">
+          <img src="https://via.placeholder.com/200x300">
+        </div>
+        <div class="title">
+          {{movie.title}}
+        </div>
+        <div class="descriptions">
+          {{movie.description}}
+        </div>
+        <div class="ageLimit">
+          {{movie.ageLimit}}+
+        </div>
+        <div class="duration">
+          {{movie.duration}}
+        </div>
+        <div class="categories">
+          {{movie.category}}
+        </div>
+      </a>
+    </li>
+  </ul>
+</section>

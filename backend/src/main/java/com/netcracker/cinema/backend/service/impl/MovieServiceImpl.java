@@ -4,6 +4,8 @@ import com.netcracker.cinema.backend.entity.Movie;
 import com.netcracker.cinema.backend.repository.MovieRepository;
 import com.netcracker.cinema.backend.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,8 +17,8 @@ public class MovieServiceImpl implements MovieService {
     private MovieRepository movieRepository;
 
     @Override
-    public List<Movie> findAllMovie() {
-        return movieRepository.findAll();
+    public Page<Movie> findAllMovie(Pageable pageable) {
+        return movieRepository.findAll(pageable);
     }
 
     @Override

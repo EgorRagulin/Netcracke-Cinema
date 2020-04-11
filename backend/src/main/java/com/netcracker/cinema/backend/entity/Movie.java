@@ -1,8 +1,6 @@
 package com.netcracker.cinema.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.sql.Time;
@@ -14,7 +12,7 @@ public class Movie {
     private Long id;
     private String title;
     private String picture;
-    private String descriptions;
+    private String description;
     private int ageLimit;
     private Time duration;
     private String categories;
@@ -52,13 +50,13 @@ public class Movie {
     }
 
     @Basic
-    @Column(name = "descriptions")
-    public String getDescriptions() {
-        return descriptions;
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptions(String description) {
-        this.descriptions = description;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Basic

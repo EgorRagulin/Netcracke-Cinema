@@ -3,43 +3,62 @@
   <component name="ChangeListManager">
     <list default="true" id="3765d639-34b6-4c64-8cd0-322eed483281" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f8a297b1-bb27-441c-9031-0d60d2813787.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f8a297b1-bb27-441c-9031-0d60d2813787.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Hall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Hall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Wallet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Hall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Hall.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Session.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Ticket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/repository/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/repository/MovieRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/service/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/service/impl/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/service/impl/MovieServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/MovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/MovieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Movie.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Wallet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Wallet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/category.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/role.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/role.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Cinema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Hall.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Hall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Wallet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/CinemaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/CinemaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/HallService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/HallService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/MovieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/SessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/SessionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/TicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/WalletService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/CinemaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/CinemaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/HallServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/HallServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/LoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/MovieServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/SessionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/SessionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/TicketServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/TicketServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/WalletServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/WalletServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/repository/MovieRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/repository/MovieRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/service/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/service/MovieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/service/impl/MovieServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/service/impl/MovieServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/META-INF/fapi.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/FapiApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/CinemaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/HallController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/MovieController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/SessionController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/TicketController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/WalletController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Cinema.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Hall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Movie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Session.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Ticket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Wallet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/CinemaService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/HallService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/LoginService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/MovieService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/SessionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/TicketService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/WalletService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/CinemaServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/HallServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/LoginServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/MovieServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/SessionServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/TicketServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/WalletServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +103,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -118,20 +138,28 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../etalon/ethalon" />
     <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/../frontend/node_modules/protractor" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="ts.external.directory.path" value="C:\Users\37525\Desktop\Netcracker\Cinema\frontend\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\37525\Desktop\Netcracker\Cinema\frontend\src\app\models\Paging" />
+      <recent name="C:\Users\37525\Desktop\Netcracker\Cinema\frontend\src\app\services\movie" />
+      <recent name="C:\Users\37525\Desktop\Netcracker\Cinema\frontend\src\app\services\cinema" />
+      <recent name="C:\Users\37525\Desktop\Netcracker\Cinema\frontend" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\37525\Desktop\Netcracker\Cinema\frontend\src" />
       <recent name="C:\Users\37525\Desktop\Cinema\src\main\resources" />
       <recent name="C:\Users\37525\Desktop\Cinema\backend\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Angular CLI Server (frontend)">
+  <component name="RunManager" selected="Spring Boot.BackendApplication">
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/../frontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -209,7 +237,15 @@
       <workItem from="1585661245714" duration="29075000" />
       <workItem from="1585778636691" duration="31775000" />
       <workItem from="1585900607356" duration="804000" />
-      <workItem from="1585919103099" duration="7281000" />
+      <workItem from="1585919103099" duration="8657000" />
+      <workItem from="1585944107887" duration="563000" />
+      <workItem from="1586202776220" duration="46260000" />
+      <workItem from="1586424002953" duration="14985000" />
+      <workItem from="1586442843264" duration="436000" />
+      <workItem from="1586443321228" duration="3547000" />
+      <workItem from="1586448338251" duration="9963000" />
+      <workItem from="1586466344715" duration="305000" />
+      <workItem from="1586467474017" duration="51737000" />
     </task>
     <servers />
   </component>
@@ -229,62 +265,70 @@
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="159" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1304.768@62.0.1304.768" timestamp="1585778822169" />
-    <state x="519" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1585682672714">
+    <state x="495" y="187" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586422525925">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="519" y="68" key="#com.intellij.ide.util.MemberChooser/62.0.1304.768@62.0.1304.768" timestamp="1585682672714" />
-    <state x="308" y="309" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1585590240656">
+    <state x="495" y="187" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1304.768@62.0.1304.768" timestamp="1586422525925" />
+    <state x="519" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1586524188097">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="308" y="309" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/62.0.1304.768@62.0.1304.768" timestamp="1585590240656" />
+    <state x="519" y="68" key="#com.intellij.ide.util.MemberChooser/62.0.1304.768@62.0.1304.768" timestamp="1586524188097" />
+    <state x="308" y="309" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1586345573300">
+      <screen x="62" y="0" width="1304" height="768" />
+    </state>
+    <state x="308" y="309" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/62.0.1304.768@62.0.1304.768" timestamp="1586345573300" />
     <state x="492" y="243" width="477" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1585682845076">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="492" y="243" width="477" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/62.0.1304.768@62.0.1304.768" timestamp="1585682845076" />
-    <state x="468" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585662054919">
+    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586634526189">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="468" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/62.0.1304.768@62.0.1304.768" timestamp="1585662054919" />
+    <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/62.0.1304.768@62.0.1304.768" timestamp="1586634526189" />
+    <state x="444" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586592959505">
+      <screen x="62" y="0" width="1304" height="768" />
+    </state>
+    <state x="444" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1304.768@62.0.1304.768" timestamp="1586592959505" />
     <state x="443" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1585425382678">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="443" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/62.0.1304.768@62.0.1304.768" timestamp="1585425382678" />
-    <state x="494" y="139" key="FileChooserDialogImpl" timestamp="1585931022824">
+    <state x="433" y="165" key="FileChooserDialogImpl" timestamp="1586594505196">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="494" y="139" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1585931022824" />
-    <state width="1261" height="236" key="GridCell.Tab.0.bottom" timestamp="1585865321204">
+    <state x="433" y="165" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1586594505196" />
+    <state width="1261" height="175" key="GridCell.Tab.0.bottom" timestamp="1586639267537">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.0.bottom/62.0.1304.768@62.0.1304.768" timestamp="1585865321204" />
-    <state width="1261" height="236" key="GridCell.Tab.0.center" timestamp="1585865321204">
+    <state width="1261" height="175" key="GridCell.Tab.0.bottom/62.0.1304.768@62.0.1304.768" timestamp="1586639267537" />
+    <state width="1261" height="175" key="GridCell.Tab.0.center" timestamp="1586639267536">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.0.center/62.0.1304.768@62.0.1304.768" timestamp="1585865321204" />
-    <state width="1261" height="236" key="GridCell.Tab.0.left" timestamp="1585865321204">
+    <state width="1261" height="175" key="GridCell.Tab.0.center/62.0.1304.768@62.0.1304.768" timestamp="1586639267536" />
+    <state width="1261" height="175" key="GridCell.Tab.0.left" timestamp="1586639267536">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.0.left/62.0.1304.768@62.0.1304.768" timestamp="1585865321204" />
-    <state width="1261" height="236" key="GridCell.Tab.0.right" timestamp="1585865321204">
+    <state width="1261" height="175" key="GridCell.Tab.0.left/62.0.1304.768@62.0.1304.768" timestamp="1586639267536" />
+    <state width="1261" height="175" key="GridCell.Tab.0.right" timestamp="1586639267536">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.0.right/62.0.1304.768@62.0.1304.768" timestamp="1585865321204" />
-    <state width="1261" height="236" key="GridCell.Tab.1.bottom" timestamp="1585865321204">
+    <state width="1261" height="175" key="GridCell.Tab.0.right/62.0.1304.768@62.0.1304.768" timestamp="1586639267536" />
+    <state width="1261" height="175" key="GridCell.Tab.1.bottom" timestamp="1586634798491">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.1.bottom/62.0.1304.768@62.0.1304.768" timestamp="1585865321204" />
-    <state width="1261" height="236" key="GridCell.Tab.1.center" timestamp="1585865321204">
+    <state width="1261" height="175" key="GridCell.Tab.1.bottom/62.0.1304.768@62.0.1304.768" timestamp="1586634798491" />
+    <state width="1261" height="175" key="GridCell.Tab.1.center" timestamp="1586634798490">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.1.center/62.0.1304.768@62.0.1304.768" timestamp="1585865321204" />
-    <state width="1261" height="236" key="GridCell.Tab.1.left" timestamp="1585865321204">
+    <state width="1261" height="175" key="GridCell.Tab.1.center/62.0.1304.768@62.0.1304.768" timestamp="1586634798490" />
+    <state width="1261" height="175" key="GridCell.Tab.1.left" timestamp="1586634798490">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.1.left/62.0.1304.768@62.0.1304.768" timestamp="1585865321204" />
-    <state width="1261" height="236" key="GridCell.Tab.1.right" timestamp="1585865321204">
+    <state width="1261" height="175" key="GridCell.Tab.1.left/62.0.1304.768@62.0.1304.768" timestamp="1586634798490" />
+    <state width="1261" height="175" key="GridCell.Tab.1.right" timestamp="1586634798491">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="236" key="GridCell.Tab.1.right/62.0.1304.768@62.0.1304.768" timestamp="1585865321204" />
+    <state width="1261" height="175" key="GridCell.Tab.1.right/62.0.1304.768@62.0.1304.768" timestamp="1586634798491" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1585298912219">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
@@ -301,10 +345,10 @@
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="294" y="39" key="com.intellij.database.dbimport.ImportDialog/62.0.1304.768@62.0.1304.768" timestamp="1585420918296" />
-    <state x="510" y="209" width="407" height="348" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1585594959780">
+    <state x="510" y="209" width="407" height="344" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1586428296738">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="510" y="209" width="407" height="348" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/62.0.1304.768@62.0.1304.768" timestamp="1585594959780" />
+    <state x="510" y="209" width="407" height="344" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/62.0.1304.768@62.0.1304.768" timestamp="1586428296738" />
     <state x="712" y="27" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1585826053375">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
@@ -313,21 +357,29 @@
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="572" y="130" key="com.intellij.database.view.ui.DbObjectDialog/62.0.1304.768@62.0.1304.768" timestamp="1585299562066" />
-    <state x="90" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1585900758439">
+    <state x="90" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1586467487903">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="90" y="208" key="com.intellij.ide.util.TipDialog/62.0.1304.768@62.0.1304.768" timestamp="1585900758439" />
+    <state x="90" y="208" key="com.intellij.ide.util.TipDialog/62.0.1304.768@62.0.1304.768" timestamp="1586467487903" />
+    <state x="356" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1586514500480">
+      <screen x="62" y="0" width="1304" height="768" />
+    </state>
+    <state x="356" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/62.0.1304.768@62.0.1304.768" timestamp="1586514500480" />
     <state x="96" y="9" key="new project wizard" timestamp="1585931027355">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="96" y="9" key="new project wizard/62.0.1304.768@62.0.1304.768" timestamp="1585931027355" />
+    <state x="577" y="310" width="348" height="298" key="org.angular.cli.generate" timestamp="1586247647980">
+      <screen x="62" y="0" width="1304" height="768" />
+    </state>
+    <state x="577" y="310" width="348" height="298" key="org.angular.cli.generate/62.0.1304.768@62.0.1304.768" timestamp="1586247647980" />
     <state x="370" y="172" key="run.anything.popup" timestamp="1585582705068">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="370" y="172" key="run.anything.popup/62.0.1304.768@62.0.1304.768" timestamp="1585582705068" />
-    <state x="377" y="89" key="search.everywhere.popup" timestamp="1585663452101">
+    <state x="377" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1586276462935">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="377" y="89" key="search.everywhere.popup/62.0.1304.768@62.0.1304.768" timestamp="1585663452101" />
+    <state x="377" y="89" width="672" height="678" key="search.everywhere.popup/62.0.1304.768@62.0.1304.768" timestamp="1586276462935" />
   </component>
 </project>

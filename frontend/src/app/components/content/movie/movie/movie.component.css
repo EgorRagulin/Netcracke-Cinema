@@ -1,0 +1,13 @@
+.movie
+{
+  display: flex;
+}
+.case2, .case3
+{
+  width: 25%;
+  padding-left: 40px;
+}
+.title, .duration, .ageLimit, .category
+{
+  margin-bottom: 50px;
+}

@@ -1,0 +1,28 @@
+<div *ngIf="movie">
+  <div class="movie">
+    <div class="case1">
+      <div class="picture">
+        <img src="https://via.placeholder.com/300x450">
+      </div>
+    </div>
+    <div class="case2">
+      <div class="title">
+        {{movie.title}}
+      </div>
+      <div class="duration">
+        {{movie.duration}}
+      </div>
+      <div class="ageLimit">
+        {{movie.ageLimit}}+
+      </div>
+      <div class="category">
+        {{movie.category}}
+      </div>
+    </div>
+    <div class="case3">
+      <div class="description">
+        {{movie.description}}
+      </div>
+    </div>
+  </div>
+</div>

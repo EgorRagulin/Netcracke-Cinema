@@ -1,0 +1,11 @@
+ul
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+li
+{
+  width: 25%;
+  padding: 20px;
+  list-style: none;
+}
