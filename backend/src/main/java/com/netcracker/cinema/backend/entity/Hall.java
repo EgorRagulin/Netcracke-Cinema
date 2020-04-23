@@ -1,6 +1,7 @@
 package com.netcracker.cinema.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -38,6 +39,7 @@ public class Hall {
     @ManyToOne
     @JoinColumn(name = "cinema_id")
     @JsonManagedReference(value = "cinema-hall")
+    @JsonIgnore
     public Cinema getCinema() {
         return cinema;
     }

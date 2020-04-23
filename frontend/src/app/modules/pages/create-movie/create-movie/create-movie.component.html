@@ -1,0 +1,73 @@
+<div class="container">
+  <section class="movies">
+  <h3>Movies</h3>
+
+  <div class="movies">
+    <div class="movie-item" *ngFor="let movie of movies">
+      <span>{{ movie.id }} </span>
+      <span>{{ movie.title }}</span>
+    </div>
+  </div>
+</section>
+
+  <section class="create-movie">
+    <form [formGroup]="createMovieForm" (ngSubmit)="onSubmit(createMovieForm.value)">
+
+      <div>
+        <input id="title" type="text" formControlName="title">
+        <label for="title">
+          title
+        </label>
+      </div>
+
+      <div>
+        <div>
+          <img [src]="imgURL" height="200" *ngIf="imgURL">
+          <input id="picture" type="file" formControlName="picture" (change)="onFileChanged($event)">
+        </div>
+      </div>
+
+      <div>
+  <textarea id="description" formControlName="description" style="width:133px; height:133px;">
+  </textarea>
+        <label for="description">
+          description
+        </label>
+      </div>
+
+      <div>
+        <input id="ageLimit" type="text" formControlName="ageLimit">
+        <label for="ageLimit">
+          ageLimit
+        </label>
+      </div>
+
+      <div>
+        <input id="duration" type="text" formControlName="duration">
+        <label for="duration">
+          duration
+        </label>
+      </div>
+
+      <div class="currentGenres">
+        <div *ngFor="let movieGenre of movieGenres" class="currentGenres">
+          {{movieGenre}}
+        </div>
+      </div>
+
+      <div>
+        <select id="genres" formControlName="genres" (ngModelChange)="updateGenres()" style="width:133px">
+          <option *ngFor="let genreOption of genreOptions" [value]="genreOption">
+            {{genreOption}}
+          </option>
+        </select>
+        <label for="genres">
+          genre
+        </label>
+      </div>
+
+      <button class="button" type="submit">Create</button>
+
+    </form>
+  </section>
+</div>

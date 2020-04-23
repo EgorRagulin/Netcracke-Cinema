@@ -1,5 +1,6 @@
 package com.netcracker.cinema.backend.service;
 
+import com.netcracker.cinema.backend.entity.Session;
 import com.netcracker.cinema.backend.entity.Ticket;
 import org.springframework.stereotype.Component;
 
@@ -8,11 +9,11 @@ import java.util.Optional;
 
 @Component
 public interface TicketService {
-    List<Ticket> findAllTicket();
+    List<Ticket> findAll();
 
-    Optional<Ticket> findTicketById(Long id);
+    Optional<Ticket> findById(Long id);
 
-    Ticket setTicket(Ticket ticket);
+    Ticket save(Ticket ticket);
 
-    void deleteTicketById(Long id);
+    void deleteById(Long id);
 }

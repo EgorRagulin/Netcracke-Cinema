@@ -1,0 +1,13 @@
+.movies
+{
+  display: flex;
+}
+.movie-item
+{
+  margin-left: 10px;
+}
+.currentGenres
+{
+  display: flex;
+  margin-right: 20px;
+}

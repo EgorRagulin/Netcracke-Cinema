@@ -6,14 +6,14 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ticket")
+@Table(name = "ticket2")
 public class Ticket {
     private Long id;
-    private int placeNumber;
     private int rowNumber;
-    private double cost;
-    private Session session;
-    private User user;
+    private int placeNumber;
+    private int cost;
+    private int session;
+    private int user;
 
     @Id
     @Column(name = "id")
@@ -48,33 +48,39 @@ public class Ticket {
 
     @Basic
     @Column(name = "cost")
-    public double getCost() {
+    public int getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
-    @ManyToOne
-    @JoinColumn(name= "session_id")
-    @JsonManagedReference(value = "ticket-session")
-    public Session getSession() {
+//    @ManyToOne
+//    @JoinColumn(name= "session_id")
+//    @JsonManagedReference(value = "ticket-session")
+//    @JsonIgnore
+    @Basic
+    @Column(name = "session_id")
+    public int getSession() {
         return session;
     }
 
-    public void setSession(Session session) {
+    public void setSession(int session) {
         this.session = session;
     }
 
-    @ManyToOne
-    @JoinColumn(name= "user_id")
-    @JsonManagedReference(value = "ticket-user")
-    public User getUser() {
+//    @ManyToOne
+//    @JoinColumn(name= "user_id")
+//    @JsonManagedReference(value = "ticket-user")
+//    @JsonIgnore
+    @Basic
+    @Column(name = "user_id")
+    public int getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(int user) {
         this.user = user;
     }
 }

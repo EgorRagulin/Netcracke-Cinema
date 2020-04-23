@@ -14,24 +14,23 @@ public class TicketServiceImpl implements TicketService {
     @Autowired
     private TicketRepository ticketRepository;
 
-
     @Override
-    public List<Ticket> findAllTicket() {
+    public List<Ticket> findAll() {
         return ticketRepository.findAll();
     }
 
     @Override
-    public Optional<Ticket> findTicketById(Long id) {
+    public Optional<Ticket> findById(Long id) {
         return ticketRepository.findById(id);
     }
 
     @Override
-    public Ticket setTicket(Ticket ticket) {
+    public Ticket save(Ticket ticket) {
         return ticketRepository.save(ticket);
     }
 
     @Override
-    public void deleteTicketById(Long id) {
+    public void deleteById(Long id) {
         ticketRepository.deleteById(id);
     }
 }

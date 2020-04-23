@@ -13,8 +13,6 @@ import java.util.Optional;
 public interface MovieRepository extends CrudRepository<Movie, Long> {
     Page<Movie> findAll(Pageable pageable);
 
-    List<Movie>  findAllByTitle(String title);
-
     Optional<Movie> findById(Long id);
 
     Movie save(Movie movie);

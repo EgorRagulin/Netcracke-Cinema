@@ -17,27 +17,22 @@ public class MovieServiceImpl implements MovieService {
     private MovieRepository movieRepository;
 
     @Override
-    public Page<Movie> findAllMovie(Pageable pageable) {
+    public Page<Movie> findPage(Pageable pageable) {
         return movieRepository.findAll(pageable);
     }
 
     @Override
-    public List<Movie>  findMovieByTitle(String title) {
-        return movieRepository.findAllByTitle(title);
-    }
-
-    @Override
-    public Optional<Movie> findMovieById(Long id) {
+    public Optional<Movie> findById(Long id) {
         return movieRepository.findById(id);
     }
 
     @Override
-    public Movie setMovie(Movie movie) {
+    public Movie save(Movie movie) {
         return movieRepository.save(movie);
     }
 
     @Override
-    public void deleteMovieById(Long id) {
+    public void deleteById(Long id) {
         movieRepository.deleteById(id);
     }
 }

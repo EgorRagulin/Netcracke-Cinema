@@ -1,0 +1,41 @@
+<div class="container">
+  <section class="movies">
+    <h2>Movies</h2>
+    <ul class="movie">
+      <li *ngFor="let movie of movies">
+        <a (click)="goToMovie(movie.id)">
+          <div class="picture">
+            <img [src]="'data:image/jpeg;base64,'+movie.picture" height="300">
+          </div>
+          <div class="title">
+            {{movie.title}}
+          </div>
+        </a>
+        <div class="ageLimit">
+          {{movie.ageLimit}}+
+        </div>
+        <div class="genres">
+          <div *ngFor="let genre of movie.genres">
+            {{genre}}
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="btn">
+      <div *ngIf="displayPreviousButton()">
+        <button class="previous" (click)="showPreviousPage()">previous</button>
+      </div>
+      <div *ngIf="displayNextButton()">
+        <button class="next" (click)="showNextPage()">next</button>
+      </div>
+    </div>
+
+    <select [(ngModel)]="pageSize" (ngModelChange)="updatePageSize()">
+      <option *ngFor="let pageSizeOption of pageSizeOptions" [value]="pageSizeOption">
+        Page size: {{pageSizeOption}}
+      </option>
+    </select>
+    <app-paginator [length]="paging.totalPages * pageSize" [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize"></app-paginator>
+  </section>
+</div>

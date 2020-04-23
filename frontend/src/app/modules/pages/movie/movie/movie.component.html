@@ -1,0 +1,31 @@
+<div class="container">
+  <section class="movie">
+    <div *ngIf="movie" class="cases">
+      <div class="case">
+        <div class="picture">
+          <img [src]="'data:image/jpeg;base64,' + movie.picture" height="400">
+        </div>
+      </div>
+      <div class="case">
+        <div class="title">
+          {{movie.title}}
+        </div>
+        <div class="duration">
+          {{movie.duration}}
+        </div>
+        <div class="ageLimit">
+          {{movie.ageLimit}}+
+        </div>
+        <div class="category">
+          {{movie.genres}}
+        </div>
+        <div class="description">
+          {{movie.description}}
+        </div>
+      </div>
+      <div class="case">
+        <a [routerLink]="['sessions']" color="accent" mat-flat-button>Go to Session</a>
+      </div>
+    </div>
+  </section>
+</div>

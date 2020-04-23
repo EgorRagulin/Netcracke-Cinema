@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="sessions" *ngFor="let session of sessions">
+    <div class="session">
+      <div class="id">id: {{session.id}}</div>
+      <div class="mode">mode: {{session.mode}}</div>
+      <div class="date">date: {{session.date}}</div>
+      <div class="time">time: {{session.time}}</div>
+      <a [routerLink]="['/sessions/' + session.id + '/buyticket']" color="accent" mat-flat-button>Купить билет</a>
+    </div>
+  </div>
+</div>

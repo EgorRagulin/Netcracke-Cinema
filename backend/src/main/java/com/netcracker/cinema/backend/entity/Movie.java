@@ -11,11 +11,11 @@ import java.util.List;
 public class Movie {
     private Long id;
     private String title;
-    private String picture;
+    private byte[] picture;
     private String description;
     private int ageLimit;
     private Time duration;
-    private String categories;
+    private String genres;
     private List<Session> sessions;
 
     @Id
@@ -40,12 +40,13 @@ public class Movie {
     }
 
     @Basic
+    @Lob
     @Column(name = "picture")
-    public String getPicture() {
+    public byte[] getPicture() {
         return picture;
     }
 
-    public void setPicture(String picture) {
+    public void setPicture(byte[] picture) {
         this.picture = picture;
     }
 
@@ -80,13 +81,13 @@ public class Movie {
     }
 
     @Basic
-    @Column(name = "categories")
-    public String getCategory() {
-        return categories;
+    @Column(name = "genres")
+    public String getGenres() {
+        return genres;
     }
 
-    public void setCategory(String category) {
-        this.categories = category;
+    public void setGenres(String genres) {
+        this.genres = genres;
     }
 
     @OneToMany(mappedBy = "movie")
@@ -98,16 +99,7 @@ public class Movie {
     public void setSessions(List<Session> sessions) {
         this.sessions = sessions;
     }
-}
 
-enum category{
-    Adventure,
-    Action,
-    Thriller,
-    Horror,
-    Comedy,
-    Musical,
-    Romance,
-    Drama,
-    Fantasy
+    //Custom Construtor
+    public Movie() {}
 }

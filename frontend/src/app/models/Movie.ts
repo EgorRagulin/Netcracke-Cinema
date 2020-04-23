@@ -1,9 +1,9 @@
 export interface Movie {
   id: number;
   title: string;
-  picture: string;
+  picture;
   description: string;
   ageLimit: number;
   duration: string;
-  category: string;
+  genres: string | string[];
 }

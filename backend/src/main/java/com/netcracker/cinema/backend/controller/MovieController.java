@@ -1,13 +1,18 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.DTO.MyPaging;
+import com.netcracker.cinema.backend.DTO.TotalPages;
 import com.netcracker.cinema.backend.entity.Movie;
+import com.netcracker.cinema.backend.entity.Session;
 import com.netcracker.cinema.backend.service.MovieService;
+import com.netcracker.cinema.backend.sort.MySort;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.sql.Time;
 import java.util.List;
 
 @RestController
@@ -17,40 +22,56 @@ public class MovieController {
     private MovieService movieService;
 
     @GetMapping(params = {"pageNumber", "pageSize"})
-    public List<Movie> getAllMovie(@RequestParam int pageNumber, @RequestParam int pageSize) {
-        Sort sort = new Sort(new Sort.Order(Sort.Direction.ASC, "title"));
-        return movieService.findAllMovie(new PageRequest(pageNumber, pageSize, sort)).getContent();
+    public List<Movie> getMoviesPage(@RequestParam int pageNumber, @RequestParam int pageSize) {
+        String sortProperty = "id";
+        return getPage(pageNumber, pageSize, sortProperty).getContent();
     }
 
     @GetMapping(params = {"pageSize"})
-    public MyPaging getAllMovie(@RequestParam int pageSize) {
-        MyPaging myPaging = new MyPaging(movieService.findAllMovie(new PageRequest(0, pageSize)).getTotalPages());
-        return myPaging;
+    public TotalPages getTotalPages(@RequestParam int pageSize) {
+        return new TotalPages(getPage(pageSize).getTotalPages());
     }
 
     @GetMapping(params = {"id"})
     public Movie getMovieById(@RequestParam Long id) {
-        return movieService.findMovieById(id).get();
+        return movieService.findById(id).get();
     }
 
-
-
-
-
-
-    @RequestMapping(value = "/{title}", method = RequestMethod.GET)
-    public List<Movie>  getMovieByTitle(@PathVariable(name = "title") String title) {
-        return movieService.findMovieByTitle(title);
+    @GetMapping(params = {"movieId"}, path = {"movieSession/"})
+    public List<Session> getMovieSessions(@RequestParam Long movieId) {
+        return movieService.findById(movieId).get().getSessions();
     }
 
-
-    @RequestMapping(method = RequestMethod.POST)
-    public Movie setMovie(@RequestBody Movie movie) {
-        return movieService.setMovie(movie);
+    @PostMapping
+    public Movie saveMovie(@RequestParam("picture") MultipartFile file,
+                           @RequestParam("title") String title,
+                           @RequestParam("description") String description,
+                           @RequestParam("ageLimit") String ageLimit,
+                           @RequestParam("duration") String duration,
+                           @RequestParam("genres") String genres
+                           ) throws IOException {
+        Movie movie = new Movie();
+        movie.setPicture(file.getBytes());
+        movie.setTitle(title);
+        movie.setDescription(description);
+        movie.setAgeLimit(Integer.parseInt(ageLimit));
+        movie.setDuration(Time.valueOf(duration));
+        movie.setGenres(genres);
+        final Movie savedMovie = movieService.save(movie);
+        System.out.println("movie saved!");
+        return savedMovie;
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteMovieById(@PathVariable(name = "id") Long id) {
-        movieService.deleteMovieById(id);
+    @DeleteMapping(params = {"id"})
+    public void deleteMovieById(@RequestParam Long id) {
+        movieService.deleteById(id);
+    }
+
+    private Page getPage(int pageNumber, int pageSize, String sortProperty) {
+        return movieService.findPage(new PageRequest(pageNumber, pageSize, MySort.getSortByProperty(sortProperty)));
+    }
+
+    private Page getPage(int pageSize) {
+        return movieService.findPage(new PageRequest(0, pageSize));
     }
 }

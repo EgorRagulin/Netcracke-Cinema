@@ -48,6 +48,7 @@ public class Wallet {
     @OneToOne
     @JoinColumn(name = "user_id")
     @JsonManagedReference(value = "wallet-user")
+    @JsonIgnore
     public User getUser() {
         return user;
     }
