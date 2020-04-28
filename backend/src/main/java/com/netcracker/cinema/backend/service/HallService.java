@@ -8,11 +8,11 @@ import java.util.Optional;
 
 @Component
 public interface HallService {
-    List<Hall> findAllHall();
+    List<Hall> findAll();
 
-    Optional<Hall> findHallById(Long id);
+    Optional<Hall> findById(Long id);
 
-    Hall setHall(Hall hall);
+    Hall save(Hall hall);
 
-    void deleteHallById(Long id);
+    void deleteById(Long id);
 }

@@ -1,5 +1,6 @@
 <div class="container">
-  <section class="movie">
+
+  <div class="movie">
     <div *ngIf="movie" class="cases">
       <div class="case">
         <div class="picture">
@@ -7,25 +8,16 @@
         </div>
       </div>
       <div class="case">
-        <div class="title">
-          {{movie.title}}
-        </div>
-        <div class="duration">
-          {{movie.duration}}
-        </div>
-        <div class="ageLimit">
-          {{movie.ageLimit}}+
-        </div>
-        <div class="category">
-          {{movie.genres}}
-        </div>
-        <div class="description">
-          {{movie.description}}
-        </div>
+        <div class="title">{{movie.title}}</div>
+        <div class="duration">{{movie.duration}}</div>
+        <div class="ageLimit">{{movie.ageLimit}}+</div>
+        <div class="category">{{movie.genres}}</div>
+        <div class="description">{{movie.description}}</div>
       </div>
       <div class="case">
-        <a [routerLink]="['sessions']" color="accent" mat-flat-button>Go to Session</a>
+        <a [routerLink]="['sessions']" color="accent" mat-flat-button>Go To Sessions</a>
       </div>
     </div>
-  </section>
+  </div>
+
 </div>

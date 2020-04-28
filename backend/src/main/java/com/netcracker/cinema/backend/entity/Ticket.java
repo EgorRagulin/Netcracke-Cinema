@@ -6,14 +6,14 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ticket2")
+@Table(name = "ticket")
 public class Ticket {
     private Long id;
     private int rowNumber;
     private int placeNumber;
     private int cost;
-    private int session;
-    private int user;
+    private Session session;
+    private User user;
 
     @Id
     @Column(name = "id")
@@ -27,23 +27,23 @@ public class Ticket {
     }
 
     @Basic
-    @Column(name = "place_number")
-    public int getPlaceNumber() {
-        return placeNumber;
-    }
-
-    public void setPlaceNumber(int placeNumber) {
-        this.placeNumber = placeNumber;
-    }
-
-    @Basic
-    @Column(name = "row_number")
+    @Column(name = "row_num")
     public int getRowNumber() {
         return rowNumber;
     }
 
     public void setRowNumber(int rowNumber) {
         this.rowNumber = rowNumber;
+    }
+
+    @Basic
+    @Column(name = "place_num")
+    public int getPlaceNumber() {
+        return placeNumber;
+    }
+
+    public void setPlaceNumber(int placeNumber) {
+        this.placeNumber = placeNumber;
     }
 
     @Basic
@@ -56,31 +56,27 @@ public class Ticket {
         this.cost = cost;
     }
 
-//    @ManyToOne
-//    @JoinColumn(name= "session_id")
-//    @JsonManagedReference(value = "ticket-session")
-//    @JsonIgnore
-    @Basic
-    @Column(name = "session_id")
-    public int getSession() {
+    @ManyToOne
+    @JoinColumn(name= "session_id")
+    @JsonManagedReference(value = "ticket-session")
+    @JsonIgnore
+    public Session getSession() {
         return session;
     }
 
-    public void setSession(int session) {
+    public void setSession(Session session) {
         this.session = session;
     }
 
-//    @ManyToOne
-//    @JoinColumn(name= "user_id")
-//    @JsonManagedReference(value = "ticket-user")
-//    @JsonIgnore
-    @Basic
-    @Column(name = "user_id")
-    public int getUser() {
+    @ManyToOne
+    @JoinColumn(name= "user_id")
+    @JsonManagedReference(value = "ticket-user")
+    @JsonIgnore
+    public User getUser() {
         return user;
     }
 
-    public void setUser(int user) {
+    public void setUser(User user) {
         this.user = user;
     }
 }

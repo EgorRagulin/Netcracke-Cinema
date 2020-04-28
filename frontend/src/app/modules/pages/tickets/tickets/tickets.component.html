@@ -1,0 +1,24 @@
+<div class="container">
+
+  <div *ngIf="tickets">
+
+    <h2>Билеты</h2>
+
+    <div class="tickets">
+      <div class="ticket" *ngFor="let ticket of tickets">
+
+        <div class="row">{{ticket.rowNumber}} Ряд</div>
+        <div class="place">{{ticket.placeNumber}} Место</div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="!tickets">
+
+    <app-loading-page></app-loading-page>
+
+  </div>
+
+</div>

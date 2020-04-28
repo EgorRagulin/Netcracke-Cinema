@@ -1,0 +1,30 @@
+<div class="container">
+
+  <div *ngIf="soldPlaces">
+    <div class="rows">
+      <div *ngFor="let row of rows" class="row">
+
+        row: {{row}}
+        <app-row [rowNumber]="row"
+                 [placeInRow]="placesInRow"
+                 [soldPlacesInRow]="soldPlaces[row-1]"
+                 [_session]="session"
+                 (buyTicketEvent)="selectTicket($event)"
+        ></app-row>
+
+      </div>
+
+      <button color="accent" mat-flat-button (click)="buyTickets()" class="btn">
+        Купить Билеты
+      </button>
+
+    </div>
+  </div>
+
+  <div *ngIf="!soldPlaces">
+
+    <app-loading-page></app-loading-page>
+
+  </div>
+
+</div>

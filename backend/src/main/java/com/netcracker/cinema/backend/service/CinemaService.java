@@ -8,13 +8,11 @@ import java.util.Optional;
 
 @Component
 public interface CinemaService {
-    List<Cinema> findAllCinema();
+    List<Cinema> findAll();
 
-    Optional<Cinema> findCinemaByCinemaName(String cinemaName);
+    Optional<Cinema> findById(Long id);
 
-    Optional<Cinema> findCinemaById(Long id);
+    Cinema save(Cinema cinema);
 
-    Cinema setCinema(Cinema cinema);
-
-    void deleteCinemaById(Long id);
+    void deleteById(Long id);
 }

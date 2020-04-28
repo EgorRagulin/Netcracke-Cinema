@@ -9,13 +9,11 @@ import java.util.Optional;
 
 @Component
 public interface SessionService {
-    List<Session> findAllSession();
+    List<Session> findAll();
 
-    List<Session> findSessionByDate(Date date);
+    Optional<Session> findById(Long id);
 
-    Optional<Session> findSessionById(Long id);
+    Session save(Session session);
 
-    Session setSession(Session session);
-
-    void deleteSessionById(Long id);
+    void deleteById(Long id);
 }

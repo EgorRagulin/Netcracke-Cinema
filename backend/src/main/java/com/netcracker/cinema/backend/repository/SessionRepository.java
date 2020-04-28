@@ -12,8 +12,6 @@ import java.util.Optional;
 public interface SessionRepository extends CrudRepository<Session, Long> {
     List<Session> findAll();
 
-    List<Session> findAllByDate(Date date);
-
     Optional<Session> findById(Long id);
 
     Session save(Session session);

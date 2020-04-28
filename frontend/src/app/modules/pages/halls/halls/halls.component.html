@@ -1,0 +1,29 @@
+<div class="container">
+
+  <div *ngIf="halls">
+
+    <h2>Halls</h2>
+
+    <div class="halls">
+      <div class="hall" *ngFor="let hall of halls">
+
+        <div class="hallNumber">Hall Number: {{hall.hallNumber}}</div>
+
+        <div class="btn">
+          <a [routerLink]="['/halls/' + hall.id]" color="accent" mat-flat-button>
+            Go To Hall
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="!halls">
+
+    <app-loading-page></app-loading-page>
+
+  </div>
+
+</div>

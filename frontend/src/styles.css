@@ -8,15 +8,16 @@
   box-sizing: border-box;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
-body {
-  height: 100%;;
-  background: #27272a;
-  color: hsla(0, 0%, 100%, .8);
+body
+{
+  /*background: #27272a;*/
+  /*color: hsla(0, 0%, 100%, .8);*/
+  min-height: 100vh;
 }
-
-.container{
+.container
+{
   width: 100%;
   max-width: 1000px;
+  min-height: 73vh;
   margin: 30px auto;
 }

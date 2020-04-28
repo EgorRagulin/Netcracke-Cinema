@@ -1,4 +1,17 @@
+h2
+{
+  text-align: center;
+  margin-bottom: 20px;
+}
 .sessions
 {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.session
+{
+  min-width: 25%;
+  padding: 30px;
+  text-align: center;
 }

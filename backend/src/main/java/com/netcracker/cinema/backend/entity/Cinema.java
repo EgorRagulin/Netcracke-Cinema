@@ -9,9 +9,9 @@ import java.util.List;
 @Table(name = "cinema")
 public class Cinema {
     private Long id;
-    private String cinemaName;
+    private String name;
     private String address;
-    private String cinemaPicture;
+    private byte[] picture;
     private List<Hall> halls;
 
     @Id
@@ -26,13 +26,13 @@ public class Cinema {
     }
 
     @Basic
-    @Column(name = "cinema_name")
-    public String getCinemaName() {
-        return cinemaName;
+    @Column(name = "name")
+    public String getName() {
+        return name;
     }
 
-    public void setCinemaName(String cinemaName) {
-        this.cinemaName = cinemaName;
+    public void setName(String cinemaName) {
+        this.name = cinemaName;
     }
 
     @Basic
@@ -46,13 +46,13 @@ public class Cinema {
     }
 
     @Basic
-    @Column(name = "cinema_picture")
-    public String getCinemaPicture() {
-        return cinemaPicture;
+    @Column(name = "picture")
+    public byte[] getPicture() {
+        return picture;
     }
 
-    public void setCinemaPicture(String cinemaPicture) {
-        this.cinemaPicture = cinemaPicture;
+    public void setPicture(byte[] cinemaPicture) {
+        this.picture = cinemaPicture;
     }
 
     @OneToMany(mappedBy = "cinema")

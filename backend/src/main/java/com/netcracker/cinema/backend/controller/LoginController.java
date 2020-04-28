@@ -14,28 +14,23 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public List<Login> getAllLogin() {
-        return loginService.findAllLogin();
+        return loginService.findAll();
     }
 
-    @RequestMapping(value = "/username={username}password={password}", method = RequestMethod.GET)
-    public User getUserByLoginUsernameAndPassword(@PathVariable(name = "username") String username, @PathVariable(name = "password") String password) {
-        return loginService.findLoginByUsernameAndPassword(username, password).get().getUser();
+    @GetMapping(params = {"id"})
+    public Login getLoginById(@RequestParam Long id) {
+        return loginService.findById(id).get();
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Login getLoginById(@PathVariable(name = "id") Long id) {
-        return loginService.findLoginById(id).get();
-    }
-
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public Login setLogin(@RequestBody Login login) {
-        return loginService.setLogin(login);
+        return loginService.save(login);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteLoginById(@PathVariable(name = "id") Long id) {
-        loginService.deleteLoginById(id);
+    @DeleteMapping(params = {"id"})
+    public void deleteLoginById(@RequestParam Long id) {
+        loginService.deleteById(id);
     }
 }

@@ -17,27 +17,22 @@ public class WalletServiceImpl implements WalletService {
 
 
     @Override
-    public List<Wallet> findAllWallet() {
+    public List<Wallet> findAll() {
         return walletRepository.findAll();
     }
 
     @Override
-    public Optional<Wallet> findWalletByUser(User user) {
-        return walletRepository.findByUser(user);
-    }
-
-    @Override
-    public Optional<Wallet>  findWalletById(Long id) {
+    public Optional<Wallet>  findById(Long id) {
         return walletRepository.findById(id);
     }
 
     @Override
-    public Wallet setWallet(Wallet wallet) {
+    public Wallet save(Wallet wallet) {
         return walletRepository.save(wallet);
     }
 
     @Override
-    public void deleteWalletById(Long id) {
+    public void deleteById(Long id) {
         walletRepository.deleteById(id);
     }
 }

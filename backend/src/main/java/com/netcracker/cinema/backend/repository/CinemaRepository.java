@@ -11,8 +11,6 @@ import java.util.Optional;
 public interface CinemaRepository extends CrudRepository<Cinema, Long> {
     List<Cinema> findAll();
 
-    Optional<Cinema> findByCinemaName(String cinemaName);
-
     Optional<Cinema> findById(Long id);
 
     Cinema save(Cinema cinema);

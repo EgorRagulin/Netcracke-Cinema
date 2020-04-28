@@ -9,13 +9,11 @@ import java.util.Optional;
 
 @Component
 public interface WalletService {
-    List<Wallet> findAllWallet();
+    List<Wallet> findAll();
 
-    Optional<Wallet> findWalletByUser(User user);
+    Optional<Wallet> findById(Long id);
 
-    Optional<Wallet> findWalletById(Long id);
+    Wallet save(Wallet wallet);
 
-    Wallet setWallet(Wallet wallet);
-
-    void deleteWalletById(Long id);
+    void deleteById(Long id);
 }

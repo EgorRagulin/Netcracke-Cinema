@@ -1,41 +1,43 @@
 <div class="container">
-  <section class="movies">
-    <h2>Movies</h2>
-    <ul class="movie">
-      <li *ngFor="let movie of movies">
-        <a (click)="goToMovie(movie.id)">
-          <div class="picture">
-            <img [src]="'data:image/jpeg;base64,'+movie.picture" height="300">
-          </div>
-          <div class="title">
-            {{movie.title}}
-          </div>
-        </a>
-        <div class="ageLimit">
-          {{movie.ageLimit}}+
-        </div>
-        <div class="genres">
-          <div *ngFor="let genre of movie.genres">
-            {{genre}}
-          </div>
-        </div>
-      </li>
-    </ul>
 
-    <div class="btn">
-      <div *ngIf="displayPreviousButton()">
-        <button class="previous" (click)="showPreviousPage()">previous</button>
-      </div>
-      <div *ngIf="displayNextButton()">
-        <button class="next" (click)="showNextPage()">next</button>
+  <div *ngIf="!loading">
+
+    <h2>Movies</h2>
+
+    <div class="movies">
+      <div *ngFor="let movie of movies" class="movie">
+
+        <div class="picture">
+          <img [src]="'data:image/jpeg;base64,' + movie.picture" height="300">
+        </div>
+
+        <a [routerLink]="[movie.id]" color="accent" mat-flat-button>
+          <div class="title">{{movie.title}}</div>
+        </a>
+
+        <div class="ageLimit">{{movie.ageLimit}}+</div>
+
+        <div class="genres">
+          <div *ngFor="let genre of movie.genres">{{genre}}</div>
+        </div>
+
       </div>
     </div>
 
-    <select [(ngModel)]="pageSize" (ngModelChange)="updatePageSize()">
-      <option *ngFor="let pageSizeOption of pageSizeOptions" [value]="pageSizeOption">
-        Page size: {{pageSizeOption}}
-      </option>
-    </select>
-    <app-paginator [length]="paging.totalPages * pageSize" [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize"></app-paginator>
-  </section>
+    <app-paginator
+      [elementsName]="'Фильмов'"
+      [paging]="this.paging"
+      [showBobblesPaginator]="true"
+      (changePageNumberEvent)="updatePageNumber($event)"
+      (changePageSizeEvent)="updatePageSize($event)"
+    ></app-paginator>
+
+  </div>
+
+  <div *ngIf="loading">
+
+    <app-loading-page></app-loading-page>
+
+  </div>
+
 </div>

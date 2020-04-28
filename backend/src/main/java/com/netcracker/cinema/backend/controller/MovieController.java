@@ -1,6 +1,6 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.DTO.TotalPages;
+import com.netcracker.cinema.backend.DTO.PagingDTO;
 import com.netcracker.cinema.backend.entity.Movie;
 import com.netcracker.cinema.backend.entity.Session;
 import com.netcracker.cinema.backend.service.MovieService;
@@ -28,8 +28,10 @@ public class MovieController {
     }
 
     @GetMapping(params = {"pageSize"})
-    public TotalPages getTotalPages(@RequestParam int pageSize) {
-        return new TotalPages(getPage(pageSize).getTotalPages());
+    public PagingDTO getTotalPages(@RequestParam int pageSize) {
+        int totalPages = getPage(pageSize).getTotalPages();
+        long totalElements = getPage(pageSize).getTotalElements();
+        return new PagingDTO(totalPages, totalElements);
     }
 
     @GetMapping(params = {"id"})

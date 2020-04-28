@@ -8,13 +8,11 @@ import java.util.Optional;
 
 @Component
 public interface LoginService {
-    List<Login> findAllLogin();
+    List<Login> findAll();
 
-    Optional<Login> findLoginByUsernameAndPassword(String username, String password);
+    Optional<Login> findById(Long id);
 
-    Optional<Login> findLoginById(Long id);
+    Login save(Login login);
 
-    Login setLogin(Login login);
-
-    void deleteLoginById(Long id);
+    void deleteById(Long id);
 }

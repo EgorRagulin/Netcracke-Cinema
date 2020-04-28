@@ -15,27 +15,22 @@ public class LoginServiceImpl implements LoginService {
     private LoginRepository loginRepository;
 
     @Override
-    public List<Login> findAllLogin() {
+    public List<Login> findAll() {
         return loginRepository.findAll();
     }
 
     @Override
-    public Optional<Login> findLoginByUsernameAndPassword(String username, String password) {
-        return loginRepository.findByUsernameAndPassword(username, password);
-    }
-
-    @Override
-    public Optional<Login> findLoginById(Long id) {
+    public Optional<Login> findById(Long id) {
         return loginRepository.findById(id);
     }
 
     @Override
-    public Login setLogin(Login login) {
+    public Login save(Login login) {
         return loginRepository.save(login);
     }
 
     @Override
-    public void deleteLoginById(Long id) {
+    public void deleteById(Long id) {
         loginRepository.deleteById(id);
     }
 }

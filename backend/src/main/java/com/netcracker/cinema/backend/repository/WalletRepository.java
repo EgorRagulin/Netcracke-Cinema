@@ -12,8 +12,6 @@ import java.util.Optional;
 public interface WalletRepository extends CrudRepository<Wallet, Long> {
     List<Wallet> findAll();
 
-    Optional<Wallet>  findByUser(User user);
-
     Optional<Wallet> findById(Long id);
 
     Wallet save(Wallet wallet);

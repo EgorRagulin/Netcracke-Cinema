@@ -15,22 +15,22 @@ public class HallServiceImpl implements HallService {
     private HallRepository hallRepository;
 
     @Override
-    public List<Hall> findAllHall() {
+    public List<Hall> findAll() {
         return hallRepository.findAll();
     }
 
     @Override
-    public Optional<Hall> findHallById(Long id) {
+    public Optional<Hall> findById(Long id) {
         return hallRepository.findById(id);
     }
 
     @Override
-    public Hall setHall(Hall hall) {
+    public Hall save(Hall hall) {
         return hallRepository.save(hall);
     }
 
     @Override
-    public void deleteHallById(Long id) {
+    public void deleteById(Long id) {
         hallRepository.deleteById(id);
     }
 }

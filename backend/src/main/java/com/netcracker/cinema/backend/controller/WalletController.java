@@ -9,33 +9,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/wallets")
+@RequestMapping("/api/wallets/")
 public class WalletController {
     @Autowired
     private WalletService walletService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public List<Wallet> getAllWallet() {
-        return walletService.findAllWallet();
+        return walletService.findAll();
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public Wallet getWalletByUser(@RequestBody User user) {
-        return walletService.findWalletByUser(user).get();
+    @GetMapping(params = {"id"})
+    public Wallet getWalletById(@RequestParam Long id) {
+        return walletService.findById(id).get();
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Wallet getWalletById(@PathVariable(name = "id") Long id) {
-        return walletService.findWalletById(id).get();
-    }
-
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public Wallet setWallet(@RequestBody Wallet wallet) {
-        return walletService.setWallet(wallet);
+        return walletService.save(wallet);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteWalletById(@PathVariable(name = "id") Long id) {
-        walletService.deleteWalletById(id);
+    @DeleteMapping(params = {"id"})
+    public void deleteWalletById(@RequestParam Long id) {
+        walletService.deleteById(id);
     }
 }

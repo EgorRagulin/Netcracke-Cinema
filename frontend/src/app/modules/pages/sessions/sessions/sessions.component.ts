@@ -1,8 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MovieService} from "../../../../services/movie/movie.service";
+import {MoviesService} from "../../../../services/movies/movies.service";
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
 import {Session} from "../../../../models/Session";
+import {HallsService} from "../../../../services/halls/halls.service";
+import {SessionsService} from "../../../../services/sessions/sessions.service";
 
 @Component({
   selector: 'app-sessions',
@@ -11,23 +13,37 @@ import {Session} from "../../../../models/Session";
 })
 export class SessionsComponent implements OnInit, OnDestroy {
   public sessions: Session[];
-  private subscription: Subscription
+  private _subscriptions: Subscription[] = [];
 
-  constructor(private movieService: MovieService,
+  constructor(private moviesService: MoviesService,
+              private hallsService: HallsService,
+              private sessionsService: SessionsService,
               private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     const movieId = this.activateRoute.snapshot.params['movieId'];
-    this.getSessions(movieId);
-  }
-
-  private getSessions(id: number): void {
-    this.subscription = this.movieService.getMovieSessions(id)
-      .subscribe(sessions => {this.sessions = sessions;
-      console.log(sessions)});
+    const hallId = this.activateRoute.snapshot.params['hallId'];
+    if (movieId !== undefined) this.getSessionsByMovie(movieId);
+    else if (hallId !== undefined) this.getSessionsByHall(hallId);
+    else this.getSessions();
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this._subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+
+  private getSessionsByMovie(id: number): void {
+    this._subscriptions.push(this.moviesService.getMovieSessions(id)
+      .subscribe(sessions => this.sessions = sessions));
+  }
+
+  private getSessionsByHall(id: number): void {
+    this._subscriptions.push(this.hallsService.getSessions(id)
+      .subscribe(sessions => this.sessions = sessions));
+  }
+
+  private getSessions() {
+    this._subscriptions.push(this.sessionsService.getSessions()
+      .subscribe(sessions => this.sessions = sessions));
   }
 }

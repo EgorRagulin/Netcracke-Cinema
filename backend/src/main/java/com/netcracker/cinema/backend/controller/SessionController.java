@@ -1,6 +1,7 @@
 package com.netcracker.cinema.backend.controller;
 
 import com.netcracker.cinema.backend.entity.Session;
+import com.netcracker.cinema.backend.entity.Ticket;
 import com.netcracker.cinema.backend.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,29 +15,30 @@ public class SessionController {
     @Autowired
     private SessionService sessionService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<Session> getAllCinema() {
-        return sessionService.findAllSession();
+    @GetMapping
+    public List<Session> getSessions() {
+        return sessionService.findAll();
     }
 
-    @RequestMapping(value = "/{date}", method = RequestMethod.GET)
-    public List<Session> getCinemaByCinemaName(@PathVariable(name = "date") Date date) {
-        return sessionService.findSessionByDate(date);
+
+    @GetMapping(params = {"id"})
+    public Session getSessionById(@RequestParam Long id) {
+        return sessionService.findById(id).get();
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Session getCinemaById(@PathVariable(name = "id") Long id) {
-        return sessionService.findSessionById(id).get();
+    @GetMapping(params = {"id"}, path = {"/tickets/"})
+    public List<Ticket> getTicketsBySession(@RequestParam Long id) {
+        return sessionService.findById(id).get().getTickets();
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public Session setCinema(@RequestBody Session session) {
-        return sessionService.setSession(session);
+    @PostMapping
+    public Session saveSession(@RequestBody Session session) {
+        return sessionService.save(session);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteSessionById(@PathVariable(name = "id") Long id) {
-        sessionService.deleteSessionById(id);
+    @DeleteMapping(params = {"id"})
+    public void deleteSession(@RequestParam Long id) {
+        sessionService.deleteById(id);
     }
 }
 

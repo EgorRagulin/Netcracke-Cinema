@@ -14,34 +14,28 @@ public class CinemaController {
     @Autowired
     private CinemaService cinemaService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Cinema> getAllCinema() {
-        return cinemaService.findAllCinema();
+    @GetMapping
+    public List<Cinema> getAllCinemas() {
+        return cinemaService.findAll();
     }
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public Cinema getCinemaByCinemaName(@PathVariable(name = "name") String cinemaName) {
-        return cinemaService.findCinemaByCinemaName(cinemaName).get();
+    @GetMapping(params = {"id"})
+    public Cinema getCinemaById(@RequestParam Long id) {
+        return cinemaService.findById(id).get();
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Cinema getCinemaById(@PathVariable(name = "id") Long id) {
-        return cinemaService.findCinemaById(id).get();
+    @GetMapping(params = {"id"}, path = {"/halls/"})
+    public List<Hall> getHallsByCinemaId(@RequestParam Long id) {
+        return cinemaService.findById(id).get().getHalls();
     }
 
-    @RequestMapping(value = "/id={id}/halls", method = RequestMethod.GET)
-    public List<Hall> getHallsForCinemaById(@PathVariable(name = "id") Long id) {
-        return cinemaService.findCinemaById(id).get().getHalls();
+    @PostMapping
+    public Cinema saveCinema(@RequestBody Cinema cinema) {
+        return cinemaService.save(cinema);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public Cinema setCinema(@RequestBody Cinema cinema) {
-
-        return cinemaService.setCinema(cinema);
-    }
-
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteCinemaById(@PathVariable(name = "id") Long id) {
-        cinemaService.deleteCinemaById(id);
+    @DeleteMapping(params = {"id"})
+    public void deleteCinemaById(@RequestParam Long id) {
+        cinemaService.deleteById(id);
     }
 }

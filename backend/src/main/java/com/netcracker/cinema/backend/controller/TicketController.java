@@ -27,9 +27,7 @@ public class TicketController {
 
     @PostMapping
     public Ticket saveTicket(@RequestBody Ticket ticket) {
-        final Ticket savedTicket = ticketService.save(ticket);
-        System.out.println("movie ticket!");
-        return savedTicket;
+        return ticketService.save(ticket);
     }
 
     @DeleteMapping(params = {"id"})

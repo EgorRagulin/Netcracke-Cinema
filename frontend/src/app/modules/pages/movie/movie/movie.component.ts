@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Movie} from "../../../../models/Movie";
 import {Subscription} from "rxjs";
-import {MovieService} from "../../../../services/movie/movie.service";
+import {MoviesService} from "../../../../services/movies/movies.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -13,7 +13,7 @@ export class MovieComponent implements OnInit, OnDestroy{
   public movie: Movie;
   private subscription: Subscription
 
-  constructor(private movieService: MovieService,
+  constructor(private moviesService: MoviesService,
               private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class MovieComponent implements OnInit, OnDestroy{
   }
 
   private getMovie(id: number): void {
-    this.subscription = this.movieService.getMovieById(id)
+    this.subscription = this.moviesService.getMovieById(id)
       .subscribe(movie => this.movie = movie);
   }
 

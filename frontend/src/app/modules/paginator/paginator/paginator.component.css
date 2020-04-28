@@ -1,0 +1,14 @@
+.paginator
+{
+  text-align: center;
+}
+mat-select
+{
+  width: 50px;
+  border: 2px solid #27272a;
+  margin: 0 20px;
+}
+.btn-off
+{
+  color: #b5b8b8;
+}

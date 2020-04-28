@@ -2,6 +2,7 @@ package com.netcracker.cinema.backend.controller;
 
 import com.netcracker.cinema.backend.entity.Cinema;
 import com.netcracker.cinema.backend.entity.Hall;
+import com.netcracker.cinema.backend.entity.Session;
 import com.netcracker.cinema.backend.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,28 +15,28 @@ public class HallController {
     @Autowired
     private HallService hallService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public List<Hall> getAllHall() {
-        return hallService.findAllHall();
+        return hallService.findAll();
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Hall getHallById(@PathVariable(name = "id") Long id) {
-        return hallService.findHallById(id).get();
+    @GetMapping(params = {"id"})
+    public Hall getHallById(@RequestParam Long id) {
+        return hallService.findById(id).get();
     }
 
-    @RequestMapping(value = "/id={id}/cinema", method = RequestMethod.GET)
-    public Cinema getCinemaByHallId(@PathVariable(name = "id") Long id) {
-        return hallService.findHallById(id).get().getCinema();
+    @GetMapping(params = {"id"}, path = {"/sessions/"})
+    public List<Session> getSessionByHallId(@RequestParam Long id) {
+        return hallService.findById(id).get().getSessions();
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public Hall setHall(@RequestBody Hall hall) {
-        return hallService.setHall(hall);
+        return hallService.save(hall);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteHallById(@PathVariable(name = "id") Long id) {
-        hallService.deleteHallById(id);
+    @DeleteMapping(params = {"id"})
+    public void deleteHallById(@RequestParam Long id) {
+        hallService.deleteById(id);
     }
 }

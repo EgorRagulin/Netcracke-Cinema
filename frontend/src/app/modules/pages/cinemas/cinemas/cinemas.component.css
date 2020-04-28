@@ -1,0 +1,17 @@
+h2
+{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.cinemas
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.cinema
+{
+  width: 33%;
+  margin-bottom: 30px;
+  text-align: center;
+}
