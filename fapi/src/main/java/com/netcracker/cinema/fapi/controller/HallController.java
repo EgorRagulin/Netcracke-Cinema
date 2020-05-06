@@ -1,6 +1,8 @@
 package com.netcracker.cinema.fapi.controller;
 
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullHallDTO;
 import com.netcracker.cinema.fapi.model.Hall;
+import com.netcracker.cinema.fapi.model.Session;
 import com.netcracker.cinema.fapi.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,33 +15,34 @@ public class HallController {
     @Autowired
     private HallService hallService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<Hall> getAllHall() {
-        return hallService.findAllHall();
+    @GetMapping
+    public List<Hall> findAllHall() {
+        return hallService.findAll();
     }
 
-    @RequestMapping(value = "/{number}", method = RequestMethod.GET)
-    public List<Hall> getAllHallByHallNumber(@PathVariable(name = "number") int hallNumber) {
-        return hallService.findAllHallByHallNumber(hallNumber);
+    @GetMapping(params = {"id"})
+    public Hall findHallById(@RequestParam Long id) {
+        return hallService.findById(id);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Hall getHallById(@PathVariable(name = "id") Long id) {
-        return hallService.findHallById(id);
+    @PostMapping
+    public FullHallDTO saveHall(@RequestBody FullHallDTO fullHallDTO) {
+        return hallService.save(fullHallDTO);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public Hall setHall(@RequestBody Hall hall) {
-        return hallService.setHall(hall);
+    @DeleteMapping(params = {"id"})
+    public void deleteHallById(@RequestParam Long id) {
+        hallService.deleteById(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.DELETE)
-    public void deleteHall(@RequestBody Hall hall) {
-        hallService.deleteHall(hall);
+
+    @GetMapping(params = {"id"}, path = {"/full"})
+    public FullHallDTO findFullHallById(@RequestParam Long id) {
+        return hallService.findFullById(id);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteHallById(@PathVariable(name = "id") Long id) {
-        hallService.deleteHallById(id);
+    @GetMapping(params = {"id"}, path = {"/sessions/"})
+    public List<Session> findSessionsByHallId(@RequestParam Long id) {
+        return hallService.findSessionsByHallId(id);
     }
 }

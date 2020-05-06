@@ -1,11 +1,14 @@
 package com.netcracker.cinema.fapi.controller;
 
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullSessionDTO;
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullTicketDTO;
 import com.netcracker.cinema.fapi.model.Session;
+import com.netcracker.cinema.fapi.model.Ticket;
 import com.netcracker.cinema.fapi.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,33 +17,38 @@ public class SessionController {
     @Autowired
     private SessionService sessionService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<Session> getAllCinema() {
-        return sessionService.findAllSession();
+    @GetMapping
+    public List<Session> findSessions() {
+        return sessionService.findAll();
     }
 
-    @RequestMapping(value = "/{date}", method = RequestMethod.GET)
-    public List<Session> getCinemaByCinemaName(@PathVariable(name = "date") Date date) {
-        return sessionService.findSessionByDate(date);
+    @GetMapping(params = {"id"})
+    public Session findSessionById(@RequestParam Long id) {
+        return sessionService.findById(id);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Session getCinemaById(@PathVariable(name = "id") Long id) {
-        return sessionService.findSessionById(id);
+    @PostMapping
+    public Session saveSession(@RequestBody Session session) {
+        return sessionService.save(session);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public Session setCinema(@RequestBody Session session) {
-        return sessionService.setSession(session);
+    @DeleteMapping(params = {"id"})
+    public void deleteSession(@RequestParam Long id) {
+        sessionService.deleteById(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.DELETE)
-    public void deleteSession(@RequestBody Session session) {
-        sessionService.deleteSession(session);
+    @GetMapping(params = {"id"}, path = {"/full"})
+    public FullSessionDTO findFullSessionById(@RequestParam Long id) {
+        return sessionService.findFullById(id);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteSessionById(@PathVariable(name = "id") Long id) {
-        sessionService.deleteSessionById(id);
+    @GetMapping(params = {"id"}, path = {"/tickets"})
+    public List<Ticket> findTicketsBySession(@RequestParam Long id) {
+        return sessionService.findTicketsBySessionId(id);
+    }
+
+    @GetMapping(params = {"id"}, path = {"/fullTickets"})
+    public List<FullTicketDTO> findFullTicketsBySessionId(@RequestParam Long id) {
+        return sessionService.findFullTicketsBySessionId(id);
     }
 }

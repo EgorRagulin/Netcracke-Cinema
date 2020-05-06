@@ -1,9 +1,8 @@
-<span *ngFor="let place of places" class="place">
+<span *ngFor="let place of row.places" class="place">
 
-    <app-place [placeNumber]="place"
-               [isSold]="soldPlacesInRow[place-1]"
-               (selectTicketEvent)="createTicket(place)"
+    <app-place [place]="place"
+               (selectPlaceEvent)="selectPlace($event)"
+               (unSelectPlaceEvent)="unSelectPlace($event)"
     ></app-place>
 
 </span>
-

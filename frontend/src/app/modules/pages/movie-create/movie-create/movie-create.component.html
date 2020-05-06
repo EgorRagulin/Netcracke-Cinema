@@ -1,14 +1,13 @@
 <div class="container">
-  <section class="movies">
-  <h3>Movies</h3>
+  <div class="movies" *ngIf="movies">
+    <h3>Сохраненные Фильмы</h3>
 
-  <div class="movies">
-    <div class="movie-item" *ngFor="let movie of movies">
-      <span>{{ movie.id }} </span>
-      <span>{{ movie.title }}</span>
+    <div class="movies">
+      <div class="movie-item" *ngFor="let movie of movies">
+        <div>{{ movie.title }}</div>
+      </div>
     </div>
   </div>
-</section>
 
   <section class="create-movie">
     <form [formGroup]="createMovieForm" (ngSubmit)="onSubmit(createMovieForm.value)">

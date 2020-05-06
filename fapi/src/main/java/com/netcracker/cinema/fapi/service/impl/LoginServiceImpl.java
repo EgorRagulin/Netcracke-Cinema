@@ -1,6 +1,8 @@
 package com.netcracker.cinema.fapi.service.impl;
 
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullLoginDTO;
 import com.netcracker.cinema.fapi.model.Login;
+import com.netcracker.cinema.fapi.model.User;
 import com.netcracker.cinema.fapi.service.LoginService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,38 +14,42 @@ import java.util.List;
 
 @Service
 public class LoginServiceImpl implements LoginService {
-    @Value("${backend.server.url}")
-    private String backendServerUrl;
+    private String rootPath = "http://localhost:8080/api/logins";
 
     @Override
-    public List<Login> findAllLogin() {
+    public List<Login> findAll() {
         RestTemplate restTemplate = new RestTemplate();
-        Login[] loginResponse = restTemplate.getForObject(backendServerUrl + "/api/logins/", Login[].class);
+        Login[] loginResponse = restTemplate.getForObject(rootPath, Login[].class);
         return loginResponse == null ? Collections.emptyList() : Arrays.asList(loginResponse);
     }
 
     @Override
-    public List<Login> findAllLoginByUserName(String userName) {
+    public Login findById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        Login[] cinemasResponse = restTemplate.getForObject(backendServerUrl + "/api/logins/" + userName, Login[].class);
-        return cinemasResponse == null ? Collections.emptyList() : Arrays.asList(cinemasResponse);
+        return restTemplate.getForObject(rootPath + "/?id=" + id, Login.class);
     }
 
     @Override
-    public Login findLoginById(Long id) {
+    public FullLoginDTO save(FullLoginDTO fullLoginDTO) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(backendServerUrl + "/api/logins/id=" + id, Login.class);
+        return restTemplate.postForEntity(rootPath, fullLoginDTO, FullLoginDTO.class).getBody();
     }
 
     @Override
-    public Login setLogin(Login login) {
+    public void deleteById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity(backendServerUrl + "/api/logins/", login, Login.class).getBody();
+        restTemplate.delete(rootPath + "/?id=" + id);
     }
 
     @Override
-    public void deleteLoginById(Long id) {
+    public FullLoginDTO findFullById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.delete(backendServerUrl + "/api/logins/id=" + id);
+        return restTemplate.getForObject(rootPath + "/full/?id=" + id, FullLoginDTO.class);
+    }
+
+    @Override
+    public User findUserByLoginId(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(rootPath + "/user/?id=" + id, User.class);
     }
 }

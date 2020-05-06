@@ -1,7 +1,5 @@
 <div class="container">
-
-  <div *ngIf="!loading">
-
+  <div class="page">
     <h2>Movies</h2>
 
     <div class="movies">
@@ -11,7 +9,7 @@
           <img [src]="'data:image/jpeg;base64,' + movie.picture" height="300">
         </div>
 
-        <a [routerLink]="[movie.id]" color="accent" mat-flat-button>
+        <a [routerLink]="movie.id" color="accent" mat-flat-button>
           <div class="title">{{movie.title}}</div>
         </a>
 
@@ -25,19 +23,15 @@
     </div>
 
     <app-paginator
+      *ngIf="this.paginator"
       [elementsName]="'Фильмов'"
-      [paging]="this.paging"
+      [paginator]="this.paginator"
       [showBobblesPaginator]="true"
       (changePageNumberEvent)="updatePageNumber($event)"
       (changePageSizeEvent)="updatePageSize($event)"
     ></app-paginator>
-
   </div>
 
-  <div *ngIf="loading">
-
-    <app-loading-page></app-loading-page>
-
-  </div>
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
 
 </div>

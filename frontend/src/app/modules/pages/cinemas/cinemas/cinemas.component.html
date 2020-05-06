@@ -1,15 +1,18 @@
 <div class="container">
-
-  <div *ngIf="cinemas">
+  <div class="page">
 
     <h2>Cinemas</h2>
 
     <div class="cinemas">
       <div class="cinema" *ngFor="let cinema of cinemas">
 
-        <div class="name">Cinema Name: {{cinema.name}}</div>
+        <div class="name">
+          Cinema Name: {{cinema.name}}
+        </div>
 
-        <div class="address">Address: {{cinema.address}}</div>
+        <div class="address">
+          Address: {{cinema.address}}
+        </div>
 
         <div class="picture">
           <img [src]="'data:image/jpeg;base64,' + cinema.picture" height="300">
@@ -26,10 +29,6 @@
 
   </div>
 
-  <div *ngIf="!cinemas">
-
-    <app-loading-page></app-loading-page>
-
-  </div>
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
 
 </div>

@@ -1,30 +1,35 @@
 <div class="container">
+  <div class="page" *ngIf="user">
 
-  <div *ngIf="soldPlaces">
     <div class="rows">
       <div *ngFor="let row of rows" class="row">
-
-        row: {{row}}
-        <app-row [rowNumber]="row"
-                 [placeInRow]="placesInRow"
-                 [soldPlacesInRow]="soldPlaces[row-1]"
-                 [_session]="session"
-                 (buyTicketEvent)="selectTicket($event)"
+        row: {{row.rowNumber}}
+        <app-row [row]="row"
+                 (selectRowEvent)="selectTicket($event)"
+                 (unSelectRowEvent)="unSelectTicket($event)"
         ></app-row>
-
       </div>
 
-      <button color="accent" mat-flat-button (click)="buyTickets()" class="btn">
+      <button color="accent" mat-flat-button (click)="buySelectedTickets()" class="btn">
         Купить Билеты
       </button>
-
     </div>
+
+    <div class="reserved-places" *ngIf="true">
+      <strong>Забронированные места:</strong>
+      <span *ngFor="let ticket of selectedFullTickets">
+      {{' place: ' + ticket.placeNumber + ' row: ' + ticket.rowNumber + ' |'}}
+    </span>
+    </div>
+
+    <div class="bought-places" *ngIf="true">
+      <strong>Купленные места:</strong>
+      <span *ngFor="let ticket of boughtFullTickets">
+      {{' place: ' + ticket.placeNumber + ' row: ' + ticket.rowNumber + ' |'}}
+    </span>
+    </div>
+
   </div>
 
-  <div *ngIf="!soldPlaces">
-
-    <app-loading-page></app-loading-page>
-
-  </div>
-
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
 </div>

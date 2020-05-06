@@ -11,7 +11,8 @@ public class Ticket {
     private Long id;
     private int rowNumber;
     private int placeNumber;
-    private int cost;
+    private boolean isSold;
+    private double cost;
     private Session session;
     private User user;
 
@@ -47,12 +48,22 @@ public class Ticket {
     }
 
     @Basic
+    @Column(name = "is_sold")
+    public boolean getIsSold() {
+        return isSold;
+    }
+
+    public void setIsSold(boolean isSold) {
+        this.isSold = isSold;
+    }
+
+    @Basic
     @Column(name = "cost")
-    public int getCost() {
+    public double getCost() {
         return cost;
     }
 
-    public void setCost(int cost) {
+    public void setCost(double cost) {
         this.cost = cost;
     }
 

@@ -1,20 +1,17 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-bubbles-paginator',
   templateUrl: './bubbles-paginator.component.html',
   styleUrls: ['./bubbles-paginator.component.css']
 })
-export class BubblesPaginatorComponent implements OnInit {
+export class BubblesPaginatorComponent {
   @Input() pageNumber: number;
   @Input() totalPages: number;
   @Input() pageRange: number = 2;
   @Output() pageChangeEvent = new EventEmitter;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   public updatePage(pageNumber: number) {
     this.pageChangeEvent.emit(pageNumber);

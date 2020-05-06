@@ -1,19 +1,10 @@
 package com.netcracker.cinema.fapi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import java.util.List;
-
 public class User {
     private Long id;
     private String firstName;
     private String secondName;
     private String role;
-    private Login login;
-    @JsonIgnore
-    private Wallet Wallet;
-    @JsonIgnore
-    private List<Ticket> tickets;
 
     public Long getId() {
         return id;
@@ -45,29 +36,5 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    public Login getLogin() {
-        return login;
-    }
-
-    public void setLogin(Login login) {
-        this.login = login;
-    }
-
-    public Wallet getWallet() {
-        return Wallet;
-    }
-
-    public void setWallet(Wallet wallet) {
-        Wallet = wallet;
-    }
-
-    public List<Ticket> getTickets() {
-        return tickets;
-    }
-
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
     }
 }

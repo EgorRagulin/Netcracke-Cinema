@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Session} from "../../models/Session";
-import {Ticket} from "../../models/Ticket";
+import {FullTicket} from "../../models/FullModel/FullTicket";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionsService {
-  private rootPath = 'api/sessions/';
+  private rootPath = 'api/sessions';
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +20,7 @@ export class SessionsService {
     return this.http.get<Session>(this.rootPath + '/?id=' + id);
   }
 
-  public getTickets(id: number): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(this.rootPath + 'tickets/?id=' + id );
+  public getFullTickets(id: number): Observable<FullTicket[]> {
+    return this.http.get<FullTicket[]>(this.rootPath + '/fullTickets/?id=' + id );
   }
 }

@@ -1,6 +1,8 @@
 package com.netcracker.cinema.fapi.controller;
 
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullCinemaDTO;
 import com.netcracker.cinema.fapi.model.Cinema;
+import com.netcracker.cinema.fapi.model.Hall;
 import com.netcracker.cinema.fapi.service.CinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,33 +15,34 @@ public class CinemaController {
     @Autowired
     private CinemaService cinemaService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<Cinema> getAllCinema() {
-        return cinemaService.findAllCinema();
+    @GetMapping
+    public List<Cinema> findAllCinemas() {
+        return cinemaService.findAll();
     }
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public List<Cinema> getCinemaByCinemaName(@PathVariable(name = "name") String cinemaName) {
-        return cinemaService.findAllCinemaByCinemaName(cinemaName);
+    @GetMapping(params = {"id"})
+    public Cinema findCinemaById(@RequestParam Long id) {
+        return cinemaService.findById(id);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Cinema getCinemaById(@PathVariable(name = "id") Long id) {
-        return cinemaService.findCinemaById(id);
+    @PostMapping
+    public Cinema saveCinema(@RequestBody Cinema cinema) {
+        return cinemaService.save(cinema);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public Cinema setCinema(@RequestBody Cinema cinema) {
-        return cinemaService.setCinema(cinema);
+    @DeleteMapping(params = {"id"})
+    public void deleteCinemaById(@RequestParam Long id) {
+        cinemaService.deleteById(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.DELETE)
-    public void deleteCinema(@RequestBody Cinema cinema) {
-        cinemaService.deleteCinema(cinema);
+
+    @GetMapping(params = {"id"}, path = {"/full"})
+    public FullCinemaDTO findFullCinemaById(@RequestParam Long id) {
+        return cinemaService.findFullById(id);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteCinemaById(@PathVariable(name = "id") Long id) {
-        cinemaService.deleteCinemaById(id);
+    @GetMapping(params = {"id"}, path = {"/halls"})
+    public List<Hall> findHallsByCinemaId(@RequestParam Long id) {
+        return cinemaService.findHallsByCinemaId(id);
     }
 }

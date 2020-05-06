@@ -1,9 +1,8 @@
 package com.netcracker.cinema.fapi.service.impl;
 
-import com.netcracker.cinema.fapi.model.User;
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullWalletDTO;
 import com.netcracker.cinema.fapi.model.Wallet;
 import com.netcracker.cinema.fapi.service.WalletService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,36 +12,36 @@ import java.util.List;
 
 @Service
 public class WalletServiceImpl implements WalletService {
-    @Value("${backend.server.url}")
-    private String backendServerUrl;
-
+    private String rootPath = "http://localhost:8080/api/wallets";
+    
     @Override
-    public List<Wallet> findAllWallet() {
+    public List<Wallet> findAll() {
         RestTemplate restTemplate = new RestTemplate();
-        Wallet[] walletsResponse = restTemplate.getForObject(backendServerUrl + "/api/wallets/", Wallet[].class);
+        Wallet[] walletsResponse = restTemplate.getForObject(rootPath, Wallet[].class);
         return walletsResponse == null ? Collections.emptyList() : Arrays.asList(walletsResponse);
     }
 
     @Override
-    public Wallet findWalletByUser(User user) {
-        return null;
+    public Wallet findById(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(rootPath + "/?id=" + id, Wallet.class);
     }
 
     @Override
-    public Wallet findWalletById(Long id) {
+    public FullWalletDTO save(FullWalletDTO fullWalletDTO) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(backendServerUrl + "/api/wallets/id=" + id, Wallet.class);
+        return restTemplate.postForEntity(rootPath, fullWalletDTO, FullWalletDTO.class).getBody();
     }
 
     @Override
-    public Wallet setWallet(Wallet wallet) {
+    public void deleteById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity(backendServerUrl + "/api/wallets/", wallet, Wallet.class).getBody();
+        restTemplate.delete(rootPath + "/?id=" + id);
     }
 
     @Override
-    public void deleteWalletById(Long id) {
+    public FullWalletDTO findFullById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.delete(backendServerUrl + "/api/wallets/id=" + id);
+        return restTemplate.getForObject(rootPath + "/full/?id=" + id, FullWalletDTO.class);
     }
 }

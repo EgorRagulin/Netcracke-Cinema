@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Wallet {
     private Long id;
     private String name;
-    private String balance;
+    private double balance;
     private User user;
 
     @Id
@@ -37,11 +37,11 @@ public class Wallet {
 
     @Basic
     @Column(name = "balance")
-    public String getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 

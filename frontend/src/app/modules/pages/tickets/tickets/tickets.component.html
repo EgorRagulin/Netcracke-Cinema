@@ -1,24 +1,30 @@
 <div class="container">
-
-  <div *ngIf="tickets">
+  <div class="page">
 
     <h2>Билеты</h2>
 
     <div class="tickets">
       <div class="ticket" *ngFor="let ticket of tickets">
 
-        <div class="row">{{ticket.rowNumber}} Ряд</div>
-        <div class="place">{{ticket.placeNumber}} Место</div>
+        <div class="row">
+          {{ticket.rowNumber}} Ряд
+        </div>
+
+        <div class="place">
+          {{ticket.placeNumber}} Место
+        </div>
+
+        <div class="btn">
+          <a [routerLink]="''" color="accent" mat-flat-button>
+            Подробнее
+          </a>
+        </div>
 
       </div>
     </div>
 
   </div>
 
-  <div *ngIf="!tickets">
-
-    <app-loading-page></app-loading-page>
-
-  </div>
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
 
 </div>

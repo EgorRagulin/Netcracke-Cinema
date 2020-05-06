@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {Cinema} from "../../../../models/Cinema";
 import {CinemasService} from "../../../../services/cinemas/cinemas.service";
+import {LoadingService} from "../../../../services/loading/loading.service";
 
 @Component({
   selector: 'app-cinemas',
@@ -11,8 +12,10 @@ import {CinemasService} from "../../../../services/cinemas/cinemas.service";
 export class CinemasComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
   public cinemas: Cinema[];
+  public isLoading: boolean;
 
-  constructor(private cinemasService: CinemasService) { }
+  constructor(private cinemasService: CinemasService,
+              private loadingService: LoadingService) { }
 
   ngOnInit(): void {
     this.getCinemas();
@@ -23,7 +26,12 @@ export class CinemasComponent implements OnInit, OnDestroy {
   }
 
   private getCinemas(): void {
+    this.isLoading = this.loadingService.changeLoadingStatus(true);
+
     this._subscriptions.push(this.cinemasService.getCinemas()
-      .subscribe(cinemas => this.cinemas = cinemas));
+      .subscribe(cinemas => {
+        this.cinemas = cinemas;
+        this.isLoading = this.loadingService.changeLoadingStatus(false);
+      }));
   }
 }

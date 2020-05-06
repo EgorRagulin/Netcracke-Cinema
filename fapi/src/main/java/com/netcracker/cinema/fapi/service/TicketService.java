@@ -1,18 +1,22 @@
 package com.netcracker.cinema.fapi.service;
 
+
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullTicketDTO;
+import com.netcracker.cinema.fapi.DTO.PageDTO;
 import com.netcracker.cinema.fapi.model.Ticket;
-import com.netcracker.cinema.fapi.model.User;
 
 import java.util.List;
 
 public interface TicketService {
-    List<Ticket> findAllTicket();
+    List<Ticket> findAll();
 
-    List<Ticket> findAllTicketByUser(User user);
+    Ticket findById(Long id);
 
-    Ticket findTicketById(Long id);
+    FullTicketDTO save(FullTicketDTO fullTicketDTO);
 
-    Ticket setTicket(Ticket ticket);
+    void deleteById(Long id);
 
-    void deleteTicketById(Long id);
+    FullTicketDTO findFullById(Long id);
+
+    PageDTO<FullTicketDTO> findPage(int pageNumber, int pageSize);
 }

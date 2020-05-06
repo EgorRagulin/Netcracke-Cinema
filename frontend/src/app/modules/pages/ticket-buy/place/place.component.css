@@ -2,3 +2,8 @@
 {
   color: #000;
 }
+button
+{
+  width: 50px;
+  text-align: center;
+}

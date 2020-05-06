@@ -1,17 +1,22 @@
 <div class="container">
-
-  <div *ngIf="sessions">
+  <div class="page">
 
     <h2>Sessions</h2>
 
     <div class="sessions">
       <div class="session" *ngFor="let session of sessions">
 
-        <div class="date">date: {{session.date}}</div>
+        <div class="date">
+          date: {{session.date}}
+        </div>
 
-        <div class="time">time: {{session.time}}</div>
+        <div class="time">
+          time: {{session.time}}
+        </div>
 
-        <div class="mode">mode: {{session.mode}}</div>
+        <div class="mode">
+          mode: {{session.mode}}
+        </div>
 
         <a [routerLink]="['/sessions/' + session.id + '/buyticket']" color="accent" mat-flat-button>
           Купить Билет
@@ -19,13 +24,8 @@
 
       </div>
     </div>
-
   </div>
 
-  <div *ngIf="!sessions">
-
-    <app-loading-page></app-loading-page>
-
-  </div>
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
 
 </div>

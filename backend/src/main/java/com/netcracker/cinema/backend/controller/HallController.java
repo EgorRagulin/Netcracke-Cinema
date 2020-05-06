@@ -1,6 +1,6 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.entity.Cinema;
+import com.netcracker.cinema.backend.DTO.FullDTO.FullHallDTO;
 import com.netcracker.cinema.backend.entity.Hall;
 import com.netcracker.cinema.backend.entity.Session;
 import com.netcracker.cinema.backend.service.HallService;
@@ -16,27 +16,37 @@ public class HallController {
     private HallService hallService;
 
     @GetMapping
-    public List<Hall> getAllHall() {
+    public List<Hall> findAllHall() {
         return hallService.findAll();
     }
 
     @GetMapping(params = {"id"})
-    public Hall getHallById(@RequestParam Long id) {
+    public Hall findHallById(@RequestParam Long id) {
         return hallService.findById(id).get();
     }
 
-    @GetMapping(params = {"id"}, path = {"/sessions/"})
-    public List<Session> getSessionByHallId(@RequestParam Long id) {
-        return hallService.findById(id).get().getSessions();
-    }
-
     @PostMapping
-    public Hall setHall(@RequestBody Hall hall) {
-        return hallService.save(hall);
+    public FullHallDTO saveHall(@RequestBody Hall hall) {
+        Hall saveHall = hallService.save(hall);
+        FullHallDTO fullHallDTO = new FullHallDTO(saveHall);
+        return fullHallDTO;
     }
 
     @DeleteMapping(params = {"id"})
     public void deleteHallById(@RequestParam Long id) {
         hallService.deleteById(id);
+    }
+
+
+    @GetMapping(params = {"id"}, path = {"/full"})
+    public FullHallDTO findFullHallById(@RequestParam Long id) {
+        Hall hall = hallService.findById(id).get();
+        FullHallDTO fullHallDTO = new FullHallDTO(hall);
+        return fullHallDTO;
+    }
+
+    @GetMapping(params = {"id"}, path = {"/sessions"})
+    public List<Session> findSessionByHallId(@RequestParam Long id) {
+        return hallService.findById(id).get().getSessions();
     }
 }

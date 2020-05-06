@@ -11,27 +11,27 @@
     </mat-select>
 
     <span>
-      {{((paging.pageNumber - 1)  * pageSize) + 1}} -
-      <span *ngIf="isLastPage()">{{paging.totalElements}}</span>
-      <span *ngIf="!isLastPage()">{{paging.pageNumber * pageSize}}</span>
-      из {{paging.totalElements}}
+      {{((paginator.pageNumber - 1)  * pageSize) + 1}} -
+      <span *ngIf="isLastPage()">{{paginator.totalElements}}</span>
+      <span *ngIf="!isLastPage()">{{paginator.pageNumber * pageSize}}</span>
+      из {{paginator.totalElements}}
     </span>
 
     <span class="btn">
-    <span *ngIf="paging.pageNumber <= 1">
+    <span *ngIf="paginator.pageNumber <= 1">
       <button class="first btn-off" mat-flat-button><<<</button>
       <button class="previous btn-off" mat-flat-button><</button>
     </span>
-    <span *ngIf="paging.pageNumber > 1">
+    <span *ngIf="paginator.pageNumber > 1">
       <button class="first" mat-flat-button (click)="showFirstPage()"><<<</button>
       <button class="previous" mat-flat-button (click)="showPreviousPage()"><</button>
     </span>
 
-    <span *ngIf="paging.pageNumber < paging.totalPages">
+    <span *ngIf="paginator.pageNumber < paginator.totalPages">
       <button class="next" mat-flat-button (click)="showNextPage()">></button>
       <button class="last" mat-flat-button (click)="showLastPage()">>>></button>
     </span>
-    <span *ngIf="paging.pageNumber >= paging.totalPages">
+    <span *ngIf="paginator.pageNumber >= paginator.totalPages">
       <button class="next btn-off" mat-flat-button>></button>
       <button class="last btn-off" mat-flat-button>>>></button>
     </span>
@@ -39,8 +39,8 @@
 
   <div *ngIf="showBobblesPaginator">
     <app-bubbles-paginator
-      [pageNumber]="paging.pageNumber"
-      [totalPages]="paging.totalPages"
+      [pageNumber]="paginator.pageNumber"
+      [totalPages]="paginator.totalPages"
       [pageRange]="2"
       (pageChangeEvent)="showPage($event)"
     ></app-bubbles-paginator>

@@ -1,6 +1,8 @@
 package com.netcracker.cinema.fapi.service.impl;
 
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullHallDTO;
 import com.netcracker.cinema.fapi.model.Hall;
+import com.netcracker.cinema.fapi.model.Session;
 import com.netcracker.cinema.fapi.service.HallService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,38 +14,43 @@ import java.util.List;
 
 @Service
 public class HallServiceImpl implements HallService {
-    @Value("${backend.server.url}")
-    private String backendServerUrl;
+    private String rootPath = "http://localhost:8080/api/halls";
 
     @Override
-    public List<Hall> findAllHall() {
+    public List<Hall> findAll() {
         RestTemplate restTemplate = new RestTemplate();
-        Hall[] hallsResponse = restTemplate.getForObject(backendServerUrl + "/api/halls/", Hall[].class);
+        Hall[] hallsResponse = restTemplate.getForObject(rootPath, Hall[].class);
         return hallsResponse == null ? Collections.emptyList() : Arrays.asList(hallsResponse);
     }
 
     @Override
-    public List<Hall> findAllHallByHallNumber(int hallNumber) {
+    public Hall findById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        Hall[] hallsResponse = restTemplate.getForObject(backendServerUrl + "/api/halls/" + hallNumber, Hall[].class);
+        return restTemplate.getForObject(rootPath  + "/?id=" + id, Hall.class);
+    }
+
+    @Override
+    public FullHallDTO save(FullHallDTO fullHallDTO) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.postForEntity(rootPath, fullHallDTO, FullHallDTO.class).getBody();
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.delete(rootPath + "/?id=" + id);
+    }
+
+    @Override
+    public FullHallDTO findFullById(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(rootPath  + "/full/?id=" + id, FullHallDTO.class);
+    }
+
+    @Override
+    public List<Session> findSessionsByHallId(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        Session[] hallsResponse = restTemplate.getForObject(rootPath + "/sessions/?id=" + id, Session[].class);
         return hallsResponse == null ? Collections.emptyList() : Arrays.asList(hallsResponse);
-    }
-
-    @Override
-    public Hall findHallById(Long id) {
-        RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(backendServerUrl + "/api/halls/id=" + id, Hall.class);
-    }
-
-    @Override
-    public Hall setHall(Hall hall) {
-        RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity(backendServerUrl + "/api/cinemas/", hall, Hall.class).getBody();
-    }
-
-    @Override
-    public void deleteHallById(Long id) {
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.delete(backendServerUrl + "/api/halls/id=" + id);
     }
 }

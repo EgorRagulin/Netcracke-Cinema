@@ -1,6 +1,8 @@
 package com.netcracker.cinema.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.netcracker.cinema.backend.enums.MovieGenre;
 
 import javax.persistence.*;
 import java.sql.Time;
@@ -99,7 +101,4 @@ public class Movie {
     public void setSessions(List<Session> sessions) {
         this.sessions = sessions;
     }
-
-    //Custom Construtor
-    public Movie() {}
 }

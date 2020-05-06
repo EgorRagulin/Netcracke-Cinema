@@ -1,18 +1,18 @@
 package com.netcracker.cinema.fapi.service;
 
-import com.netcracker.cinema.fapi.model.User;
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullWalletDTO;
 import com.netcracker.cinema.fapi.model.Wallet;
 
 import java.util.List;
 
 public interface WalletService {
-    List<Wallet> findAllWallet();
+    List<Wallet> findAll();
 
-    Wallet findWalletByUser(User user);
+    Wallet findById(Long id);
 
-    Wallet findWalletById(Long id);
+    FullWalletDTO save(FullWalletDTO fullWalletDTO);
 
-    Wallet setWallet(Wallet wallet);
+    void deleteById(Long id);
 
-    void deleteWalletById(Long id);
+    FullWalletDTO findFullById(Long id);
 }

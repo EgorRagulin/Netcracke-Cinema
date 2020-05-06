@@ -2,7 +2,9 @@
 
   <div *ngIf="hall" class="hall">
 
-    <div class="hallNumber">{{hall.hallNumber}} Зал</div>
+    <div class="hallNumber">
+      {{hall.hallNumber}} Зал
+    </div>
 
     <div class="btn">
       <a [routerLink]="['sessions']" color="accent" mat-flat-button>
@@ -12,9 +14,6 @@
 
   </div>
 
-  <div *ngIf="!hall">
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
 
-    <app-loading-page></app-loading-page>
-
-  </div>
 </div>

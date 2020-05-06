@@ -1,15 +1,11 @@
 package com.netcracker.cinema.fapi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.List;
 
 public class Cinema {
     private Long id;
-    private String cinemaName;
+    private String name;
     private String address;
-    private String cinemaPicture;
-    @JsonIgnore
-    private List<Hall> halls;
+    private byte[] picture;
 
     public Long getId() {
         return id;
@@ -19,12 +15,12 @@ public class Cinema {
         this.id = id;
     }
 
-    public String getCinemaName() {
-        return cinemaName;
+    public String getName() {
+        return name;
     }
 
-    public void setCinemaName(String cinemaName) {
-        this.cinemaName = cinemaName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
@@ -35,19 +31,11 @@ public class Cinema {
         this.address = address;
     }
 
-    public String getCinemaPicture() {
-        return cinemaPicture;
+    public byte[] getPicture() {
+        return picture;
     }
 
-    public void setCinemaPicture(String cinemaPicture) {
-        this.cinemaPicture = cinemaPicture;
-    }
-
-    public List<Hall> getHalls() {
-        return halls;
-    }
-
-    public void setHalls(List<Hall> halls) {
-        this.halls = halls;
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
     }
 }

@@ -85,8 +85,8 @@ export class MovieCreateComponent implements OnInit, OnDestroy {
 
   // load movies from beck
   private getMovies(pageNumber: number, pageSize: number): void {
-    this._subscriptions.push(this.moviesService.getMovies(pageNumber, pageSize)
-      .subscribe(movies => this.movies = movies)
+    this._subscriptions.push(this.moviesService.getPage(pageNumber, pageSize)
+      .subscribe(res => console.log(res))
     );
   }
 }

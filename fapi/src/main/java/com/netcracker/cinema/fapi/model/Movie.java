@@ -1,20 +1,16 @@
 package com.netcracker.cinema.fapi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.sql.Time;
 import java.util.List;
 
 public class Movie {
     private Long id;
     private String title;
-    private String picture;
-    private String descriptions;
+    private byte[] picture;
+    private String description;
     private int ageLimit;
     private Time duration;
-    private String categories;
-    @JsonIgnore
-    private List<Session> sessions;
+    private List<String> genres;
 
     public Long getId() {
         return id;
@@ -32,20 +28,20 @@ public class Movie {
         this.title = title;
     }
 
-    public String getPicture() {
+    public byte[] getPicture() {
         return picture;
     }
 
-    public void setPicture(String picture) {
+    public void setPicture(byte[] picture) {
         this.picture = picture;
     }
 
-    public String getDescriptions() {
-        return descriptions;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptions(String descriptions) {
-        this.descriptions = descriptions;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getAgeLimit() {
@@ -64,19 +60,11 @@ public class Movie {
         this.duration = duration;
     }
 
-    public String getCategories() {
-        return categories;
+    public List<String> getGenres() {
+        return genres;
     }
 
-    public void setCategories(String categories) {
-        this.categories = categories;
-    }
-
-    public List<Session> getSessions() {
-        return sessions;
-    }
-
-    public void setSessions(List<Session> sessions) {
-        this.sessions = sessions;
+    public void setGenres(List<String> genres) {
+        this.genres = genres;
     }
 }

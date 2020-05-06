@@ -1,13 +1,9 @@
 package com.netcracker.cinema.fapi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public class Wallet {
     private Long id;
     private String name;
-    private String balance;
-    @JsonIgnore
-    private User user;
+    private double balance;
 
     public Long getId() {
         return id;
@@ -25,19 +21,11 @@ public class Wallet {
         this.name = name;
     }
 
-    public String getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

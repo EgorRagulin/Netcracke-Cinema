@@ -5,6 +5,7 @@ import {Subscription} from "rxjs";
 import {Session} from "../../../../models/Session";
 import {HallsService} from "../../../../services/halls/halls.service";
 import {SessionsService} from "../../../../services/sessions/sessions.service";
+import {LoadingService} from "../../../../services/loading/loading.service";
 
 @Component({
   selector: 'app-sessions',
@@ -14,10 +15,12 @@ import {SessionsService} from "../../../../services/sessions/sessions.service";
 export class SessionsComponent implements OnInit, OnDestroy {
   public sessions: Session[];
   private _subscriptions: Subscription[] = [];
+  public isLoading: boolean;
 
   constructor(private moviesService: MoviesService,
               private hallsService: HallsService,
               private sessionsService: SessionsService,
+              private loadingService: LoadingService,
               private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -33,17 +36,32 @@ export class SessionsComponent implements OnInit, OnDestroy {
   }
 
   private getSessionsByMovie(id: number): void {
+    this.isLoading = this.loadingService.changeLoadingStatus(true);
+
     this._subscriptions.push(this.moviesService.getMovieSessions(id)
-      .subscribe(sessions => this.sessions = sessions));
+      .subscribe(sessions => {
+        this.sessions = sessions;
+        this.isLoading = this.loadingService.changeLoadingStatus(false);
+      }));
   }
 
   private getSessionsByHall(id: number): void {
+    this.isLoading = this.loadingService.changeLoadingStatus(true);
+
     this._subscriptions.push(this.hallsService.getSessions(id)
-      .subscribe(sessions => this.sessions = sessions));
+      .subscribe(sessions => {
+        this.sessions = sessions;
+        this.isLoading = this.loadingService.changeLoadingStatus(false);
+      }));
   }
 
   private getSessions() {
+    this.isLoading = this.loadingService.changeLoadingStatus(true);
+
     this._subscriptions.push(this.sessionsService.getSessions()
-      .subscribe(sessions => this.sessions = sessions));
+      .subscribe(sessions => {
+        this.sessions = sessions;
+        this.isLoading = this.loadingService.changeLoadingStatus(false);
+      }));
   }
 }

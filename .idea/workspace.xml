@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="70077eb3-9b3b-46fe-b196-877bebf501fe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/controller/WalletController.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/controller/WalletController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/repository/LoginRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/repository/LoginRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/repository/WalletRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/repository/WalletRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/WalletService.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/WalletService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/impl/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/impl/LoginServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/impl/WalletServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/target/classes/com/netcracker/cinema/backend/service/impl/WalletServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +46,7 @@
       <workItem from="1585778470060" duration="140000" />
       <workItem from="1585918991527" duration="71000" />
       <workItem from="1586202738439" duration="31000" />
+      <workItem from="1588256978187" duration="131000" />
     </task>
     <servers />
   </component>
@@ -45,10 +54,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="494" y="139" key="FileChooserDialogImpl" timestamp="1586202767117">
+    <state x="494" y="139" key="FileChooserDialogImpl" timestamp="1588257108101">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="494" y="139" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1586202767117" />
+    <state x="494" y="139" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1588257108101" />
     <state x="409" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1585778481698">
       <screen x="62" y="0" width="1304" height="768" />
     </state>

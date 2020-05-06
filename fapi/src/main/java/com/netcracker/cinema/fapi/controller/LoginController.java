@@ -1,7 +1,8 @@
 package com.netcracker.cinema.fapi.controller;
 
-
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullLoginDTO;
 import com.netcracker.cinema.fapi.model.Login;
+import com.netcracker.cinema.fapi.model.User;
 import com.netcracker.cinema.fapi.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,33 +15,34 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<Login> getAllLogin() {
-        return loginService.findAllLogin();
+    @GetMapping
+    public List<Login> findAllLogins() {
+        return loginService.findAll();
     }
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public List<Login> getLoginByUsername(@PathVariable(name = "name") String userName) {
-        return loginService.findAllLoginByUserName(userName);
+    @GetMapping(params = {"id"})
+    public Login findLoginById(@RequestParam Long id) {
+        return loginService.findById(id);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Login getLoginById(@PathVariable(name = "id") Long id) {
-        return loginService.findLoginById(id);
+    @PostMapping
+    public FullLoginDTO saveLogin(@RequestBody FullLoginDTO fullLoginDTO) {
+        return loginService.save(fullLoginDTO);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public Login setLogin(@RequestBody Login login) {
-        return loginService.setLogin(login);
+    @DeleteMapping(params = {"id"})
+    public void deleteLoginById(@RequestParam Long id) {
+        loginService.deleteById(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.DELETE)
-    public void deleteLogin(@RequestBody Login login) {
-        loginService.deleteLogin(login);
+
+    @GetMapping(params = {"id"}, path = {"/full"})
+    public FullLoginDTO findFullLoginById(@RequestParam Long id) {
+        return loginService.findFullById(id);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteLoginById(@PathVariable(name = "id") Long id) {
-        loginService.deleteLoginById(id);
+    @GetMapping(params = {"id"}, path = {"/user"})
+    public User findUserLoginById(@RequestParam Long id) {
+        return loginService.findUserByLoginId(id);
     }
 }

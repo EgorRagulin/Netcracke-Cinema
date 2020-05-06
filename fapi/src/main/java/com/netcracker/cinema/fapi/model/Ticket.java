@@ -1,16 +1,11 @@
 package com.netcracker.cinema.fapi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public class Ticket {
     private Long id;
-    private int placeNumber;
     private int rowNumber;
+    private int placeNumber;
+    private boolean isSold;
     private double cost;
-    @JsonIgnore
-    private Session session;
-    @JsonIgnore
-    private User user;
 
     public Long getId() {
         return id;
@@ -18,14 +13,6 @@ public class Ticket {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public int getPlaceNumber() {
-        return placeNumber;
-    }
-
-    public void setPlaceNumber(int placeNumber) {
-        this.placeNumber = placeNumber;
     }
 
     public int getRowNumber() {
@@ -36,27 +23,27 @@ public class Ticket {
         this.rowNumber = rowNumber;
     }
 
+    public int getPlaceNumber() {
+        return placeNumber;
+    }
+
+    public void setPlaceNumber(int placeNumber) {
+        this.placeNumber = placeNumber;
+    }
+
+    public boolean getIsSold() {
+        return isSold;
+    }
+
+    public void setIsSold(boolean isSold) {
+        this.isSold = isSold;
+    }
+
     public double getCost() {
         return cost;
     }
 
     public void setCost(double cost) {
         this.cost = cost;
-    }
-
-    public Session getSession() {
-        return session;
-    }
-
-    public void setSession(Session session) {
-        this.session = session;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

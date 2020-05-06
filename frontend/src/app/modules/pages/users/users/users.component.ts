@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {User} from "../../../../models/User";
 import {UsersService} from "../../../../services/users/users.service";
+import {LoadingService} from "../../../../services/loading/loading.service";
 
 @Component({
   selector: 'app-users',
@@ -9,10 +10,12 @@ import {UsersService} from "../../../../services/users/users.service";
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit, OnDestroy {
-  public users: User[];
   private _subscriptions: Subscription[] = [];
+  public users: User[];
+  public isLoading: boolean;
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService,
+              private loadingService: LoadingService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -23,7 +26,12 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   private getUsers() {
+    this.isLoading = this.loadingService.changeLoadingStatus(true);
+
     this._subscriptions.push(this.usersService.getUsers()
-      .subscribe(users => this.users = users));
+      .subscribe(users => {
+        this.users = users;
+        this.isLoading = this.loadingService.changeLoadingStatus(false);
+      }));
   }
 }

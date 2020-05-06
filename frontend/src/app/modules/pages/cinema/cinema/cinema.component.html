@@ -1,16 +1,18 @@
 <div class="container">
+  <div class="page">
+    <div class="cinema" *ngIf="cinema">
 
-  <div *ngIf="cinema">
-
-    <div class="cinema">
-
-      <div class="name"><h2>{{cinema.name}}</h2></div>
+      <div class="name">
+        <h2>{{cinema.name}}</h2>
+      </div>
 
       <div class="picture">
         <img [src]="'data:image/jpeg;base64,' + cinema.picture" height="450">
       </div>
 
-      <div class="address">Адресс: {{cinema.address}}</div>
+      <div class="address">
+        Адресс: {{cinema.address}}
+      </div>
 
       <div class="btn">
         <a [routerLink]="['halls']" color="accent" mat-flat-button>
@@ -19,12 +21,8 @@
       </div>
 
     </div>
-
   </div>
 
-  <div *ngIf="!cinema">
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
 
-    <app-loading-page></app-loading-page>
-
-  </div>
 </div>

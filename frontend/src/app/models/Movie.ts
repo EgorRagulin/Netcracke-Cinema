@@ -5,5 +5,5 @@ export interface Movie {
   description: string;
   ageLimit: number;
   duration: string;
-  genres: string | string[];
+  genres: string[];
 }

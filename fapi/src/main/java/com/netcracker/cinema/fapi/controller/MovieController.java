@@ -1,6 +1,9 @@
 package com.netcracker.cinema.fapi.controller;
 
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullMovieDTO;
+import com.netcracker.cinema.fapi.DTO.PageDTO;
 import com.netcracker.cinema.fapi.model.Movie;
+import com.netcracker.cinema.fapi.model.Session;
 import com.netcracker.cinema.fapi.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,33 +16,34 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<Movie> getAllMovie() {
-        return movieService.findAllMovie();
+    @GetMapping
+    public List<Movie> findAllMovies() {
+        return movieService.findAll();
     }
 
-    @RequestMapping(value = "/{title}", method = RequestMethod.GET)
-    public List<Movie>  getMovieByTitle(@PathVariable(name = "title") String title) {
-        return movieService.findMovieByTitle(title);
+    @GetMapping(params = {"id"})
+    public Movie findMovieById(@RequestParam Long id) {
+        return movieService.findById(id);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Movie getMovieById(@PathVariable(name = "id") Long id) {
-        return movieService.findMovieById(id);
+    @PostMapping
+    public Movie saveMovie(@RequestBody Movie movie) {
+        return movieService.save(movie);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public Movie setMovie(@RequestBody Movie movie) {
-        return movieService.setMovie(movie);
+    @DeleteMapping(params = {"id"})
+    public void deleteMovieById(@RequestParam Long id) {
+        movieService.deleteById(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.DELETE)
-    public void deleteMovie(@RequestBody Movie movie) {
-        movieService.deleteMovie(movie);
+
+    @GetMapping(params = {"pageNumber", "pageSize"})
+    public PageDTO<FullMovieDTO> findMoviesPage(@RequestParam int pageNumber, @RequestParam int pageSize) {
+        return movieService.findPage(pageNumber, pageSize);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteMovieById(@PathVariable(name = "id") Long id) {
-        movieService.deleteMovieById(id);
+    @GetMapping(params = {"id"}, path = {"/sessions/"})
+    public List<Session> findMovieSessions(@RequestParam Long id) {
+        return movieService.findSessionsByMovieId(id);
     }
 }

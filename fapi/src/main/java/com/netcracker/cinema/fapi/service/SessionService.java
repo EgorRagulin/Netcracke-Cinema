@@ -1,18 +1,24 @@
 package com.netcracker.cinema.fapi.service;
 
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullSessionDTO;
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullTicketDTO;
 import com.netcracker.cinema.fapi.model.Session;
+import com.netcracker.cinema.fapi.model.Ticket;
 
-import java.sql.Date;
 import java.util.List;
 
 public interface SessionService {
-    List<Session> findAllSession();
+    List<Session> findAll();
 
-    List<Session> findSessionByDate(Date date);
+    Session findById(Long id);
 
-    Session findSessionById(Long id);
+    Session save(Session session);
 
-    Session setSession(Session session);
+    void deleteById(Long id);
 
-    void deleteSessionById(Long id);
+    FullSessionDTO findFullById(Long id);
+
+    List<Ticket> findTicketsBySessionId(Long id);
+
+    List<FullTicketDTO> findFullTicketsBySessionId(Long id);
 }

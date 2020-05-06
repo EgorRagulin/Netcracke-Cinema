@@ -1,7 +1,9 @@
 package com.netcracker.cinema.fapi.controller;
 
+
+import com.netcracker.cinema.fapi.DTO.FullDTO.FullTicketDTO;
+import com.netcracker.cinema.fapi.DTO.PageDTO;
 import com.netcracker.cinema.fapi.model.Ticket;
-import com.netcracker.cinema.fapi.model.User;
 import com.netcracker.cinema.fapi.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,33 +16,35 @@ public class TicketController {
     @Autowired
     private TicketService ticketService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<Ticket> getAllCinema() {
-        return ticketService.findAllTicket();
-    }
-    //Переделать запрос value = "/user"
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public List<Ticket> getCinemaByCinemaName(@RequestBody User user) {
-        return ticketService.findAllTicketByUser(user);
+    @GetMapping
+    public List<Ticket> findTickets() {
+        return ticketService.findAll();
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.GET)
-    public Ticket getCinemaById(@PathVariable(name = "id") Long id) {
-        return ticketService.findTicketById(id);
+    @GetMapping(params = {"id"})
+    public Ticket findTicketById(@RequestParam Long id) {
+        return ticketService.findById(id);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public Ticket setCinema(@RequestBody Ticket ticket) {
-        return ticketService.setTicket(ticket);
+    @PostMapping
+    public FullTicketDTO saveTicket(@RequestBody FullTicketDTO fullTicketDTO) {
+        return ticketService.save(fullTicketDTO);
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.DELETE)
-    public void deleteTicket(@RequestBody Ticket ticket) {
-        ticketService.deleteTicket(ticket);
+    @DeleteMapping(params = {"id"})
+    public void deleteTicketById(@RequestParam Long id) {
+        ticketService.deleteById(id);
     }
 
-    @RequestMapping(value = "/id={id}", method = RequestMethod.DELETE)
-    public void deleteTicketById(@PathVariable(name = "id") Long id) {
-        ticketService.deleteTicketById(id);
+
+    @GetMapping(params = {"id"}, path = {"/full"})
+    public FullTicketDTO findFullTicketById(@RequestParam Long id) {
+        return ticketService.findFullById(id);
     }
+
+    @GetMapping(params = {"pageNumber", "pageSize"})
+    public PageDTO<FullTicketDTO> findTicketsPage(@RequestParam int pageNumber, @RequestParam int pageSize) {
+        return ticketService.findPage(pageNumber, pageSize);
+    }
+
 }

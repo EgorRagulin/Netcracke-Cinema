@@ -11,6 +11,8 @@ import java.util.Optional;
 
 @Repository
 public interface MovieRepository extends CrudRepository<Movie, Long> {
+    List<Movie> findAll();
+
     Page<Movie> findAll(Pageable pageable);
 
     Optional<Movie> findById(Long id);

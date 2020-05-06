@@ -17,6 +17,11 @@ public class MovieServiceImpl implements MovieService {
     private MovieRepository movieRepository;
 
     @Override
+    public List<Movie> findAll() {
+        return movieRepository.findAll();
+    }
+
+    @Override
     public Page<Movie> findPage(Pageable pageable) {
         return movieRepository.findAll(pageable);
     }

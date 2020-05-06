@@ -6,6 +6,7 @@ import {SessionsService} from "../../../../services/sessions/sessions.service";
 import {ActivatedRoute} from "@angular/router";
 import {TicketsService} from "../../../../services/tickets/tickets.service";
 import {UsersService} from "../../../../services/users/users.service";
+import {LoadingService} from "../../../../services/loading/loading.service";
 
 @Component({
   selector: 'app-tickets',
@@ -13,12 +14,13 @@ import {UsersService} from "../../../../services/users/users.service";
   styleUrls: ['./tickets.component.css']
 })
 export class TicketsComponent implements OnInit, OnDestroy {
-  public tickets: Ticket[];
   private _subscriptions: Subscription[] = [];
-
+  public tickets: Ticket[];
+  public isLoading: boolean;
 
   constructor(private ticketsService: TicketsService,
               private usersService: UsersService,
+              private loadingService: LoadingService,
               private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -32,12 +34,22 @@ export class TicketsComponent implements OnInit, OnDestroy {
   }
 
   private getTicketsByUser(id: any) {
+    this.isLoading = this.loadingService.changeLoadingStatus(true);
+
     this._subscriptions.push(this.usersService.getTickets(id)
-      .subscribe(tickets => this.tickets = tickets));
+      .subscribe(tickets => {
+        this.tickets = tickets;
+        this.isLoading = this.loadingService.changeLoadingStatus(false);
+      }));
   }
 
   private getTickets() {
+    this.isLoading = this.loadingService.changeLoadingStatus(true);
+
     this._subscriptions.push(this.ticketsService.getTickets()
-      .subscribe(tickets => this.tickets = tickets));
+      .subscribe(tickets => {
+        this.tickets = tickets;
+        this.isLoading = this.loadingService.changeLoadingStatus(false);
+      }));
   }
 }
