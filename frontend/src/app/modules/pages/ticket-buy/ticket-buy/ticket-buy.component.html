@@ -6,27 +6,40 @@
         row: {{row.rowNumber}}
         <app-row [row]="row"
                  (selectRowEvent)="selectTicket($event)"
-                 (unSelectRowEvent)="unSelectTicket($event)"
+                 (unSelectRowEvent)="unselectTicket($event)"
         ></app-row>
       </div>
 
-      <button color="accent" mat-flat-button (click)="buySelectedTickets()" class="btn">
-        Купить Билеты
-      </button>
+      <div class="btn">
+        <button color="accent" mat-flat-button (click)="buySelectedTickets()" class="btn">
+          Купить Выбранные Билеты
+        </button>
+      </div>
+
+      <div class="btn">
+        <button color="accent" mat-flat-button (click)="deleteSelectedTickets()" class="btn">
+          Удалить Выбранные Билеты
+        </button>
+      </div>
+
     </div>
 
     <div class="reserved-places" *ngIf="true">
       <strong>Забронированные места:</strong>
-      <span *ngFor="let ticket of selectedFullTickets">
+      <span *ngFor="let ticket of selectedTickets">
       {{' place: ' + ticket.placeNumber + ' row: ' + ticket.rowNumber + ' |'}}
     </span>
     </div>
 
-    <div class="bought-places" *ngIf="true">
-      <strong>Купленные места:</strong>
-      <span *ngFor="let ticket of boughtFullTickets">
-      {{' place: ' + ticket.placeNumber + ' row: ' + ticket.rowNumber + ' |'}}
-    </span>
+    <div class="colors">
+      <ul>
+        <li><button class="red box" disabled></button> место продано</li>
+        <li><button class="orange box" disabled></button> место забронировано</li>
+        <li><button class="yellow box" disabled></button> место куплено</li>
+        <li><button class="green box" disabled></button> место выбрано</li>
+        <li><button class="blue box" disabled></button> место обрабатывается</li>
+        <li><button class="white box" disabled></button> место свободно</li>
+      </ul>
     </div>
 
   </div>

@@ -1,13 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges, OnInit,
-  Output,
-  SimpleChanges
-} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Place} from "../../../../models/place/Place";
+import {PlaceStatus} from "../../../../enum/PlaceStatus";
 
 
 @Component({
@@ -22,14 +15,37 @@ export class PlaceComponent implements OnChanges, OnInit {
 
   public color: string;
   public placeNumber;
+  public isButtonDisabled: boolean = true;
 
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.place.isSold) this.color = 'red';
-    else if (this.place.isSelected) this.color = 'green';
-    else if (this.place.isReserved) this.color = 'orange';
-    else this.color = 'white';
+    switch (this.place.placeStatus) {
+      case PlaceStatus.SOLD:
+        this.color = 'red';
+        this.isButtonDisabled = true;
+        break;
+      case PlaceStatus.RESERVED:
+        this.color = 'orange';
+        this.isButtonDisabled = true;
+        break;
+      case PlaceStatus.BOUGHT:
+        this.color = 'yellow';
+        this.isButtonDisabled = true;
+        break;
+      case PlaceStatus.SELECTED:
+        this.color = 'green';
+        this.isButtonDisabled = false;
+        break;
+      case PlaceStatus.UPDATED:
+        this.color = 'blue';
+        this.isButtonDisabled = true;
+        break;
+      case PlaceStatus.FREE:
+        this.color = 'white';
+        this.isButtonDisabled = false;
+        break;
+    }
   }
 
   ngOnInit(): void {
@@ -37,27 +53,27 @@ export class PlaceComponent implements OnChanges, OnInit {
   }
 
   public click(): void {
-    if (!this.place.isSold) {
-      if(this.place.isSelected) {
+    switch (this.place.placeStatus) {
+      case PlaceStatus.SELECTED:
         this.unSelect();
-        console.log('unselect');
-      }
-      else if (!this.place.isReserved) {
+        break;
+      case PlaceStatus.FREE:
         this.select();
-        console.log('select');
-      }
-      else console.log('reserved');
+        break;
     }
-    else console.log('sold');
   }
 
   private select() {
+    console.log('select');
+    this.color = 'blue';
+    this.isButtonDisabled = true;
     this.selectPlaceEvent.emit(this.place.placeNumber);
-    this.color = 'green';
   }
 
   private unSelect() {
+    console.log('unselect');
+    this.color = 'blue';
+    this.isButtonDisabled = true;
     this.unSelectPlaceEvent.emit(this.place.placeNumber);
-    this.color = 'white';
   }
 }

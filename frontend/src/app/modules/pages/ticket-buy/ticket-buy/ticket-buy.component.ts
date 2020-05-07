@@ -10,6 +10,7 @@ import {Place} from "../../../../models/place/Place";
 import {LoadingService} from "../../../../services/loading/loading.service";
 import {FullTicket} from "../../../../models/FullModel/FullTicket";
 import {UsersService} from "../../../../services/users/users.service";
+import {PlaceStatus} from "../../../../enum/PlaceStatus";
 
 @Component({
   selector: 'app-buy-ticket',
@@ -24,13 +25,13 @@ export class TicketBuyComponent implements OnInit, OnDestroy {
   public rows: Row[];
 
   private sessionId: number;
+  private userId: number;
+
   public session: Session;
   public user = {id:1,firstName:"1",secondName:"1",role:"1"};
 
-  private sessionFullTickets: FullTicket[] = [];
-  public selectedFullTickets: FullTicket[] = [];
-  public boughtFullTickets: FullTicket[] = [];
-
+  public selectedTickets: FullTicket[] = [];
+  public updateTickets: FullTicket[] = [];
 
   constructor(private ticketService: TicketsService,
               private sessionsService: SessionsService,
@@ -41,20 +42,20 @@ export class TicketBuyComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.sessionId = this.activateRoute.snapshot.params['id'];
+    this.userId = 1;
     this.getSession();
-    this.getUser(1);
-    this.getFullTickets();
+    this.getUser(this.userId);
+    this.getSessionTickets();
 
     this.rows = this.createRows(5, 10);
 
     setInterval(() => {
-      this.getFullTickets();
+      this.getSessionTickets();
     }, 20000);
   }
 
   ngOnDestroy(): void {
     this._unsubscribeAll();
-    this.deleteSelectedTickets();
   }
 
   private getSession(): void {
@@ -65,10 +66,9 @@ export class TicketBuyComponent implements OnInit, OnDestroy {
     this._subscriptions.push(this.UsersService.getUserById(userId).subscribe(user => this.user = user));
   }
 
-  private getFullTickets(): void {
-    this._subscriptions.push(this.sessionsService.getFullTickets(this.sessionId).subscribe(sessionFullTickets => {
-        this.sessionFullTickets = sessionFullTickets;
-        this.setPlacesStates();
+  private getSessionTickets(): void {
+    this._subscriptions.push(this.sessionsService.getFullTickets(this.sessionId).subscribe(sessionTickets => {
+        this.changePlacesStatus(sessionTickets);
       }));
   }
 
@@ -78,7 +78,7 @@ export class TicketBuyComponent implements OnInit, OnDestroy {
     for (let rowNumber = 1; rowNumber <= numberOfRow; rowNumber++) {
       let places: Place[] = [];
       for (let placeNumber = 1; placeNumber <= numberOfPlaces; placeNumber++) {
-        places.push(new Place(placeNumber, false, false, false));
+        places.push(new Place(placeNumber, PlaceStatus.FREE));
       }
       rows.push(new Row(rowNumber, numberOfPlaces, places));
     }
@@ -86,80 +86,94 @@ export class TicketBuyComponent implements OnInit, OnDestroy {
     return rows;
   }
 
-  private setPlacesStates() {
-    if (this.sessionFullTickets.length > 0) {
-      this.sessionFullTickets.forEach(ticket => {
+  private changePlacesStatus(sessionTickets: FullTicket[]) {
+    if (sessionTickets.length > 0) {
+      sessionTickets.forEach(ticket => {
         let place: Place = this.rows[ticket.rowNumber - 1].places[ticket.placeNumber - 1];
-        if (ticket.isSold) {
-          if (!place.isSold) {
-            this.rows[ticket.rowNumber - 1].places[ticket.placeNumber - 1] = new Place(place.placeNumber, true, false, false);
+        //isReserved
+        if (this.isTicketUpdating(ticket)) this.setPlaceStatus(ticket, PlaceStatus.UPDATED);
+        //isSold
+        else if (ticket.isSold) {
+          if (ticket.user.id == this.user.id) {
+              this.setPlaceStatus(ticket, PlaceStatus.BOUGHT);
           }
+          else this.setPlaceStatus(ticket, PlaceStatus.SOLD);
         }
+        //!isSold
         else if (ticket.user.id == this.user.id) {
-          if (!place.isSelected) {
-            this.rows[ticket.rowNumber - 1].places[ticket.placeNumber - 1] = new Place(place.placeNumber, false, false, true);
+          if (place.placeStatus != PlaceStatus.SELECTED) {
+            this.setPlaceStatus(ticket, PlaceStatus.SELECTED);
+            this.addTicketToSelectedTickets(ticket);
           }
         }
-        else if (!place.isReserved){
-          this.rows[ticket.rowNumber - 1].places[ticket.placeNumber - 1] = new Place(place.placeNumber, false, true, false);
-        }
+        else this.setPlaceStatus(ticket, PlaceStatus.RESERVED);
       });
     }
     this.cd.detectChanges();
   }
 
-  public selectTicket(selectedTicket: Ticket): void {
-    let ticketEqualSelected: FullTicket[] = this.selectedFullTickets.filter(ticket => this.isTicketsEqual(ticket, selectedTicket));
-
-    if (ticketEqualSelected.length > 0) {
-      ticketEqualSelected.forEach(ticket => this.ticketService.deleteTicket(ticket.id).subscribe());
+  private setPlaceStatus(ticket: FullTicket, status: PlaceStatus): void {
+    let place = this.rows[ticket.rowNumber - 1].places[ticket.placeNumber - 1];
+    if (place.placeStatus != status) {
+      this.rows[ticket.rowNumber - 1].places[ticket.placeNumber - 1] = new Place(place.placeNumber, status);
     }
+  }
 
-    let fullTicket: FullTicket = new FullTicket(selectedTicket.rowNumber, selectedTicket.placeNumber, false, 1, this.session, this.user);
+  private isTicketUpdating(ticket: FullTicket) {
+    return false;
+  }
+
+  private addTicketToSelectedTickets(selectedTicket: FullTicket): void {
+    if (this.isTicketInSelectedTickets(selectedTicket)) this.selectedTickets.push(selectedTicket);
+  }
+
+  private isTicketInSelectedTickets(selectedTicket: FullTicket): boolean {
+    return this.selectedTickets.filter(ticket => this.isTicketsEqual(ticket, selectedTicket)).length == 0;
+  }
+
+  public selectTicket(selectedPlace: Ticket): void {
+    let fullTicket: FullTicket = new FullTicket(selectedPlace.rowNumber, selectedPlace.placeNumber, false, 1, this.session, this.user);
     this.reserveTicket(fullTicket);
   }
 
   private reserveTicket(fullTicket: FullTicket): void {
-    this.ticketService.saveTicket(fullTicket).subscribe(fullTicket => {
-      this.selectedFullTickets.push(fullTicket)
+    this.setPlaceStatus(fullTicket, PlaceStatus.UPDATED);
+    this.ticketService.saveTicket(fullTicket).subscribe(ticket => {
+      this.selectedTickets.push(ticket);
+      this.setPlaceStatus(ticket, PlaceStatus.SELECTED);
     });
-  }
-
-  public unSelectTicket(selectedTicket: Ticket): void {
-    let ticketsEqualSelected: FullTicket[] = this.selectedFullTickets.filter(ticket => this.isTicketsEqual(ticket, selectedTicket));
-
-    if (ticketsEqualSelected.length > 0) ticketsEqualSelected.forEach(ticket => this.ticketService.deleteTicket(ticket.id).subscribe());
-
-    this.selectedFullTickets = this.selectedFullTickets.filter(ticket => !this.isTicketsEqual(ticket, selectedTicket));
   }
 
   public buySelectedTickets(): void {
-    this.selectedFullTickets.forEach(selectedFullTicket => {
+    this.selectedTickets.forEach(selectedFullTicket => {
+        this.setPlaceStatus(selectedFullTicket, PlaceStatus.UPDATED);
         selectedFullTicket.isSold = true;
-        this.ticketService.saveTicket(selectedFullTicket).subscribe(fullTicket => this.boughtFullTickets.push(fullTicket));
+        this.ticketService.saveTicket(selectedFullTicket).subscribe(ticket => {
+          this.setPlaceStatus(ticket, PlaceStatus.BOUGHT);
+        });
       }
     );
-
-    this.clearSelectedTickets();
+    this.selectedTickets = [];
   }
 
-  private deleteSelectedTickets(): void {
-    this.selectedFullTickets.forEach(ticket => {
+  public unselectTicket(selectedPlace: FullTicket): void {
+    let ticketsEqualSelected: FullTicket[] = this.selectedTickets.filter(ticket => this.isTicketsEqual(ticket, selectedPlace));
+    if (ticketsEqualSelected.length > 0) ticketsEqualSelected.forEach(ticket => {
       this.ticketService.deleteTicket(ticket.id).subscribe();
+      this.setPlaceStatus(ticket, PlaceStatus.FREE);
     });
-
-    this.selectedFullTickets = [];
+    this.selectedTickets = this.selectedTickets.filter(ticket => !this.isTicketsEqual(ticket, selectedPlace));
   }
 
-  private clearSelectedTickets(): void {
-    this.selectedFullTickets.forEach(ticket => {
-      this.rows[ticket.rowNumber - 1].places[ticket.placeNumber - 1].isSelected = false;
+  public deleteSelectedTickets(): void {
+    this.selectedTickets.forEach(ticket => {
+      this.ticketService.deleteTicket(ticket.id).subscribe();
+      this.setPlaceStatus(ticket, PlaceStatus.FREE);
     });
-
-    this.selectedFullTickets = [];
+    this.selectedTickets = [];
   }
 
-  private isTicketsEqual(ticket1: Ticket, ticket2: Ticket): boolean {
+  private isTicketsEqual(ticket1: FullTicket, ticket2: FullTicket): boolean {
     return ticket1.rowNumber === ticket2.rowNumber && ticket1.placeNumber === ticket2.placeNumber;
   }
 
