@@ -1,21 +1,25 @@
 package com.netcracker.cinema.fapi.service;
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullLoginDTO;
-import com.netcracker.cinema.fapi.model.Login;
-import com.netcracker.cinema.fapi.model.User;
+import com.netcracker.cinema.fapi.model.UserViewModel;
+import com.netcracker.cinema.fapi.model.full.FullLoginViewModel;
+import com.netcracker.cinema.fapi.model.LoginViewModel;
 
 import java.util.List;
 
 public interface LoginService {
-    List<Login> findAll();
+    List<LoginViewModel> findAll();
 
-    Login findById(Long id);
+    LoginViewModel findById(Long id);
 
-    FullLoginDTO save(FullLoginDTO fullLoginDTO);
+    FullLoginViewModel save(FullLoginViewModel fullLoginViewModel);
 
     void deleteById(Long id);
 
-    FullLoginDTO findFullById(Long id);
+    FullLoginViewModel findFullById(Long id);
 
-    User findUserByLoginId(Long id);
+    UserViewModel findUserByLoginId(Long id);
+
+    LoginViewModel findLoginByUsername(String username);
+
+    LoginViewModel save(LoginViewModel LoginViewModel);
 }

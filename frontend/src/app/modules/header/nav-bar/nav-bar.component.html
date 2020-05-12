@@ -2,9 +2,18 @@
   <div class="logo">
     <a [routerLink]="''" class="logo"><img src="../../../assets/img/cinema-logo.png" alt="Logo"></a>
   </div>
-  <div>
-    <span><a [routerLink]="'movies'">Movies</a></span>
-    <span><a [routerLink]="'cinemas'">Cinemas</a></span>
-    <span><a [routerLink]="'users'">Users</a></span>
+  <div class="nav">
+    <a [routerLink]="'movies'">Movies</a>
+    <a [routerLink]="'cinemas'">Cinemas</a>
+
+    <ng-container *ngIf="storageService.getCurrentLogin() as currentLogin">
+      <a [routerLink]="'admin-panel'" *ngIf="currentLogin.role == 'admin'">Admin Panel</a>
+      <a [routerLink]="'my-profile'">My Profile</a>
+      <a (click)="logout()" style="cursor: pointer">Logout</a>
+    </ng-container>
+    <ng-container *ngIf="!storageService.getCurrentLogin()">
+      <a [routerLink]="'sign-in'">Sign-in</a>
+      <a [routerLink]="'sign-up'">Sign-up</a>
+    </ng-container>
   </div>
 </mat-toolbar>

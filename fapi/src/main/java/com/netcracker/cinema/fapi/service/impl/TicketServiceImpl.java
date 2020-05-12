@@ -1,9 +1,9 @@
 package com.netcracker.cinema.fapi.service.impl;
 
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullTicketDTO;
+import com.netcracker.cinema.fapi.model.TicketViewModel;
+import com.netcracker.cinema.fapi.model.full.FullTicketViewModel;
 import com.netcracker.cinema.fapi.DTO.PageDTO;
-import com.netcracker.cinema.fapi.model.Ticket;
 import com.netcracker.cinema.fapi.service.TicketService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -17,22 +17,22 @@ public class TicketServiceImpl implements TicketService {
     private String backendServerUrl = "http://localhost:8080/api/tickets";
 
     @Override
-    public List<Ticket> findAll() {
+    public List<TicketViewModel> findAll() {
         RestTemplate restTemplate = new RestTemplate();
-        Ticket[] ticketsResponse = restTemplate.getForObject(backendServerUrl, Ticket[].class);
+        TicketViewModel[] ticketsResponse = restTemplate.getForObject(backendServerUrl, TicketViewModel[].class);
         return ticketsResponse == null ? Collections.emptyList() : Arrays.asList(ticketsResponse);
     }
 
     @Override
-    public Ticket findById(Long id) {
+    public TicketViewModel findById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(backendServerUrl + "/?id=" + id, Ticket.class);
+        return restTemplate.getForObject(backendServerUrl + "/?id=" + id, TicketViewModel.class);
     }
 
     @Override
-    public FullTicketDTO save(FullTicketDTO fullTicketDTO) {
+    public FullTicketViewModel save(FullTicketViewModel fullTicketViewModel) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity(backendServerUrl, fullTicketDTO, FullTicketDTO.class).getBody();
+        return restTemplate.postForEntity(backendServerUrl, fullTicketViewModel, FullTicketViewModel.class).getBody();
     }
 
     @Override
@@ -42,13 +42,13 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Override
-    public FullTicketDTO findFullById(Long id) {
+    public FullTicketViewModel findFullById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(backendServerUrl + "/full/?id=" + id, FullTicketDTO.class);
+        return restTemplate.getForObject(backendServerUrl + "/full/?id=" + id, FullTicketViewModel.class);
     }
 
     @Override
-    public PageDTO<FullTicketDTO> findPage(int pageNumber, int pageSize) {
+    public PageDTO<FullTicketViewModel> findPage(int pageNumber, int pageSize) {
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject(backendServerUrl + "/?pageNumber=" + pageNumber + "&pageSize=" + pageSize, PageDTO.class);
 

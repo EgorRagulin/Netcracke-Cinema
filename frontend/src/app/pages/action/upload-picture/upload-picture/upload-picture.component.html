@@ -1,0 +1,7 @@
+<div class="avatar">
+  <input type="file" accept="image/*" (change)="onPictureChanged($event)">
+</div>
+
+<div class="avatar" *ngIf="imgURL">
+  <img [src]="imgURL" [height]="pictureHeight" *ngIf="imgURL">
+</div>

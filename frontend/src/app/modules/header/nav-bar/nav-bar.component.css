@@ -4,12 +4,9 @@
   position: relative;
   justify-content: space-between;
 }
-span
-{
-  padding-right: 1rem;
-}
 a
 {
+  padding-right: 1rem;
   color: #fff;
   text-decoration: none;
 }

@@ -1,23 +1,23 @@
 package com.netcracker.cinema.fapi.service;
 
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullMovieDTO;
+import com.netcracker.cinema.fapi.model.SessionViewModel;
+import com.netcracker.cinema.fapi.model.full.FullMovieViewModel;
 import com.netcracker.cinema.fapi.DTO.PageDTO;
-import com.netcracker.cinema.fapi.model.Movie;
-import com.netcracker.cinema.fapi.model.Session;
+import com.netcracker.cinema.fapi.model.MovieViewModel;
 
 import java.util.List;
 
 public interface MovieService {
-    List<Movie> findAll();
+    List<MovieViewModel> findAll();
 
-    Movie findById(Long id);
+    MovieViewModel findById(Long id);
 
-    Movie save(Movie movie);
+    MovieViewModel save(MovieViewModel movieViewModel);
 
     void deleteById(Long id);
 
-    PageDTO<FullMovieDTO> findPage(int pageNumber, int pageSize);
+    PageDTO<FullMovieViewModel> findPage(int pageNumber, int pageSize);
 
-    List<Session> findSessionsByMovieId(Long id);
+    List<SessionViewModel> findSessionsByMovieId(Long id);
 }

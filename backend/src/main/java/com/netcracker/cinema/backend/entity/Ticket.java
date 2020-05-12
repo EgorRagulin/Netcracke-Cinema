@@ -12,7 +12,6 @@ public class Ticket {
     private int rowNumber;
     private int placeNumber;
     private boolean isSold;
-    private double cost;
     private Session session;
     private User user;
 
@@ -55,16 +54,6 @@ public class Ticket {
 
     public void setIsSold(boolean isSold) {
         this.isSold = isSold;
-    }
-
-    @Basic
-    @Column(name = "cost")
-    public double getCost() {
-        return cost;
-    }
-
-    public void setCost(double cost) {
-        this.cost = cost;
     }
 
     @ManyToOne

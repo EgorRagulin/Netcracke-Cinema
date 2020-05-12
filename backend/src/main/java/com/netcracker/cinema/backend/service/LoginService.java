@@ -15,4 +15,6 @@ public interface LoginService {
     Login save(Login login);
 
     void deleteById(Long id);
+
+    Optional<Login> findByUsername(String login);
 }

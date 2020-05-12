@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="page">
+    <ng-container *ngIf="!storageService.getCurrentLogin()">
+      <form #singInForm="ngForm">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="User Name"
+            required
+            name="username"
+            [(ngModel)]="loginModel.username"
+            #username="ngModel"
+            (focus)="showCheckYourSetDataAlert = false">
+
+          <mat-error *ngIf="username.invalid">
+            Username is required
+          </mat-error>
+
+          <mat-icon matSuffix>perm_identity</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            required
+            name="password"
+            [(ngModel)]="loginModel.password"
+            #password="ngModel"
+            (focus)="showCheckYourSetDataAlert = false">
+
+          <mat-error *ngIf="password.errors && password.errors.required">
+            Password is required
+          </mat-error>
+
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="login-button" (click)="singIn()">
+          Sign In
+        </button>
+      </form>
+
+      <div *ngIf="showCheckYourSetDataAlert" role="alert">
+        Check Your set Data!
+      </div>
+
+    </ng-container>
+  </div>
+
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
+
+</div>

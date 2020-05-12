@@ -33,4 +33,9 @@ public class LoginServiceImpl implements LoginService {
     public void deleteById(Long id) {
         loginRepository.deleteById(id);
     }
+
+    @Override
+    public Optional<Login> findByUsername(String username) {
+        return loginRepository.findByUsername(username);
+    }
 }

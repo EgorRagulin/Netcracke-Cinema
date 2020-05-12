@@ -1,9 +1,9 @@
 package com.netcracker.cinema.fapi.service.impl;
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullMovieDTO;
+import com.netcracker.cinema.fapi.model.MovieViewModel;
+import com.netcracker.cinema.fapi.model.full.FullMovieViewModel;
 import com.netcracker.cinema.fapi.DTO.PageDTO;
-import com.netcracker.cinema.fapi.model.Movie;
-import com.netcracker.cinema.fapi.model.Session;
+import com.netcracker.cinema.fapi.model.SessionViewModel;
 import com.netcracker.cinema.fapi.service.MovieService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -18,22 +18,22 @@ public class MovieServiceImpl implements MovieService {
 
 
     @Override
-    public List<Movie> findAll() {
+    public List<MovieViewModel> findAll() {
         RestTemplate restTemplate = new RestTemplate();
-        Movie[] moviesResponse = restTemplate.getForObject(backendServerUrl, Movie[].class);
+        MovieViewModel[] moviesResponse = restTemplate.getForObject(backendServerUrl, MovieViewModel[].class);
         return moviesResponse == null ? Collections.emptyList() : Arrays.asList(moviesResponse);
     }
 
     @Override
-    public Movie findById(Long id) {
+    public MovieViewModel findById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(backendServerUrl + "/?id=" + id, Movie.class);
+        return restTemplate.getForObject(backendServerUrl + "/?id=" + id, MovieViewModel.class);
     }
 
     @Override
-    public Movie save(Movie movie) {
+    public MovieViewModel save(MovieViewModel movieViewModel) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity(backendServerUrl, movie, Movie.class).getBody();
+        return restTemplate.postForEntity(backendServerUrl, movieViewModel, MovieViewModel.class).getBody();
     }
 
     @Override
@@ -43,15 +43,15 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public PageDTO<FullMovieDTO> findPage(int pageNumber, int pageSize) {
+    public PageDTO<FullMovieViewModel> findPage(int pageNumber, int pageSize) {
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject(backendServerUrl + "/?pageNumber=" + pageNumber + "&pageSize=" + pageSize, PageDTO.class);
     }
 
     @Override
-    public List<Session> findSessionsByMovieId(Long id) {
+    public List<SessionViewModel> findSessionsByMovieId(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        Session[] moviesResponse = restTemplate.getForObject(backendServerUrl + "/sessions/?id=" + id, Session[].class);
+        SessionViewModel[] moviesResponse = restTemplate.getForObject(backendServerUrl + "/sessions/?id=" + id, SessionViewModel[].class);
         return moviesResponse == null ? Collections.emptyList() : Arrays.asList(moviesResponse);
     }
 }

@@ -1,24 +1,24 @@
 package com.netcracker.cinema.fapi.service;
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullUserDTO;
-import com.netcracker.cinema.fapi.model.Ticket;
-import com.netcracker.cinema.fapi.model.User;
-import com.netcracker.cinema.fapi.model.Wallet;
+import com.netcracker.cinema.fapi.model.TicketViewModel;
+import com.netcracker.cinema.fapi.model.UserViewModel;
+import com.netcracker.cinema.fapi.model.full.FullUserViewModel;
+import com.netcracker.cinema.fapi.model.WalletViewModel;
 
 import java.util.List;
 
 public interface UserService {
-    List<User> findAll();
+    List<UserViewModel> findAll();
 
-    User findById(Long id);
+    UserViewModel findById(Long id);
 
-    FullUserDTO save(FullUserDTO fullUserDTO);
+    FullUserViewModel save(FullUserViewModel fullUserViewModel);
 
     void deleteById(Long id);
 
-    FullUserDTO findFullById(Long id);
+    FullUserViewModel findFullById(Long id);
 
-    Wallet findWalletByUserId(Long id);
+    WalletViewModel findWalletByUserId(Long id);
 
-    List<Ticket> findTicketsByUserId(Long id);
+    List<TicketViewModel> findTicketsByUserId(Long id);
 }

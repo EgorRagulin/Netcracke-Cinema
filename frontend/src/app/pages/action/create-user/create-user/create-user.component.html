@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="page">
+    <ng-container *ngIf="!storageService.getCurrentUser()">
+      <form #createUserForm="ngForm">
+
+        <h2>Create User</h2>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="First Name"
+            required
+            name="firstName"
+            [(ngModel)]="userModel.firstName"
+            #firstName="ngModel">
+          <mat-error *ngIf="firstName.invalid">
+            First Name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Second Name"
+            required
+            name="secondName"
+            [(ngModel)]="userModel.secondName"
+            #secondName="ngModel">
+          <mat-error *ngIf="secondName.invalid">
+            Second Name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Email"
+            required
+            name="email"
+            [(ngModel)]="userModel.email"
+            #email="ngModel">
+          <mat-error *ngIf="email.invalid">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Phone Number"
+            required
+            name="phoneNumber"
+            [(ngModel)]="userModel.phoneNumber"
+            #phoneNumber="ngModel">
+          <mat-error *ngIf="phoneNumber.invalid">
+            Phone Number is required
+          </mat-error>
+        </mat-form-field>
+
+        <app-upload-picture [pictureHeight]="300" (selectPicture)="setSelectedPicture($event)"></app-upload-picture>
+
+        <button mat-raised-button color="primary" class="create-user-btn" (click)="createUser()">
+          Create User
+        </button>
+
+      </form>
+    </ng-container>
+  </div>
+
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
+
+</div>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Ticket} from "../../models/Ticket";
-import {FullTicket} from "../../models/FullModel/FullTicket";
+import {FullTicket} from "../../models/full-models/FullTicket";
 
 @Injectable({
   providedIn: 'root'

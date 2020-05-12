@@ -1,21 +1,21 @@
 package com.netcracker.cinema.fapi.service;
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullCinemaDTO;
-import com.netcracker.cinema.fapi.model.Cinema;
-import com.netcracker.cinema.fapi.model.Hall;
+import com.netcracker.cinema.fapi.model.CinemaViewModel;
+import com.netcracker.cinema.fapi.model.HallViewModel;
+import com.netcracker.cinema.fapi.model.full.FullCinemaViewModel;
 
 import java.util.List;
 
 public interface CinemaService {
-    List<Cinema> findAll();
+    List<CinemaViewModel> findAll();
 
-    Cinema findById(Long id);
+    CinemaViewModel findById(Long id);
 
-    Cinema save(Cinema cinema);
+    CinemaViewModel save(CinemaViewModel cinemaViewModel);
 
     void deleteById(Long id);
 
-    FullCinemaDTO findFullById(Long id);
+    FullCinemaViewModel findFullById(Long id);
 
-    List<Hall> findHallsByCinemaId(Long id);
+    List<HallViewModel> findHallsByCinemaId(Long id);
 }

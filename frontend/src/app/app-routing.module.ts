@@ -1,23 +1,32 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MoviesComponent} from "./modules/pages/movies/movies/movies.component";
-import {MovieComponent} from "./modules/pages/movie/movie/movie.component";
-import {MovieCreateComponent} from "./modules/pages/movie-create/movie-create/movie-create.component";
-import {PageNotFoundComponent} from "./modules/pages/page-not-found/page-not-found/page-not-found.component";
-import {SessionsComponent} from "./modules/pages/sessions/sessions/sessions.component";
-import {TicketBuyComponent} from "./modules/pages/ticket-buy/ticket-buy/ticket-buy.component";
-import {CinemasComponent} from "./modules/pages/cinemas/cinemas/cinemas.component";
-import {CinemaComponent} from "./modules/pages/cinema/cinema/cinema.component";
-import {HallsComponent} from "./modules/pages/halls/halls/halls.component";
-import {HallComponent} from "./modules/pages/hall/hall/hall.component";
-import {UsersComponent} from "./modules/pages/users/users/users.component";
-import {UserComponent} from "./modules/pages/user/user/user.component";
-import {TicketsComponent} from "./modules/pages/tickets/tickets/tickets.component";
+import {MoviesComponent} from "./pages/content/movies/movies/movies.component";
+import {MovieComponent} from "./pages/content/movie/movie/movie.component";
+import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found/page-not-found.component";
+import {SessionsComponent} from "./pages/content/sessions/sessions/sessions.component";
+import {BuyTicketComponent} from "./pages/action/buy-ticket/buy-ticket/buy-ticket.component";
+import {CinemasComponent} from "./pages/content/cinemas/cinemas/cinemas.component";
+import {CinemaComponent} from "./pages/content/cinema/cinema/cinema.component";
+import {HallsComponent} from "./pages/content/halls/halls/halls.component";
+import {HallComponent} from "./pages/content/hall/hall/hall.component";
+import {TicketsComponent} from "./pages/content/tickets/tickets/tickets.component";
+import {SignInComponent} from "./pages/action/sign-in/sign-in/sign-in.component";
+import {SignUpComponent} from "./pages/action/sign-up/sign-up/sign-up.component";
+import {MyProfileComponent} from "./pages/content/my-profile/my-profile/my-profile.component";
+import {CreateUserComponent} from "./pages/action/create-user/create-user/create-user.component";
+import {UploadPictureComponent} from "./pages/action/upload-picture/upload-picture/upload-picture.component";
 
 
 const routes: Routes = [
+
+  { path: '', component: UploadPictureComponent },
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'sign-up', component: SignUpComponent },
+  { path: 'create-user', component: CreateUserComponent },
+  { path: 'my-profile', component: MyProfileComponent },
+  { path: 'admin-panel', component: SignInComponent },
+
   // Movies
-  { path: '', component: MoviesComponent },
   { path: 'movies', component: MoviesComponent },
   { path: 'movies/:movieId', component: MovieComponent },
   // Cinemas
@@ -34,13 +43,8 @@ const routes: Routes = [
   // Tickets
   { path: 'tickets', component: TicketsComponent },
   { path: 'users/:userId/tickets', component: TicketsComponent },
-  // Users
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:id', component: UserComponent },
-
-  { path: 'sessions/:id/buyticket', component: TicketBuyComponent },
-  // Admin
-  { path: 'create/movie', component: MovieCreateComponent },
+  // Client action
+  { path: 'sessions/:id/buy-ticket', component: BuyTicketComponent },
   // Not found
   { path: '**', component: PageNotFoundComponent },
 ];

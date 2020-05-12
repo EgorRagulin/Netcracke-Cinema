@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="page">
+    <ng-container *ngIf="!storageService.getCurrentLogin()">
+      <form #singUpForm="ngForm">
+
+        <h2>Sign Up</h2>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="User Name"
+            required
+            name="username"
+            [(ngModel)]="loginModel.username"
+            #username="ngModel">
+          <mat-error *ngIf="username.invalid">
+            Username is required
+          </mat-error>
+          <mat-icon matSuffix>perm_identity</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Password"
+            [type]="hide ? 'password' : 'text'"
+            name="password"
+            [(ngModel)]="loginModel.password"
+            #password="ngModel">
+          <mat-error *ngIf="password.errors && password.errors.required">
+            Password is required
+          </mat-error>
+          <mat-icon matSuffix (click)="toggle()" style="cursor: pointer;">
+            {{hide ? 'visibility' : 'visibility_off'}}
+          </mat-icon>
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="sign-up" (click)="createLogin()">
+          Sign Up
+        </button>
+
+      </form>
+    </ng-container>
+  </div>
+
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
+
+</div>

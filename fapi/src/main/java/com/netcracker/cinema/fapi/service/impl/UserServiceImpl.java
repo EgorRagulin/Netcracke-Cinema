@@ -1,11 +1,10 @@
 package com.netcracker.cinema.fapi.service.impl;
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullUserDTO;
-import com.netcracker.cinema.fapi.model.Ticket;
-import com.netcracker.cinema.fapi.model.User;
-import com.netcracker.cinema.fapi.model.Wallet;
+import com.netcracker.cinema.fapi.model.TicketViewModel;
+import com.netcracker.cinema.fapi.model.UserViewModel;
+import com.netcracker.cinema.fapi.model.full.FullUserViewModel;
+import com.netcracker.cinema.fapi.model.WalletViewModel;
 import com.netcracker.cinema.fapi.service.UserService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,22 +17,22 @@ public class UserServiceImpl implements UserService {
     private String rootPath = "http://localhost:8080/api/users";
 
     @Override
-    public List<User> findAll() {
+    public List<UserViewModel> findAll() {
         RestTemplate restTemplate = new RestTemplate();
-        User[] usersResponse = restTemplate.getForObject(rootPath, User[].class);
+        UserViewModel[] usersResponse = restTemplate.getForObject(rootPath, UserViewModel[].class);
         return usersResponse == null ? Collections.emptyList() : Arrays.asList(usersResponse);
     }
 
     @Override
-    public User findById(Long id) {
+    public UserViewModel findById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(rootPath + "/?id=" + id, User.class);
+        return restTemplate.getForObject(rootPath + "/?id=" + id, UserViewModel.class);
     }
 
     @Override
-    public FullUserDTO save(FullUserDTO fullUserDTO) {
+    public FullUserViewModel save(FullUserViewModel fullUserViewModel) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity(rootPath, fullUserDTO, FullUserDTO.class).getBody();
+        return restTemplate.postForEntity(rootPath, fullUserViewModel, FullUserViewModel.class).getBody();
     }
 
     @Override
@@ -44,21 +43,21 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public FullUserDTO findFullById(Long id) {
+    public FullUserViewModel findFullById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(rootPath + "/full/?id=" + id, FullUserDTO.class);
+        return restTemplate.getForObject(rootPath + "/full/?id=" + id, FullUserViewModel.class);
     }
 
     @Override
-    public Wallet findWalletByUserId(Long id) {
+    public WalletViewModel findWalletByUserId(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(rootPath + "/wallet/?id=" + id, Wallet.class);
+        return restTemplate.getForObject(rootPath + "/wallet/?id=" + id, WalletViewModel.class);
     }
 
     @Override
-    public List<Ticket> findTicketsByUserId(Long id) {
+    public List<TicketViewModel> findTicketsByUserId(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        Ticket[] usersResponse = restTemplate.getForObject(rootPath + "/tickets/?id=" + id, Ticket[].class);
+        TicketViewModel[] usersResponse = restTemplate.getForObject(rootPath + "/tickets/?id=" + id, TicketViewModel[].class);
         return usersResponse == null ? Collections.emptyList() : Arrays.asList(usersResponse);
     }
 }

@@ -1,0 +1,22 @@
+form
+{
+  width: 50%;
+  margin: 10% auto;
+  border-radius: 8px;
+}
+mat-form-field
+{
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+.login-button
+{
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+}
+.form-data
+{
+  text-align: center;
+}

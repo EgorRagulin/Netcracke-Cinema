@@ -1,10 +1,9 @@
 package com.netcracker.cinema.fapi.service.impl;
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullCinemaDTO;
-import com.netcracker.cinema.fapi.model.Cinema;
-import com.netcracker.cinema.fapi.model.Hall;
+import com.netcracker.cinema.fapi.model.CinemaViewModel;
+import com.netcracker.cinema.fapi.model.HallViewModel;
+import com.netcracker.cinema.fapi.model.full.FullCinemaViewModel;
 import com.netcracker.cinema.fapi.service.CinemaService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,22 +16,22 @@ public class CinemaServiceImpl implements CinemaService {
     private String rootPath = "http://localhost:8080/api/cinemas";
 
     @Override
-    public List<Cinema> findAll() {
+    public List<CinemaViewModel> findAll() {
         RestTemplate restTemplate = new RestTemplate();
-        Cinema[] cinemasResponse = restTemplate.getForObject(rootPath, Cinema[].class);
+        CinemaViewModel[] cinemasResponse = restTemplate.getForObject(rootPath, CinemaViewModel[].class);
         return cinemasResponse == null ? Collections.emptyList() : Arrays.asList(cinemasResponse);
     }
 
     @Override
-    public Cinema findById(Long id) {
+    public CinemaViewModel findById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(  rootPath + "/?id=" + id, Cinema.class);
+        return restTemplate.getForObject(  rootPath + "/?id=" + id, CinemaViewModel.class);
     }
 
     @Override
-    public Cinema save(Cinema cinema) {
+    public CinemaViewModel save(CinemaViewModel cinemaViewModel) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity( rootPath, cinema, Cinema.class).getBody();
+        return restTemplate.postForEntity( rootPath, cinemaViewModel, CinemaViewModel.class).getBody();
     }
 
     @Override
@@ -42,16 +41,16 @@ public class CinemaServiceImpl implements CinemaService {
     }
 
     @Override
-    public FullCinemaDTO findFullById(Long id) {
+    public FullCinemaViewModel findFullById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(  rootPath + "/full/?id=" + id, FullCinemaDTO.class);
+        return restTemplate.getForObject(  rootPath + "/full/?id=" + id, FullCinemaViewModel.class);
     }
 
 
     @Override
-    public List<Hall> findHallsByCinemaId(Long id) {
+    public List<HallViewModel> findHallsByCinemaId(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        Hall[] cinemasResponse = restTemplate.getForObject(rootPath + "/halls/?id=" + id, Hall[].class);
+        HallViewModel[] cinemasResponse = restTemplate.getForObject(rootPath + "/halls/?id=" + id, HallViewModel[].class);
         return cinemasResponse == null ? Collections.emptyList() : Arrays.asList(cinemasResponse);
     }
 }

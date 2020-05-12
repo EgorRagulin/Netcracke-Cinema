@@ -1,7 +1,7 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.DTO.FullDTO.FullSessionDTO;
-import com.netcracker.cinema.backend.DTO.FullDTO.FullTicketDTO;
+import com.netcracker.cinema.backend.entity.full.FullSession;
+import com.netcracker.cinema.backend.entity.full.FullTicket;
 import com.netcracker.cinema.backend.entity.Session;
 import com.netcracker.cinema.backend.entity.Ticket;
 import com.netcracker.cinema.backend.service.SessionService;
@@ -28,10 +28,10 @@ public class SessionController {
     }
 
     @PostMapping
-    public FullSessionDTO saveSession(@RequestBody Session session) {
+    public FullSession saveSession(@RequestBody Session session) {
         Session savedSession = sessionService.save(session);
-        FullSessionDTO fullSessionDTO = new FullSessionDTO(savedSession);
-        return fullSessionDTO;
+        FullSession fullSession = new FullSession(savedSession);
+        return fullSession;
     }
 
     @DeleteMapping(params = {"id"})
@@ -41,10 +41,10 @@ public class SessionController {
 
 
     @GetMapping(params = {"id"}, path = {"/full"})
-    public FullSessionDTO findFullSessionById(@RequestParam Long id) {
+    public FullSession findFullSessionById(@RequestParam Long id) {
         Session session = sessionService.findById(id).get();
-        FullSessionDTO fullSessionDTO = new FullSessionDTO(session);
-        return fullSessionDTO;
+        FullSession fullSession = new FullSession(session);
+        return fullSession;
     }
 
     @GetMapping(params = {"id"}, path = {"/tickets"})
@@ -53,11 +53,11 @@ public class SessionController {
     }
 
     @GetMapping(params = {"id"}, path = {"/fullTickets"})
-    public List<FullTicketDTO> findFullTicketsBySession(@RequestParam Long id) {
+    public List<FullTicket> findFullTicketsBySession(@RequestParam Long id) {
         List<Ticket> tickets = sessionService.findById(id).get().getTickets();
-        List<FullTicketDTO> fullTicketDTOS = new ArrayList<FullTicketDTO>();
-        tickets.forEach(ticket -> fullTicketDTOS.add(new FullTicketDTO(ticket)));
-        return fullTicketDTOS;
+        List<FullTicket> fullTickets = new ArrayList<FullTicket>();
+        tickets.forEach(ticket -> fullTickets.add(new FullTicket(ticket)));
+        return fullTickets;
     }
 }
 

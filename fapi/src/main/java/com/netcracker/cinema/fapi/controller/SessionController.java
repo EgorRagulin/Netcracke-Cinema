@@ -1,14 +1,13 @@
 package com.netcracker.cinema.fapi.controller;
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullSessionDTO;
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullTicketDTO;
-import com.netcracker.cinema.fapi.model.Session;
-import com.netcracker.cinema.fapi.model.Ticket;
+import com.netcracker.cinema.fapi.model.SessionViewModel;
+import com.netcracker.cinema.fapi.model.TicketViewModel;
+import com.netcracker.cinema.fapi.model.full.FullSessionViewModel;
+import com.netcracker.cinema.fapi.model.full.FullTicketViewModel;
 import com.netcracker.cinema.fapi.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,18 +17,18 @@ public class SessionController {
     private SessionService sessionService;
 
     @GetMapping
-    public List<Session> findSessions() {
+    public List<SessionViewModel> findSessions() {
         return sessionService.findAll();
     }
 
     @GetMapping(params = {"id"})
-    public Session findSessionById(@RequestParam Long id) {
+    public SessionViewModel findSessionById(@RequestParam Long id) {
         return sessionService.findById(id);
     }
 
     @PostMapping
-    public Session saveSession(@RequestBody Session session) {
-        return sessionService.save(session);
+    public SessionViewModel saveSession(@RequestBody SessionViewModel sessionViewModel) {
+        return sessionService.save(sessionViewModel);
     }
 
     @DeleteMapping(params = {"id"})
@@ -38,17 +37,17 @@ public class SessionController {
     }
 
     @GetMapping(params = {"id"}, path = {"/full"})
-    public FullSessionDTO findFullSessionById(@RequestParam Long id) {
+    public FullSessionViewModel findFullSessionById(@RequestParam Long id) {
         return sessionService.findFullById(id);
     }
 
     @GetMapping(params = {"id"}, path = {"/tickets"})
-    public List<Ticket> findTicketsBySession(@RequestParam Long id) {
+    public List<TicketViewModel> findTicketsBySession(@RequestParam Long id) {
         return sessionService.findTicketsBySessionId(id);
     }
 
     @GetMapping(params = {"id"}, path = {"/fullTickets"})
-    public List<FullTicketDTO> findFullTicketsBySessionId(@RequestParam Long id) {
+    public List<FullTicketViewModel> findFullTicketsBySessionId(@RequestParam Long id) {
         return sessionService.findFullTicketsBySessionId(id);
     }
 }

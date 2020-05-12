@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { Movie } from "../../models/Movie";
 import { Page } from "../../models/page/Page";
 import { Session } from "../../models/Session";
-import {FullMovie} from "../../models/FullModel/FullMovie";
+import {FullMovie} from "../../models/full-models/FullMovie";
 
 @Injectable({
   providedIn: 'root'

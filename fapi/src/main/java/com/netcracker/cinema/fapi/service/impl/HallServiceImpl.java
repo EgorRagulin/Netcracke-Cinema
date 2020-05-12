@@ -1,10 +1,9 @@
 package com.netcracker.cinema.fapi.service.impl;
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullHallDTO;
-import com.netcracker.cinema.fapi.model.Hall;
-import com.netcracker.cinema.fapi.model.Session;
+import com.netcracker.cinema.fapi.model.HallViewModel;
+import com.netcracker.cinema.fapi.model.SessionViewModel;
+import com.netcracker.cinema.fapi.model.full.FullHallViewModel;
 import com.netcracker.cinema.fapi.service.HallService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,22 +16,22 @@ public class HallServiceImpl implements HallService {
     private String rootPath = "http://localhost:8080/api/halls";
 
     @Override
-    public List<Hall> findAll() {
+    public List<HallViewModel> findAll() {
         RestTemplate restTemplate = new RestTemplate();
-        Hall[] hallsResponse = restTemplate.getForObject(rootPath, Hall[].class);
+        HallViewModel[] hallsResponse = restTemplate.getForObject(rootPath, HallViewModel[].class);
         return hallsResponse == null ? Collections.emptyList() : Arrays.asList(hallsResponse);
     }
 
     @Override
-    public Hall findById(Long id) {
+    public HallViewModel findById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(rootPath  + "/?id=" + id, Hall.class);
+        return restTemplate.getForObject(rootPath  + "/?id=" + id, HallViewModel.class);
     }
 
     @Override
-    public FullHallDTO save(FullHallDTO fullHallDTO) {
+    public FullHallViewModel save(FullHallViewModel fullHallViewModel) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity(rootPath, fullHallDTO, FullHallDTO.class).getBody();
+        return restTemplate.postForEntity(rootPath, fullHallViewModel, FullHallViewModel.class).getBody();
     }
 
     @Override
@@ -42,15 +41,15 @@ public class HallServiceImpl implements HallService {
     }
 
     @Override
-    public FullHallDTO findFullById(Long id) {
+    public FullHallViewModel findFullById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(rootPath  + "/full/?id=" + id, FullHallDTO.class);
+        return restTemplate.getForObject(rootPath  + "/full/?id=" + id, FullHallViewModel.class);
     }
 
     @Override
-    public List<Session> findSessionsByHallId(Long id) {
+    public List<SessionViewModel> findSessionsByHallId(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        Session[] hallsResponse = restTemplate.getForObject(rootPath + "/sessions/?id=" + id, Session[].class);
+        SessionViewModel[] hallsResponse = restTemplate.getForObject(rootPath + "/sessions/?id=" + id, SessionViewModel[].class);
         return hallsResponse == null ? Collections.emptyList() : Arrays.asList(hallsResponse);
     }
 }

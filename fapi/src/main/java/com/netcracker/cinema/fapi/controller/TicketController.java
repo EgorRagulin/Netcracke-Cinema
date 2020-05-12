@@ -1,9 +1,9 @@
 package com.netcracker.cinema.fapi.controller;
 
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullTicketDTO;
+import com.netcracker.cinema.fapi.model.TicketViewModel;
+import com.netcracker.cinema.fapi.model.full.FullTicketViewModel;
 import com.netcracker.cinema.fapi.DTO.PageDTO;
-import com.netcracker.cinema.fapi.model.Ticket;
 import com.netcracker.cinema.fapi.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,18 +17,18 @@ public class TicketController {
     private TicketService ticketService;
 
     @GetMapping
-    public List<Ticket> findTickets() {
+    public List<TicketViewModel> findTickets() {
         return ticketService.findAll();
     }
 
     @GetMapping(params = {"id"})
-    public Ticket findTicketById(@RequestParam Long id) {
+    public TicketViewModel findTicketById(@RequestParam Long id) {
         return ticketService.findById(id);
     }
 
     @PostMapping
-    public FullTicketDTO saveTicket(@RequestBody FullTicketDTO fullTicketDTO) {
-        return ticketService.save(fullTicketDTO);
+    public FullTicketViewModel saveTicket(@RequestBody FullTicketViewModel fullTicketViewModel) {
+        return ticketService.save(fullTicketViewModel);
     }
 
     @DeleteMapping(params = {"id"})
@@ -38,12 +38,12 @@ public class TicketController {
 
 
     @GetMapping(params = {"id"}, path = {"/full"})
-    public FullTicketDTO findFullTicketById(@RequestParam Long id) {
+    public FullTicketViewModel findFullTicketById(@RequestParam Long id) {
         return ticketService.findFullById(id);
     }
 
     @GetMapping(params = {"pageNumber", "pageSize"})
-    public PageDTO<FullTicketDTO> findTicketsPage(@RequestParam int pageNumber, @RequestParam int pageSize) {
+    public PageDTO<FullTicketViewModel> findTicketsPage(@RequestParam int pageNumber, @RequestParam int pageSize) {
         return ticketService.findPage(pageNumber, pageSize);
     }
 

@@ -16,6 +16,7 @@ public class Session {
     private Long id;
     private Date date;
     private Time time;
+    private double cost;
     private String mode;
     private Hall hall;
     private Movie movie;
@@ -50,6 +51,16 @@ public class Session {
 
     public void setTime(Time time) {
         this.time = time;
+    }
+
+    @Basic
+    @Column(name = "cost")
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 
     @Basic

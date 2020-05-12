@@ -1,10 +1,9 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.DTO.FullDTO.FullMovieDTO;
+import com.netcracker.cinema.backend.entity.full.FullMovie;
 import com.netcracker.cinema.backend.DTO.PageDTO;
 import com.netcracker.cinema.backend.entity.Movie;
 import com.netcracker.cinema.backend.entity.Session;
-import com.netcracker.cinema.backend.enums.MovieGenre;
 import com.netcracker.cinema.backend.service.MovieService;
 import com.netcracker.cinema.backend.sort.PagingSort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -23,22 +21,22 @@ public class MovieController {
     private MovieService movieService;
 
     @GetMapping()
-    public List<FullMovieDTO> findALLMovie() {
-        List<FullMovieDTO> movieDTOS = new ArrayList<FullMovieDTO>();
-        movieService.findAll().forEach(movie -> movieDTOS.add(new FullMovieDTO(movie)));
+    public List<FullMovie> findALLMovie() {
+        List<FullMovie> movieDTOS = new ArrayList<FullMovie>();
+        movieService.findAll().forEach(movie -> movieDTOS.add(new FullMovie(movie)));
         return movieDTOS;
     }
 
     @GetMapping(params = {"id"})
-    public FullMovieDTO findMovieById(@RequestParam Long id) {
+    public FullMovie findMovieById(@RequestParam Long id) {
         Movie movie = movieService.findById(id).get();
-        return new FullMovieDTO(movie);
+        return new FullMovie(movie);
     }
 
     @PostMapping
-    public FullMovieDTO saveMovie(@RequestBody FullMovieDTO fullMovieDTO) {
-        Movie savedMovie = movieService.save(fullMovieDTO.transformToMovie());
-        return new FullMovieDTO(savedMovie);
+    public FullMovie saveMovie(@RequestBody FullMovie fullMovie) {
+        Movie savedMovie = movieService.save(fullMovie.transformToMovie());
+        return new FullMovie(savedMovie);
     }
 
     @DeleteMapping(params = {"id"})
@@ -47,12 +45,12 @@ public class MovieController {
     }
 
     @GetMapping(params = {"pageNumber", "pageSize"})
-    public PageDTO<FullMovieDTO> findPage(@RequestParam int pageNumber, @RequestParam int pageSize) {
+    public PageDTO<FullMovie> findPage(@RequestParam int pageNumber, @RequestParam int pageSize) {
         String sortProperty = "id";
         PageDTO<Movie> moviesPage = new PageDTO(getPage(pageNumber, pageSize, sortProperty));
 
-        List<FullMovieDTO> movieDTOS = new ArrayList<FullMovieDTO>();
-        moviesPage.getCollectionOfElements().forEach(movie -> movieDTOS.add(new FullMovieDTO(movie)));
+        List<FullMovie> movieDTOS = new ArrayList<FullMovie>();
+        moviesPage.getCollectionOfElements().forEach(movie -> movieDTOS.add(new FullMovie(movie)));
 
         return new PageDTO(movieDTOS, moviesPage);
     }

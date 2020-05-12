@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="page">
+    <h2>Halls</h2>
+
+    <div class="hallViewModels">
+      <div class="hallViewModel" *ngFor="let hall of halls">
+
+        <div class="hallNumber">
+          Hall Number: {{hall.hallNumber}}
+        </div>
+
+        <div class="btn">
+          <a [routerLink]="['/hall/' + hall.id]" color="accent" mat-flat-button>
+            Go To Hall
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
+
+</div>

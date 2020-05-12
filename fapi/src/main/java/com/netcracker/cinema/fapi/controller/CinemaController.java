@@ -1,8 +1,8 @@
 package com.netcracker.cinema.fapi.controller;
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullCinemaDTO;
-import com.netcracker.cinema.fapi.model.Cinema;
-import com.netcracker.cinema.fapi.model.Hall;
+import com.netcracker.cinema.fapi.model.CinemaViewModel;
+import com.netcracker.cinema.fapi.model.full.FullCinemaViewModel;
+import com.netcracker.cinema.fapi.model.HallViewModel;
 import com.netcracker.cinema.fapi.service.CinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,18 +16,18 @@ public class CinemaController {
     private CinemaService cinemaService;
 
     @GetMapping
-    public List<Cinema> findAllCinemas() {
+    public List<CinemaViewModel> findAllCinemas() {
         return cinemaService.findAll();
     }
 
     @GetMapping(params = {"id"})
-    public Cinema findCinemaById(@RequestParam Long id) {
+    public CinemaViewModel findCinemaById(@RequestParam Long id) {
         return cinemaService.findById(id);
     }
 
     @PostMapping
-    public Cinema saveCinema(@RequestBody Cinema cinema) {
-        return cinemaService.save(cinema);
+    public CinemaViewModel saveCinema(@RequestBody CinemaViewModel cinemaViewModel) {
+        return cinemaService.save(cinemaViewModel);
     }
 
     @DeleteMapping(params = {"id"})
@@ -37,12 +37,12 @@ public class CinemaController {
 
 
     @GetMapping(params = {"id"}, path = {"/full"})
-    public FullCinemaDTO findFullCinemaById(@RequestParam Long id) {
+    public FullCinemaViewModel findFullCinemaById(@RequestParam Long id) {
         return cinemaService.findFullById(id);
     }
 
     @GetMapping(params = {"id"}, path = {"/halls"})
-    public List<Hall> findHallsByCinemaId(@RequestParam Long id) {
+    public List<HallViewModel> findHallsByCinemaId(@RequestParam Long id) {
         return cinemaService.findHallsByCinemaId(id);
     }
 }

@@ -13,7 +13,8 @@ public class User {
     private Long id;
     private String firstName;
     private String secondName;
-    private String role;
+    private String email;
+    private int phoneNumber;
     private Login login;
     private Wallet wallet;
     private List<Ticket> tickets;
@@ -50,13 +51,23 @@ public class User {
     }
 
     @Basic
-    @Column(name = "role")
-    public String getRole() {
-        return role;
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Basic
+    @Column(name = "phone_num")
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     @OneToOne

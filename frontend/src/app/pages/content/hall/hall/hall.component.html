@@ -1,0 +1,19 @@
+<div class="container">
+
+  <div *ngIf="hall" class="hallViewModel">
+
+    <div class="hallNumber">
+      {{hall.hallNumber}} Зал
+    </div>
+
+    <div class="btn">
+      <a [routerLink]="['sessions']" color="accent" mat-flat-button>
+        Показать Сеансы
+      </a>
+    </div>
+
+  </div>
+
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
+
+</div>

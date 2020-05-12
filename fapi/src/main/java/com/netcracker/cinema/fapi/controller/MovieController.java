@@ -1,9 +1,9 @@
 package com.netcracker.cinema.fapi.controller;
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullMovieDTO;
+import com.netcracker.cinema.fapi.model.MovieViewModel;
+import com.netcracker.cinema.fapi.model.SessionViewModel;
+import com.netcracker.cinema.fapi.model.full.FullMovieViewModel;
 import com.netcracker.cinema.fapi.DTO.PageDTO;
-import com.netcracker.cinema.fapi.model.Movie;
-import com.netcracker.cinema.fapi.model.Session;
 import com.netcracker.cinema.fapi.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,18 +17,18 @@ public class MovieController {
     private MovieService movieService;
 
     @GetMapping
-    public List<Movie> findAllMovies() {
+    public List<MovieViewModel> findAllMovies() {
         return movieService.findAll();
     }
 
     @GetMapping(params = {"id"})
-    public Movie findMovieById(@RequestParam Long id) {
+    public MovieViewModel findMovieById(@RequestParam Long id) {
         return movieService.findById(id);
     }
 
     @PostMapping
-    public Movie saveMovie(@RequestBody Movie movie) {
-        return movieService.save(movie);
+    public MovieViewModel saveMovie(@RequestBody MovieViewModel movieViewModel) {
+        return movieService.save(movieViewModel);
     }
 
     @DeleteMapping(params = {"id"})
@@ -38,12 +38,12 @@ public class MovieController {
 
 
     @GetMapping(params = {"pageNumber", "pageSize"})
-    public PageDTO<FullMovieDTO> findMoviesPage(@RequestParam int pageNumber, @RequestParam int pageSize) {
+    public PageDTO<FullMovieViewModel> findMoviesPage(@RequestParam int pageNumber, @RequestParam int pageSize) {
         return movieService.findPage(pageNumber, pageSize);
     }
 
     @GetMapping(params = {"id"}, path = {"/sessions/"})
-    public List<Session> findMovieSessions(@RequestParam Long id) {
+    public List<SessionViewModel> findMovieSessions(@RequestParam Long id) {
         return movieService.findSessionsByMovieId(id);
     }
 }

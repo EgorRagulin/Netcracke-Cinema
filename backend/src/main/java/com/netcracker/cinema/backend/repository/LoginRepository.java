@@ -16,4 +16,6 @@ public interface LoginRepository extends CrudRepository<Login, Long> {
     Login save(Login login);
 
     void deleteById(Long id);
+
+    Optional<Login> findByUsername(String username);
 }

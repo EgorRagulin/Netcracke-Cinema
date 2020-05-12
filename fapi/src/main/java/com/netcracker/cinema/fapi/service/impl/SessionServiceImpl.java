@@ -1,15 +1,13 @@
 package com.netcracker.cinema.fapi.service.impl;
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullSessionDTO;
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullTicketDTO;
-import com.netcracker.cinema.fapi.model.Session;
-import com.netcracker.cinema.fapi.model.Ticket;
+import com.netcracker.cinema.fapi.model.SessionViewModel;
+import com.netcracker.cinema.fapi.model.TicketViewModel;
+import com.netcracker.cinema.fapi.model.full.FullSessionViewModel;
+import com.netcracker.cinema.fapi.model.full.FullTicketViewModel;
 import com.netcracker.cinema.fapi.service.SessionService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.sql.Date;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -19,22 +17,22 @@ public class SessionServiceImpl implements SessionService {
     private String rootPath = "http://localhost:8080/api/sessions";
 
     @Override
-    public List<Session> findAll() {
+    public List<SessionViewModel> findAll() {
         RestTemplate restTemplate = new RestTemplate();
-        Session[] sessionsResponse = restTemplate.getForObject(rootPath, Session[].class);
+        SessionViewModel[] sessionsResponse = restTemplate.getForObject(rootPath, SessionViewModel[].class);
         return sessionsResponse == null ? Collections.emptyList() : Arrays.asList(sessionsResponse);
     }
 
     @Override
-    public Session findById(Long id) {
+    public SessionViewModel findById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(rootPath + "/?id=" + id, Session.class);
+        return restTemplate.getForObject(rootPath + "/?id=" + id, SessionViewModel.class);
     }
 
     @Override
-    public Session save(Session session) {
+    public SessionViewModel save(SessionViewModel sessionViewModel) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity(rootPath, session, Session.class).getBody();
+        return restTemplate.postForEntity(rootPath, sessionViewModel, SessionViewModel.class).getBody();
     }
 
     @Override
@@ -44,22 +42,22 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
-    public FullSessionDTO findFullById(Long id) {
+    public FullSessionViewModel findFullById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(rootPath + "/full/?id=" + id, FullSessionDTO.class);
+        return restTemplate.getForObject(rootPath + "/full/?id=" + id, FullSessionViewModel.class);
     }
 
     @Override
-    public List<Ticket> findTicketsBySessionId(Long id) {
+    public List<TicketViewModel> findTicketsBySessionId(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        Ticket[] sessionsResponse = restTemplate.getForObject(rootPath + "/tickets/?id=" + id , Ticket[].class);
+        TicketViewModel[] sessionsResponse = restTemplate.getForObject(rootPath + "/tickets/?id=" + id , TicketViewModel[].class);
         return sessionsResponse == null ? Collections.emptyList() : Arrays.asList(sessionsResponse);
     }
 
     @Override
-    public List<FullTicketDTO> findFullTicketsBySessionId(Long id) {
+    public List<FullTicketViewModel> findFullTicketsBySessionId(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        FullTicketDTO[] sessionsResponse = restTemplate.getForObject(rootPath + "/fullTickets/?id=" + id , FullTicketDTO[].class);
+        FullTicketViewModel[] sessionsResponse = restTemplate.getForObject(rootPath + "/fullTickets/?id=" + id , FullTicketViewModel[].class);
         return sessionsResponse == null ? Collections.emptyList() : Arrays.asList(sessionsResponse);
     }
 }

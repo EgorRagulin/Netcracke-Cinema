@@ -1,6 +1,6 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.DTO.FullDTO.FullTicketDTO;
+import com.netcracker.cinema.backend.entity.full.FullTicket;
 import com.netcracker.cinema.backend.DTO.PageDTO;
 import com.netcracker.cinema.backend.entity.Ticket;
 import com.netcracker.cinema.backend.service.TicketService;
@@ -30,10 +30,10 @@ public class TicketController {
     }
 
     @PostMapping
-    public FullTicketDTO saveTicket(@RequestBody Ticket ticket) {
+    public FullTicket saveTicket(@RequestBody Ticket ticket) {
         Ticket savedTicket = ticketService.save(ticket);
-        FullTicketDTO savedFullTicketDTO = new FullTicketDTO(savedTicket);
-        return savedFullTicketDTO;
+        FullTicket savedFullTicket = new FullTicket(savedTicket);
+        return savedFullTicket;
     }
 
     @DeleteMapping(params = {"id"})
@@ -43,21 +43,21 @@ public class TicketController {
 
 
     @GetMapping(params = {"id"}, path = {"/full"})
-    public FullTicketDTO findFullTicketById(@RequestParam Long id) {
+    public FullTicket findFullTicketById(@RequestParam Long id) {
         Ticket ticket = ticketService.findById(id).get();
-        FullTicketDTO fullTicketDTO = new FullTicketDTO(ticket);
-        return fullTicketDTO;
+        FullTicket fullTicket = new FullTicket(ticket);
+        return fullTicket;
     }
 
     @GetMapping(params = {"pageNumber", "pageSize"})
-    public PageDTO<FullTicketDTO> findPageOfTickets(@RequestParam int pageNumber, @RequestParam int pageSize) {
+    public PageDTO<FullTicket> findPageOfTickets(@RequestParam int pageNumber, @RequestParam int pageSize) {
         String sortProperty = "session";
         PageDTO<Ticket> pageTickets = new PageDTO(getPage(pageNumber, pageSize, sortProperty));
 
-        List<FullTicketDTO> listOfFullTicketDTOS = new ArrayList<FullTicketDTO>();
-        pageTickets.getCollectionOfElements().forEach(ticket -> listOfFullTicketDTOS.add(new FullTicketDTO(ticket)));
+        List<FullTicket> listOfFullTickets = new ArrayList<FullTicket>();
+        pageTickets.getCollectionOfElements().forEach(ticket -> listOfFullTickets.add(new FullTicket(ticket)));
 
-        PageDTO<FullTicketDTO> pageFullTicket = new PageDTO(listOfFullTicketDTOS, pageTickets);
+        PageDTO<FullTicket> pageFullTicket = new PageDTO(listOfFullTickets, pageTickets);
         return pageFullTicket;
     }
 

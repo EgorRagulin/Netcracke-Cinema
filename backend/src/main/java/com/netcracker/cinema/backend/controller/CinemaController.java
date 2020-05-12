@@ -1,6 +1,6 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.DTO.FullDTO.FullCinemaDTO;
+import com.netcracker.cinema.backend.entity.full.FullCinema;
 import com.netcracker.cinema.backend.entity.Cinema;
 import com.netcracker.cinema.backend.entity.Hall;
 import com.netcracker.cinema.backend.service.CinemaService;
@@ -26,10 +26,10 @@ public class CinemaController {
     }
 
     @PostMapping
-    public FullCinemaDTO saveCinema(@RequestBody Cinema cinema) {
+    public FullCinema saveCinema(@RequestBody Cinema cinema) {
         Cinema savedCinema = cinemaService.save(cinema);
-        FullCinemaDTO fullCinemaDTO = new FullCinemaDTO(savedCinema);
-        return fullCinemaDTO;
+        FullCinema fullCinema = new FullCinema(savedCinema);
+        return fullCinema;
     }
 
     @DeleteMapping(params = {"id"})
@@ -38,10 +38,10 @@ public class CinemaController {
     }
 
     @GetMapping(params = {"id"}, path = {"/full"})
-    public FullCinemaDTO findFullCinemaById(@RequestParam Long id) {
+    public FullCinema findFullCinemaById(@RequestParam Long id) {
         Cinema cinema = cinemaService.findById(id).get();
-        FullCinemaDTO fullCinemaDTO = new FullCinemaDTO(cinema);
-        return fullCinemaDTO;
+        FullCinema fullCinema = new FullCinema(cinema);
+        return fullCinema;
     }
 
     @GetMapping(params = {"id"}, path = {"/halls"})

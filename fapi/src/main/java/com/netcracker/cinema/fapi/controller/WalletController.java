@@ -1,8 +1,8 @@
 package com.netcracker.cinema.fapi.controller;
 
 
-import com.netcracker.cinema.fapi.DTO.FullDTO.FullWalletDTO;
-import com.netcracker.cinema.fapi.model.Wallet;
+import com.netcracker.cinema.fapi.model.full.FullWalletViewModel;
+import com.netcracker.cinema.fapi.model.WalletViewModel;
 import com.netcracker.cinema.fapi.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,18 +16,18 @@ public class WalletController {
     private WalletService walletService;
 
     @GetMapping
-    public List<Wallet> findAllWallet() {
+    public List<WalletViewModel> findAllWallet() {
         return walletService.findAll();
     }
 
     @GetMapping(params = {"id"})
-    public Wallet findWalletById(@RequestParam Long id) {
+    public WalletViewModel findWalletById(@RequestParam Long id) {
         return walletService.findById(id);
     }
 
     @PostMapping
-    public FullWalletDTO saveWallet(@RequestBody FullWalletDTO fullWalletDTO) {
-        return walletService.save(fullWalletDTO);
+    public FullWalletViewModel saveWallet(@RequestBody FullWalletViewModel fullWalletViewModel) {
+        return walletService.save(fullWalletViewModel);
     }
 
     @DeleteMapping(params = {"id"})
@@ -37,7 +37,7 @@ public class WalletController {
 
 
     @GetMapping(params = {"id"}, path = {"/full"})
-    public FullWalletDTO findFullWalletById(@RequestParam Long id) {
+    public FullWalletViewModel findFullWalletById(@RequestParam Long id) {
         return walletService.findFullById(id);
     }
 }

@@ -1,8 +1,6 @@
 package com.netcracker.cinema.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -12,6 +10,7 @@ public class Login {
     private Long id;
     private String username;
     private String password;
+    private String role;
     private User user;
 
     @Id
@@ -43,6 +42,16 @@ public class Login {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Basic
+    @Column(name = "role")
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @OneToOne(mappedBy = "login")

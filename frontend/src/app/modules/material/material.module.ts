@@ -5,6 +5,11 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from "@angular/material/input";
+import {MatCardModule} from "@angular/material/card";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatIconModule} from "@angular/material/icon";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 const MaterialComponents = [
   MatToolbarModule,
@@ -12,7 +17,13 @@ const MaterialComponents = [
   MatPaginatorModule,
   MatSidenavModule,
   MatSelectModule,
-  MatInputModule
+  MatInputModule,
+
+  MatCardModule,
+  MatTabsModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatCheckboxModule,
 ]
 
 @NgModule({

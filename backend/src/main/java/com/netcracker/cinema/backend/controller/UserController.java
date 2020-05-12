@@ -1,6 +1,6 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.DTO.FullDTO.FullUserDTO;
+import com.netcracker.cinema.backend.entity.full.FullUser;
 import com.netcracker.cinema.backend.entity.Ticket;
 import com.netcracker.cinema.backend.entity.User;
 import com.netcracker.cinema.backend.entity.Wallet;
@@ -27,10 +27,10 @@ public class UserController {
     }
 
     @PostMapping
-    public FullUserDTO saveUser(@RequestBody User user) {
+    public FullUser saveUser(@RequestBody User user) {
         User savedUser = userService.save(user);
-        FullUserDTO fullUserDTO = new FullUserDTO(savedUser);
-        return fullUserDTO;
+        FullUser fullUser = new FullUser(savedUser);
+        return fullUser;
     }
 
     @DeleteMapping(params = {"id"})
@@ -39,10 +39,10 @@ public class UserController {
     }
 
     @GetMapping(params = {"id"}, path = {"/full"})
-    public FullUserDTO findFullUserById(@RequestParam Long id) {
+    public FullUser findFullUserById(@RequestParam Long id) {
         User user = userService.findById(id).get();
-        FullUserDTO fullUserDTO = new FullUserDTO(user);
-        return fullUserDTO;
+        FullUser fullUser = new FullUser(user);
+        return fullUser;
     }
 
     @GetMapping(params = {"id"}, path = {"/wallet"})

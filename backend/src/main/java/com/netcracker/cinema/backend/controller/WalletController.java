@@ -1,6 +1,6 @@
 package com.netcracker.cinema.backend.controller;
 
-import com.netcracker.cinema.backend.DTO.FullDTO.FullWalletDTO;
+import com.netcracker.cinema.backend.entity.full.FullWallet;
 import com.netcracker.cinema.backend.entity.Wallet;
 import com.netcracker.cinema.backend.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +25,10 @@ public class WalletController {
     }
 
     @PostMapping
-    public FullWalletDTO saveWallet(@RequestBody Wallet wallet) {
+    public FullWallet saveWallet(@RequestBody Wallet wallet) {
         Wallet savedWallet = walletService.save(wallet);
-        FullWalletDTO fullWalletDTO = new FullWalletDTO(savedWallet);
-        return fullWalletDTO;
+        FullWallet fullWallet = new FullWallet(savedWallet);
+        return fullWallet;
     }
 
     @DeleteMapping(params = {"id"})
@@ -38,9 +38,9 @@ public class WalletController {
 
 
     @GetMapping(params = {"id"}, path = {"/full"})
-    public FullWalletDTO findFullWalletById(@RequestParam Long id) {
+    public FullWallet findFullWalletById(@RequestParam Long id) {
         Wallet wallet = walletService.findById(id).get();
-        FullWalletDTO fullWalletDTO = new FullWalletDTO(wallet);
-        return fullWalletDTO;
+        FullWallet fullWallet = new FullWallet(wallet);
+        return fullWallet;
     }
 }
