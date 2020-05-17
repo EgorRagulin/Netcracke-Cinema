@@ -1,9 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
-import {Hall} from "../../../../models/Hall";
+import {HallModel} from "../../../../models/hall.model";
 import {HallsService} from "../../../../services/halls/halls.service";
 import {LoadingService} from "../../../../services/loading/loading.service";
+import {finalize} from "rxjs/operators";
 
 @Component({
   selector: 'app-hall',
@@ -12,7 +13,7 @@ import {LoadingService} from "../../../../services/loading/loading.service";
 })
 export class HallComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
-  public hall: Hall;
+  public hall: HallModel;
   public isLoading: boolean;
 
   constructor(private hallsService : HallsService,
@@ -32,9 +33,8 @@ export class HallComponent implements OnInit, OnDestroy {
     this.isLoading = this.loadingService.changeLoadingStatus(true);
 
     this._subscriptions.push(this.hallsService.getHall(id)
-      .subscribe(hall => {
-        this.hall = hall;
-        this.isLoading = this.loadingService.changeLoadingStatus(false);
-      }));
+      .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
+      .subscribe((hall: HallModel) => this.hall = hall,
+        (error) => alert(error.message)));
   }
 }

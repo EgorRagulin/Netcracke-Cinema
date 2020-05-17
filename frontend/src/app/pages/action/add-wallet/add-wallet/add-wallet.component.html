@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="page">
+    <mat-card>
+      <mat-card-title>
+        Add Wallet
+      </mat-card-title>
+
+      <mat-card-content>
+        <form [formGroup]="addWalletForm" (ngSubmit)="addWallet()">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="wallet name"
+              formControlName="walletName"
+              [(ngModel)]="wallet.name"
+              required>
+            <mat-error *ngFor="let validation of validationMessages.wallet_name">
+              <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(addWalletForm.get('walletName'), validation.type)">
+                {{validation.message}}
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="balance"
+              formControlName="balance"
+              [(ngModel)]="wallet.balance"
+              required>
+            <mat-error *ngFor="let validation of validationMessages.wallet_balance">
+              <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(addWalletForm.get('balance'), validation.type)">
+                {{validation.message}}
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+
+          <button class="create-wallet-btn" color="primary" mat-raised-button type="submit" [disabled]="addWalletForm.invalid">
+            Add Wallet
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
+</div>

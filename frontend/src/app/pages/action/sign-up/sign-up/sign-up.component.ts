@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {SecurityLoginModel} from "../../../../models/security/security.login.model";
 import {StorageService} from "../../../../services/security/storage.service";
 import {LoginService} from "../../../../services/security/login-service";
 import {Subscription} from "rxjs";
 import {Router} from "@angular/router";
 import {LoadingService} from "../../../../services/loading/loading.service";
 import {LoginModel} from "../../../../models/login.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Validation} from "../../../../form-validation/validation";
+import {finalize} from "rxjs/operators";
+import {FormValidationService} from "../../../../services/form-validation/form-validation.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -14,34 +17,61 @@ import {LoginModel} from "../../../../models/login.model";
 })
 export class SignUpComponent implements OnInit {
   private _subscriptions: Subscription[] = [];
-  public loginModel: LoginModel = new LoginModel();
-  public isLoading: boolean = false;
+  public isLoading: boolean;
+
+  public login: LoginModel = new LoginModel();
+
+  public singUpForm: FormGroup;
+
+  public validationMessages = Validation.validationMessages;
+
   public hide: boolean = true;
 
-  constructor(private loadingService: LoadingService,
-              public storageService: StorageService,
+  constructor(public storageService: StorageService,
               private loginService: LoginService,
+              private loadingService: LoadingService,
+              private fb: FormBuilder,
+              public formValidationService: FormValidationService,
               private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.createSignUpForms();
   }
 
   ngOnDestroy(): void {
     this._subscriptions.forEach(subscription => subscription.unsubscribe())
   }
 
-  public createLogin(): void {
-    this.isLoading = this.loadingService.changeLoadingStatus(true);
+  private createSignUpForms() {
+    this.singUpForm = this.fb.group({
+      username: ['',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(15),
+          Validators.pattern(Validation.validatorsPatterns.username)
+        ]],
+      password: ['',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(15),
+          Validators.pattern(Validation.validatorsPatterns.password)
+        ]]
+    });
+  }
 
-    this._subscriptions.push(
-      this.loginService.saveLogin(this.loginModel).subscribe((savedLogin: LoginModel) => {
-        this.router.navigate(['sign-in']);
-        this.isLoading = this.loadingService.changeLoadingStatus(false);
-      }, error => {
-        alert(error.message);
-        this.isLoading = this.loadingService.changeLoadingStatus(false);
-      })
-    );
+  public createLogin(): void {
+    if(this.singUpForm.valid) {
+      this.isLoading = this.loadingService.changeLoadingStatus(true);
+
+      this._subscriptions.push(
+        this.loginService.saveLogin(this.login)
+          .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
+          .subscribe((savedLogin: LoginModel) => this.router.navigate(['sign-in']),
+            (error) => alert(error.message)));
+    }
+    else alert('Ах ты хитрый жук');
   }
 
   public toggle(): void {

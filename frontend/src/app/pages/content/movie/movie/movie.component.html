@@ -1,20 +1,17 @@
 <div class="container">
 
   <div class="page">
-    <div class="movieViewModel">
-      <div *ngIf="movie" class="cases">
-        <div class="case">
+    <div class="movie" *ngIf="movie">
+
           <div class="picture">
-            <img [src]="'data:image/jpeg;base64,' + movie.picture" height="400">
+            <img [src]="movie.picture ? 'data:image/jpeg;base64,' + movie.picture : 'http://placehold.it/200x300'">
           </div>
-        </div>
-        <div class="case">
 
           <div class="title">{{movie.title}}</div>
 
           <div class="duration">{{movie.duration}}</div>
 
-          <div class="ageLimit">{{movie.ageLimit}}+</div>
+          <div class="age-limit">{{movie.ageLimit}}+</div>
 
           <div class="genres">
             <div *ngFor="let genre of movie.genres">{{genre}}</div>
@@ -22,13 +19,16 @@
 
           <div class="description">{{movie.description}}</div>
 
-        </div>
-        <div class="case">
-          <a [routerLink]="['sessions']" color="accent" mat-flat-button>Go To Sessions</a>
-        </div>
-      </div>
+          <div class="btn">
+            <a [routerLink]="['sessions']" color="accent" mat-flat-button>Go To Sessions</a>
+          </div>
+
     </div>
   </div>
+
+  <h3 class="movie-not-found" *ngIf="!movie">
+    Что-то пошло не так! Фильм не найден.
+  </h3>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>
 

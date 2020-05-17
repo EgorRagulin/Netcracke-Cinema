@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {UserModel} from "../../models/user.model";
-import {Ticket} from "../../models/Ticket";
+import {TicketModel} from "../../models/ticket.model";
+import {FullUserModel} from "../../models/full-models/full.user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +22,12 @@ export class UsersService {
       '?id=' + id);
   }
 
-  public getTickets(id: number): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(this.rootPath +
+  public saveUserInDb(fullUser: FullUserModel): Observable<FullUserModel>  {
+    return this.http.post<FullUserModel>(this.rootPath, fullUser);
+  }
+
+  public getTickets(id: number): Observable<TicketModel[]> {
+    return this.http.get<TicketModel[]>(this.rootPath +
       'tickets/?id=' + id);
   }
 }

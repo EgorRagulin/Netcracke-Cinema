@@ -1,9 +1,14 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
-import {Movie} from "../../../../models/Movie";
-import {MovieGenreTransformer} from "../../../../enum/MovieGenreEnum";
-import {FormBuilder} from "@angular/forms";
+import {MovieModel} from "../../../../models/movie.model";
+import {LoadingService} from "../../../../services/loading/loading.service";
+import {UploadPictureService} from "../../../../services/upload-picture/upload-picture.service";
+import {Router} from "@angular/router";
+import {PictureModel} from "../../../../models/picture/picture.model";
 import {MoviesService} from "../../../../services/movies/movies.service";
+import {FullMovieModel} from "../../../../models/full-models/full.movie.model";
+import {finalize} from "rxjs/operators";
+import {AllMovieGenres} from "../../../../models/all-movie-genres/all-movie-genres";
 
 @Component({
   selector: 'app-create-movie',
@@ -12,82 +17,69 @@ import {MoviesService} from "../../../../services/movies/movies.service";
 })
 export class CreateMovieComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
-  public movies: Movie[];
-  public createMovieForm;
-  public movieGenres = [];
+  public movie: FullMovieModel = new FullMovieModel();
+  public isLoading: boolean;
 
-  public selectedFile;
-  public imgURL;
+  private _selectedPicture: FormData;
 
-  public genreOptions = MovieGenreTransformer.getArrayOfGenre();
+  public allGenres: string[] = [];
 
-  constructor(
-    private moviesService: MoviesService,
-    private formBuilder: FormBuilder,
-  ) {
-    this.createMovieForm = this.formBuilder.group({
-      title: 'title',
-      picture: 'picture',
-      description: 'description',
-      ageLimit: '18',
-      duration: '03:00:00',
-      genres: '',
-    });
-  }
+  constructor(private loadingService: LoadingService,
+              private uploadPictureService: UploadPictureService,
+              private moviesService: MoviesService,
+              private router: Router) { }
 
   ngOnInit(): void {
-    this.getMovies(1, 100);
+    this.getArrayOfAllGenres();
   }
 
   ngOnDestroy(): void {
-    this._subscriptions.forEach(subscription => subscription.unsubscribe());
+    this._subscriptions.forEach(subscription => subscription.unsubscribe())
   }
 
-  public  onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
+  public addMovie(): void {
+    this.isLoading = this.loadingService.changeLoadingStatus(true);
 
-    // Below part is used to display the selected image
-    let reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onload = (event2) => {
-      this.imgURL = reader.result;
-    };
+    this.uploadPicture();
   }
 
-  updateGenres() {
-    let chosenGenre = this.createMovieForm.value.genres;
-    if (!this.movieGenres.includes(chosenGenre)) this.movieGenres.push(chosenGenre);
+  public setSelectedPicture(selectedPicture: FormData) {
+    this._selectedPicture = selectedPicture;
   }
 
-  onSubmit(formData) {
-    const uploadData: FormData = this.convertFormDataToUploadData(formData);
-    this.clearForm();
-    this.moviesService.saveMovie(uploadData).subscribe(movie => this.movies.push(movie));
+  private uploadPicture() {
+    if (this._selectedPicture) {
+      this._subscriptions.push(
+        this.uploadPictureService.getPictureUrl(this._selectedPicture)
+          .subscribe((picture: PictureModel) => {
+            if (picture.pictureUrl) this.movie.picture = picture.pictureUrl;
+            this.saveMovieInDB()
+          }, (error) => alert(error.message)));
+    } else this.saveMovieInDB();
   }
 
-  private convertFormDataToUploadData(formData): FormData {
-    const uploadData = new FormData();
-    uploadData.append('title', formData.title);
-    uploadData.append('description', formData.description);
-    uploadData.append('ageLimit', formData.ageLimit);
-    uploadData.append('duration', formData.duration);
-    uploadData.append('genres', MovieGenreTransformer.convertArrayToString(this.movieGenres));
-    uploadData.append('picture', this.selectedFile, this.selectedFile.name);
-    return uploadData;
+  private saveMovieInDB(): void {
+    this._subscriptions.push(
+      this.moviesService.saveMovieInDB(this.movie)
+        .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
+        .subscribe((savedMovie: FullMovieModel) => {
+          if (savedMovie.id) this.router.navigate(['movies/' + savedMovie.id]);
+          }, (error) => alert(error.message)));
   }
 
-  private clearForm(): void {
-    this.createMovieForm.reset();
-    this.movieGenres.length = 0;
-    this.imgURL = null;
-    this.selectedFile = undefined;
+  private getArrayOfAllGenres(): void {
+    this.moviesService.getAllMovieGenres().subscribe((allGenres: AllMovieGenres) => this.allGenres = allGenres.genres);
   }
 
-  // load movies from beck
-  private getMovies(pageNumber: number, pageSize: number): void {
-    this._subscriptions.push(this.moviesService.getPage(pageNumber, pageSize)
-      .subscribe(res => console.log(res))
-    );
+  public selectGenre(selectedGenre: string) {
+    this.movie.genres.push(selectedGenre);
+    this.allGenres = this.allGenres.filter(genre => genre != selectedGenre);
   }
 }
+
+
+
+
+
+
 

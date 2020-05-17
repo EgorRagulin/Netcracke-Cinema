@@ -5,7 +5,8 @@ public class UserViewModel {
     private String firstName;
     private String secondName;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
+    private byte[] avatar;
 
     public Long getId() {
         return id;
@@ -39,11 +40,19 @@ public class UserViewModel {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public byte[] getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(byte[] avatar) {
+        this.avatar = avatar;
     }
 }

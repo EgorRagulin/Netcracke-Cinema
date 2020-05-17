@@ -1,20 +1,23 @@
-<app-bubble-page [pageNumber]="1"
-                 [currentPageNumber]="pageNumber"
-                 (bobbleBtnClickEvent)="updatePage($event)"
-></app-bubble-page>
+<ng-container *ngIf="totalPages > 2">
+  <app-bubble-page [pageNumber]="1"
+                   [currentPageNumber]="pageNumber"
+                   (bobbleBtnClickEvent)="updatePage($event)"
+  ></app-bubble-page>
 
-<app-bubble [content]="'...'" *ngIf="pageNumber - pageRange > 2"></app-bubble>
+  <app-bubble [content]="'...'" *ngIf="pageNumber - pageRange > 2"></app-bubble>
 
-<span *ngFor="let bobblePageNumber of getRange()">
+  <span *ngFor="let bobblePageNumber of getRange()">
   <app-bubble-page [pageNumber]="bobblePageNumber"
                    [currentPageNumber]="pageNumber"
                    (bobbleBtnClickEvent)="updatePage($event)"
   ></app-bubble-page>
 </span>
 
-<app-bubble [content]="'...'" *ngIf="pageNumber + pageRange < totalPages - 1"></app-bubble>
+  <app-bubble [content]="'...'" *ngIf="pageNumber + pageRange < totalPages - 1"></app-bubble>
 
-<app-bubble-page [pageNumber]="totalPages"
-                 [currentPageNumber]="pageNumber"
-                 (bobbleBtnClickEvent)="updatePage($event)"
-></app-bubble-page>
+  <app-bubble-page [pageNumber]="totalPages"
+                   [currentPageNumber]="pageNumber"
+                   (bobbleBtnClickEvent)="updatePage($event)"
+                   *ngIf="totalPages > 1"
+  ></app-bubble-page>
+</ng-container>

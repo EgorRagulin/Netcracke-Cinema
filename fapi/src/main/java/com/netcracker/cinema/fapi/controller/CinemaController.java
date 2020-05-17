@@ -26,8 +26,8 @@ public class CinemaController {
     }
 
     @PostMapping
-    public CinemaViewModel saveCinema(@RequestBody CinemaViewModel cinemaViewModel) {
-        return cinemaService.save(cinemaViewModel);
+    public CinemaViewModel saveCinema(@RequestBody CinemaViewModel cinema) {
+        return cinemaService.save(cinema);
     }
 
     @DeleteMapping(params = {"id"})
@@ -44,5 +44,10 @@ public class CinemaController {
     @GetMapping(params = {"id"}, path = {"/halls"})
     public List<HallViewModel> findHallsByCinemaId(@RequestParam Long id) {
         return cinemaService.findHallsByCinemaId(id);
+    }
+
+    @PostMapping(path = {"/add-hall"})
+    public List<HallViewModel> addHallToCinema(@RequestBody CinemaViewModel cinema) {
+        return cinemaService.addHall(cinema);
     }
 }

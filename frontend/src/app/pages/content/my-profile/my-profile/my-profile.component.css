@@ -1,0 +1,26 @@
+.my-profile-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.avatar img
+{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 2px;
+  border-radius: 50%;
+}
+.is-user-admin
+{
+  color: #d42626;
+  text-transform: uppercase;
+}

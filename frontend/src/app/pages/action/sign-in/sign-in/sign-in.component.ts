@@ -1,77 +1,131 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SecurityLoginModel} from "../../../../models/security/security.login.model";
 import {StorageService} from "../../../../services/security/storage.service";
 import {LoginService} from "../../../../services/security/login-service";
 import {LoadingService} from "../../../../services/loading/loading.service";
-import {StorageLoginModel} from "../../../../models/storage/storage.login.model";
 import {StorageTokenModel} from "../../../../models/storage/storage.token.model";
 import {Router} from "@angular/router";
-import {StorageUserModel} from "../../../../models/storage/storage.user.model";
+import {finalize} from "rxjs/operators";
+import {LoginModel} from "../../../../models/login.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Validation} from "../../../../form-validation/validation";
+import {Subscription} from "rxjs";
+import {FormValidationService} from "../../../../services/form-validation/form-validation.service";
+import {UserModel} from "../../../../models/user.model";
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent implements OnInit {
-  public loginModel: SecurityLoginModel = {};
-  public showCheckYourSetDataAlert: boolean = false;
-  public isLoading: boolean = false;
+export class SignInComponent implements OnInit, OnDestroy {
+  private _subscriptions: Subscription[] = [];
 
-  constructor(private loadingService: LoadingService,
-              private router: Router,
-              public storageService: StorageService,
-              private loginService: LoginService) { }
+  public login: SecurityLoginModel = {};
+
+  public singInForm: FormGroup;
+
+  public validationMessages = Validation.validationMessages;
+
+  public isLoading: boolean;
+  public hide: boolean = true;
+  public showCheckYourSetDataAlert: boolean = false;
+
+  constructor(public storageService: StorageService,
+              private loginService: LoginService,
+              private loadingService: LoadingService,
+              private fb: FormBuilder,
+              public formValidationService: FormValidationService,
+              private router: Router,) { }
 
   ngOnInit(): void {
+    this.createSignInForms();
+  }
+
+  ngOnDestroy(): void {
+    this._subscriptions.forEach(subscription => subscription.unsubscribe())
+  }
+
+  private createSignInForms() {
+    this.singInForm = this.fb.group({
+      username: ['',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(15),
+          Validators.pattern(Validation.validatorsPatterns.username)
+        ]],
+      password: ['',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(15),
+          Validators.pattern(Validation.validatorsPatterns.password)
+        ]]
+    });
+  }
+
+  public singIn(): void {
+    if(this.singInForm.valid) {
+      this.isLoading = this.loadingService.changeLoadingStatus(true);
+
+      this.setTokenToStorage();
+    }
+    else alert('Ах ты хитрый жук');
   }
 
   private setTokenToStorage(): void {
-    this.loginService.generateToken(this.loginModel)
-      .subscribe((authToken: StorageTokenModel) => {
-        if (authToken.token) {
-          this.storageService.setToken(authToken.token);
-          this.setCurrentLoginToStorage();
-        }
-      }, (error) => {
-        if (error.status === 401) {
-          this.showCheckYourSetDataAlert = true;
-        } else {
-          alert(error.message);
-        }
-      });
+    this._subscriptions.push(
+      this.loginService.generateToken(this.login)
+        .subscribe((authToken: StorageTokenModel) => {
+          if (authToken.token) {
+            this.storageService.setToken(authToken.token);
+            this.setCurrentLoginToStorage();
+          }
+        }, (error) => {
+          if (error.status === 401) {
+            this.showCheckYourSetDataAlert = true;
+          } else {
+            alert(error.message);
+          }
+          this.isLoading = this.loadingService.changeLoadingStatus(false);
+        })
+    );
   }
 
   private setCurrentLoginToStorage(): void {
     this.loginService.getAuthorizedLogin()
-      .subscribe((currentLogin: StorageLoginModel) => {
+      .subscribe((currentLogin: LoginModel) => {
         this.storageService.setCurrentLogin(currentLogin);
         this.setCurrentUserToStorage(currentLogin.id);
-      }, (error) => alert(error.message));
+      }, (error) => {
+        alert(error.message);
+        this.isLoading = this.loadingService.changeLoadingStatus(false);
+      });
+
   }
 
   private setCurrentUserToStorage(loginId: number): void {
     if(loginId != NaN) {
         this.loginService.getAuthorizedUser(loginId)
-          .subscribe((currentUser: StorageUserModel) => {
+          .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
+          .subscribe((currentUser: UserModel) => {
             this.storageService.setCurrentUser(currentUser);
-            this.router.navigate(['my-profile']);
-            this.isLoading = this.loadingService.changeLoadingStatus(false);
+            if (currentUser) this.router.navigate(['my-profile']);
+            else this.router.navigate(['create-user']);
           }, (error) => {
             if (error.status === 400) {
-              alert("UserModel not found!");
+              alert("User not found!");
               this.router.navigate(['create-user']);
             } else {
               alert(error.message);
             }
           });
     }
-    else alert("Что-то пошло не так!")
+    this.isLoading = this.loadingService.changeLoadingStatus(false);
   }
 
-  public singIn(): void {
-    this.isLoading = this.loadingService.changeLoadingStatus(true);
-
-    this.setTokenToStorage();
+  public toggle(): void {
+    this.hide = !this.hide;
   }
 }

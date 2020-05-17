@@ -14,7 +14,8 @@ public class User {
     private String firstName;
     private String secondName;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
+    private byte[] avatar;
     private Login login;
     private Wallet wallet;
     private List<Ticket> tickets;
@@ -62,12 +63,22 @@ public class User {
 
     @Basic
     @Column(name = "phone_num")
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Basic
+    @Column(name = "avatar")
+    public byte[] getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(byte[] avatar) {
+        this.avatar = avatar;
     }
 
     @OneToOne

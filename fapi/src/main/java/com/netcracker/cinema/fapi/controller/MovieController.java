@@ -2,6 +2,7 @@ package com.netcracker.cinema.fapi.controller;
 
 import com.netcracker.cinema.fapi.model.MovieViewModel;
 import com.netcracker.cinema.fapi.model.SessionViewModel;
+import com.netcracker.cinema.fapi.model.all.movie.genre.AllMovieGenreModel;
 import com.netcracker.cinema.fapi.model.full.FullMovieViewModel;
 import com.netcracker.cinema.fapi.DTO.PageDTO;
 import com.netcracker.cinema.fapi.service.MovieService;
@@ -45,5 +46,11 @@ public class MovieController {
     @GetMapping(params = {"id"}, path = {"/sessions/"})
     public List<SessionViewModel> findMovieSessions(@RequestParam Long id) {
         return movieService.findSessionsByMovieId(id);
+    }
+
+
+    @GetMapping(path = {"/all-genres"})
+    public AllMovieGenreModel getAllGenres() {
+        return movieService.getAllGenres();
     }
 }

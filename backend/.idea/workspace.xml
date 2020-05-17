@@ -1,267 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3765d639-34b6-4c64-8cd0-322eed483281" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/f8a297b1-bb27-441c-9031-0d60d2813787.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f8a297b1-bb27-441c-9031-0d60d2813787.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/DTO/FullDTO/FullCinemaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullCinema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/DTO/FullDTO/FullHallDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullHall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/DTO/FullDTO/FullLoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/DTO/FullDTO/FullMovieDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullMovie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/DTO/FullDTO/FullSessionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/DTO/FullDTO/FullTicketDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullTicket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/DTO/FullDTO/FullUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/DTO/FullDTO/FullWalletDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullWallet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/DTO/PageDTOTransformer.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/CinemaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/CinemaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/HallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/HallController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/MovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/SessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/SessionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/controller/WalletController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/enums/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/enums/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/repository/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/repository/LoginRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/service/impl/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/service/impl/LoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/DTO/FullDTO/FullCinemaDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/DTO/FullDTO/FullHallDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/DTO/FullDTO/FullLoginDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/DTO/FullDTO/FullMovieDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/DTO/FullDTO/FullSessionDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/DTO/FullDTO/FullTicketDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/DTO/FullDTO/FullUserDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/DTO/FullDTO/FullWalletDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/DTO/PageDTOTransformer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullHall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullHall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/entity/full/FullUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/enums/MovieGenre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/netcracker/cinema/backend/enums/MovieGenre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/backend.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/CinemaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/CinemaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/HallController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/HallController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/MovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/MovieController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/SessionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/SessionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/TicketController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/TicketController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/WalletController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/controller/WalletController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Session.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/Ticket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/enums/UserRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/enums/UserRole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/repository/LoginRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/repository/LoginRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/service/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/service/LoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/service/impl/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/service/impl/LoginServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/DTO/FullDTO/FullCinemaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullCinemaViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/DTO/FullDTO/FullHallDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullHallViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/DTO/FullDTO/FullLoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullLoginViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/DTO/FullDTO/FullMovieDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullMovieViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/DTO/FullDTO/FullSessionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullSessionViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/DTO/FullDTO/FullTicketDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullTicketViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/DTO/FullDTO/FullUserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullUserViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/DTO/FullDTO/FullWalletDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullWalletViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/full/FullHall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/full/FullHall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/full/FullUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/entity/full/FullUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/enums/MovieGenre.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/netcracker/cinema/backend/enums/MovieGenre.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/CinemaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/CinemaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/HallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/HallController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/MovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/SessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/SessionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/UserInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/WalletController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/CinemaViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Hall.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/HallViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/LoginViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/MovieViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/SessionViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/TicketViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/UserViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/WalletViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/UserInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/UserViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/UserViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullTicketViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullTicketViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullUserViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/model/full/FullUserViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/CinemaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/CinemaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/HallService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/HallService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/LoginService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/MovieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/SessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/SessionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/TicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/WalletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/WalletService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/CinemaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/CinemaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/HallServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/HallServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/LoginServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/MovieServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/SessionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/SessionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/TicketServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/TicketServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/WalletServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/java/com/netcracker/cinema/fapi/service/impl/WalletServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/CinemaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/CinemaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/HallController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/HallController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/MovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/MovieController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/SessionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/SessionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/TicketController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/TicketController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/WalletController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/WalletController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Cinema.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Hall.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Login.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Movie.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Session.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Ticket.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/Wallet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/controller/UserInfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/UserViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/UserViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/full/FullTicketViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/full/FullTicketViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/full/FullUserViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/model/full/FullUserViewModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/CinemaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/CinemaService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/HallService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/HallService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/LoginService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/MovieService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/SessionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/SessionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/TicketService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/TicketService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/WalletService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/WalletService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/CinemaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/CinemaServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/HallServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/HallServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/LoginServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/MovieServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/MovieServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/SessionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/SessionServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/TicketServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/TicketServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/WalletServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../fapi/target/classes/com/netcracker/cinema/fapi/service/impl/WalletServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/FullModel/FullCinema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullCinema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/FullModel/FullHall.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullHall.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/FullModel/FullLogin.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.login.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/FullModel/FullMovie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullMovie.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/FullModel/FullSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullSession.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/FullModel/FullTicket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullTicket.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/FullModel/FullUser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/FullModel/FullWallet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullWallet.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/Login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/login.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/header/header.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/modules/header/header.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/header/nav-bar/nav-bar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/modules/header/nav-bar/nav-bar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/enum/DefaultPageSize.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/enum/default.page.size.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/enum/MovieGenreEnum.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/enum/PlaceStatus.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/enum/place.status.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/interceptors/api-interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/interceptors/api-interceptor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/Cinema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/cinema.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/Hall.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/hall.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/Movie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/movie.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/Session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/session.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/Ticket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/ticket.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/Wallet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/wallet.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullCinema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.cinema.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullHall.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.hall.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullMovie.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.movie.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullSession.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.session.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullTicket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.ticket.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/full-models/FullWallet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.wallet.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.login.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.login.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/full-models/full.user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/page/Page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/page/page.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/paginator/Paginator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/paginator/paginator.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/picture/picture.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/picture/picture.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/place/Place.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/place/place.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/row/Row.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/row/row.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/storage/storage.login.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/storage/storage.user.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/footer/footer/footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/modules/footer/footer/footer.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/footer/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/modules/footer/footer/footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/header/header/header.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/modules/header/header/header.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/header/nav-bar/nav-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/modules/header/nav-bar/nav-bar.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/header/nav-bar/nav-bar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/modules/header/nav-bar/nav-bar.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/material/material.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/modules/material/material.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/cinema/cinema.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinema/cinema.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/cinema/cinema/cinema.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinema/cinema/cinema.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/cinema/cinema/cinema.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinema/cinema/cinema.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/cinema/cinema/cinema.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinema/cinema/cinema.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/cinema/cinema/cinema.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinema/cinema/cinema.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/cinemas/cinemas.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinemas/cinemas.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/cinemas/cinemas/cinemas.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinemas/cinemas/cinemas.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/cinemas/cinemas/cinemas.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinemas/cinemas/cinemas.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/cinemas/cinemas/cinemas.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinemas/cinemas/cinemas.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/cinemas/cinemas/cinemas.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinemas/cinemas/cinemas.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/hall/hall.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/hall/hall.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/hall/hall/hall.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/hall/hall/hall.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/hall/hall/hall.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/hall/hall/hall.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/hall/hall/hall.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/hall/hall/hall.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/hall/hall/hall.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/hall/hall/hall.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/halls/halls.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/halls/halls.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/halls/halls/halls.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/halls/halls/halls.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/halls/halls/halls.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/halls/halls/halls.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/halls/halls/halls.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/halls/halls/halls.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/halls/halls/halls.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/halls/halls/halls.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movie-create/movie-create.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movie-create/movie-create/movie-create.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie/create-movie.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movie-create/movie-create/movie-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie/create-movie.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movie-create/movie-create/movie-create.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie/create-movie.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movie-create/movie-create/movie-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie/create-movie.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movie/movie.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movie/movie.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movie/movie/movie.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movie/movie/movie.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movie/movie/movie.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movie/movie/movie.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movie/movie/movie.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movie/movie/movie.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movie/movie/movie.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movie/movie/movie.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movies/movies.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movies/movies.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movies/movies/movies.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movies/movies/movies.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movies/movies/movies.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movies/movies/movies.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movies/movies/movies.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movies/movies/movies.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/movies/movies/movies.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movies/movies/movies.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/page-not-found/page-not-found.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/page-not-found/page-not-found.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/page-not-found/page-not-found/page-not-found.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/page-not-found/page-not-found/page-not-found.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/page-not-found/page-not-found/page-not-found.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/page-not-found/page-not-found/page-not-found.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/page-not-found/page-not-found/page-not-found.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/page-not-found/page-not-found/page-not-found.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/page-not-found/page-not-found/page-not-found.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/page-not-found/page-not-found/page-not-found.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/sessions/sessions.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/sessions/sessions.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/sessions/sessions/sessions.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/sessions/sessions/sessions.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/sessions/sessions/sessions.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/sessions/sessions/sessions.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/sessions/sessions/sessions.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/sessions/sessions/sessions.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/sessions/sessions/sessions.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/sessions/sessions/sessions.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/place/place.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/place/place.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/place/place.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/place/place.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/place/place.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/place/place.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/place/place.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/place/place.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/row/row.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/row/row.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/row/row.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/row/row.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/row/row.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/row/row.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/row/row.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/row/row.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/ticket-buy.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/buy-ticket.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/ticket-buy/ticket-buy.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/buy-ticket/buy-ticket.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/ticket-buy/ticket-buy.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/buy-ticket/buy-ticket.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/ticket-buy/ticket-buy.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/buy-ticket/buy-ticket.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/ticket-buy/ticket-buy/ticket-buy.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/buy-ticket/buy-ticket.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/tickets/tickets.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/tickets/tickets.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/tickets/tickets/tickets.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/tickets/tickets/tickets.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/tickets/tickets/tickets.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/tickets/tickets/tickets.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/tickets/tickets/tickets.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/tickets/tickets/tickets.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/tickets/tickets/tickets.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/tickets/tickets/tickets.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/user/user.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/user/user.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/user/user/user.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/user/user/user.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/user/user/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/user/user/user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/user/user/user.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/user/user/user.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/user/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/user/user/user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/users/users.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/users/users.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/users/users/users.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/users/users/users.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/users/users/users.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/users/users/users.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/users/users/users.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/users/users/users.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/pages/users/users/users.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/users/users/users.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/paginator/bubbles-paginator/bubbles-paginator.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/modules/paginator/bubbles-paginator/bubbles-paginator.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/paginator/paginator/paginator.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/modules/paginator/paginator/paginator.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/modules/paginator/paginator/paginator.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/modules/paginator/paginator/paginator.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/buy-ticket/buy-ticket.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/buy-ticket/buy-ticket.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/place/place.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/place/place.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/row/row.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/buy-ticket/row/row.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie/create-movie.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie/create-movie.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie/create-movie.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie/create-movie.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie/create-movie.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-movie/create-movie/create-movie.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-user/create-user.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-user/create-user.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-user/create-user/create-user.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-user/create-user/create-user.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-user/create-user/create-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-user/create-user/create-user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-user/create-user/create-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/create-user/create-user/create-user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-in/sign-in.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-in/sign-in.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-in/sign-in/sign-in.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-in/sign-in/sign-in.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-in/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-in/sign-in/sign-in.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-in/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-in/sign-in/sign-in.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-up/sign-up.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-up/sign-up.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-up/sign-up/sign-up.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-up/sign-up/sign-up.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-up/sign-up/sign-up.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-up/sign-up/sign-up.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-up/sign-up/sign-up.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/action/sign-up/sign-up/sign-up.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinema/cinema/cinema.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinema/cinema/cinema.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinema/cinema/cinema.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinema/cinema/cinema.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinema/cinema/cinema.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinema/cinema/cinema.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinemas/cinemas/cinemas.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinemas/cinemas/cinemas.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinemas/cinemas/cinemas.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinemas/cinemas/cinemas.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinemas/cinemas/cinemas.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/cinemas/cinemas/cinemas.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/hall/hall/hall.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/hall/hall/hall.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/hall/hall/hall.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/hall/hall/hall.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/hall/hall/hall.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/hall/hall/hall.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/halls/halls/halls.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/halls/halls/halls.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/halls/halls/halls.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/halls/halls/halls.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/movie/movie/movie.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movie/movie/movie.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/movie/movie/movie.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movie/movie/movie.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/movie/movie/movie.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movie/movie/movie.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/movies/movies/movies.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movies/movies/movies.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/movies/movies/movies.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movies/movies/movies.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/movies/movies/movies.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/movies/movies/movies.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/my-profile/my-profile.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/my-profile/my-profile.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/my-profile/my-profile/my-profile.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/my-profile/my-profile/my-profile.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/my-profile/my-profile/my-profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/my-profile/my-profile/my-profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/my-profile/my-profile/my-profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/my-profile/my-profile/my-profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/sessions/sessions/sessions.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/sessions/sessions/sessions.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/sessions/sessions/sessions.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/sessions/sessions/sessions.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/sessions/sessions/sessions.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/sessions/sessions/sessions.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/tickets/tickets/tickets.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/tickets/tickets/tickets.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/tickets/tickets/tickets.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/tickets/tickets/tickets.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/tickets/tickets/tickets.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/pages/content/tickets/tickets/tickets.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/user/user.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/user/user/user.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/user/user/user.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/user/user/user.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/user/user/user.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/users/users.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/users/users/users.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/users/users/users.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/users/users/users.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/pages/content/users/users/users.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/cinemas/cinemas.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/cinemas/cinemas.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/halls/halls.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/halls/halls.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/movies/movies.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/movies/movies.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/security/auth-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/security/auth-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/security/can-activate.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/security/can-activate.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/security/login-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/security/login-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/security/storage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/security/storage.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/sessions/sessions.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/sessions/sessions.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/tickets/tickets.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/tickets/tickets.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/upload-picture/upload-picture.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/upload-picture/upload-picture.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/app/services/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/app/services/users/users.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/assets/img/movies/5e9d639c760a9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="cinema: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-    </expand>
-    <select />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="backend" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -269,21 +179,14 @@
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Enum" />
-        <option value="TypeScript File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectId" id="1Zhk6ThGusE3BAZw8LiQL4VUVwI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -291,7 +194,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
@@ -301,21 +203,42 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../security/gwt-security" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../frontend/src/app/services" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/../frontend/node_modules/protractor" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="ts.external.directory.path" value="C:\Users\37525\Desktop\Netcracke-Cinema\frontend\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\Egor\Desktop\cinema-net-cracker\Netcracke-Cinema\frontend\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Egor\Desktop\cinema-net-cracker\Netcracke-Cinema\frontend\src\app\services" />
+      <recent name="C:\Users\37525\Desktop\Netcracke-Cinema\frontend\src\app" />
+      <recent name="C:\Users\37525\Desktop\Netcracke-Cinema\frontend\src\app\models\security" />
+      <recent name="C:\Users\37525\Desktop\Netcracke-Cinema\frontend\src\app\services\security" />
+      <recent name="C:\Users\37525\Desktop\Netcracke-Cinema\fapi\src\main\java\com\netcracker\cinema\fapi" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.netcracker.cinema.backend.models.all.movie.genres" />
+      <recent name="com.netcracker.cinema.fapi.controller.security" />
+      <recent name="com.netcracker.cinema.fapi.filter" />
+      <recent name="com.netcracker.cinema.fapi.model.security" />
+      <recent name="com.netcracker.cinema.fapi.config.security" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\37525\Desktop\Netcracker\Cinema\frontend\src\app\models\FullModel" />
       <recent name="C:\Users\37525\Desktop\Netcracker\Cinema\frontend\src\app\services\ticket" />
@@ -323,22 +246,14 @@
       <recent name="C:\Users\37525\Desktop\Netcracker\Cinema\frontend\src\app\services\movie" />
       <recent name="C:\Users\37525\Desktop\Netcracker\Cinema\frontend\src\app\services\cinema" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.netcracker.cinema.fapi.controller.security" />
-      <recent name="com.netcracker.cinema.fapi.filter" />
-      <recent name="com.netcracker.cinema.fapi.model.security" />
-      <recent name="com.netcracker.cinema.fapi.config.security" />
-      <recent name="com.netcracker.cinema.backend.DTO" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\37525\Desktop\Netcracke-Cinema\frontend\src\app" />
-      <recent name="C:\Users\37525\Desktop\Netcracke-Cinema\frontend\src\app\models\security" />
-      <recent name="C:\Users\37525\Desktop\Netcracke-Cinema\frontend\src\app\services\security" />
-      <recent name="C:\Users\37525\Desktop\Netcracke-Cinema\fapi\src\main\java\com\netcracker\cinema\fapi" />
-      <recent name="C:\Users\37525\Desktop\Netcracker\Cinema\fapi\src\main\java\com\netcracker\cinema\fapi\DTO" />
-    </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server (frontend)">
+    <configuration name="script.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/../../../script.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="f8a297b1-bb27-441c-9031-0d60d2813787" namespace="schema/&quot;cinema&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="E2E Tests (frontend)" type="JavaScriptTestRunnerProtractor">
       <config-file value="$PROJECT_DIR$/../frontend/e2e/protractor.conf.js" />
       <node-interpreter value="project" />
@@ -391,6 +306,7 @@
       <list>
         <item itemvalue="Spring Boot.FapiApplication" />
         <item itemvalue="Spring Boot.BackendApplication" />
+        <item itemvalue="Database Script.script.sql" />
       </list>
     </recent_temporary>
   </component>
@@ -456,21 +372,44 @@
       <workItem from="1588841887479" duration="927000" />
       <workItem from="1588878208143" duration="86862000" />
       <workItem from="1589188863316" duration="26492000" />
+      <workItem from="1589323382430" duration="798000" />
+      <workItem from="1589356196713" duration="27188000" />
+      <workItem from="1589397291214" duration="3880000" />
+      <workItem from="1589441068103" duration="15173000" />
+      <workItem from="1589475520991" duration="8473000" />
+      <workItem from="1589503636838" duration="683000" />
+      <workItem from="1589526249849" duration="29141000" />
+      <workItem from="1589571128594" duration="586000" />
+      <workItem from="1589618805336" duration="1874000" />
+      <workItem from="1589623131662" duration="49935000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="429" y="82" key="#Angular_CLI_Server_(frontend)" timestamp="1586788686019">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="429" y="82" key="#Angular_CLI_Server_(frontend)/62.0.1304.768@62.0.1304.768" timestamp="1586788686019" />
-    <state x="306" y="42" key="#Assign_Data_Sources" timestamp="1588879969193">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="415" y="59" key="#Assign_Data_Sources" timestamp="1589358870602">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="306" y="42" key="#Assign_Data_Sources/62.0.1304.768@62.0.1304.768" timestamp="1588879969193" />
+    <state x="415" y="59" key="#Assign_Data_Sources/68.0.1852.1080@68.0.1852.1080" timestamp="1589358870602" />
     <state x="306" y="42" key="#Auto_Import" timestamp="1588707470108">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
@@ -479,26 +418,34 @@
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="306" y="42" key="#Inspections/62.0.1304.768@62.0.1304.768" timestamp="1588693228058" />
-    <state x="306" y="42" key="#Project_Structure" timestamp="1585936008033">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="415" y="59" key="#Project_Structure" timestamp="1589356258604">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="306" y="42" key="#Project_Structure/62.0.1304.768@62.0.1304.768" timestamp="1585936008033" />
-    <state x="159" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587334330279">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="415" y="59" key="#Project_Structure/68.0.1852.1080@68.0.1852.1080" timestamp="1589356258604" />
+    <state x="383" y="381" key="#SQL_Dialects" timestamp="1589357471448">
+      <screen x="68" y="0" width="1852" height="1080" />
+    </state>
+    <state x="383" y="381" key="#SQL_Dialects/68.0.1852.1080@68.0.1852.1080" timestamp="1589357471448" />
+    <state x="206" y="42" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589356565308">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="159" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1304.768@62.0.1304.768" timestamp="1587334330279" />
+    <state x="206" y="42" key="#com.intellij.execution.impl.EditConfigurationsDialog/68.0.1852.1080@68.0.1852.1080" timestamp="1589356565308" />
     <state x="495" y="187" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586422525925">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="495" y="187" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1304.768@62.0.1304.768" timestamp="1586422525925" />
-    <state x="519" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1589230211815">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="717" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1589715742601">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="519" y="68" key="#com.intellij.ide.util.MemberChooser/62.0.1304.768@62.0.1304.768" timestamp="1589230211815" />
-    <state x="308" y="309" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1588974325661">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="717" y="96" key="#com.intellij.ide.util.MemberChooser/68.0.1852.1080@68.0.1852.1080" timestamp="1589715742601" />
+    <state x="417" y="435" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1589550778473">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="308" y="309" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/62.0.1304.768@62.0.1304.768" timestamp="1588974325661" />
+    <state x="417" y="435" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/68.0.1852.1080@68.0.1852.1080" timestamp="1589550778473" />
     <state x="492" y="243" width="496" height="288" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1588719415290">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
@@ -507,86 +454,109 @@
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="448" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/62.0.1304.768@62.0.1304.768" timestamp="1589222899493" />
-    <state x="444" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589121260825">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="611" y="184" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589707135229">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="444" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1304.768@62.0.1304.768" timestamp="1589121260825" />
+    <state x="611" y="184" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/68.0.1852.1080@68.0.1852.1080" timestamp="1589707135229" />
+    <state x="945" y="125" key="#script.sql" timestamp="1589357546231">
+      <screen x="68" y="0" width="1852" height="1080" />
+    </state>
+    <state x="945" y="125" key="#script.sql/68.0.1852.1080@68.0.1852.1080" timestamp="1589357546231" />
     <state x="443" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1585425382678">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="443" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/62.0.1304.768@62.0.1304.768" timestamp="1585425382678" />
-    <state x="433" y="165" key="FileChooserDialogImpl" timestamp="1588936100992">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="595" y="232" key="FileChooserDialogImpl" timestamp="1589323477257">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="433" y="165" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1588936100992" />
-    <state width="1261" height="263" key="GridCell.Tab.0.bottom" timestamp="1589232430947">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="595" y="232" key="FileChooserDialogImpl/68.0.1852.1080@68.0.1852.1080" timestamp="1589323477257" />
+    <state width="1809" height="327" key="GridCell.Tab.0.bottom" timestamp="1589737533412">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state width="1261" height="263" key="GridCell.Tab.0.bottom/62.0.1304.768@62.0.1304.768" timestamp="1589232430947" />
-    <state width="1261" height="263" key="GridCell.Tab.0.center" timestamp="1589232430946">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state width="1809" height="327" key="GridCell.Tab.0.bottom/68.0.1852.1080@68.0.1852.1080" timestamp="1589737533412" />
+    <state width="1809" height="327" key="GridCell.Tab.0.center" timestamp="1589737533412">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state width="1261" height="263" key="GridCell.Tab.0.center/62.0.1304.768@62.0.1304.768" timestamp="1589232430946" />
-    <state width="1261" height="263" key="GridCell.Tab.0.left" timestamp="1589232430946">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state width="1809" height="327" key="GridCell.Tab.0.center/68.0.1852.1080@68.0.1852.1080" timestamp="1589737533412" />
+    <state width="1809" height="327" key="GridCell.Tab.0.left" timestamp="1589737533412">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state width="1261" height="263" key="GridCell.Tab.0.left/62.0.1304.768@62.0.1304.768" timestamp="1589232430946" />
-    <state width="1261" height="263" key="GridCell.Tab.0.right" timestamp="1589232430947">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state width="1809" height="327" key="GridCell.Tab.0.left/68.0.1852.1080@68.0.1852.1080" timestamp="1589737533412" />
+    <state width="1809" height="327" key="GridCell.Tab.0.right" timestamp="1589737533412">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state width="1261" height="263" key="GridCell.Tab.0.right/62.0.1304.768@62.0.1304.768" timestamp="1589232430947" />
-    <state width="1261" height="263" key="GridCell.Tab.1.bottom" timestamp="1589232430747">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state width="1809" height="327" key="GridCell.Tab.0.right/68.0.1852.1080@68.0.1852.1080" timestamp="1589737533412" />
+    <state width="1809" height="327" key="GridCell.Tab.1.bottom" timestamp="1589706766152">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state width="1261" height="263" key="GridCell.Tab.1.bottom/62.0.1304.768@62.0.1304.768" timestamp="1589232430747" />
-    <state width="1261" height="263" key="GridCell.Tab.1.center" timestamp="1589232430747">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state width="1809" height="327" key="GridCell.Tab.1.bottom/68.0.1852.1080@68.0.1852.1080" timestamp="1589706766152" />
+    <state width="1809" height="327" key="GridCell.Tab.1.center" timestamp="1589706766152">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state width="1261" height="263" key="GridCell.Tab.1.center/62.0.1304.768@62.0.1304.768" timestamp="1589232430747" />
-    <state width="1261" height="263" key="GridCell.Tab.1.left" timestamp="1589232430747">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state width="1809" height="327" key="GridCell.Tab.1.center/68.0.1852.1080@68.0.1852.1080" timestamp="1589706766152" />
+    <state width="1809" height="327" key="GridCell.Tab.1.left" timestamp="1589706766152">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state width="1261" height="263" key="GridCell.Tab.1.left/62.0.1304.768@62.0.1304.768" timestamp="1589232430747" />
-    <state width="1261" height="263" key="GridCell.Tab.1.right" timestamp="1589232430747">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state width="1809" height="327" key="GridCell.Tab.1.left/68.0.1852.1080@68.0.1852.1080" timestamp="1589706766152" />
+    <state width="1809" height="327" key="GridCell.Tab.1.right" timestamp="1589706766152">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state width="1261" height="263" key="GridCell.Tab.1.right/62.0.1304.768@62.0.1304.768" timestamp="1589232430747" />
+    <state width="1809" height="327" key="GridCell.Tab.1.right/68.0.1852.1080@68.0.1852.1080" timestamp="1589706766152" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1585298912219">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/62.0.1304.768@62.0.1304.768" timestamp="1585298912219" />
-    <state x="194" y="0" key="SettingsEditor" timestamp="1587137542715">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="255" y="0" key="SettingsEditor" timestamp="1589323549516">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="194" y="0" key="SettingsEditor/62.0.1304.768@62.0.1304.768" timestamp="1587137542715" />
+    <state x="255" y="0" key="SettingsEditor/68.0.1852.1080@68.0.1852.1080" timestamp="1589323549516" />
+    <state x="893" y="417" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1589357530875">
+      <screen x="68" y="0" width="1852" height="1080" />
+    </state>
+    <state x="893" y="417" key="com.intellij.database.actions.DdlActions$CreateObject$1/68.0.1852.1080@68.0.1852.1080" timestamp="1589357530875" />
     <state x="600" y="274" width="326" height="234" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1588627623397">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="600" y="274" width="326" height="234" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/62.0.1304.768@62.0.1304.768" timestamp="1588627623397" />
-    <state x="294" y="39" key="com.intellij.database.dbimport.ImportDialog" timestamp="1585420918296">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="397" y="55" key="com.intellij.database.dbimport.ImportDialog" timestamp="1589388712850">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="294" y="39" key="com.intellij.database.dbimport.ImportDialog/62.0.1304.768@62.0.1304.768" timestamp="1585420918296" />
+    <state x="397" y="55" key="com.intellij.database.dbimport.ImportDialog/68.0.1852.1080@68.0.1852.1080" timestamp="1589388712850" />
     <state x="510" y="209" width="407" height="348" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1588717904055">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="510" y="209" width="407" height="348" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/62.0.1304.768@62.0.1304.768" timestamp="1588717904055" />
-    <state x="683" y="24" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1589191505895">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="950" y="34" width="657" height="643" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1589550107008">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="683" y="24" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/62.0.1304.768@62.0.1304.768" timestamp="1589191505895" />
+    <state x="950" y="34" width="657" height="643" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/68.0.1852.1080@68.0.1852.1080" timestamp="1589550107008" />
     <state x="572" y="130" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1585299562066">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="572" y="130" key="com.intellij.database.view.ui.DbObjectDialog/62.0.1304.768@62.0.1304.768" timestamp="1585299562066" />
-    <state x="90" y="208" width="815" height="352" key="com.intellij.ide.util.TipDialog" timestamp="1589188872872">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="108" y="293" width="815" height="352" key="com.intellij.ide.util.TipDialog" timestamp="1589323389738">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="90" y="208" width="815" height="352" key="com.intellij.ide.util.TipDialog/62.0.1304.768@62.0.1304.768" timestamp="1589188872872" />
-    <state x="356" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588761172038">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="108" y="293" key="com.intellij.ide.util.TipDialog/68.0.1852.1080@68.0.1852.1080" timestamp="1589323389738" />
+    <state x="486" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589368041013">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="356" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/62.0.1304.768@62.0.1304.768" timestamp="1588761172038" />
+    <state x="486" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/68.0.1852.1080@68.0.1852.1080" timestamp="1589368041013" />
     <state x="96" y="9" key="new project wizard" timestamp="1585931027355">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
@@ -599,9 +569,10 @@
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="370" y="172" key="run.anything.popup/62.0.1304.768@62.0.1304.768" timestamp="1589217038538" />
-    <state x="377" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1589129044040">
-      <screen x="62" y="0" width="1304" height="768" />
+    <state x="515" y="125" width="955" height="954" key="search.everywhere.popup" timestamp="1589658071275">
+      <screen x="68" y="0" width="1852" height="1080" />
     </state>
     <state x="377" y="89" width="672" height="678" key="search.everywhere.popup/62.0.1304.768@62.0.1304.768" timestamp="1589129044040" />
+    <state x="515" y="125" width="955" height="954" key="search.everywhere.popup/68.0.1852.1080@68.0.1852.1080" timestamp="1589658071275" />
   </component>
 </project>

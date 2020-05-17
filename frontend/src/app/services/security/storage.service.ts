@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {StorageLoginModel} from "../../models/storage/storage.login.model";
-import {StorageUserModel} from "../../models/storage/storage.user.model";
+import {LoginModel} from "../../models/login.model";
+import {UserModel} from "../../models/user.model";
 
 
 @Injectable()
@@ -10,24 +10,24 @@ export class StorageService {
   private readonly CURRENT_LOGIN: string = "currentLogin";
   private readonly CURRENT_USER: string = "currentUser";
 
-  private currentLogin: StorageLoginModel;
-  private currentUser: StorageUserModel;
+  private currentLogin: LoginModel;
+  private currentUser: UserModel;
 
-  public setCurrentLogin(currentLogin: StorageLoginModel): void {
+  public setCurrentLogin(currentLogin: LoginModel): void {
     this.currentLogin = currentLogin;
     localStorage.setItem(this.CURRENT_LOGIN, JSON.stringify(currentLogin));
   }
 
-  public getCurrentLogin(): StorageLoginModel {
+  public getCurrentLogin(): LoginModel {
     return this.currentLogin || JSON.parse(localStorage.getItem(this.CURRENT_LOGIN));
   }
 
-  public setCurrentUser(currentUser: StorageUserModel): void {
+  public setCurrentUser(currentUser: UserModel): void {
     this.currentUser = currentUser;
     localStorage.setItem(this.CURRENT_USER, JSON.stringify(currentUser));
   }
 
-  public getCurrentUser(): StorageUserModel {
+  public getCurrentUser(): UserModel {
     return this.currentUser || JSON.parse(localStorage.getItem(this.CURRENT_USER));
   }
 

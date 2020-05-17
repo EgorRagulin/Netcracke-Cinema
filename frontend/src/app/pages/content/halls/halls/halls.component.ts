@@ -3,8 +3,9 @@ import {Subscription} from "rxjs";
 import {CinemasService} from "../../../../services/cinemas/cinemas.service";
 import {ActivatedRoute} from "@angular/router";
 import {HallsService} from "../../../../services/halls/halls.service";
-import {Hall} from "../../../../models/Hall";
+import {HallModel} from "../../../../models/hall.model";
 import {LoadingService} from "../../../../services/loading/loading.service";
+import {finalize} from "rxjs/operators";
 
 @Component({
   selector: 'app-halls',
@@ -13,7 +14,7 @@ import {LoadingService} from "../../../../services/loading/loading.service";
 })
 export class HallsComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
-  public halls: Hall[];
+  public halls: HallModel[];
   public isLoading: boolean;
 
   constructor(private cinemasService: CinemasService,
@@ -35,19 +36,17 @@ export class HallsComponent implements OnInit, OnDestroy {
     this.isLoading = this.loadingService.changeLoadingStatus(true);
 
     this._subscriptions.push(this.cinemasService.getHalls(id)
-      .subscribe(halls => {
-        this.halls = halls;
-        this.isLoading = this.loadingService.changeLoadingStatus(false);
-      }));
+      .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
+      .subscribe(halls => this.halls = halls,
+        (error) => alert(error.message)));
   }
 
   private getHalls(): void {
     this.isLoading = this.loadingService.changeLoadingStatus(true);
 
     this._subscriptions.push(this.hallsService.getHalls()
-      .subscribe(halls => {
-        this.halls = halls;
-        this.isLoading = this.loadingService.changeLoadingStatus(false);
-      }));
+      .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
+      .subscribe(halls => this.halls = halls,
+        (error) => alert(error.message)));
   }
 }

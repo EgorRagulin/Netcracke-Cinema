@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Ticket} from "../../models/Ticket";
-import {FullTicket} from "../../models/full-models/FullTicket";
+import {TicketModel} from "../../models/ticket.model";
+import {FullTicketModel} from "../../models/full-models/full.ticket.model";
 
 @Injectable({
   providedIn: 'root'
@@ -12,20 +12,20 @@ export class TicketsService {
 
   constructor(private http: HttpClient) { }
 
-  public getTickets(): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(this.rootPath);
+  public getTickets(): Observable<TicketModel[]> {
+    return this.http.get<TicketModel[]>(this.rootPath);
   }
 
-  public getTicketById(id: number): Observable<Ticket> {
-    return this.http.get<Ticket>(this.rootPath + '/?id=' + id);
+  public getTicketById(id: number): Observable<TicketModel> {
+    return this.http.get<TicketModel>(this.rootPath + '/?id=' + id);
   }
 
-  public getFullTicketById(id: number): Observable<FullTicket> {
-    return this.http.get<FullTicket>(this.rootPath + '/full/?id=' + id);
+  public getFullTicketById(id: number): Observable<FullTicketModel> {
+    return this.http.get<FullTicketModel>(this.rootPath + '/full/?id=' + id);
   }
 
-  public saveTicket(fullTicket: FullTicket): Observable<FullTicket> {
-    return this.http.post<FullTicket>(this.rootPath, fullTicket);
+  public saveTicket(fullTicket: FullTicketModel): Observable<FullTicketModel> {
+    return this.http.post<FullTicketModel>(this.rootPath, fullTicket);
   }
 
   public deleteTicket(id: number): Observable<any> {

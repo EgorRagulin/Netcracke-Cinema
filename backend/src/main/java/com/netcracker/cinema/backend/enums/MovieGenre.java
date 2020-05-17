@@ -1,6 +1,9 @@
 package com.netcracker.cinema.backend.enums;
 
+import com.netcracker.cinema.backend.models.all.movie.genres.AllMovieGenreModel;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public enum MovieGenre {
@@ -17,29 +20,50 @@ public enum MovieGenre {
     westerns;
 
     public static String transformListToString(List<String> genresList) {
-        String genresString = "";
+        if (genresList != null) {
+            String genresString = "";
 
-        for (MovieGenre genre : MovieGenre.values()) {
-            genresString += genresList.contains(genre.toString()) ? "1" : "0";
+            if (genresList.isEmpty()) {
+                for (MovieGenre genre : MovieGenre.values()) {
+                    genresString += "0";
+                }
+            }
+            else {
+                for (MovieGenre genre : MovieGenre.values()) {
+                    genresString += genresList.contains(genre.toString()) ? "1" : "0";
+                }
+            }
+
+            return genresString;
         }
-
-        return genresString;
+        else return "0";
     }
 
     public static List<String> transformStringToList(String genresString) {
         List<String> genresList = new ArrayList<String>();
+        if (genresString != "") {
+            char one = '1';
+            int i = 0;
 
-        char one = "1".toCharArray()[0];
-        int i = 0;
-
-        for (char genre : genresString.toCharArray()) {
-            if (genre == one) {
-                genresList.add(MovieGenre.values()[i].toString());
+            for (char genre : genresString.toCharArray()) {
+                if (genre == one) {
+                    genresList.add(MovieGenre.values()[i].toString());
+                }
+                i++;
             }
-            i++;
+
+            return genresList;
+        } else return Collections.emptyList();
+    }
+
+    public static AllMovieGenreModel getAllGenres() {
+        List<String> allGenres = new ArrayList<String>();;
+
+        for (MovieGenre genre : MovieGenre.values()) {
+            allGenres.add(genre.toString());
         }
 
-        return genresList;
+        return new AllMovieGenreModel(allGenres);
     }
 }
 

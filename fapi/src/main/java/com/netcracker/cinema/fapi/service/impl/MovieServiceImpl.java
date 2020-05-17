@@ -1,6 +1,7 @@
 package com.netcracker.cinema.fapi.service.impl;
 
 import com.netcracker.cinema.fapi.model.MovieViewModel;
+import com.netcracker.cinema.fapi.model.all.movie.genre.AllMovieGenreModel;
 import com.netcracker.cinema.fapi.model.full.FullMovieViewModel;
 import com.netcracker.cinema.fapi.DTO.PageDTO;
 import com.netcracker.cinema.fapi.model.SessionViewModel;
@@ -53,5 +54,11 @@ public class MovieServiceImpl implements MovieService {
         RestTemplate restTemplate = new RestTemplate();
         SessionViewModel[] moviesResponse = restTemplate.getForObject(backendServerUrl + "/sessions/?id=" + id, SessionViewModel[].class);
         return moviesResponse == null ? Collections.emptyList() : Arrays.asList(moviesResponse);
+    }
+
+    @Override
+    public AllMovieGenreModel getAllGenres() {
+        RestTemplate restTemplate = new RestTemplate();
+        return restTemplate.getForObject(backendServerUrl + "/all-genres", AllMovieGenreModel.class);
     }
 }

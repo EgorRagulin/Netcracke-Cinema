@@ -1,27 +1,27 @@
 import {LoginModel} from "../login.model";
-import {Wallet} from "../Wallet";
-import {Ticket} from "../Ticket";
+import {WalletModel} from "../wallet.model";
+import {TicketModel} from "../ticket.model";
 import {UserModel} from "../user.model";
 
 export class FullUserModel {
   id: number;
-  pictureUrl: string;
   firstName: string;
   secondName: string;
   email: string;
-  phoneNumber: string;
+  phoneNumber: number;
+  avatar: string;
   login: LoginModel;
-  wallet: Wallet;
-  tickets: Ticket[];
+  wallet: WalletModel;
+  tickets: TicketModel[];
 
 
   constructor(user: UserModel, login: LoginModel) {
     this.id = user.id;
-    this.pictureUrl = user.pictureUrl;
     this.firstName = user.firstName;
     this.secondName = user.secondName;
     this.email = user.email;
     this.phoneNumber = user.phoneNumber;
+    this.avatar = user.avatar;
     this.login = login;
   }
 }

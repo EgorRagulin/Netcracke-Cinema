@@ -12,7 +12,8 @@ public class FullUserViewModel {
     private String firstName;
     private String secondName;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
+    private byte[] avatar;
     private LoginViewModel login;
     private WalletViewModel wallet;
     private List<TicketViewModel> tickets;
@@ -49,12 +50,20 @@ public class FullUserViewModel {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public byte[] getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(byte[] avatar) {
+        this.avatar = avatar;
     }
 
     public LoginViewModel getLogin() {

@@ -1,47 +1,56 @@
 <div class="container">
   <div class="page">
-    <ng-container *ngIf="!storageService.getCurrentLogin()">
-      <form #singUpForm="ngForm">
 
-        <h2>Sign Up</h2>
+    <mat-card>
+      <mat-card-title>
+        Sign Up
+      </mat-card-title>
 
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="User Name"
-            required
-            name="username"
-            [(ngModel)]="loginModel.username"
-            #username="ngModel">
-          <mat-error *ngIf="username.invalid">
-            Username is required
-          </mat-error>
-          <mat-icon matSuffix>perm_identity</mat-icon>
-        </mat-form-field>
+      <mat-card-content>
+        <form [formGroup]="singUpForm" (ngSubmit)="createLogin()">
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="username"
+              formControlName="username"
+              [(ngModel)]="login.username"
+              required>
+            <mat-error *ngFor="let validation of validationMessages.username">
+              <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(singUpForm.get('username'), validation.type)">
+                {{validation.message}}
+              </mat-error>
+            </mat-error>
 
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Password"
-            [type]="hide ? 'password' : 'text'"
-            name="password"
-            [(ngModel)]="loginModel.password"
-            #password="ngModel">
-          <mat-error *ngIf="password.errors && password.errors.required">
-            Password is required
-          </mat-error>
-          <mat-icon matSuffix (click)="toggle()" style="cursor: pointer;">
-            {{hide ? 'visibility' : 'visibility_off'}}
-          </mat-icon>
-          <mat-icon matSuffix>lock</mat-icon>
-        </mat-form-field>
+            <mat-icon matSuffix>perm_identity</mat-icon>
+          </mat-form-field>
 
-        <button mat-raised-button color="primary" class="sign-up" (click)="createLogin()">
-          Sign Up
-        </button>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="password"
+              [type]="hide ? 'password' : 'text'"
+              formControlName="password"
+              [(ngModel)]="login.password"
+              required>
+            <mat-error *ngFor="let validation of validationMessages.password">
+              <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(singUpForm.get('password'), validation.type)">
+                {{validation.message}}
+              </mat-error>
+            </mat-error>
 
-      </form>
-    </ng-container>
+            <mat-icon matSuffix (click)="toggle()" *ngIf="singUpForm.get('password').value" style="cursor: pointer;">
+              {{hide ? 'visibility' : 'visibility_off'}}
+            </mat-icon>
+            <mat-icon matSuffix>lock</mat-icon>
+          </mat-form-field>
+
+          <button class="sign-up-btn" color="primary" mat-raised-button type="submit" [disabled]="singUpForm.invalid">
+            Sign Up
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
   </div>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>

@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="page">
+      <form #createCinemaForm="ngForm">
+
+        <h2>Add New Cinema</h2>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Cinema Name"
+            required
+            name="cinemaName"
+            [(ngModel)]="cinema.name"
+            #cinemaName="ngModel">
+          <mat-error *ngIf="cinemaName.invalid">
+            First Name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Cinema Address"
+            required
+            name="cinemaAddress"
+            [(ngModel)]="cinema.address"
+            #cinemaAddress="ngModel">
+          <mat-error *ngIf="cinemaAddress.invalid">
+            First Name is required
+          </mat-error>
+        </mat-form-field>
+
+        <app-upload-picture [pictureHeight]="300" (selectPicture)="setSelectedPicture($event)"></app-upload-picture>
+
+        <button mat-raised-button color="primary" class="create-user-btn" (click)="addCinema()">
+          Add Cinema
+        </button>
+
+      </form>
+  </div>
+
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
+
+</div>

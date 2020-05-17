@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Session} from "../../../../models/Session";
+import {SessionModel} from "../../../../models/session.model";
 import {Subscription} from "rxjs";
-import {Ticket} from "../../../../models/Ticket";
+import {TicketModel} from "../../../../models/ticket.model";
 import {SessionsService} from "../../../../services/sessions/sessions.service";
 import {ActivatedRoute} from "@angular/router";
 import {TicketsService} from "../../../../services/tickets/tickets.service";
@@ -15,7 +15,7 @@ import {LoadingService} from "../../../../services/loading/loading.service";
 })
 export class TicketsComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
-  public tickets: Ticket[];
+  public tickets: TicketModel[];
   public isLoading: boolean;
 
   constructor(private ticketsService: TicketsService,

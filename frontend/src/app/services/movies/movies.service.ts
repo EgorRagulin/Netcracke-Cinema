@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Movie } from "../../models/Movie";
-import { Page } from "../../models/page/Page";
-import { Session } from "../../models/Session";
-import {FullMovie} from "../../models/full-models/FullMovie";
+import { MovieModel } from "../../models/movie.model";
+import { PageModel } from "../../models/page/page.model";
+import { SessionModel } from "../../models/session.model";
+import {FullMovieModel} from "../../models/full-models/full.movie.model";
+import {FullMovieDTO} from "../../DTO/full.movie.dto";
+import {AllMovieGenres} from "../../models/all-movie-genres/all-movie-genres";
 
 @Injectable({
   providedIn: 'root'
@@ -14,23 +16,27 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
-  public getPage(pageNumber: number, pageSize: number): Observable<Page<Movie>> {
-    return this.http.get<Page<Movie>>(this.rootPath +
+  public getPage(pageNumber: number, pageSize: number): Observable<PageModel<MovieModel>> {
+    return this.http.get<PageModel<MovieModel>>(this.rootPath +
       '/?pageNumber=' + pageNumber +
       '&pageSize=' + pageSize);
   }
 
-  public getMovieById(id: number): Observable<Movie> {
-    return this.http.get<Movie>(this.rootPath +
-      '/?id=' + id);
+  public getMovieById(id: number): Observable<MovieModel> {
+    return this.http.get<MovieModel>(this.rootPath + '/?id=' + id);
   }
 
-  public getMovieSessions(id: number): Observable<Session[]> {
-    return this.http.get<Session[]>(this.rootPath + '/sessions/?id=' + id);
+  public getMovieSessions(id: number): Observable<SessionModel[]> {
+    return this.http.get<SessionModel[]>(this.rootPath + '/sessions/?id=' + id);
   }
 
-  public saveMovie(uploadData: FormData): Observable<FullMovie> {
-    return this.http.post<FullMovie>(this.rootPath, uploadData);
+  public getAllMovieGenres(): Observable<AllMovieGenres> {
+    return this.http.get<AllMovieGenres>(this.rootPath + '/all-genres');
+  }
+
+  public saveMovieInDB(movie: FullMovieModel): Observable<FullMovieModel> {
+    console.log( new FullMovieDTO(movie));
+    return this.http.post<FullMovieModel>(this.rootPath, new FullMovieDTO(movie));
   }
 
   public deleteMovie(id: string): Observable<void> {

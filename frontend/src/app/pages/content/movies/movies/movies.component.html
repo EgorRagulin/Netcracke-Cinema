@@ -1,36 +1,47 @@
 <div class="container">
   <div class="page">
-    <h2>Movies</h2>
+    <ng-container *ngIf="movies">
 
-    <div class="movies">
-      <div *ngFor="let movie of movies" class="movie">
+      <h2>Movies</h2>
 
-        <div class="picture">
-          <img [src]="'data:image/jpeg;base64,' + movie.picture" height="300">
+      <div class="movies">
+        <div *ngFor="let movie of movies" class="movie">
+
+          <div class="poster">
+            <img [src]="movie.picture ? 'data:image/jpeg;base64,' + movie.picture : 'http://placehold.it/200x300'" >
+          </div>
+
+          <div class="title">
+            <a [routerLink]="movie.id" color="accent" mat-flat-button>
+              {{movie.title}}
+            </a>
+          </div>
+
+          <div class="age-limit">{{movie.ageLimit}}+</div>
+
+          <div class="genres">
+            <div *ngFor="let genre of movie.genres">{{genre}}</div>
+          </div>
+
         </div>
-
-        <a [routerLink]="movie.id" color="accent" mat-flat-button>
-          <div class="title">{{movie.title}}</div>
-        </a>
-
-        <div class="ageLimit">{{movie.ageLimit}}+</div>
-
-        <div class="genres">
-          <div *ngFor="let genre of movie.genres">{{genre}}</div>
-        </div>
-
       </div>
-    </div>
 
-    <app-paginator
-      *ngIf="this.paginator"
-      [elementsName]="'Фильмов'"
-      [paginator]="this.paginator"
-      [showBobblesPaginator]="true"
-      (changePageNumberEvent)="updatePageNumber($event)"
-      (changePageSizeEvent)="updatePageSize($event)"
-    ></app-paginator>
+      <app-paginator
+        *ngIf="this.paginator"
+        [elementsName]="'Фильмов'"
+        [paginator]="this.paginator"
+        [showBobblesPaginator]="true"
+        (changePageNumberEvent)="updatePageNumber($event)"
+        (changePageSizeEvent)="updatePageSize($event)"
+      ></app-paginator>
+
+      <h3 *ngIf="movies.length == 0" class="movies-not-found">
+        Что-то пошло не так! Фильмы не найден.
+      </h3>
+
+    </ng-container>
   </div>
+
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>
 

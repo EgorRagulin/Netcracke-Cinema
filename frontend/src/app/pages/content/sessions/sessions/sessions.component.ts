@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MoviesService} from "../../../../services/movies/movies.service";
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
-import {Session} from "../../../../models/Session";
+import {SessionModel} from "../../../../models/session.model";
 import {HallsService} from "../../../../services/halls/halls.service";
 import {SessionsService} from "../../../../services/sessions/sessions.service";
 import {LoadingService} from "../../../../services/loading/loading.service";
@@ -13,7 +13,7 @@ import {LoadingService} from "../../../../services/loading/loading.service";
   styleUrls: ['./sessions.component.css']
 })
 export class SessionsComponent implements OnInit, OnDestroy {
-  public sessions: Session[];
+  public sessions: SessionModel[];
   private _subscriptions: Subscription[] = [];
   public isLoading: boolean;
 

@@ -2,7 +2,47 @@
 {
   text-align: center;
 }
-.address, .btn
+.cinema-card
+{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: auto;
+  max-width: 510px;
+  padding-top: 30px;
+  display: inline-block;
+  text-align: center;
+}
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 30px;
+  color: white;
+  background-color: #000;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+h1
+{
+  text-transform: uppercase;
+}
+.cinema-picture img
+{
+  height: 450px;
+  margin: 0 30px;
+}
+.name, .address
 {
   margin-top: 20px;
+}
+.cinema-halls
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hall
+{
+  padding: 0 10px;
+  margin: 10px;
 }

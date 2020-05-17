@@ -18,13 +18,17 @@
           mode: {{session.mode}}
         </div>
 
-        <a [routerLink]="['/sessions/' + session.id + '/buyticket']" color="accent" mat-flat-button>
+        <a [routerLink]="['/sessions/' + session.id + '/buy-ticket']" color="accent" mat-flat-button>
           Купить Билет
         </a>
 
       </div>
     </div>
   </div>
+
+  <h3 class="session-not-found" *ngIf="sessions.length == 0">
+    Тут нет ни одного сеанса!
+  </h3>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>
 

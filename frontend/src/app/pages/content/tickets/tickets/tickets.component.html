@@ -1,9 +1,10 @@
 <div class="container">
   <div class="page">
 
+
     <h2>Билеты</h2>
 
-    <div class="ticketViewModels">
+    <div class="tickets">
       <div class="ticket" *ngFor="let ticket of tickets">
 
         <div class="row">
@@ -22,6 +23,10 @@
 
       </div>
     </div>
+
+    <h3 class="tickets-not-found" *ngIf="tickets.length == 0">
+      Нет Купленных Билетов!
+    </h3>
 
   </div>
 

@@ -1,32 +1,35 @@
 <div class="container">
   <div class="page">
+    <ng-container *ngIf="cinemas">
 
-    <h2>Cinemas</h2>
+      <h1>Наши Кинотеатры</h1>
 
-    <div class="cinemas">
-      <div class="cinemaViewModel" *ngFor="let cinema of cinemas">
+      <div class="cinemas">
+        <div class="cinema" *ngFor="let cinema of cinemas">
+          <div class="cinema-card">
 
-        <div class="name">
-          Cinema Name: {{cinema.name}}
+            <h1 *ngIf="cinema.name">{{cinema.name}}</h1>
+
+            <div class="cinema-picture">
+              <img [src]="cinema.picture ? 'data:image/jpeg;base64,' + cinema.picture : 'http://placehold.it/200x300'">
+            </div>
+
+            <p class="address">
+              Address: {{cinema.address}}
+            </p>
+
+            <a class="btn" [routerLink]="['/cinemas/' + cinema.id]" mat-flat-button>
+              Jump to the cinema pages
+            </a>
+
+          </div>
         </div>
-
-        <div class="address">
-          Address: {{cinema.address}}
-        </div>
-
-        <div class="picture">
-          <img [src]="'data:image/jpeg;base64,' + cinema.picture" height="300">
-        </div>
-
-        <div class="btn">
-          <a [routerLink]="['/cinemas/' + cinema.id]" color="accent" mat-flat-button>
-            Go To Cinema
-          </a>
-        </div>
-
       </div>
-    </div>
 
+        <h3 *ngIf="cinemas.length == 0" class="cinemas-not-found">
+          Что-то пошло не так! Кинотеатры не найдены.
+        </h3>
+    </ng-container>
   </div>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>

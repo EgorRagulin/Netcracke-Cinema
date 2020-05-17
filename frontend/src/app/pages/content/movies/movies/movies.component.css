@@ -15,3 +15,11 @@ h2
   margin-bottom: 30px;
   text-align: center;
 }
+.poster img
+{
+  height: 300px;
+}
+.title, .age-limit, .genres
+{
+  margin-top: 20px;
+}

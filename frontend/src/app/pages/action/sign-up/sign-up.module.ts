@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {MaterialModule} from "../../../modules/material/material.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {StorageService} from "../../../services/security/storage.service";
 import {LoginService} from "../../../services/security/login-service";
 import {LoadingPageModule} from "../../../modules/loading-page/loading-page.module";
+import {FormValidationService} from "../../../services/form-validation/form-validation.service";
 
 
 
@@ -15,11 +16,13 @@ import {LoadingPageModule} from "../../../modules/loading-page/loading-page.modu
         CommonModule,
         MaterialModule,
         FormsModule,
-        LoadingPageModule
+        LoadingPageModule,
+        ReactiveFormsModule
     ],
   providers: [
     StorageService,
-    LoginService
+    LoginService,
+    FormValidationService,
   ]
 })
 export class SignUpModule { }

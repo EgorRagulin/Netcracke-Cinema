@@ -12,7 +12,8 @@ public class FullUser {
     private String firstName;
     private String secondName;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
+    private byte[] avatar;
     private Login login;
     private Wallet wallet;
     private List<Ticket> tickets;
@@ -23,6 +24,7 @@ public class FullUser {
         this.secondName = user.getSecondName();
         this.email = user.getEmail();
         this.phoneNumber = user.getPhoneNumber();
+        this.avatar = user.getAvatar();
         this.login = user.getLogin();
         this.wallet = user.getWallet();
         this.tickets = user.getTickets();
@@ -60,12 +62,20 @@ public class FullUser {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public byte[] getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(byte[] avatar) {
+        this.avatar = avatar;
     }
 
     public Login getLogin() {

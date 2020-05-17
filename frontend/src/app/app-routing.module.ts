@@ -14,17 +14,35 @@ import {SignInComponent} from "./pages/action/sign-in/sign-in/sign-in.component"
 import {SignUpComponent} from "./pages/action/sign-up/sign-up/sign-up.component";
 import {MyProfileComponent} from "./pages/content/my-profile/my-profile/my-profile.component";
 import {CreateUserComponent} from "./pages/action/create-user/create-user/create-user.component";
-import {UploadPictureComponent} from "./pages/action/upload-picture/upload-picture/upload-picture.component";
+import {AdminPanelComponent} from "./pages/content/admin-panel/admin-panel/admin-panel.component";
+import {CreateCinemaComponent} from "./pages/action/create-cinema/create-cinema/create-cinema.component";
+import {CreateMovieComponent} from "./pages/action/create-movie/create-movie/create-movie.component";
+import {FormValidationComponent} from "./pages/action/form-validation/form-validation/form-validation.component";
+import {AddWalletComponent} from "./pages/action/add-wallet/add-wallet/add-wallet.component";
+import {MyWalletComponent} from "./pages/content/my-wallet/my-wallet/my-wallet.component";
 
 
 const routes: Routes = [
 
-  { path: '', component: UploadPictureComponent },
+  { path: '', component: FormValidationComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'create-user', component: CreateUserComponent },
+
+
+
+  // Admin
+  { path: 'admin-panel', component: AdminPanelComponent },
+
+  { path: 'create-cinema', component: CreateCinemaComponent },
+  { path: 'create-movie', component: CreateMovieComponent },
+
+  // Client
   { path: 'my-profile', component: MyProfileComponent },
-  { path: 'admin-panel', component: SignInComponent },
+  { path: 'my-wallet', component: MyWalletComponent },
+
+  { path: 'create-user', component: CreateUserComponent },
+  { path: 'create-wallet', component: AddWalletComponent },
+
 
   // Movies
   { path: 'movies', component: MoviesComponent },
@@ -43,7 +61,6 @@ const routes: Routes = [
   // Tickets
   { path: 'tickets', component: TicketsComponent },
   { path: 'users/:userId/tickets', component: TicketsComponent },
-  // Client action
   { path: 'sessions/:id/buy-ticket', component: BuyTicketComponent },
   // Not found
   { path: '**', component: PageNotFoundComponent },

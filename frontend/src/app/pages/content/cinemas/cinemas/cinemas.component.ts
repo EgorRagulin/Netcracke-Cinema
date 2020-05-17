@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
-import {Cinema} from "../../../../models/Cinema";
+import {CinemaModel} from "../../../../models/cinema.model";
 import {CinemasService} from "../../../../services/cinemas/cinemas.service";
 import {LoadingService} from "../../../../services/loading/loading.service";
+import {finalize} from "rxjs/operators";
 
 @Component({
   selector: 'app-cinemas',
@@ -11,7 +12,7 @@ import {LoadingService} from "../../../../services/loading/loading.service";
 })
 export class CinemasComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
-  public cinemas: Cinema[];
+  public cinemas: CinemaModel[];
   public isLoading: boolean;
 
   constructor(private cinemasService: CinemasService,
@@ -29,9 +30,8 @@ export class CinemasComponent implements OnInit, OnDestroy {
     this.isLoading = this.loadingService.changeLoadingStatus(true);
 
     this._subscriptions.push(this.cinemasService.getCinemas()
-      .subscribe(cinemas => {
-        this.cinemas = cinemas;
-        this.isLoading = this.loadingService.changeLoadingStatus(false);
-      }));
+      .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
+      .subscribe((cinemas: CinemaModel[]) => this.cinemas = cinemas,
+        (error) => alert(error.message)));
   }
 }

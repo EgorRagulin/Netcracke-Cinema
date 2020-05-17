@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {Place} from "../../../../models/place/Place";
-import {PlaceStatus} from "../../../../enum/PlaceStatus";
+import {PlaceModel} from "../../../../models/place/place.model";
+import {PlaceStatus} from "../../../../enum/place.status";
 
 
 @Component({
@@ -9,7 +9,7 @@ import {PlaceStatus} from "../../../../enum/PlaceStatus";
   styleUrls: ['./place.component.css'],
 })
 export class PlaceComponent implements OnChanges, OnInit {
-  @Input() place: Place;
+  @Input() place: PlaceModel;
   @Output() selectPlaceEvent = new EventEmitter;
   @Output() unSelectPlaceEvent = new EventEmitter;
 

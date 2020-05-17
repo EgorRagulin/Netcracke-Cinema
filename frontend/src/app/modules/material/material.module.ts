@@ -10,6 +10,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {NgxMaterialTimepickerModule} from "ngx-material-timepicker";
 
 const MaterialComponents = [
   MatToolbarModule,
@@ -18,6 +19,7 @@ const MaterialComponents = [
   MatSidenavModule,
   MatSelectModule,
   MatInputModule,
+  NgxMaterialTimepickerModule.setLocale("ru-RU"),
 
   MatCardModule,
   MatTabsModule,

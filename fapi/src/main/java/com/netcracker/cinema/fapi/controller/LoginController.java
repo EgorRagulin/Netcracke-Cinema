@@ -3,6 +3,7 @@ package com.netcracker.cinema.fapi.controller;
 import com.netcracker.cinema.fapi.model.LoginViewModel;
 import com.netcracker.cinema.fapi.model.UserViewModel;
 import com.netcracker.cinema.fapi.model.full.FullLoginViewModel;
+import com.netcracker.cinema.fapi.model.security.ShortLoginModel;
 import com.netcracker.cinema.fapi.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -32,10 +33,11 @@ public class LoginController {
     }
 
     @GetMapping(params = {"login"})
-    public LoginViewModel getUserByLogin(@PathVariable String login) {
-        return loginService.findLoginByUsername(login);
+    public LoginViewModel getLoginByUsername(@PathVariable String username) {
+        return loginService.findLoginByUsername(username);
     }
 
+    @PreAuthorize("isAnonymous()")
     @GetMapping(params = {"id"}, path = {"/full"})
     public FullLoginViewModel findFullLoginById(@RequestParam Long id) {
         return loginService.findFullById(id);
@@ -43,7 +45,7 @@ public class LoginController {
 
     @PreAuthorize("isAuthenticated()")
     @GetMapping(params = {"id"}, path = {"/user"})
-    public UserViewModel findUserLoginById(@RequestParam Long id) {
+    public UserViewModel findUserByLoginId(@RequestParam Long id) {
         return loginService.findUserByLoginId(id);
     }
 
@@ -60,10 +62,10 @@ public class LoginController {
     }
 
     @PreAuthorize("isAuthenticated()")
-    @GetMapping("/current")
-    public LoginViewModel getCurrentUser() {
+    @GetMapping(path = {"/current-login"})
+    public ShortLoginModel getCurrentLogin() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        // todo exclude password from model!
-        return loginService.findLoginByUsername(((org.springframework.security.core.userdetails.User) authentication.getPrincipal()).getUsername());
+        LoginViewModel fullLogin = loginService.findLoginByUsername(((org.springframework.security.core.userdetails.User) authentication.getPrincipal()).getUsername());
+        return new ShortLoginModel(fullLogin);
     }
 }

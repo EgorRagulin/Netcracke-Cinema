@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="page">
+    <ng-container *ngIf="!wallet">
+
+      <mat-card>
+        <mat-card-title *ngIf="wallet.name">
+          {{wallet.name}}
+        </mat-card-title>
+
+        <mat-card-content>
+          Wallet balance: {{wallet.balance}}!
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button>button</button>
+        </mat-card-actions>
+      </mat-card>
+
+    </ng-container>
+  </div>
+
+  <app-loading-page [isLoading]="isLoading"></app-loading-page>
+
+</div>
+

@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div *ngIf="hall" class="hallViewModel">
+  <div *ngIf="hall" class="hall">
 
     <div class="hallNumber">
       {{hall.hallNumber}} Зал
@@ -13,6 +13,10 @@
     </div>
 
   </div>
+
+  <h3 *ngIf="!hall">
+    Что-то пошло не так! Зал не найден.
+  </h3>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>
 

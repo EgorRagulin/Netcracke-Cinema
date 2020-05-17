@@ -1,27 +1,36 @@
 <div class="container">
   <div class="page">
     <div class="cinema" *ngIf="cinema">
+      <div class="cinema-card">
 
-      <div class="name">
-        <h2>{{cinema.name}}</h2>
+        <h1>{{cinema.name}}</h1>
+
+        <p class="cinema-picture">
+          <img [src]="cinema.picture ? 'data:image/jpeg;base64,' + cinema.picture : 'http://placehold.it/300x450'">
+        </p>
+
+        <p class="cinema-address">
+          Адресс: {{cinema.address}}
+        </p>
+
+        <div class="cinema-halls">
+          <p class="hall hall-btn" *ngFor="let hall of cinemaHalls">
+            <a [routerLink]="'/halls/' + hall.id" color="accent" mat-flat-button>
+              Jump to {{hall.hallNumber}} hall
+            </a>
+          </p>
+
+        </div>
+
+        <button (click)="addHall()" *ngIf="auth.isAdmin">Add Hall</button>
+
       </div>
-
-      <div class="picture">
-        <img [src]="'data:image/jpeg;base64,' + cinema.picture" height="450">
-      </div>
-
-      <div class="address">
-        Адресс: {{cinema.address}}
-      </div>
-
-      <div class="btn">
-        <a [routerLink]="['hall']" color="accent" mat-flat-button>
-          Show Cinema Halls
-        </a>
-      </div>
-
     </div>
   </div>
+
+  <h3 *ngIf="!cinema">
+    Что-то пошло не так! Кинотеатр не найден.
+  </h3>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>
 

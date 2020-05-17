@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Movie} from "../../../../models/Movie";
+import {MovieModel} from "../../../../models/movie.model";
 import {Subscription} from "rxjs";
 import {MoviesService} from "../../../../services/movies/movies.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FullMovie} from "../../../../models/full-models/FullMovie";
+import {FullMovieModel} from "../../../../models/full-models/full.movie.model";
 import {LoadingService} from "../../../../services/loading/loading.service";
 
 @Component({
@@ -13,7 +13,7 @@ import {LoadingService} from "../../../../services/loading/loading.service";
 })
 export class MovieComponent implements OnInit, OnDestroy{
   private subscription: Subscription;
-  public movie: Movie;
+  public movie: MovieModel;
   public isLoading;
 
   constructor(private moviesService: MoviesService,

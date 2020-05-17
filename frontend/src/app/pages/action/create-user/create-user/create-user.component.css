@@ -1,12 +1,12 @@
-h2
+mat-card
 {
-  text-align: center;
-}
-form
-{
+  display: block;
   width: 50%;
   margin: 10% auto;
-  border-radius: 8px;
+}
+mat-card-title
+{
+  text-align: center;
 }
 mat-form-field, app-upload-picture
 {
@@ -19,8 +19,4 @@ mat-form-field, app-upload-picture
   display: block;
   width: 80%;
   margin: 20px auto;
-}
-.form-data
-{
-  text-align: center;
 }

@@ -4,11 +4,6 @@ export class FullLoginModel {
   id: number;
   username: string;
   password: string;
+  role: string
   user: UserModel;
-
-  constructor(id: number, username: string, password: string) {
-    this.id = id;
-    this.username = username;
-    this.password = password;
-  }
 }

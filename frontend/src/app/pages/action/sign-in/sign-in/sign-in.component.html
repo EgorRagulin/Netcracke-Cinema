@@ -1,50 +1,66 @@
 <div class="container">
   <div class="page">
     <ng-container *ngIf="!storageService.getCurrentLogin()">
-      <form #singInForm="ngForm">
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="User Name"
-            required
-            name="username"
-            [(ngModel)]="loginModel.username"
-            #username="ngModel"
-            (focus)="showCheckYourSetDataAlert = false">
 
-          <mat-error *ngIf="username.invalid">
-            Username is required
-          </mat-error>
-
-          <mat-icon matSuffix>perm_identity</mat-icon>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Password"
-            type="password"
-            required
-            name="password"
-            [(ngModel)]="loginModel.password"
-            #password="ngModel"
-            (focus)="showCheckYourSetDataAlert = false">
-
-          <mat-error *ngIf="password.errors && password.errors.required">
-            Password is required
-          </mat-error>
-
-          <mat-icon matSuffix>lock</mat-icon>
-        </mat-form-field>
-
-        <button mat-raised-button color="primary" class="login-button" (click)="singIn()">
+      <mat-card>
+        <mat-card-title>
           Sign In
-        </button>
-      </form>
+        </mat-card-title>
 
-      <div *ngIf="showCheckYourSetDataAlert" role="alert">
-        Check Your set Data!
-      </div>
+        <mat-card-content>
+          <form [formGroup]="singInForm" (ngSubmit)="singIn()">
+
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="username"
+                formControlName="username"
+                [(ngModel)]="login.username"
+                (focus)="showCheckYourSetDataAlert = false"
+                required>
+              <mat-error *ngFor="let validation of validationMessages.username">
+                <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(singInForm.get('username'), validation.type)">
+                  {{validation.message}}
+                </mat-error>
+              </mat-error>
+
+              <mat-icon matSuffix>perm_identity</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="password"
+                [type]="hide ? 'password' : 'text'"
+                formControlName="password"
+                [(ngModel)]="login.password"
+                (focus)="showCheckYourSetDataAlert = false"
+                required>
+              <mat-error *ngFor="let validation of validationMessages.password">
+                <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(singInForm.get('password'), validation.type)">
+                  {{validation.message}}
+                </mat-error>
+              </mat-error>
+
+              <mat-icon matSuffix (click)="toggle()" *ngIf="singInForm.get('password').value" style="cursor: pointer;">
+                {{hide ? 'visibility' : 'visibility_off'}}
+              </mat-icon>
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+
+            <button class="sign-in-btn" color="primary" mat-raised-button type="submit" [disabled]="singInForm.invalid">
+              Sign In
+            </button>
+
+            <div *ngIf="showCheckYourSetDataAlert" class="login-not-found-message">
+              Check Your set Data!
+              <br>
+              Username or password incorrect!
+            </div>
+
+          </form>
+        </mat-card-content>
+      </mat-card>
 
     </ng-container>
   </div>

@@ -1,13 +1,26 @@
-.movies
+h2
 {
-  display: flex;
+  text-align: center;
 }
-.movie-item
+form
 {
-  margin-left: 10px;
+  width: 50%;
+  margin: 10% auto;
+  border-radius: 8px;
 }
-.currentGenres
+mat-form-field, app-upload-picture, .selected-genres
 {
-  display: flex;
-  margin-right: 20px;
+  display: block;
+  width: 80%;
+  margin: 15px auto;
+}
+.create-user-btn
+{
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+}
+.form-data
+{
+  text-align: center;
 }

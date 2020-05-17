@@ -1,7 +1,45 @@
 <div class="container">
 
   <div class="page">
-    <h1>My Profile</h1>
+    <ng-container *ngIf="user">
+      <div class="my-profile-card">
+
+        <h1>My Profile</h1>
+
+        <div class="avatar">
+          <img [src]="user.avatar ? 'data:image/jpeg;base64,' + user.avatar : '../../../../../assets/img/user/noavatar.png'">
+        </div>
+
+        <p class="title user-name">
+          <ng-container *ngIf="user.firstName">{{user.firstName}} </ng-container>
+          <ng-container>{{user.secondName}}</ng-container>
+        </p>
+
+        <h2 *ngIf="auth.isAdmin" class="is-user-admin">admin</h2>
+
+
+        <p class="email" *ngIf="user.email">
+          Почта: {{user.email}}
+        </p>
+
+        <p class="phone-number" *ngIf="user.phoneNumber">
+          Номер Телефона: {{user.phoneNumber}}
+        </p>
+
+        <p>
+          <a [routerLink]="'/users/' + user.id + '/tickets'" color="accent" mat-flat-button>
+            Мои Билеты
+          </a>
+        </p>
+
+        <p>
+          <a [routerLink]="'/my-wallet'" color="accent" mat-flat-button>
+            Мой кошелек
+          </a>
+        </p>
+
+      </div>
+    </ng-container>
   </div>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>

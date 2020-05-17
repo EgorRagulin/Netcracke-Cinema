@@ -1,72 +1,82 @@
 <div class="container">
   <div class="page">
     <ng-container *ngIf="!storageService.getCurrentUser()">
-      <form #createUserForm="ngForm">
 
-        <h2>Create User</h2>
-
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="First Name"
-            required
-            name="firstName"
-            [(ngModel)]="userModel.firstName"
-            #firstName="ngModel">
-          <mat-error *ngIf="firstName.invalid">
-            First Name is required
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Second Name"
-            required
-            name="secondName"
-            [(ngModel)]="userModel.secondName"
-            #secondName="ngModel">
-          <mat-error *ngIf="secondName.invalid">
-            Second Name is required
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Email"
-            required
-            name="email"
-            [(ngModel)]="userModel.email"
-            #email="ngModel">
-          <mat-error *ngIf="email.invalid">
-            Email is required
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Phone Number"
-            required
-            name="phoneNumber"
-            [(ngModel)]="userModel.phoneNumber"
-            #phoneNumber="ngModel">
-          <mat-error *ngIf="phoneNumber.invalid">
-            Phone Number is required
-          </mat-error>
-        </mat-form-field>
-
-        <app-upload-picture [pictureHeight]="300" (selectPicture)="setSelectedPicture($event)"></app-upload-picture>
-
-        <button mat-raised-button color="primary" class="create-user-btn" (click)="createUser()">
+      <mat-card>
+        <mat-card-title>
           Create User
-        </button>
+        </mat-card-title>
 
-      </form>
+        <mat-card-content>
+          <form [formGroup]="createUserForm" (ngSubmit)="createUser()">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="first name"
+                formControlName="firstName"
+                [(ngModel)]="user.firstName"
+                required>
+              <mat-error *ngFor="let validation of validationMessages.first_name">
+                <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(createUserForm.get('firstName'), validation.type)">
+                  {{validation.message}}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="second name"
+                formControlName="secondName"
+                [(ngModel)]="user.secondName"
+                required>
+              <mat-error *ngFor="let validation of validationMessages.second_name">
+                <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(createUserForm.get('secondName'), validation.type)">
+                  {{validation.message}}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="email"
+                formControlName="email"
+                [(ngModel)]="user.email"
+                required>
+              <mat-error *ngFor="let validation of validationMessages.email">
+                <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(createUserForm.get('email'), validation.type)">
+                  {{validation.message}}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="phone number (format: 11 111 11 11)"
+                formControlName="phoneNumber"
+                [(ngModel)]="user.phoneNumber"
+                required>
+              <mat-error *ngFor="let validation of validationMessages.phone_number">
+                <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(createUserForm.get('phoneNumber'), validation.type)">
+                  {{validation.message}}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+
+            <app-upload-picture [pictureHeight]="300" (selectPicture)="setSelectedPicture($event)"></app-upload-picture>
+
+            <button class="create-user-btn" color="primary" mat-raised-button type="submit" [disabled]="createUserForm.invalid">
+              Create User
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+
+
     </ng-container>
   </div>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>
-
 </div>

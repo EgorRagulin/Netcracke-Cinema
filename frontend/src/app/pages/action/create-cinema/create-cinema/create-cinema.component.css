@@ -1,0 +1,26 @@
+h2
+{
+  text-align: center;
+}
+form
+{
+  width: 50%;
+  margin: 10% auto;
+  border-radius: 8px;
+}
+mat-form-field, app-upload-picture
+{
+  display: block;
+  width: 80%;
+  margin: auto;
+}
+.create-user-btn
+{
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+}
+.form-data
+{
+  text-align: center;
+}

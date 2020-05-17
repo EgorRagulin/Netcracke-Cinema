@@ -8,7 +8,7 @@ public class FullTicketViewModel {
     private int rowNumber;
     private int placeNumber;
     private boolean isSold;
-    private SessionViewModel sessions;
+    private SessionViewModel session;
     private UserViewModel user;
 
     public Long getId() {
@@ -43,20 +43,12 @@ public class FullTicketViewModel {
         this.isSold = isSold;
     }
 
-    public boolean isSold() {
-        return isSold;
+    public SessionViewModel getSession() {
+        return session;
     }
 
-    public void setSold(boolean sold) {
-        isSold = sold;
-    }
-
-    public SessionViewModel getSessions() {
-        return sessions;
-    }
-
-    public void setSessions(SessionViewModel sessions) {
-        this.sessions = sessions;
+    public void setSession(SessionViewModel session) {
+        this.session = session;
     }
 
     public UserViewModel getUser() {

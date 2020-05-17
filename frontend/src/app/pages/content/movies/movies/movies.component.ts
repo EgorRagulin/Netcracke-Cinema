@@ -1,10 +1,10 @@
 import {Component, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {Subscription} from "rxjs";
-import {Movie} from "src/app/models/Movie";
-import {Page} from "src/app/models/page/Page";
-import {DefaultPageSize} from "src/app/enum/DefaultPageSize";
+import {MovieModel} from "src/app/models/movie.model";
+import {PageModel} from "src/app/models/page/page.model";
+import {DefaultPageSize} from "src/app/enum/default.page.size";
 import {MoviesService} from "src/app/services/movies/movies.service";
-import {Paginator} from "../../../../models/paginator/Paginator";
+import {PaginatorModel} from "../../../../models/paginator/paginator.model";
 import {LoadingService} from "../../../../services/loading/loading.service";
 
 @Component({
@@ -14,10 +14,10 @@ import {LoadingService} from "../../../../services/loading/loading.service";
 })
 export class MoviesComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
-  private pageOfMovies: Page<Movie>;
+  private pageOfMovies: PageModel<MovieModel>;
 
-  public paginator: Paginator;
-  public movies: Movie[];
+  public paginator: PaginatorModel;
+  public movies: MovieModel[];
   public isLoading: boolean;
 
   constructor(private moviesService: MoviesService,
@@ -37,7 +37,7 @@ export class MoviesComponent implements OnInit, OnDestroy {
     this._subscriptions.push(this.moviesService.getPage(pageNumber, pageSize)
       .subscribe(pageOfMovies => {
         this.pageOfMovies = pageOfMovies;
-        this.paginator = new Paginator(DefaultPageSize.Movies, this.pageOfMovies);
+        this.paginator = new PaginatorModel(DefaultPageSize.Movies, this.pageOfMovies);
         this.movies = pageOfMovies.collectionOfElements;
         this.isLoading = this.loadingService.changeLoadingStatus(false);
       })

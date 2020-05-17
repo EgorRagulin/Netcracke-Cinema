@@ -19,6 +19,13 @@ public class FullHall {
         this.sessions = hall.getSessions();
     }
 
+    public static Hall getNewHall(int hallNumber, Cinema cinema) {
+        Hall hall = new Hall();
+        hall.setHallNumber(hallNumber);
+        hall.setCinema(cinema);
+        return hall;
+    }
+
     public Long getId() {
         return id;
     }

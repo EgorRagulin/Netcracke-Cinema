@@ -1,4 +1,5 @@
-<div class="paginator">
+<ng-container *ngIf="paginator && paginator.totalPages > 0">
+  <div class="paginator">
 
     <span>{{elementsName}} на странице:</span>
 
@@ -37,13 +38,19 @@
     </span>
   </span>
 
-  <div *ngIf="showBobblesPaginator">
-    <app-bubbles-paginator
-      [pageNumber]="paginator.pageNumber"
-      [totalPages]="paginator.totalPages"
-      [pageRange]="2"
-      (pageChangeEvent)="showPage($event)"
-    ></app-bubbles-paginator>
+    <div *ngIf="showBobblesPaginator">
+      <app-bubbles-paginator
+        [pageNumber]="paginator.pageNumber"
+        [totalPages]="paginator.totalPages"
+        [pageRange]="2"
+        (pageChangeEvent)="showPage($event)"
+      ></app-bubbles-paginator>
+    </div>
+
   </div>
 
-</div>
+</ng-container>
+
+<ng-container *ngIf="paginator && paginator.totalPages == 0">
+  Total Pages equals 0!
+</ng-container>

@@ -18,4 +18,6 @@ public interface CinemaService {
     FullCinemaViewModel findFullById(Long id);
 
     List<HallViewModel> findHallsByCinemaId(Long id);
+
+    List<HallViewModel> addHall(CinemaViewModel cinemaViewModel);
 }

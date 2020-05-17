@@ -7,7 +7,7 @@
     <a [routerLink]="'cinemas'">Cinemas</a>
 
     <ng-container *ngIf="storageService.getCurrentLogin() as currentLogin">
-      <a [routerLink]="'admin-panel'" *ngIf="currentLogin.role == 'admin'">Admin Panel</a>
+      <a [routerLink]="'admin-panel'" *ngIf="auth.isAdmin">Admin Panel</a>
       <a [routerLink]="'my-profile'">My Profile</a>
       <a (click)="logout()" style="cursor: pointer">Logout</a>
     </ng-container>

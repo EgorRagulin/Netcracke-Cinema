@@ -29,9 +29,9 @@ public class CinemaServiceImpl implements CinemaService {
     }
 
     @Override
-    public CinemaViewModel save(CinemaViewModel cinemaViewModel) {
+    public CinemaViewModel save(CinemaViewModel cinema) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity( rootPath, cinemaViewModel, CinemaViewModel.class).getBody();
+        return restTemplate.postForEntity( rootPath, cinema, CinemaViewModel.class).getBody();
     }
 
     @Override
@@ -51,6 +51,13 @@ public class CinemaServiceImpl implements CinemaService {
     public List<HallViewModel> findHallsByCinemaId(Long id) {
         RestTemplate restTemplate = new RestTemplate();
         HallViewModel[] cinemasResponse = restTemplate.getForObject(rootPath + "/halls/?id=" + id, HallViewModel[].class);
+        return cinemasResponse == null ? Collections.emptyList() : Arrays.asList(cinemasResponse);
+    }
+
+    @Override
+    public List<HallViewModel> addHall(CinemaViewModel cinema) {
+        RestTemplate restTemplate = new RestTemplate();
+        HallViewModel[] cinemasResponse = restTemplate.postForEntity( rootPath + "/add-hall", cinema, HallViewModel[].class).getBody();
         return cinemasResponse == null ? Collections.emptyList() : Arrays.asList(cinemasResponse);
     }
 }

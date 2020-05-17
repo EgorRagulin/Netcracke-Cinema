@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Paginator} from "../../../models/paginator/Paginator";
+import {PaginatorModel} from "../../../models/paginator/paginator.model";
 
 @Component({
   selector: 'app-paginator',
@@ -9,7 +9,7 @@ import {Paginator} from "../../../models/paginator/Paginator";
 export class PaginatorComponent implements OnInit{
 
   @Input() elementsName: string = "Элементов";
-  @Input() paginator: Paginator;
+  @Input() paginator: PaginatorModel;
   @Input() showBobblesPaginator: boolean = false;
   @Output() changePageNumberEvent = new EventEmitter;
   @Output() changePageSizeEvent = new EventEmitter;

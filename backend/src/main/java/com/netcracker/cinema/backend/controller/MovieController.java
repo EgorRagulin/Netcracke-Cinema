@@ -4,6 +4,8 @@ import com.netcracker.cinema.backend.entity.full.FullMovie;
 import com.netcracker.cinema.backend.DTO.PageDTO;
 import com.netcracker.cinema.backend.entity.Movie;
 import com.netcracker.cinema.backend.entity.Session;
+import com.netcracker.cinema.backend.enums.MovieGenre;
+import com.netcracker.cinema.backend.models.all.movie.genres.AllMovieGenreModel;
 import com.netcracker.cinema.backend.service.MovieService;
 import com.netcracker.cinema.backend.sort.PagingSort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,29 +62,15 @@ public class MovieController {
         return movieService.findById(id).get().getSessions();
     }
 
+    @GetMapping(path = {"/all-genres"})
+    public AllMovieGenreModel getAllMovieGenres() {
+        return MovieGenre.getAllGenres();
+    }
+
     private Page getPage(int pageNumber, int pageSize, String sortProperty) {
         return movieService.findPage(
                 // page 0 - pageNumber 1
                 new PageRequest(pageNumber - 1, pageSize, PagingSort.getSortByProperty(sortProperty))
         );
     }
-//    @PostMapping
-//    public Movie saveMovie(@RequestParam("picture") MultipartFile file,
-//                           @RequestParam("title") String title,
-//                           @RequestParam("description") String description,
-//                           @RequestParam("ageLimit") String ageLimit,
-//                           @RequestParam("duration") String duration,
-//                           @RequestParam("genres") String genres
-//                           ) throws IOException {
-//        Movie movie = new Movie();
-//        movie.setPicture(file.getBytes());
-//        movie.setTitle(title);
-//        movie.setDescription(description);
-//        movie.setAgeLimit(Integer.parseInt(ageLimit));
-//        movie.setDuration(Time.valueOf(duration));
-//        movie.setGenres(genres);
-//        final Movie savedMovie = movieService.save(movie);
-//        System.out.println("movie saved!");
-//        return savedMovie;
-//    }
 }
