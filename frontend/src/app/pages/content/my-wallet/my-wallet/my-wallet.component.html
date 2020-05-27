@@ -1,6 +1,6 @@
 <div class="container">
   <div class="page">
-    <ng-container *ngIf="!wallet">
+    <ng-container *ngIf="wallet">
 
       <mat-card>
         <mat-card-title *ngIf="wallet.name">
@@ -8,12 +8,125 @@
         </mat-card-title>
 
         <mat-card-content>
-          Wallet balance: {{wallet.balance}}!
+          <p class="wallet-balance">
+            Wallet balance: {{wallet.balance}} BYN!
+          </p>
         </mat-card-content>
 
         <mat-card-actions>
-          <button>button</button>
+          <ng-container *ngIf="!hideDepositBlock">
+            <button class="show-deposit-block-btn" color="accent" mat-flat-button (click)="showDepositBlock()">
+              Deposit
+            </button>
+          </ng-container>
         </mat-card-actions>
+      </mat-card>
+
+      <mat-card *ngIf="hideDepositBlock">
+        <mat-card-title *ngIf="wallet.name">
+          Credit card
+        </mat-card-title>
+
+        <mat-card-content>
+          <form [formGroup]="depositForm" (ngSubmit)="deposit()">
+            <mat-form-field class="block">
+              <input
+                matInput
+                placeholder="enter deposit value"
+                formControlName="depositValue"
+                [(ngModel)]="depositValue"
+                maxlength="6"
+                required>
+              <mat-error *ngFor="let validation of validationMessages.deposit_value">
+                <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(depositForm.get('depositValue'), validation.type)">
+                  {{validation.message}}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="block">
+              <input
+                matInput
+                placeholder="card number"
+                formControlName="cardNumber"
+                [(ngModel)]="creditCard.cardNumber"
+                maxlength="16"
+                required>
+              <mat-error *ngFor="let validation of validationMessages.card_number">
+                <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(depositForm.get('cardNumber'), validation.type)">
+                  {{validation.message}}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+
+            <div class="block">
+              <mat-form-field class="cardMonthOfEnding">
+                <input
+                  matInput
+                  placeholder="month of ending"
+                  formControlName="cardMonthOfEnding"
+                  [(ngModel)]="creditCard.cardMonthOfEnding"
+                  maxlength="2"
+                  required>
+                <mat-error *ngFor="let validation of validationMessages.month_of_ending">
+                  <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(depositForm.get('cardMonthOfEnding'), validation.type)">
+                    {{validation.message}}
+                  </mat-error>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="cardYearOfEnding">
+                <input
+                  matInput
+                  placeholder="year of ending"
+                  formControlName="cardYearOfEnding"
+                  [(ngModel)]="creditCard.cardYearOfEnding"
+                  maxlength="4"
+                  required>
+                <mat-error *ngFor="let validation of validationMessages.year_of_ending">
+                  <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(depositForm.get('cardYearOfEnding'), validation.type)">
+                    {{validation.message}}
+                  </mat-error>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="CVV">
+                <input
+                  matInput
+                  placeholder="CVV"
+                  formControlName="cardCVV"
+                  [(ngModel)]="creditCard.cardCVV"
+                  maxlength="3"
+                  required>
+                <mat-error *ngFor="let validation of validationMessages.CVV">
+                  <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(depositForm.get('cardCVV'), validation.type)">
+                    {{validation.message}}
+                  </mat-error>
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+            <mat-form-field class="block">
+              <input
+                matInput
+                placeholder="owner name"
+                formControlName="cardOwner"
+                [(ngModel)]="creditCard.cardOwner"
+                required>
+              <mat-error *ngFor="let validation of validationMessages.card_owner">
+                <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(depositForm.get('cardOwner'), validation.type)">
+                  {{validation.message}}
+                </mat-error>
+              </mat-error>
+            </mat-form-field>
+
+            <button class="deposit-btn" color="primary" mat-raised-button type="submit" [disabled]="depositForm.invalid">
+              Deposit
+            </button>
+          </form>
+        </mat-card-content>
+
       </mat-card>
 
     </ng-container>

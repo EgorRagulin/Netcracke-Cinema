@@ -2,13 +2,13 @@
   <div class="page">
     <ng-container *ngIf="cinemas">
 
-      <h1>Наши Кинотеатры</h1>
+      <h1>Our Cinemas</h1>
 
       <div class="cinemas">
         <div class="cinema" *ngFor="let cinema of cinemas">
           <div class="cinema-card">
 
-            <h1 *ngIf="cinema.name">{{cinema.name}}</h1>
+            <h2 *ngIf="cinema.name">{{cinema.name}}</h2>
 
             <div class="cinema-picture">
               <img [src]="cinema.picture ? 'data:image/jpeg;base64,' + cinema.picture : 'http://placehold.it/200x300'">
@@ -26,9 +26,9 @@
         </div>
       </div>
 
-        <h3 *ngIf="cinemas.length == 0" class="cinemas-not-found">
-          Что-то пошло не так! Кинотеатры не найдены.
-        </h3>
+      <h3 *ngIf="cinemas.length == null" class="cinemas-not-found">
+        Something went wrong! Cinemas not found!
+      </h3>
     </ng-container>
   </div>
 

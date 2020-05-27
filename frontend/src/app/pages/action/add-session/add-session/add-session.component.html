@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-title>
+    Add New Session
+  </mat-card-title>
+
+  <mat-card-content>
+    <form [formGroup]="addNewSessionForm" (ngSubmit)="addNewSession()">
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="place cost"
+          formControlName="cost"
+          [(ngModel)]="sessionCost"
+          maxlength="5"
+          required>
+        <mat-error *ngFor="let validation of validationMessages.place_cost_BYN">
+          <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(addNewSessionForm.get('cost'), validation.type)">
+            {{validation.message}}
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="session-date-picker">
+        <app-date-picker (selectDateTimeEvent)="selectDate($event)"></app-date-picker>
+      </div>
+
+      <ng-container *ngIf="cinemas">
+        <mat-form-field>
+          <mat-label>Select Cinema</mat-label>
+          <mat-select >
+            <mat-option *ngFor="let cinema of cinemas" [value]="cinema.name" (click)="selectCinema(cinema.id)">
+              {{cinema.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+
+      <ng-container *ngIf="halls">
+        <mat-form-field>
+          <mat-label>Select Hall</mat-label>
+          <mat-select >
+            <mat-option *ngFor="let hall of halls" [value]="hall.id" (click)="selectHall(hall)">
+              {{hall.hallNumber}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+
+      <button class="add-session-btn" color="primary" mat-raised-button type="submit" [disabled]="!isFormValid()">
+        Add New Session
+      </button>
+
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -14,9 +14,8 @@ public class FullSession {
     private Date date;
     private Time time;
     private double cost;
-    private String mode;
     private Hall hall;
-    private Movie movie;
+    private FullMovie movie;
     private List<Ticket> tickets;
 
     public FullSession(Session session) {
@@ -24,9 +23,8 @@ public class FullSession {
         this.date = session.getDate();
         this.time = session.getTime();
         this.cost = session.getCost();
-        this.mode = session.getMode();
         this.hall = session.getHall();
-        this.movie = session.getMovie();
+        this.movie = new FullMovie(session.getMovie());
         this.tickets = session.getTickets();
     }
 
@@ -62,14 +60,6 @@ public class FullSession {
         this.cost = cost;
     }
 
-    public String getMode() {
-        return mode;
-    }
-
-    public void setMode(String mode) {
-        this.mode = mode;
-    }
-
     public Hall getHall() {
         return hall;
     }
@@ -78,11 +68,11 @@ public class FullSession {
         this.hall = hall;
     }
 
-    public Movie getMovie() {
+    public FullMovie getMovie() {
         return movie;
     }
 
-    public void setMovie(Movie movie) {
+    public void setMovie(FullMovie movie) {
         this.movie = movie;
     }
 

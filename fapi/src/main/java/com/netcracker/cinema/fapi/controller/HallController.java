@@ -3,6 +3,7 @@ package com.netcracker.cinema.fapi.controller;
 import com.netcracker.cinema.fapi.model.HallViewModel;
 import com.netcracker.cinema.fapi.model.full.FullHallViewModel;
 import com.netcracker.cinema.fapi.model.SessionViewModel;
+import com.netcracker.cinema.fapi.model.full.FullSessionViewModel;
 import com.netcracker.cinema.fapi.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,8 +42,8 @@ public class HallController {
         return hallService.findFullById(id);
     }
 
-    @GetMapping(params = {"id"}, path = {"/sessions/"})
-    public List<SessionViewModel> findSessionsByHallId(@RequestParam Long id) {
-        return hallService.findSessionsByHallId(id);
+    @GetMapping(params = {"id"}, path = {"/full-sessions"})
+    public List<FullSessionViewModel> findSessionsByHallId(@RequestParam Long id) {
+        return hallService.findFullSessionsByHallId(id);
     }
 }

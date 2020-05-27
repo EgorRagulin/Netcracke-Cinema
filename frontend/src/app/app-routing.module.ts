@@ -7,61 +7,43 @@ import {SessionsComponent} from "./pages/content/sessions/sessions/sessions.comp
 import {BuyTicketComponent} from "./pages/action/buy-ticket/buy-ticket/buy-ticket.component";
 import {CinemasComponent} from "./pages/content/cinemas/cinemas/cinemas.component";
 import {CinemaComponent} from "./pages/content/cinema/cinema/cinema.component";
-import {HallsComponent} from "./pages/content/halls/halls/halls.component";
-import {HallComponent} from "./pages/content/hall/hall/hall.component";
-import {TicketsComponent} from "./pages/content/tickets/tickets/tickets.component";
 import {SignInComponent} from "./pages/action/sign-in/sign-in/sign-in.component";
 import {SignUpComponent} from "./pages/action/sign-up/sign-up/sign-up.component";
 import {MyProfileComponent} from "./pages/content/my-profile/my-profile/my-profile.component";
 import {CreateUserComponent} from "./pages/action/create-user/create-user/create-user.component";
-import {AdminPanelComponent} from "./pages/content/admin-panel/admin-panel/admin-panel.component";
 import {CreateCinemaComponent} from "./pages/action/create-cinema/create-cinema/create-cinema.component";
 import {CreateMovieComponent} from "./pages/action/create-movie/create-movie/create-movie.component";
-import {FormValidationComponent} from "./pages/action/form-validation/form-validation/form-validation.component";
 import {AddWalletComponent} from "./pages/action/add-wallet/add-wallet/add-wallet.component";
 import {MyWalletComponent} from "./pages/content/my-wallet/my-wallet/my-wallet.component";
-
+import {MyTicketsComponent} from "./pages/content/my-tickets/my-tickets/my-tickets.component";
+import {AuthenticatedCanActivateService} from "./services/security/authenticated-can-activate.service";
 
 const routes: Routes = [
 
-  { path: '', component: FormValidationComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
 
-
-
-  // Admin
-  { path: 'admin-panel', component: AdminPanelComponent },
-
-  { path: 'create-cinema', component: CreateCinemaComponent },
-  { path: 'create-movie', component: CreateMovieComponent },
-
-  // Client
-  { path: 'my-profile', component: MyProfileComponent },
-  { path: 'my-wallet', component: MyWalletComponent },
-
-  { path: 'create-user', component: CreateUserComponent },
-  { path: 'create-wallet', component: AddWalletComponent },
-
-
-  // Movies
-  { path: 'movies', component: MoviesComponent },
-  { path: 'movies/:movieId', component: MovieComponent },
+  // Admin actions
+  { path: 'create-cinema', component: CreateCinemaComponent, canActivate: [AuthenticatedCanActivateService]},
+  { path: 'create-movie', component: CreateMovieComponent, canActivate: [AuthenticatedCanActivateService]},
+  // User
+  { path: 'my-profile', component: MyProfileComponent, canActivate: [AuthenticatedCanActivateService]},
+  { path: 'my-wallet', component: MyWalletComponent, canActivate: [AuthenticatedCanActivateService]},
+  { path: 'my-tickets', component: MyTicketsComponent, canActivate: [AuthenticatedCanActivateService]},
+  // User actions
+  { path: 'create-user', component: CreateUserComponent, canActivate: [AuthenticatedCanActivateService]},
+  { path: 'create-wallet', component: AddWalletComponent, canActivate: [AuthenticatedCanActivateService]},
   // Cinemas
   { path: 'cinemas', component: CinemasComponent },
   { path: 'cinemas/:id', component: CinemaComponent },
-  // Halls
-  { path: 'halls', component: HallsComponent },
-  { path: 'cinemas/:id/halls', component: HallsComponent },
-  { path: 'halls/:id', component: HallComponent },
+  // Movies
+  { path: 'movies', component: MoviesComponent },
+  { path: 'movies/:movieId', component: MovieComponent },
   // Sessions
   { path: 'sessions', component: SessionsComponent },
   { path: 'halls/:hallId/sessions', component: SessionsComponent },
-  { path: 'movies/:movieId/sessions', component: SessionsComponent },
-  // Tickets
-  { path: 'tickets', component: TicketsComponent },
-  { path: 'users/:userId/tickets', component: TicketsComponent },
-  { path: 'sessions/:id/buy-ticket', component: BuyTicketComponent },
+  // Buy Ticket
+  { path: 'sessions/:id/buy-tickets', component: BuyTicketComponent, canActivate: [AuthenticatedCanActivateService]},
   // Not found
   { path: '**', component: PageNotFoundComponent },
 ];

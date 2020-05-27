@@ -1,4 +1,12 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges
+} from '@angular/core';
 import {TicketModel} from "../../../../models/ticket.model";
 import {TicketsService} from "../../../../services/tickets/tickets.service";
 import {Subscription} from "rxjs";
@@ -11,8 +19,9 @@ import {LoadingService} from "../../../../services/loading/loading.service";
 import {FullTicketModel} from "../../../../models/full-models/full.ticket.model";
 import {PlaceStatus} from "../../../../enum/place.status";
 import {UserModel} from "../../../../models/user.model";
-import {StorageService} from "../../../../services/security/storage.service";
-import {LoginService} from "../../../../services/security/login-service";
+import {CurrentUserService} from "../../../../services/current-user/current.user.service";
+import {finalize} from "rxjs/operators";
+import {CurrentWalletService} from "../../../../services/current-wallet/current-wallet.service";
 
 @Component({
   selector: 'app-buy-ticket',
@@ -32,27 +41,30 @@ export class BuyTicketComponent implements OnInit, OnDestroy {
   public user: UserModel;
 
   public selectedTickets: FullTicketModel[] = [];
-  public updatedTickets: FullTicketModel[] = [];
+  public totalCost: number = 0;
 
   constructor(private ticketService: TicketsService,
               private sessionsService: SessionsService,
-              private loginService: LoginService,
-              private activateRoute: ActivatedRoute,
+
+              private currentUserService: CurrentUserService,
+              private currentWalletService: CurrentWalletService,
+
               private loadingService: LoadingService,
-              private storageService: StorageService,
+
+              private activateRoute: ActivatedRoute,
               private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    this.isLoading = this.loadingService.changeLoadingStatus(true);
     this.sessionId = this.activateRoute.snapshot.params['id'];
-    this.getSession();
     this.getUser();
-    this.getSessionTickets();
+    this.getSession();
 
     this.rows = this.createRows(5, 10);
 
     setInterval(() => {
       this.getSessionTickets();
-    }, 5000);
+    }, 2000);
   }
 
   ngOnDestroy(): void {
@@ -65,17 +77,17 @@ export class BuyTicketComponent implements OnInit, OnDestroy {
   }
 
   private getUser() {
-    const loginId = this.storageService.getCurrentLogin().id;
-
-    this._subscriptions.push(this.loginService.getAuthorizedUser(loginId)
-      .subscribe(user => this.user = user));
+    this._subscriptions.push(this.currentUserService.getCurrentUser()
+      .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
+      .subscribe(user => {
+        this.user = user;
+        this.getSessionTickets();
+      }));
   }
 
   private getSessionTickets(): void {
     this._subscriptions.push(this.sessionsService.getFullTickets(this.sessionId)
-      .subscribe(sessionTickets => {
-        this.changePlacesStatus(sessionTickets);
-      }));
+      .subscribe(sessionTickets => this.changePlacesStatus(sessionTickets)));
   }
 
   private createRows(numberOfRow: number, numberOfPlaces: number): RowModel[] {
@@ -93,13 +105,11 @@ export class BuyTicketComponent implements OnInit, OnDestroy {
   }
 
   private changePlacesStatus(sessionTickets: FullTicketModel[]) {
-    if (sessionTickets.length > 0) {
+    if (sessionTickets.length > 0 && this.user) {
       sessionTickets.forEach(ticket => {
         let place: PlaceModel = this.rows[ticket.rowNumber - 1].places[ticket.placeNumber - 1];
-        //isReserved
-        if (this.isTicketUpdating(ticket)) this.setPlaceStatus(ticket, PlaceStatus.UPDATED);
         //isSold
-        else if (ticket.isSold) {
+        if (ticket.isSold) {
           if (ticket.user.id == this.user.id) {
               this.setPlaceStatus(ticket, PlaceStatus.BOUGHT);
           }
@@ -125,12 +135,11 @@ export class BuyTicketComponent implements OnInit, OnDestroy {
     }
   }
 
-  private isTicketUpdating(ticket: FullTicketModel) {
-    return false;
-  }
-
   private addTicketToSelectedTickets(selectedTicket: FullTicketModel): void {
-    if (this.isTicketInSelectedTickets(selectedTicket)) this.selectedTickets.push(selectedTicket);
+    if (this.isTicketInSelectedTickets(selectedTicket)) {
+      this.selectedTickets.push(selectedTicket);
+      this.updateTotalCost();
+    }
   }
 
   private isTicketInSelectedTickets(selectedTicket: FullTicketModel): boolean {
@@ -138,8 +147,9 @@ export class BuyTicketComponent implements OnInit, OnDestroy {
   }
 
   public selectTicket(selectedPlace: TicketModel): void {
-    let fullTicket: FullTicketModel = new FullTicketModel(selectedPlace.rowNumber, selectedPlace.placeNumber, false, 1, this.session, this.user);
+    let fullTicket: FullTicketModel = new FullTicketModel(selectedPlace.rowNumber, selectedPlace.placeNumber, false, this.session, this.user);
     this.reserveTicket(fullTicket);
+    this.updateTotalCost();
   }
 
   private reserveTicket(fullTicket: FullTicketModel): void {
@@ -147,21 +157,30 @@ export class BuyTicketComponent implements OnInit, OnDestroy {
     this.ticketService.saveTicket(fullTicket).subscribe(ticket => {
       this.selectedTickets.push(ticket);
       this.setPlaceStatus(ticket, PlaceStatus.SELECTED);
+      this.cd.detectChanges();
+      this.updateTotalCost();
     });
   }
 
   public buySelectedTickets(): void {
-    this.selectedTickets.forEach(selectedFullTicket => {
-        this.setPlaceStatus(selectedFullTicket, PlaceStatus.UPDATED);
-        console.log(selectedFullTicket)
-        selectedFullTicket.isSold = true;
-        console.log(selectedFullTicket)
-        this.ticketService.saveTicket(selectedFullTicket).subscribe(ticket => {
-          this.setPlaceStatus(ticket, PlaceStatus.BOUGHT);
-        });
-      }
-    );
-    this.selectedTickets = [];
+    this.updateTotalCost();
+
+    this._subscriptions.push(this.currentWalletService.pay(this.totalCost)
+      .subscribe(res => {
+        if(res) {
+          this.selectedTickets.forEach(selectedFullTicket => {
+              this.setPlaceStatus(selectedFullTicket, PlaceStatus.UPDATED);
+              selectedFullTicket.isSold = true;
+              this.ticketService.saveTicket(selectedFullTicket).subscribe(ticket => {
+                this.setPlaceStatus(ticket, PlaceStatus.BOUGHT);
+                this.cd.detectChanges();
+              });
+            }
+          );
+          this.selectedTickets = [];
+          this.updateTotalCost();
+        }
+      }))
   }
 
   public unselectTicket(selectedPlace: FullTicketModel): void {
@@ -171,6 +190,7 @@ export class BuyTicketComponent implements OnInit, OnDestroy {
       this.setPlaceStatus(ticket, PlaceStatus.FREE);
     });
     this.selectedTickets = this.selectedTickets.filter(ticket => !this.isTicketsEqual(ticket, selectedPlace));
+    this.updateTotalCost();
   }
 
   public deleteSelectedTickets(): void {
@@ -179,10 +199,16 @@ export class BuyTicketComponent implements OnInit, OnDestroy {
       this.setPlaceStatus(ticket, PlaceStatus.FREE);
     });
     this.selectedTickets = [];
+    this.updateTotalCost();
   }
 
   private isTicketsEqual(ticket1: FullTicketModel, ticket2: FullTicketModel): boolean {
     return ticket1.rowNumber === ticket2.rowNumber && ticket1.placeNumber === ticket2.placeNumber;
+  }
+
+  private updateTotalCost(): void {
+    if (this.session && this.selectedTickets && this.selectedTickets.length > 0) this.totalCost = this.selectedTickets.length * this.session.cost;
+    else this.totalCost = 0;
   }
 
   private _unsubscribeAll() {

@@ -5,6 +5,7 @@ import com.netcracker.cinema.fapi.model.all.movie.genre.AllMovieGenreModel;
 import com.netcracker.cinema.fapi.model.full.FullMovieViewModel;
 import com.netcracker.cinema.fapi.DTO.PageDTO;
 import com.netcracker.cinema.fapi.model.SessionViewModel;
+import com.netcracker.cinema.fapi.model.full.FullSessionViewModel;
 import com.netcracker.cinema.fapi.service.MovieService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -26,15 +27,15 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public MovieViewModel findById(Long id) {
+    public FullMovieViewModel findById(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(backendServerUrl + "/?id=" + id, MovieViewModel.class);
+        return restTemplate.getForObject(backendServerUrl + "/?id=" + id, FullMovieViewModel.class);
     }
 
     @Override
-    public MovieViewModel save(MovieViewModel movieViewModel) {
+    public FullMovieViewModel save(MovieViewModel movie) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity(backendServerUrl, movieViewModel, MovieViewModel.class).getBody();
+        return restTemplate.postForEntity(backendServerUrl, movie, FullMovieViewModel.class).getBody();
     }
 
     @Override
@@ -53,6 +54,13 @@ public class MovieServiceImpl implements MovieService {
     public List<SessionViewModel> findSessionsByMovieId(Long id) {
         RestTemplate restTemplate = new RestTemplate();
         SessionViewModel[] moviesResponse = restTemplate.getForObject(backendServerUrl + "/sessions/?id=" + id, SessionViewModel[].class);
+        return moviesResponse == null ? Collections.emptyList() : Arrays.asList(moviesResponse);
+    }
+
+    @Override
+    public List<FullSessionViewModel> findFullSessionsByMovieId(Long id) {
+        RestTemplate restTemplate = new RestTemplate();
+        FullSessionViewModel[] moviesResponse = restTemplate.getForObject(backendServerUrl + "/full-sessions/?id=" + id, FullSessionViewModel[].class);
         return moviesResponse == null ? Collections.emptyList() : Arrays.asList(moviesResponse);
     }
 

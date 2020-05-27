@@ -27,8 +27,8 @@ public class SessionController {
     }
 
     @PostMapping
-    public SessionViewModel saveSession(@RequestBody SessionViewModel sessionViewModel) {
-        return sessionService.save(sessionViewModel);
+    public FullSessionViewModel saveSession(@RequestBody FullSessionViewModel fullSession) {
+        return sessionService.save(fullSession);
     }
 
     @DeleteMapping(params = {"id"})

@@ -6,21 +6,24 @@ import com.netcracker.cinema.fapi.model.all.movie.genre.AllMovieGenreModel;
 import com.netcracker.cinema.fapi.model.full.FullMovieViewModel;
 import com.netcracker.cinema.fapi.DTO.PageDTO;
 import com.netcracker.cinema.fapi.model.MovieViewModel;
+import com.netcracker.cinema.fapi.model.full.FullSessionViewModel;
 
 import java.util.List;
 
 public interface MovieService {
     List<MovieViewModel> findAll();
 
-    MovieViewModel findById(Long id);
+    FullMovieViewModel findById(Long id);
 
-    MovieViewModel save(MovieViewModel movieViewModel);
+    FullMovieViewModel save(MovieViewModel movie);
 
     void deleteById(Long id);
 
     PageDTO<FullMovieViewModel> findPage(int pageNumber, int pageSize);
 
+    AllMovieGenreModel getAllGenres();
+
     List<SessionViewModel> findSessionsByMovieId(Long id);
 
-    AllMovieGenreModel getAllGenres();
+    List<FullSessionViewModel> findFullSessionsByMovieId(Long id);
 }

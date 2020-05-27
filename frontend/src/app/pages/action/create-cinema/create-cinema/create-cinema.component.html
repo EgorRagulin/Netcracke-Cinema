@@ -1,42 +1,53 @@
 <div class="container">
   <div class="page">
-      <form #createCinemaForm="ngForm">
+    <mat-card>
+      <mat-card-title>
+        Add New Cinema
+      </mat-card-title>
 
-        <h2>Add New Cinema</h2>
+      <mat-card-content>
+        <form [formGroup]="createCinemaForm" (ngSubmit)="addCinema()">
 
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Cinema Name"
-            required
-            name="cinemaName"
-            [(ngModel)]="cinema.name"
-            #cinemaName="ngModel">
-          <mat-error *ngIf="cinemaName.invalid">
-            First Name is required
-          </mat-error>
-        </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Cinema Name"
+              formControlName="cinemaName"
+              [(ngModel)]="cinema.name"
+              maxlength="25"
+              required>
+            <mat-error *ngFor="let validation of validationMessages.cinema_name">
+              <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(createCinemaForm.get('cinemaName'), validation.type)">
+                {{validation.message}}
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Cinema Address"
-            required
-            name="cinemaAddress"
-            [(ngModel)]="cinema.address"
-            #cinemaAddress="ngModel">
-          <mat-error *ngIf="cinemaAddress.invalid">
-            First Name is required
-          </mat-error>
-        </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Cinema Address"
+              formControlName="cinemaAddress"
+              [(ngModel)]="cinema.address"
+              maxlength="25"
+              required>
+            <mat-error *ngFor="let validation of validationMessages.cinema_address">
+              <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(createCinemaForm.get('cinemaAddress'), validation.type)">
+                {{validation.message}}
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
 
-        <app-upload-picture [pictureHeight]="300" (selectPicture)="setSelectedPicture($event)"></app-upload-picture>
 
-        <button mat-raised-button color="primary" class="create-user-btn" (click)="addCinema()">
-          Add Cinema
-        </button>
+          <app-upload-picture [pictureHeight]="300" (selectPicture)="setSelectedPicture($event)"></app-upload-picture>
 
-      </form>
+          <button class="create-cinema-btn" color="primary" mat-raised-button type="submit" [disabled]="createCinemaForm.invalid">
+            Add New Cinema
+          </button>
+
+        </form>
+      </mat-card-content>
+    </mat-card>
   </div>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>

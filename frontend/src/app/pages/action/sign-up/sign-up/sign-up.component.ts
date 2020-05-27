@@ -49,7 +49,7 @@ export class SignUpComponent implements OnInit {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(15),
-          Validators.pattern(Validation.validatorsPatterns.username)
+          Validators.pattern(Validation.validatorsPatterns.cyrillic_latin_numbers)
         ]],
       password: ['',
         [
@@ -71,7 +71,7 @@ export class SignUpComponent implements OnInit {
           .subscribe((savedLogin: LoginModel) => this.router.navigate(['sign-in']),
             (error) => alert(error.message)));
     }
-    else alert('Ах ты хитрый жук');
+    else alert('Oh, you sly beetle!');
   }
 
   public toggle(): void {

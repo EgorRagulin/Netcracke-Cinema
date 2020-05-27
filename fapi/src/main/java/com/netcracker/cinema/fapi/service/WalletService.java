@@ -1,5 +1,6 @@
 package com.netcracker.cinema.fapi.service;
 
+import com.netcracker.cinema.fapi.model.deposit.DepositModel;
 import com.netcracker.cinema.fapi.model.full.FullWalletViewModel;
 import com.netcracker.cinema.fapi.model.WalletViewModel;
 
@@ -10,9 +11,9 @@ public interface WalletService {
 
     WalletViewModel findById(Long id);
 
-    FullWalletViewModel save(FullWalletViewModel fullWalletViewModel);
+    WalletViewModel save(FullWalletViewModel fullWalletViewModel);
 
     void deleteById(Long id);
 
-    FullWalletViewModel findFullById(Long id);
+    WalletViewModel deposit(DepositModel deposit);
 }

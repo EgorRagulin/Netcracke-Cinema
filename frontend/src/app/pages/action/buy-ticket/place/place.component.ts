@@ -64,14 +64,12 @@ export class PlaceComponent implements OnChanges, OnInit {
   }
 
   private select() {
-    console.log('select');
     this.color = 'blue';
     this.isButtonDisabled = true;
     this.selectPlaceEvent.emit(this.place.placeNumber);
   }
 
   private unSelect() {
-    console.log('unselect');
     this.color = 'blue';
     this.isButtonDisabled = true;
     this.unSelectPlaceEvent.emit(this.place.placeNumber);

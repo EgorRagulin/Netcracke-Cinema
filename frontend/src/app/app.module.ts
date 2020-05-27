@@ -16,9 +16,6 @@ import { SessionsModule } from "./pages/content/sessions/sessions.module";
 import { BuyTicketModule } from "./pages/action/buy-ticket/buy-ticket.module";
 import { CinemasModule } from "./pages/content/cinemas/cinemas.module";
 import { CinemaModule } from "./pages/content/cinema/cinema.module";
-import { HallsModule } from "./pages/content/halls/halls.module";
-import { HallModule } from "./pages/content/hall/hall.module";
-import { TicketsModule } from "./pages/content/tickets/tickets.module";
 import { APIInterceptor } from "./interceptors/api-interceptor";
 import { SignUpModule } from "./pages/action/sign-up/sign-up.module";
 import { SignInModule } from "./pages/action/sign-in/sign-in.module";
@@ -27,8 +24,18 @@ import {CreateUserModule} from "./pages/action/create-user/create-user.module";
 import {UploadPictureModule} from "./pages/action/upload-picture/upload-picture.module";
 import {AdminPanelModule} from "./pages/content/admin-panel/admin-panel.module";
 import {CreateCinemaModule} from "./pages/action/create-cinema/create-cinema.module";
-import {FormValidationModule} from "./pages/action/form-validation/form-validation.module";
 import {AddWalletModule} from "./pages/action/add-wallet/add-wallet.module";
+import {MyWalletModule} from "./pages/content/my-wallet/my-wallet.module";
+import {AddSessionModule} from "./pages/action/add-session/add-session.module";
+import {DatePickerModule} from "./modules/date-picker/date-picker.module";
+import {TimePickerModule} from "./modules/time-picker/time-picker.module";
+
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
+import {MyTicketsModule} from "./pages/content/my-tickets/my-tickets.module";
 
 @NgModule({
   declarations: [
@@ -53,25 +60,30 @@ import {AddWalletModule} from "./pages/action/add-wallet/add-wallet.module";
     CreateMovieModule,
 
     //Client
-    CreateUserModule,
     MyProfileModule,
+    MyWalletModule,
+    MyTicketsModule,
+    CreateUserModule,
     AddWalletModule,
 
     MoviesModule,
     MovieModule,
-    CreateMovieModule,
     SessionsModule,
-    BuyTicketModule,
     CinemasModule,
     CinemaModule,
-    HallsModule,
-    HallModule,
-    TicketsModule,
+
+    CreateMovieModule,
+    AddSessionModule,
+    BuyTicketModule,
 
     UploadPictureModule,
-    MaterialModule,
+    DatePickerModule,
+    TimePickerModule,
 
-    FormValidationModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    MaterialModule,
   ],
   providers: [
     {

@@ -6,6 +6,8 @@ import {SessionModel} from "../../../../models/session.model";
 import {HallsService} from "../../../../services/halls/halls.service";
 import {SessionsService} from "../../../../services/sessions/sessions.service";
 import {LoadingService} from "../../../../services/loading/loading.service";
+import {finalize} from "rxjs/operators";
+import {FullSessionModel} from "../../../../models/full-models/full.session.model";
 
 @Component({
   selector: 'app-sessions',
@@ -13,55 +15,32 @@ import {LoadingService} from "../../../../services/loading/loading.service";
   styleUrls: ['./sessions.component.css']
 })
 export class SessionsComponent implements OnInit, OnDestroy {
-  public sessions: SessionModel[];
   private _subscriptions: Subscription[] = [];
+
+  public sessions: FullSessionModel[];
+
   public isLoading: boolean;
 
-  constructor(private moviesService: MoviesService,
-              private hallsService: HallsService,
-              private sessionsService: SessionsService,
+  constructor(private hallsService: HallsService,
+
               private loadingService: LoadingService,
+
               private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const movieId = this.activateRoute.snapshot.params['movieId'];
     const hallId = this.activateRoute.snapshot.params['hallId'];
-    if (movieId !== undefined) this.getSessionsByMovie(movieId);
-    else if (hallId !== undefined) this.getSessionsByHall(hallId);
-    else this.getSessions();
+    this.getSessionsByHall(hallId);
   }
 
   ngOnDestroy(): void {
     this._subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
-  private getSessionsByMovie(id: number): void {
-    this.isLoading = this.loadingService.changeLoadingStatus(true);
-
-    this._subscriptions.push(this.moviesService.getMovieSessions(id)
-      .subscribe(sessions => {
-        this.sessions = sessions;
-        this.isLoading = this.loadingService.changeLoadingStatus(false);
-      }));
-  }
-
   private getSessionsByHall(id: number): void {
     this.isLoading = this.loadingService.changeLoadingStatus(true);
 
     this._subscriptions.push(this.hallsService.getSessions(id)
-      .subscribe(sessions => {
-        this.sessions = sessions;
-        this.isLoading = this.loadingService.changeLoadingStatus(false);
-      }));
-  }
-
-  private getSessions() {
-    this.isLoading = this.loadingService.changeLoadingStatus(true);
-
-    this._subscriptions.push(this.sessionsService.getSessions()
-      .subscribe(sessions => {
-        this.sessions = sessions;
-        this.isLoading = this.loadingService.changeLoadingStatus(false);
-      }));
+      .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
+      .subscribe(sessions => this.sessions = sessions));
   }
 }

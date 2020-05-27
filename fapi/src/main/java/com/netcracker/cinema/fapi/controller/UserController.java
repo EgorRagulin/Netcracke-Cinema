@@ -1,6 +1,7 @@
 package com.netcracker.cinema.fapi.controller;
 
 
+import com.netcracker.cinema.fapi.DTO.CompleteTicketDTO;
 import com.netcracker.cinema.fapi.model.full.FullUserViewModel;
 import com.netcracker.cinema.fapi.model.TicketViewModel;
 import com.netcracker.cinema.fapi.model.UserViewModel;
@@ -37,7 +38,6 @@ public class UserController {
         userService.deleteById(id);
     }
 
-
     @GetMapping(params = {"id"}, path = {"/full"})
     public FullUserViewModel findFullUserById(@RequestParam Long id) {
         return userService.findFullById(id);
@@ -48,8 +48,8 @@ public class UserController {
         return userService.findWalletByUserId(id);
     }
 
-    @GetMapping(params = {"id"}, path = {"/tickets"})
-    public List<TicketViewModel> findTicketsByUserId(@RequestParam Long id) {
-        return userService.findTicketsByUserId(id);
+    @GetMapping(params = {"userId"}, path = {"/complete-tickets"})
+    public List<CompleteTicketDTO> findCompleteTicketsByUserId(@RequestParam Long userId) {
+        return userService.findCompleteTicketsByUserId(userId);
     }
 }

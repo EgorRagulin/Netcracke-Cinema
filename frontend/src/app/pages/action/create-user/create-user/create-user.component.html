@@ -1,6 +1,6 @@
 <div class="container">
   <div class="page">
-    <ng-container *ngIf="!storageService.getCurrentUser()">
+    <ng-container *ngIf="!currentUserService._currentUser">
 
       <mat-card>
         <mat-card-title>
@@ -15,6 +15,7 @@
                 placeholder="first name"
                 formControlName="firstName"
                 [(ngModel)]="user.firstName"
+                maxlength="15"
                 required>
               <mat-error *ngFor="let validation of validationMessages.first_name">
                 <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(createUserForm.get('firstName'), validation.type)">
@@ -29,6 +30,7 @@
                 placeholder="second name"
                 formControlName="secondName"
                 [(ngModel)]="user.secondName"
+                maxlength="15"
                 required>
               <mat-error *ngFor="let validation of validationMessages.second_name">
                 <mat-error class="error-message" *ngIf="formValidationService.isFormControlInvalid(createUserForm.get('secondName'), validation.type)">
@@ -73,7 +75,6 @@
           </form>
         </mat-card-content>
       </mat-card>
-
 
     </ng-container>
   </div>

@@ -30,9 +30,13 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
-    public SessionViewModel save(SessionViewModel sessionViewModel) {
+    public FullSessionViewModel save(FullSessionViewModel fullSession) {
+        // Тут пирходит genres как list а надо как строка связь происходит через id поэтому ок
+        /////////////////////////////////////////////
+        fullSession.getMovie().setGenres(null);
+        /////////////////////////////////////////////
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity(rootPath, sessionViewModel, SessionViewModel.class).getBody();
+        return restTemplate.postForEntity(rootPath, fullSession, FullSessionViewModel.class).getBody();
     }
 
     @Override

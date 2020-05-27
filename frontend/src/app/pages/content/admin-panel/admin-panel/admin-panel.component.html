@@ -1,21 +1,14 @@
-<div class="container">
-
-  <h2>Admin Panel</h2>
-
-  <div class="actions">
-
-    <div class="btn">
-      <a [routerLink]="['/create-cinema']" color="accent" mat-flat-button>
-        Добавить Кинотеатр
-      </a>
-    </div>
-
-    <div class="btn">
-      <a [routerLink]="['/create-movie']" color="accent" mat-flat-button>
-        Добавить Фильм
-      </a>
-    </div>
-
-  </div>
-
-</div>
+<a class="admin-panel-btn" mat-button [matMenuTriggerFor]="menu">
+  Admin Panel
+  <span class="material-icons">
+    arrow_drop_down
+  </span>
+</a>
+<mat-menu class="admin-panel-menu" #menu="matMenu">
+  <a [routerLink]="['/create-cinema']" mat-menu-item>
+    Add Cinema
+  </a>
+  <a [routerLink]="['/create-movie']" mat-menu-item>
+    Add Movie
+  </a>
+</mat-menu>

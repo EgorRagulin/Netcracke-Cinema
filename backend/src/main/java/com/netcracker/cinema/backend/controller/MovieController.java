@@ -4,6 +4,7 @@ import com.netcracker.cinema.backend.entity.full.FullMovie;
 import com.netcracker.cinema.backend.DTO.PageDTO;
 import com.netcracker.cinema.backend.entity.Movie;
 import com.netcracker.cinema.backend.entity.Session;
+import com.netcracker.cinema.backend.entity.full.FullSession;
 import com.netcracker.cinema.backend.enums.MovieGenre;
 import com.netcracker.cinema.backend.models.all.movie.genres.AllMovieGenreModel;
 import com.netcracker.cinema.backend.service.MovieService;
@@ -60,6 +61,15 @@ public class MovieController {
     @GetMapping(params = {"id"}, path = {"/sessions/"})
     public List<Session> findMovieSessions(@RequestParam Long id) {
         return movieService.findById(id).get().getSessions();
+    }
+
+    @GetMapping(params = {"id"}, path = {"/full-sessions/"})
+    public List<FullSession> findMovieFullSessions(@RequestParam Long id) {
+        List<Session> sessions = movieService.findById(id).get().getSessions();
+
+        List<FullSession> fullSessions = new ArrayList<FullSession>();
+        sessions.forEach(session -> fullSessions.add(new FullSession(session)));
+        return fullSessions;
     }
 
     @GetMapping(path = {"/all-genres"})

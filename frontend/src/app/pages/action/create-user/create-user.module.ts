@@ -6,6 +6,7 @@ import {MaterialModule} from "../../../modules/material/material.module";
 import {LoadingPageModule} from "../../../modules/loading-page/loading-page.module";
 import {UploadPictureModule} from "../upload-picture/upload-picture.module";
 import {FormValidationService} from "../../../services/form-validation/form-validation.service";
+import {CurrentUserService} from "../../../services/current-user/current.user.service";
 
 @NgModule({
   declarations: [CreateUserComponent],
@@ -18,6 +19,7 @@ import {FormValidationService} from "../../../services/form-validation/form-vali
         ReactiveFormsModule
     ],
   providers: [
+    CurrentUserService,
     FormValidationService,
   ]
 })

@@ -32,6 +32,7 @@ public class LoginController {
         return loginService.findById(id);
     }
 
+    @PreAuthorize("isAnonymous()")
     @GetMapping(params = {"login"})
     public LoginViewModel getLoginByUsername(@PathVariable String username) {
         return loginService.findLoginByUsername(username);

@@ -17,7 +17,6 @@ public class Session {
     private Date date;
     private Time time;
     private double cost;
-    private String mode;
     private Hall hall;
     private Movie movie;
     private List<Ticket> tickets;
@@ -61,16 +60,6 @@ public class Session {
 
     public void setCost(double cost) {
         this.cost = cost;
-    }
-
-    @Basic
-    @Column(name = "mode")
-    public String getMode() {
-        return mode;
-    }
-
-    public void setMode(String mode) {
-        this.mode = mode;
     }
 
     @ManyToOne

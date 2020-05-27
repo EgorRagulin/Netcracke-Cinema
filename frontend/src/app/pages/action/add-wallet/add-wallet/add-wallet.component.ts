@@ -14,6 +14,8 @@ import {WalletModel} from "../../../../models/wallet.model";
 import {WalletService} from "../../../../services/wallet/wallet.service";
 import {UserModel} from "../../../../models/user.model";
 import {FullWalletModel} from "../../../../models/full-models/full.wallet.model";
+import {CurrentUserService} from "../../../../services/current-user/current.user.service";
+import {CurrentWalletService} from "../../../../services/current-wallet/current-wallet.service";
 
 @Component({
   selector: 'app-add-wallet',
@@ -32,10 +34,15 @@ export class AddWalletComponent implements OnInit, OnDestroy {
   public isLoading: boolean;
 
   constructor(private walletService: WalletService,
-              public storageService: StorageService,
+
+              private currentUserService: CurrentUserService,
+              private currentWalletService: CurrentWalletService,
+
               private loadingService: LoadingService,
+
               private fb: FormBuilder,
               public formValidationService: FormValidationService,
+
               private router: Router) { }
 
   ngOnInit(): void {
@@ -53,7 +60,7 @@ export class AddWalletComponent implements OnInit, OnDestroy {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(15),
-          Validators.pattern(Validation.validatorsPatterns.wallet_name)
+          Validators.pattern(Validation.validatorsPatterns.cyrillic_latin_numbers)
         ]],
       balance: ['',
         [
@@ -68,22 +75,21 @@ export class AddWalletComponent implements OnInit, OnDestroy {
 
       this.saveWalletInDb();
     }
-    else alert('Ах ты хитрый жук');
-  }
-
-  private connectUserToWallet(): FullWalletModel {
-    let user: UserModel = this.storageService.getCurrentUser();
-    return new FullWalletModel(this.wallet, user);
+    else alert('Oh, you sly beetle!');
   }
 
   private saveWalletInDb(): void {
-    let fullWallet: FullWalletModel = this.connectUserToWallet();
-    this.walletService.saveWalletInDb(fullWallet)
-      .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
-      .subscribe((savedWallet: WalletModel) => {
-        console.log(savedWallet);
-      }, error => {
-        alert(error.message);
-      });
+    this.currentUserService.getCurrentUser().subscribe(user => {
+      this.walletService.saveWalletInDb(new FullWalletModel(this.wallet, user))
+        .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
+        .subscribe((savedWallet: WalletModel) => {
+          if (savedWallet != null) {
+            this.currentWalletService.setCurrentWallet(savedWallet);
+            this.router.navigate(['my-wallet']);
+          }
+        }, error => {
+          alert(error.message);
+        });
+    });
   }
 }

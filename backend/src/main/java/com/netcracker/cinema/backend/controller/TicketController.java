@@ -4,6 +4,7 @@ import com.netcracker.cinema.backend.entity.full.FullTicket;
 import com.netcracker.cinema.backend.DTO.PageDTO;
 import com.netcracker.cinema.backend.entity.Ticket;
 import com.netcracker.cinema.backend.service.TicketService;
+import com.netcracker.cinema.backend.service.WalletService;
 import com.netcracker.cinema.backend.sort.PagingSort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,6 +19,9 @@ import java.util.List;
 public class TicketController {
     @Autowired
     private TicketService ticketService;
+
+    @Autowired
+    private WalletService walletService;
 
     @GetMapping
     public List<Ticket> findTickets() {

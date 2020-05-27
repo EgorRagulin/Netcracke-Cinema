@@ -1,5 +1,6 @@
 package com.netcracker.cinema.fapi.service;
 
+import com.netcracker.cinema.fapi.DTO.CompleteTicketDTO;
 import com.netcracker.cinema.fapi.model.TicketViewModel;
 import com.netcracker.cinema.fapi.model.UserViewModel;
 import com.netcracker.cinema.fapi.model.full.FullUserViewModel;
@@ -20,5 +21,5 @@ public interface UserService {
 
     WalletViewModel findWalletByUserId(Long id);
 
-    List<TicketViewModel> findTicketsByUserId(Long id);
+    List<CompleteTicketDTO> findCompleteTicketsByUserId(Long userId);
 }

@@ -4,6 +4,7 @@ import { CinemaComponent } from './cinema/cinema.component';
 import {RouterModule} from "@angular/router";
 import {MaterialModule} from "../../../modules/material/material.module";
 import {LoadingPageModule} from "../../../modules/loading-page/loading-page.module";
+import {CurrentLoginService} from "../../../services/current-login/current-login.service";
 
 @NgModule({
   declarations: [CinemaComponent],
@@ -12,6 +13,9 @@ import {LoadingPageModule} from "../../../modules/loading-page/loading-page.modu
         RouterModule,
         MaterialModule,
         LoadingPageModule
+    ],
+    providers: [
+      CurrentLoginService
     ]
 })
 export class CinemaModule { }

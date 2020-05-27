@@ -1,6 +1,5 @@
 package com.netcracker.cinema.backend.entity.full;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.netcracker.cinema.backend.entity.Movie;
 import com.netcracker.cinema.backend.entity.Session;
 import com.netcracker.cinema.backend.enums.MovieGenre;
@@ -16,19 +15,9 @@ public class FullMovie {
     private int ageLimit;
     private Time duration;
     private List<String> genres;
-    @JsonIgnore
     private List<Session> sessions;
 
-    public FullMovie(Long id, String title, byte[] picture, String description, int ageLimit, Time duration, List<String> genres, List<Session> sessions) {
-        this.id = id;
-        this.title = title;
-        this.picture = picture;
-        this.description = description;
-        this.ageLimit = ageLimit;
-        this.duration = duration;
-        this.genres = genres;
-        this.sessions = sessions;
-    }
+    public  FullMovie() {}
 
     public FullMovie(Movie movie) {
         this.id = movie.getId();

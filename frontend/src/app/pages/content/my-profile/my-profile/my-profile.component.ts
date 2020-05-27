@@ -7,6 +7,8 @@ import {UserModel} from "../../../../models/user.model";
 import {finalize} from "rxjs/operators";
 import {LoginService} from "../../../../services/security/login-service";
 import {AuthService} from "../../../../services/security/auth-service";
+import {CurrentLoginService} from "../../../../services/current-login/current-login.service";
+import {CurrentUserService} from "../../../../services/current-user/current.user.service";
 
 @Component({
   selector: 'app-my-profile',
@@ -15,13 +17,19 @@ import {AuthService} from "../../../../services/security/auth-service";
 })
 export class MyProfileComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
+
   public user: UserModel;
+
   public isLoading: boolean;
 
   constructor(private loadingService: LoadingService,
+
+              public currentLoginService: CurrentLoginService,
+              private currentUserService: CurrentUserService,
               public auth: AuthService,
-              private storageService: StorageService,
+
               private loginService: LoginService,
+
               private router: Router) { }
 
   ngOnInit(): void {
@@ -34,9 +42,8 @@ export class MyProfileComponent implements OnInit, OnDestroy {
 
   private getCurrentUser(): void {
     this.isLoading = this.loadingService.changeLoadingStatus(true);
-    let loginId = this.storageService.getCurrentLogin().id;
 
-    this._subscriptions.push(this.loginService.getUserByLoginId(loginId)
+    this._subscriptions.push(this.currentUserService.getCurrentUser()
       .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
       .subscribe((user: UserModel) => {
           if (user == null) this.router.navigate(['create-user'])

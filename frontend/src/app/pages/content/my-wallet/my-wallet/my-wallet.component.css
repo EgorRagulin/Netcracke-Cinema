@@ -7,21 +7,31 @@ mat-card
 mat-card-title
 {
   text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 30px;
 }
-mat-form-field, app-upload-picture
+mat-form-field.cardMonthOfEnding, mat-form-field.cardYearOfEnding, mat-form-field.CVV
+{
+  display: inline-block;
+  width: 33.3%;
+}
+.block, .wallet-balance
 {
   display: block;
   width: 80%;
   margin: auto;
 }
-.sign-in-btn, .login-not-found-message
+
+.deposit-btn
 {
   display: block;
   width: 80%;
   margin: 20px auto;
 }
-.login-not-found-message
+.show-deposit-block-btn
 {
-  color: #db7424;
-  text-align: center;
+  display: block;
+  width: 80%;
+  margin: 0 auto 20px;
+  background-color: #62a048;
 }

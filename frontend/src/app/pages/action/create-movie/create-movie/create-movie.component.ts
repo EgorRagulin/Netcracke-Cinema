@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
-import {MovieModel} from "../../../../models/movie.model";
 import {LoadingService} from "../../../../services/loading/loading.service";
 import {UploadPictureService} from "../../../../services/upload-picture/upload-picture.service";
 import {Router} from "@angular/router";
@@ -34,7 +33,7 @@ export class CreateMovieComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this._subscriptions.forEach(subscription => subscription.unsubscribe())
+    this._subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
   public addMovie(): void {
@@ -53,7 +52,7 @@ export class CreateMovieComponent implements OnInit, OnDestroy {
         this.uploadPictureService.getPictureUrl(this._selectedPicture)
           .subscribe((picture: PictureModel) => {
             if (picture.pictureUrl) this.movie.picture = picture.pictureUrl;
-            this.saveMovieInDB()
+            this.saveMovieInDB();
           }, (error) => alert(error.message)));
     } else this.saveMovieInDB();
   }
@@ -63,7 +62,7 @@ export class CreateMovieComponent implements OnInit, OnDestroy {
       this.moviesService.saveMovieInDB(this.movie)
         .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
         .subscribe((savedMovie: FullMovieModel) => {
-          if (savedMovie.id) this.router.navigate(['movies/' + savedMovie.id]);
+          if (savedMovie && savedMovie.id) this.router.navigate(['movies/' + savedMovie.id]);
           }, (error) => alert(error.message)));
   }
 

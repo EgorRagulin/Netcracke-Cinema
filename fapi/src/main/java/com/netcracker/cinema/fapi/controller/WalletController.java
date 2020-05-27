@@ -1,6 +1,6 @@
 package com.netcracker.cinema.fapi.controller;
 
-
+import com.netcracker.cinema.fapi.model.deposit.DepositModel;
 import com.netcracker.cinema.fapi.model.full.FullWalletViewModel;
 import com.netcracker.cinema.fapi.model.WalletViewModel;
 import com.netcracker.cinema.fapi.service.WalletService;
@@ -26,18 +26,17 @@ public class WalletController {
     }
 
     @PostMapping
-    public FullWalletViewModel saveWallet(@RequestBody FullWalletViewModel fullWalletViewModel) {
+    public WalletViewModel saveWallet(@RequestBody FullWalletViewModel fullWalletViewModel) {
         return walletService.save(fullWalletViewModel);
+    }
+
+    @PostMapping(path = {"/deposit"})
+    public WalletViewModel saveWallet(@RequestBody DepositModel deposit) {
+        return walletService.deposit(deposit);
     }
 
     @DeleteMapping(params = {"id"})
     public void deleteWalletById(@RequestParam Long id) {
         walletService.deleteById(id);
-    }
-
-
-    @GetMapping(params = {"id"}, path = {"/full"})
-    public FullWalletViewModel findFullWalletById(@RequestParam Long id) {
-        return walletService.findFullById(id);
     }
 }

@@ -1,34 +1,52 @@
 <div class="container">
 
+  <h2 *ngIf="!isLoading && !movie" class="movie-not-found">
+    Что-то пошло не так! Фильм не найден!
+  </h2>
+
   <div class="page">
     <div class="movie" *ngIf="movie">
+      <div class="movie-card">
 
-          <div class="picture">
-            <img [src]="movie.picture ? 'data:image/jpeg;base64,' + movie.picture : 'http://placehold.it/200x300'">
-          </div>
+        <h1>{{movie.title}}</h1>
 
-          <div class="title">{{movie.title}}</div>
+        <div class="movie-picture">
+          <img [src]="movie.picture ? 'data:image/jpeg;base64,' + movie.picture : 'http://placehold.it/200x300'">
+        </div>
 
-          <div class="duration">{{movie.duration}}</div>
+        <p class="duration">{{movie.duration}}</p>
 
-          <div class="age-limit">{{movie.ageLimit}}+</div>
+        <p class="age-limit">{{movie.ageLimit}}+</p>
 
-          <div class="genres">
-            <div *ngFor="let genre of movie.genres">{{genre}}</div>
-          </div>
+        <div class="genres">
+          <span *ngFor="let genre of movie.genres">{{genre}} </span>
+        </div>
 
-          <div class="description">{{movie.description}}</div>
+        <p class="description">{{movie.description}}</p>
 
-          <div class="btn">
-            <a [routerLink]="['sessions']" color="accent" mat-flat-button>Go To Sessions</a>
-          </div>
+        <div class="movie-sessions">
+          <p class="session jump-to-the-session" *ngFor="let session of movieSessions">
+            <a [routerLink]="'/sessions/' + session.id + '/buy-tickets'" color="accent" mat-flat-button>
+              Jump to {{session.id}} session
+            </a>
+          </p>
+          <p *ngIf="movieSessions && movieSessions.length == 0">
+            У этого фильма сейчас нет запланированных сеансов!
+          </p>
+        </div>
 
+        <ng-container *ngIf="currentLoginService.isLoginAdmin && !addSessionBlock">
+          <button (click)="showAddSessionBlock()">Add New Session</button>
+        </ng-container>
+
+      </div>
     </div>
-  </div>
 
-  <h3 class="movie-not-found" *ngIf="!movie">
-    Что-то пошло не так! Фильм не найден.
-  </h3>
+    <ng-container *ngIf="currentLoginService.isLoginAdmin && addSessionBlock">
+      <app-add-session [movie]="movie" (addSessionToMovieEvent)="addNewSessionToMovieSessions($event)"></app-add-session>
+    </ng-container>
+
+  </div>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>
 

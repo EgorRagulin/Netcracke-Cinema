@@ -4,8 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MaterialModule } from "../material/material.module";
 import {RouterModule} from "@angular/router";
-import {StorageService} from "../../services/security/storage.service";
-import {LoginService} from "../../services/security/login-service";
+import {AdminPanelModule} from "../../pages/content/admin-panel/admin-panel.module";
+import {CurrentLoginService} from "../../services/current-login/current-login.service";
 
 
 @NgModule({
@@ -13,13 +13,14 @@ import {LoginService} from "../../services/security/login-service";
   exports: [
     HeaderComponent
   ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    RouterModule
-  ],
+    imports: [
+        CommonModule,
+        MaterialModule,
+        RouterModule,
+        AdminPanelModule
+    ],
   providers: [
-    StorageService
+    CurrentLoginService
   ]
 })
 export class HeaderModule { }

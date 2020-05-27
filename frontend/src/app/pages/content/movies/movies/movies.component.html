@@ -2,27 +2,30 @@
   <div class="page">
     <ng-container *ngIf="movies">
 
-      <h2>Movies</h2>
+      <h1>Movies</h1>
 
       <div class="movies">
-        <div *ngFor="let movie of movies" class="movie">
-
-          <div class="poster">
-            <img [src]="movie.picture ? 'data:image/jpeg;base64,' + movie.picture : 'http://placehold.it/200x300'" >
-          </div>
-
-          <div class="title">
-            <a [routerLink]="movie.id" color="accent" mat-flat-button>
-              {{movie.title}}
+        <div class="movie" *ngFor="let movie of movies" >
+          <div class="movie-card">
+            <a class="jump-this-movie-page" [routerLink]="movie.id">
+              <h2 class="title" *ngIf="movie.title">
+                  {{movie.title}}
+              </h2>
             </a>
+
+            <p class="poster">
+              <a class="jump-this-movie-page" [routerLink]="movie.id">
+                <img [src]="movie.picture ? 'data:image/jpeg;base64,' + movie.picture : 'http://placehold.it/200x300'" >
+              </a>
+            </p>
+
+
+            <div class="age-limit">{{movie.ageLimit}}+</div>
+
+            <p class="genres">
+              <span *ngFor="let genre of movie.genres">{{genre}} </span>
+            </p>
           </div>
-
-          <div class="age-limit">{{movie.ageLimit}}+</div>
-
-          <div class="genres">
-            <div *ngFor="let genre of movie.genres">{{genre}}</div>
-          </div>
-
         </div>
       </div>
 
@@ -35,11 +38,12 @@
         (changePageSizeEvent)="updatePageSize($event)"
       ></app-paginator>
 
-      <h3 *ngIf="movies.length == 0" class="movies-not-found">
-        Что-то пошло не так! Фильмы не найден.
+      <h3 class="movies-not-found" *ngIf="movies.length == 0">
+        Something went wrong! No movies found!
       </h3>
-
     </ng-container>
+
+
   </div>
 
 

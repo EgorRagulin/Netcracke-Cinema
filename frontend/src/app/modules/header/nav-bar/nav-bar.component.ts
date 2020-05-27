@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {StorageService} from "../../../services/security/storage.service";
+import {CurrentLoginService} from "../../../services/current-login/current-login.service";
+import {LogoutService} from "../../../services/logout/logout.service";
 import {AuthService} from "../../../services/security/auth-service";
 
 @Component({
@@ -9,13 +10,16 @@ import {AuthService} from "../../../services/security/auth-service";
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(public storageService: StorageService,
-              public auth: AuthService) { }
+  constructor(public currentLoginService: CurrentLoginService,
+
+              public auth: AuthService,
+
+              private _logout: LogoutService) { }
 
   ngOnInit(): void {
   }
 
   public logout(): void {
-    this.auth.logout();
+    this._logout.logout();
   }
 }

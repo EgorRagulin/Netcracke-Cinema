@@ -1,6 +1,8 @@
-export interface SessionModel {
+export class SessionModel {
   id: number;
   date: string;
   time: string;
-  mode: string;
+  cost: number;
+
+  constructor() {}
 }

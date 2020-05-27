@@ -12,7 +12,7 @@ public interface SessionService {
 
     SessionViewModel findById(Long id);
 
-    SessionViewModel save(SessionViewModel sessionViewModel);
+    FullSessionViewModel save(FullSessionViewModel fullSession);
 
     void deleteById(Long id);
 

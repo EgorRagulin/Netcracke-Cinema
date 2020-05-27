@@ -1,23 +1,27 @@
 <div class="container">
   <div class="page">
-    <form #createCinemaForm="ngForm">
+    <mat-card>
+      <mat-card-title>
+        Add New Movie
+      </mat-card-title>
 
-      <h2>Add New Movie</h2>
+      <mat-card-content>
+        <form #createCinemaForm="ngForm">
 
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Title"
-          required
-          name="movie-title"
-          [(ngModel)]="movie.title"
-          #movieTitle="ngModel">
-        <mat-error *ngIf="movieTitle.invalid">
-          Movie title is required
-        </mat-error>
-      </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Title"
+              required
+              name="movie-title"
+              [(ngModel)]="movie.title"
+              #movieTitle="ngModel">
+            <mat-error *ngIf="movieTitle.invalid">
+              Movie title is required
+            </mat-error>
+          </mat-form-field>
 
-      <mat-form-field>
+          <mat-form-field>
         <textarea
           matInput
           placeholder="Description"
@@ -26,60 +30,60 @@
           [(ngModel)]="movie.description"
           #movieDescription="ngModel">
         </textarea>
-        <mat-error *ngIf="movieDescription.invalid">
-          Movie description is required
-        </mat-error>
-      </mat-form-field>
+            <mat-error *ngIf="movieDescription.invalid">
+              Movie description is required
+            </mat-error>
+          </mat-form-field>
 
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Age Limit"
-          required
-          name="movie-age-limit"
-          [(ngModel)]="movie.ageLimit"
-          #movieAgeLimit="ngModel">
-        <mat-error *ngIf="movieAgeLimit.invalid">
-          Movie Age Limit is required
-        </mat-error>
-      </mat-form-field>
-
-
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Movie duration"
-          name="movie-duration"
-          [(ngModel)]="movie.duration"
-          #movieDuration="ngModel"
-          [ngxTimepicker]="movieDurationTimepicker"
-          [format]="24"
-          readonly>
-        <ngx-material-timepicker #movieDurationTimepicker></ngx-material-timepicker>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Select movie genres</mat-label>
-        <mat-select >
-          <mat-option *ngFor="let genre of allGenres" [value]="genre" (click)="selectGenre(genre)">
-            {{genre}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <p class="selected-genres">
-        Selected genres: <span *ngFor="let selectedGenre of movie.genres">{{selectedGenre}} </span>
-
-      </p>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Age Limit"
+              required
+              name="movie-age-limit"
+              [(ngModel)]="movie.ageLimit"
+              #movieAgeLimit="ngModel">
+            <mat-error *ngIf="movieAgeLimit.invalid">
+              Movie Age Limit is required
+            </mat-error>
+          </mat-form-field>
 
 
-      <app-upload-picture [pictureHeight]="300" (selectPicture)="setSelectedPicture($event)"></app-upload-picture>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Movie duration"
+              name="movie-duration"
+              [(ngModel)]="movie.duration"
+              #movieDuration="ngModel"
+              [ngxTimepicker]="movieDurationTimepicker"
+              [format]="24"
+              readonly>
+            <ngx-material-timepicker #movieDurationTimepicker></ngx-material-timepicker>
+          </mat-form-field>
 
-      <button mat-raised-button color="primary" class="create-user-btn" (click)="addMovie()">
-        Add Movie
-      </button>
+          <mat-form-field>
+            <mat-label>Select movie genres</mat-label>
+            <mat-select >
+              <mat-option *ngFor="let genre of allGenres" [value]="genre" (click)="selectGenre(genre)">
+                {{genre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-    </form>
+          <p class="selected-genres">
+            Selected genres: <span *ngFor="let selectedGenre of movie.genres">{{selectedGenre}} </span>
+          </p>
+
+          <app-upload-picture [pictureHeight]="300" (selectPicture)="setSelectedPicture($event)"></app-upload-picture>
+
+          <button mat-raised-button color="primary" class="create-movie-btn" (click)="addMovie()">
+            Add Movie
+          </button>
+
+        </form>
+      </mat-card-content>
+    </mat-card>
   </div>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>

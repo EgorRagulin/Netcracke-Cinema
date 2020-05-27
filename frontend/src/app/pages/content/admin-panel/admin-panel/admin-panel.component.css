@@ -1,12 +1,7 @@
-h2
+.admin-panel-btn
 {
-  text-align: center;
+  font-size: 20px;
 }
-.actions
-{
-  text-align: center;
-}
-.btn
-{
-  margin-top: 20px;
+.admin-panel-menu {
+  font-size: 16px;
 }

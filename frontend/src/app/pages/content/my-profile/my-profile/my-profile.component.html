@@ -12,29 +12,28 @@
 
         <p class="title user-name">
           <ng-container *ngIf="user.firstName">{{user.firstName}} </ng-container>
-          <ng-container>{{user.secondName}}</ng-container>
+          <ng-container *ngIf="user.firstName">{{user.secondName}}</ng-container>
         </p>
 
-        <h2 *ngIf="auth.isAdmin" class="is-user-admin">admin</h2>
-
+        <h2 *ngIf="currentLoginService.isLoginAdmin" class="is-user-admin">admin</h2>
 
         <p class="email" *ngIf="user.email">
-          Почта: {{user.email}}
+          Email: {{user.email}}
         </p>
 
         <p class="phone-number" *ngIf="user.phoneNumber">
-          Номер Телефона: {{user.phoneNumber}}
+          Phone Number: {{user.phoneNumber}}
         </p>
 
         <p>
-          <a [routerLink]="'/users/' + user.id + '/tickets'" color="accent" mat-flat-button>
-            Мои Билеты
+          <a class="my-tickets-link" [routerLink]="'/my-tickets'" color="accent" mat-flat-button>
+            My Tickets
           </a>
         </p>
 
         <p>
-          <a [routerLink]="'/my-wallet'" color="accent" mat-flat-button>
-            Мой кошелек
+          <a class="my-wallet-link" [routerLink]="'/my-wallet'" color="accent" mat-flat-button>
+            My Wallet
           </a>
         </p>
 

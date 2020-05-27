@@ -2,10 +2,64 @@
 {
   text-align: center;
 }
+.movie-card
+{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  margin: 20px;
+  max-width: 510px;
+  padding: 30px;
+  display: inline-block;
+  text-align: center;
+}
 .movie-not-found
 {
   text-align: center;
 }
+
 .title, .duration, .age-limit, .genres, .description, .btn {
   margin-top: 20px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 30px;
+  color: white;
+  background-color: #000;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+h1
+{
+  text-transform: uppercase;
+}
+.movie-picture img
+{
+  height: 450px;
+  margin: 0 30px;
+}
+.name, .address
+{
+  margin-top: 20px;
+}
+.genres
+{
+  text-transform: capitalize;
+}
+.description
+{
+  text-align: left;
+}
+.movie-sessions
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.session
+{
+  padding: 0 10px;
+  margin: 10px;
 }

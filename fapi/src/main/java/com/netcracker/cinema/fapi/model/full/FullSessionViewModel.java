@@ -13,9 +13,8 @@ public class FullSessionViewModel {
     private Date date;
     private Time time;
     private double cost;
-    private String mode;
     private HallViewModel hall;
-    private MovieViewModel movie;
+    private FullMovieViewModel movie;
     private List<TicketViewModel> tickets;
 
     public Long getId() {
@@ -50,14 +49,6 @@ public class FullSessionViewModel {
         this.cost = cost;
     }
 
-    public String getMode() {
-        return mode;
-    }
-
-    public void setMode(String mode) {
-        this.mode = mode;
-    }
-
     public HallViewModel getHall() {
         return hall;
     }
@@ -66,11 +57,11 @@ public class FullSessionViewModel {
         this.hall = hall;
     }
 
-    public MovieViewModel getMovie() {
+    public FullMovieViewModel getMovie() {
         return movie;
     }
 
-    public void setMovie(MovieViewModel movie) {
+    public void setMovie(FullMovieViewModel movie) {
         this.movie = movie;
     }
 

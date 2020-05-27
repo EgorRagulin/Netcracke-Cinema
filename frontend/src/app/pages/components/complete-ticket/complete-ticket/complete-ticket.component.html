@@ -1,0 +1,33 @@
+<ng-container *ngIf="ticket">
+  <div class="ticket-card">
+    <h1>{{ticket.movie.title}}</h1>
+    <div class="movie-picture">
+      <img [src]="ticket.movie.picture ? 'data:image/jpeg;base64,' + ticket.movie.picture : 'http://placehold.it/200x300'">
+    </div>
+    <p>
+      Cinema: {{ticket.cinemaName}},
+      hall: {{ticket.hallNumber}},
+      row: {{ticket.rowNumber}},
+      place: {{ticket.placeNumber}}.
+    </p>
+    <p> Cinema address: {{ticket.cinemaAddress}} </p>
+    <p>
+      Date: {{ticket.sessionDate}},
+    </p>
+    <p>
+      Time: {{ticket.sessionTime}}
+    </p>
+    <ng-container *ngIf="ticket.isSold">
+      <p class="ticket-status">
+        This ticket has been purchased!
+      </p>
+    </ng-container>
+    <ng-container *ngIf="!ticket.isSold">
+      <p class="ticket-status">
+        This ticket is reserved!
+        <br>
+        awaiting payment!
+      </p>
+    </ng-container>
+  </div>
+</ng-container>

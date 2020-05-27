@@ -2,6 +2,7 @@ package com.netcracker.cinema.backend.controller;
 
 import com.netcracker.cinema.backend.entity.full.FullWallet;
 import com.netcracker.cinema.backend.entity.Wallet;
+import com.netcracker.cinema.backend.models.deposit.DepositModel;
 import com.netcracker.cinema.backend.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,11 @@ public class WalletController {
         Wallet savedWallet = walletService.save(wallet);
         FullWallet fullWallet = new FullWallet(savedWallet);
         return fullWallet;
+    }
+
+    @PostMapping(path = {"/deposit"})
+    public Wallet deposit(@RequestBody DepositModel deposit) {
+        return walletService.deposit(deposit);
     }
 
     @DeleteMapping(params = {"id"})

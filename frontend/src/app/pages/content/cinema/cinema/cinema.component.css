@@ -1,15 +1,19 @@
 .cinema
 {
-  text-align: center;
+    text-align: center;
 }
 .cinema-card
 {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
   margin: auto;
   max-width: 510px;
   padding-top: 30px;
   display: inline-block;
   text-align: center;
+}
+h1
+{
+  text-transform: uppercase;
 }
 button {
   border: none;
@@ -21,10 +25,6 @@ button {
   cursor: pointer;
   width: 100%;
   font-size: 18px;
-}
-h1
-{
-  text-transform: uppercase;
 }
 .cinema-picture img
 {

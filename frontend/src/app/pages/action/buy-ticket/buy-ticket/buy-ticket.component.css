@@ -16,6 +16,16 @@ ul
   list-style-type: none;
   flex-direction: column;
 }
+ul li button
+{
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+ul li span
+{
+  padding-left: 10px;
+}
+
 .box
 {
   height: 27px;

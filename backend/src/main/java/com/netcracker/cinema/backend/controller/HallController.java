@@ -3,10 +3,12 @@ package com.netcracker.cinema.backend.controller;
 import com.netcracker.cinema.backend.entity.full.FullHall;
 import com.netcracker.cinema.backend.entity.Hall;
 import com.netcracker.cinema.backend.entity.Session;
+import com.netcracker.cinema.backend.entity.full.FullSession;
 import com.netcracker.cinema.backend.service.HallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -45,8 +47,11 @@ public class HallController {
         return fullHall;
     }
 
-    @GetMapping(params = {"id"}, path = {"/sessions"})
-    public List<Session> findSessionByHallId(@RequestParam Long id) {
-        return hallService.findById(id).get().getSessions();
+    @GetMapping(params = {"id"}, path = {"/full-sessions"})
+    public List<FullSession> findSessionByHallId(@RequestParam Long id) {
+        List<Session> sessions = hallService.findById(id).get().getSessions();
+        List<FullSession> fullSessions = new ArrayList<FullSession>();
+        sessions.forEach(session -> fullSessions.add(new FullSession(session)));
+        return fullSessions;
     }
 }

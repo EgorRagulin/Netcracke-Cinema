@@ -3,7 +3,6 @@ package com.netcracker.cinema.fapi.controller;
 
 import com.netcracker.cinema.fapi.model.TicketViewModel;
 import com.netcracker.cinema.fapi.model.full.FullTicketViewModel;
-import com.netcracker.cinema.fapi.DTO.PageDTO;
 import com.netcracker.cinema.fapi.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,16 +34,4 @@ public class TicketController {
     public void deleteTicketById(@RequestParam Long id) {
         ticketService.deleteById(id);
     }
-
-
-    @GetMapping(params = {"id"}, path = {"/full"})
-    public FullTicketViewModel findFullTicketById(@RequestParam Long id) {
-        return ticketService.findFullById(id);
-    }
-
-    @GetMapping(params = {"pageNumber", "pageSize"})
-    public PageDTO<FullTicketViewModel> findTicketsPage(@RequestParam int pageNumber, @RequestParam int pageSize) {
-        return ticketService.findPage(pageNumber, pageSize);
-    }
-
 }

@@ -1,5 +1,6 @@
 package com.netcracker.cinema.fapi.service.impl;
 
+import com.netcracker.cinema.fapi.model.deposit.DepositModel;
 import com.netcracker.cinema.fapi.model.full.FullWalletViewModel;
 import com.netcracker.cinema.fapi.model.WalletViewModel;
 import com.netcracker.cinema.fapi.service.WalletService;
@@ -28,9 +29,9 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public FullWalletViewModel save(FullWalletViewModel fullWalletViewModel) {
+    public WalletViewModel save(FullWalletViewModel fullWalletViewModel) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForEntity(rootPath, fullWalletViewModel, FullWalletViewModel.class).getBody();
+        return restTemplate.postForEntity(rootPath, fullWalletViewModel, WalletViewModel.class).getBody();
     }
 
     @Override
@@ -40,8 +41,9 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public FullWalletViewModel findFullById(Long id) {
+    public WalletViewModel deposit(DepositModel deposit) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(rootPath + "/full/?id=" + id, FullWalletViewModel.class);
+        return restTemplate.postForEntity(rootPath + "/deposit", deposit, WalletViewModel.class).getBody();
     }
+
 }

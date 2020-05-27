@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { WalletModel } from "../../models/wallet.model";
 import { FullWalletModel } from "../../models/full-models/full.wallet.model";
+import {DepositModel} from "../../models/deposit/deposit.model";
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,9 @@ export class WalletService {
 
   public deleteWallet(id: number): Observable<any> {
     return this.http.delete<void>(this.rootPath + '/?id=' + id);
+  }
+
+  public deposit(deposit: DepositModel): Observable<WalletModel> {
+    return this.http.post<WalletModel>(this.rootPath + '/deposit', deposit);
   }
 }

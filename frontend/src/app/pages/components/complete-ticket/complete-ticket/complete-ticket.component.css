@@ -1,0 +1,14 @@
+.ticket-card
+{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  margin: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  display: inline-block;
+  text-align: center;
+}
+.ticket-status
+{
+  font-weight: bold;
+}

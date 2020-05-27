@@ -1,8 +1,3 @@
-h2
-{
-  text-align: center;
-  margin-bottom: 20px;
-}
 .movies
 {
   display: flex;
@@ -11,13 +6,27 @@ h2
 }
 .movie
 {
-  width: 25%;
-  margin-bottom: 30px;
+  width: 24%;
+  margin: 0 0.5% 30px;
+  min-width: 220px;
+}
+.movie-card
+{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  margin: auto;
   text-align: center;
+}
+.jump-this-movie-page
+{
+  text-decoration: none;
+  color: black;
 }
 .poster img
 {
   height: 300px;
+  width: 200px;
 }
 .title, .age-limit, .genres
 {

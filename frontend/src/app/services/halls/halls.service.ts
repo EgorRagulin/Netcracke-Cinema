@@ -5,6 +5,7 @@ import {HallModel} from "../../models/hall.model";
 import {SessionModel} from "../../models/session.model";
 import {CinemaModel} from "../../models/cinema.model";
 import {FullHallModel} from "../../models/full-models/full.hall.model";
+import {FullSessionModel} from "../../models/full-models/full.session.model";
 
 
 @Injectable({
@@ -23,7 +24,7 @@ export class HallsService {
     return this.http.get<HallModel>(this.rootPath + '?id=' + id);
   }
 
-  public getSessions(id: number): Observable<SessionModel[]> {
-    return this.http.get<SessionModel[]>(this.rootPath + 'sessions/?id=' + id);
+  public getSessions(id: number): Observable<FullSessionModel[]> {
+    return this.http.get<FullSessionModel[]>(this.rootPath + 'full-sessions/?id=' + id);
   }
 }

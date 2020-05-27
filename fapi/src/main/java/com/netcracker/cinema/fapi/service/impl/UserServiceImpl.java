@@ -1,5 +1,6 @@
 package com.netcracker.cinema.fapi.service.impl;
 
+import com.netcracker.cinema.fapi.DTO.CompleteTicketDTO;
 import com.netcracker.cinema.fapi.model.TicketViewModel;
 import com.netcracker.cinema.fapi.model.UserViewModel;
 import com.netcracker.cinema.fapi.model.full.FullUserViewModel;
@@ -55,9 +56,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<TicketViewModel> findTicketsByUserId(Long id) {
+    public List<CompleteTicketDTO> findCompleteTicketsByUserId(Long userId) {
         RestTemplate restTemplate = new RestTemplate();
-        TicketViewModel[] usersResponse = restTemplate.getForObject(rootPath + "/tickets/?id=" + id, TicketViewModel[].class);
+        CompleteTicketDTO[] usersResponse = restTemplate.getForObject(rootPath + "/complete-tickets/?userId=" + userId, CompleteTicketDTO[].class);
         return usersResponse == null ? Collections.emptyList() : Arrays.asList(usersResponse);
     }
 }

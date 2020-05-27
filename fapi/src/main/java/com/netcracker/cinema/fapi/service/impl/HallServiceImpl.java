@@ -3,6 +3,7 @@ package com.netcracker.cinema.fapi.service.impl;
 import com.netcracker.cinema.fapi.model.HallViewModel;
 import com.netcracker.cinema.fapi.model.SessionViewModel;
 import com.netcracker.cinema.fapi.model.full.FullHallViewModel;
+import com.netcracker.cinema.fapi.model.full.FullSessionViewModel;
 import com.netcracker.cinema.fapi.service.HallService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -47,9 +48,9 @@ public class HallServiceImpl implements HallService {
     }
 
     @Override
-    public List<SessionViewModel> findSessionsByHallId(Long id) {
+    public List<FullSessionViewModel> findFullSessionsByHallId(Long id) {
         RestTemplate restTemplate = new RestTemplate();
-        SessionViewModel[] hallsResponse = restTemplate.getForObject(rootPath + "/sessions/?id=" + id, SessionViewModel[].class);
+        FullSessionViewModel[] hallsResponse = restTemplate.getForObject(rootPath + "/full-sessions/?id=" + id, FullSessionViewModel[].class);
         return hallsResponse == null ? Collections.emptyList() : Arrays.asList(hallsResponse);
     }
 }

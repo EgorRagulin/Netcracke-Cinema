@@ -1,34 +1,56 @@
 <div class="container">
   <div class="page">
+    <ng-container *ngIf="sessions">
+        <h2>Sessions</h2>
 
-    <h2>Sessions</h2>
+        <div class="sessions">
+          <div class="session" *ngFor="let session of sessions">
 
-    <div class="sessions">
-      <div class="session" *ngFor="let session of sessions">
+            <mat-card>
+              <mat-card-title>
+                {{session.movie.title}}
+              </mat-card-title>
 
-        <div class="date">
-          date: {{session.date}}
+              <mat-card-content>
+                <div class="movie-picture">
+                  <img [src]="session.movie.picture ? 'data:image/jpeg;base64,' + session.movie.picture : 'http://placehold.it/200x300'">
+                </div>
+
+                <p class="duration">{{session.movie.duration}}</p>
+
+                <p class="age-limit">{{session.movie.ageLimit}}+</p>
+
+                <div class="genres">
+                  <span *ngFor="let genre of session.movie.genres">{{genre}} </span>
+                </div>
+
+                <p class="description">{{session.movie.description}}</p>
+
+                <p class="date">
+                  date: {{session.date}}
+                </p>
+
+                <p class="time">
+                  time: {{session.time}}
+                </p>
+              </mat-card-content>
+
+              <mat-card-actions>
+                <a [routerLink]="['/sessions/' + session.id + '/buy-tickets']" color="accent" mat-flat-button>
+                  Buy Tickets
+                </a>
+              </mat-card-actions>
+            </mat-card>
+
+          </div>
         </div>
 
-        <div class="time">
-          time: {{session.time}}
-        </div>
+      <h3 class="session-not-found" *ngIf="sessions.length == 0">
+        There is not a single session!
+      </h3>
 
-        <div class="mode">
-          mode: {{session.mode}}
-        </div>
-
-        <a [routerLink]="['/sessions/' + session.id + '/buy-ticket']" color="accent" mat-flat-button>
-          Купить Билет
-        </a>
-
-      </div>
-    </div>
+    </ng-container>
   </div>
-
-  <h3 class="session-not-found" *ngIf="sessions.length == 0">
-    Тут нет ни одного сеанса!
-  </h3>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>
 

@@ -1,7 +1,12 @@
 <div class="container">
+
+  <h2 *ngIf="!isLoading && !cinema">
+    Something went wrong! Cinema not found.
+  </h2>
+
   <div class="page">
-    <div class="cinema" *ngIf="cinema">
-      <div class="cinema-card">
+    <div class="cinema" >
+      <div class="cinema-card" *ngIf="cinema">
 
         <h1>{{cinema.name}}</h1>
 
@@ -15,22 +20,23 @@
 
         <div class="cinema-halls">
           <p class="hall hall-btn" *ngFor="let hall of cinemaHalls">
-            <a [routerLink]="'/halls/' + hall.id" color="accent" mat-flat-button>
-              Jump to {{hall.hallNumber}} hall
+            <a [routerLink]="'/halls/' + hall.id + '/sessions'" color="accent" mat-flat-button>
+              Jump to this {{hall.hallNumber}} hall sessions.
             </a>
           </p>
-
+          <p *ngIf="cinemaHalls && cinemaHalls.length == 0">
+            This cinema has no open halls yet!
+          </p>
         </div>
 
-        <button (click)="addHall()" *ngIf="auth.isAdmin">Add Hall</button>
+        <ng-container *ngIf="currentLoginService.isLoginAdmin">
+          <button (click)="addHall()" *ngIf="!isHallAdded">Add Hall</button>
+          <button *ngIf="isHallAdded">Added...</button>
+        </ng-container>
 
       </div>
     </div>
   </div>
-
-  <h3 *ngIf="!cinema">
-    Что-то пошло не так! Кинотеатр не найден.
-  </h3>
 
   <app-loading-page [isLoading]="isLoading"></app-loading-page>
 

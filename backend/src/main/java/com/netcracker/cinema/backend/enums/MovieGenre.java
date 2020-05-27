@@ -10,12 +10,16 @@ public enum MovieGenre {
     action,
     adventure,
     comedy,
-    creamAndGangster,
+    cream,
+    gangster,
     drama,
-    epicsAndHistorical,
+    epics,
+    historical,
     horror,
-    musicalsAndDance,
-    scienceAndFiction,
+    musicals,
+    dance,
+    science,
+    fiction,
     war,
     westerns;
 
@@ -41,7 +45,7 @@ public enum MovieGenre {
 
     public static List<String> transformStringToList(String genresString) {
         List<String> genresList = new ArrayList<String>();
-        if (genresString != "") {
+        if (genresString != "" && genresString != null ) {
             char one = '1';
             int i = 0;
 

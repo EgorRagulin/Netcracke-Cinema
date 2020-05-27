@@ -18,25 +18,25 @@
       из {{paginator.totalElements}}
     </span>
 
-    <span class="btn">
-    <span *ngIf="paginator.pageNumber <= 1">
-      <button class="first btn-off" mat-flat-button><<<</button>
-      <button class="previous btn-off" mat-flat-button><</button>
-    </span>
-    <span *ngIf="paginator.pageNumber > 1">
-      <button class="first" mat-flat-button (click)="showFirstPage()"><<<</button>
-      <button class="previous" mat-flat-button (click)="showPreviousPage()"><</button>
-    </span>
+    <span class="btn" *ngIf="paginator.totalPages > 1">
+      <ng-container *ngIf="paginator.pageNumber <= 1">
+        <button class="first btn-off" mat-flat-button><<<</button>
+        <button class="previous btn-off" mat-flat-button><</button>
+      </ng-container>
+      <ng-container *ngIf="paginator.pageNumber > 1">
+        <button class="first" mat-flat-button (click)="showFirstPage()"><<<</button>
+        <button class="previous" mat-flat-button (click)="showPreviousPage()"><</button>
+      </ng-container>
 
-    <span *ngIf="paginator.pageNumber < paginator.totalPages">
-      <button class="next" mat-flat-button (click)="showNextPage()">></button>
-      <button class="last" mat-flat-button (click)="showLastPage()">>>></button>
+      <ng-container *ngIf="paginator.pageNumber < paginator.totalPages">
+        <button class="next" mat-flat-button (click)="showNextPage()">></button>
+        <button class="last" mat-flat-button (click)="showLastPage()">>>></button>
+      </ng-container>
+      <ng-container *ngIf="paginator.pageNumber >= paginator.totalPages">
+        <button class="next btn-off" mat-flat-button>></button>
+        <button class="last btn-off" mat-flat-button>>>></button>
+      </ng-container>
     </span>
-    <span *ngIf="paginator.pageNumber >= paginator.totalPages">
-      <button class="next btn-off" mat-flat-button>></button>
-      <button class="last btn-off" mat-flat-button>>>></button>
-    </span>
-  </span>
 
     <div *ngIf="showBobblesPaginator">
       <app-bubbles-paginator

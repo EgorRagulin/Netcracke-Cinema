@@ -8,11 +8,13 @@ import {UploadPictureService} from "../../../../services/upload-picture/upload-p
 import {PictureModel} from "../../../../models/picture/picture.model";
 import {FullUserModel} from "../../../../models/full-models/full.user.model";
 import {LoginModel} from "../../../../models/login.model";
-import {UsersService} from "../../../../services/users/users.service";
+import {UserService} from "../../../../services/user/user.service";
 import {finalize} from "rxjs/operators";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Validation} from "../../../../form-validation/validation";
 import {FormValidationService} from "../../../../services/form-validation/form-validation.service";
+import {CurrentUserService} from "../../../../services/current-user/current.user.service";
+import {CurrentLoginService} from "../../../../services/current-login/current-login.service";
 
 @Component({
   selector: 'app-create-user',
@@ -22,25 +24,31 @@ import {FormValidationService} from "../../../../services/form-validation/form-v
 export class CreateUserComponent implements OnInit, OnDestroy {
   private _subscriptions: Subscription[] = [];
 
+  private login: LoginModel;
   public user: UserModel = new UserModel();
 
   public createUserForm: FormGroup;
-
   public validationMessages = Validation.validationMessages;
+  private _selectedPicture: FormData;
 
   public isLoading: boolean;
 
-  private _selectedPicture: FormData;
+  constructor(private usersService: UserService,
+              public currentLoginService: CurrentLoginService,
+              public currentUserService: CurrentUserService,
 
-  constructor(private usersService: UsersService,
-              public storageService: StorageService,
               private loadingService: LoadingService,
+
               private fb: FormBuilder,
               public formValidationService: FormValidationService,
               private uploadPictureService: UploadPictureService,
+
               private router: Router) { }
 
   ngOnInit(): void {
+    this._subscriptions.push(
+      this.currentLoginService.getCurrentLogin().subscribe(currentLogin => this.login = currentLogin)
+    );
     this.createCreateUserForms();
   }
 
@@ -55,14 +63,14 @@ export class CreateUserComponent implements OnInit, OnDestroy {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(15),
-          Validators.pattern(Validation.validatorsPatterns.first_name)
+          Validators.pattern(Validation.validatorsPatterns.cyrillic_latin_numbers)
         ]],
       secondName: ['',
         [
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(15),
-          Validators.pattern(Validation.validatorsPatterns.second_name)
+          Validators.pattern(Validation.validatorsPatterns.cyrillic_latin_numbers)
         ]],
       email: ['',
         [
@@ -96,7 +104,7 @@ export class CreateUserComponent implements OnInit, OnDestroy {
         this.uploadPictureService.getPictureUrl(this._selectedPicture)
           .subscribe((picture: PictureModel) => {
             if (picture.pictureUrl) this.user.avatar = picture.pictureUrl;
-            let fullUser = this.connectLoginFromStorageToUserModel();
+            let fullUser = new FullUserModel(this.user, this.login)
             this.saveUserInDb(fullUser);
           }, error => {
             alert(error.message);
@@ -107,20 +115,10 @@ export class CreateUserComponent implements OnInit, OnDestroy {
     else this.isLoading = this.loadingService.changeLoadingStatus(false);
   }
 
-  private connectLoginFromStorageToUserModel(): FullUserModel {
-    let storageLogin: LoginModel = this.storageService.getCurrentLogin();
-    let login: LoginModel = new LoginModel();
-    login.id = storageLogin.id;
-    return new FullUserModel(this.user, login);
-  }
-
   private saveUserInDb(fullUser: FullUserModel): void {
     this.usersService.saveUserInDb(fullUser)
       .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
-      .subscribe((savedUser: FullUserModel) => {
-      this.router.navigate(['my-profile'])
-    }, error => {
-      alert(error.message);
-    });
+      .subscribe((savedUser: FullUserModel) => this.router.navigate(['my-profile']),
+          error => alert(error.message));
   }
 }

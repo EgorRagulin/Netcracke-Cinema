@@ -8,7 +8,6 @@ public class SessionViewModel {
     private Date date;
     private Time time;
     private double cost;
-    private String mode;
 
     public Long getId() {
         return id;
@@ -40,13 +39,5 @@ public class SessionViewModel {
 
     public void setCost(double cost) {
         this.cost = cost;
-    }
-
-    public String getMode() {
-        return mode;
-    }
-
-    public void setMode(String mode) {
-        this.mode = mode;
     }
 }

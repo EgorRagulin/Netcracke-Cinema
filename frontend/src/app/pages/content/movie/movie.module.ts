@@ -4,6 +4,8 @@ import { MovieComponent } from './movie/movie.component';
 import {RouterModule} from "@angular/router";
 import {MaterialModule} from "src/app/modules/material/material.module";
 import {LoadingPageModule} from "../../../modules/loading-page/loading-page.module";
+import {AddSessionModule} from "../../action/add-session/add-session.module";
+import {CurrentLoginService} from "../../../services/current-login/current-login.service";
 
 
 
@@ -13,7 +15,11 @@ import {LoadingPageModule} from "../../../modules/loading-page/loading-page.modu
         CommonModule,
         RouterModule,
         MaterialModule,
-        LoadingPageModule
-    ]
+        LoadingPageModule,
+        AddSessionModule
+    ],
+  providers: [
+    CurrentLoginService
+  ]
 })
 export class MovieModule { }

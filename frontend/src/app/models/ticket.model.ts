@@ -3,5 +3,4 @@ export interface TicketModel {
   rowNumber: number;
   placeNumber: number;
   isSold: boolean;
-  cost: number;
 }

@@ -1,9 +1,9 @@
 create table cinema
 (
-    id             int auto_increment,
-    cinema_name    varchar(255) null,
-    address        varchar(255) null,
-    cinema_picture varchar(255) null,
+    id      int auto_increment,
+    name    varchar(255) null,
+    address varchar(255) null,
+    picture blob         null,
     constraint cinema_id_uindex
         unique (id)
 );
@@ -25,25 +25,16 @@ create table hall
 alter table hall
     add primary key (id);
 
-create table layout
-(
-    id            int auto_increment,
-    places_in_row int null,
-    number_of_row int null,
-    constraint layout_id_uindex
-        unique (id)
-);
-
-alter table layout
-    add primary key (id);
-
 create table login
 (
     id       int auto_increment,
-    username varchar(255) null,
-    password varchar(255) null,
+    username varchar(255)                  not null,
+    password varchar(255)                  not null,
+    role     varchar(255) default 'client' null,
     constraint login_id_uindex
-        unique (id)
+        unique (id),
+    constraint login_login_uindex
+        unique (username)
 );
 
 alter table login
@@ -51,13 +42,13 @@ alter table login
 
 create table movie
 (
-    id           int auto_increment,
-    title        varchar(255) null,
-    picture      varchar(255) null,
-    descriptions varchar(255) null,
-    age_limit    int          null,
-    duration     time         null,
-    categories   varchar(255) null,
+    id          int auto_increment,
+    title       varchar(255) null,
+    picture     blob         null,
+    description text         null,
+    age_limit   int          null,
+    duration    time         null,
+    genres      varchar(255) null,
     constraint movie_id_uindex
         unique (id)
 );
@@ -68,11 +59,11 @@ alter table movie
 create table session
 (
     id       int auto_increment,
-    date     date         null,
-    time     time         null,
-    mode     varchar(255) null,
-    hall_id  int          null,
-    movie_id int          null,
+    date     date   null,
+    time     time   null,
+    cost     double null,
+    hall_id  int    null,
+    movie_id int    null,
     constraint session_id_uindex
         unique (id),
     constraint session_hall_id_fk
@@ -89,7 +80,9 @@ create table user
     id          int auto_increment,
     first_name  varchar(255) null,
     second_name varchar(255) null,
-    role        varchar(255) null,
+    email       varchar(255) null,
+    phone_num   varchar(255) null,
+    avatar      longblob     null,
     login_id    int          null,
     constraint user_id_uindex
         unique (id),
@@ -102,12 +95,12 @@ alter table user
 
 create table ticket
 (
-    id           int auto_increment,
-    place_number int    null,
-    `row_number` int    null,
-    cost         double null,
-    session_id   int    null,
-    user_id      int    null,
+    id         int auto_increment,
+    place_num  int        null,
+    row_num    int        null,
+    is_sold    tinyint(1) null,
+    session_id int        null,
+    user_id    int        null,
     constraint place_id_uindex
         unique (id),
     constraint ticket_session_id_fk

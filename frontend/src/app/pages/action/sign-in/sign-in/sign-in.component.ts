@@ -12,6 +12,8 @@ import {Validation} from "../../../../form-validation/validation";
 import {Subscription} from "rxjs";
 import {FormValidationService} from "../../../../services/form-validation/form-validation.service";
 import {UserModel} from "../../../../models/user.model";
+import {CurrentLoginService} from "../../../../services/current-login/current-login.service";
+import {CurrentUserService} from "../../../../services/current-user/current.user.service";
 
 @Component({
   selector: 'app-sign-in',
@@ -31,11 +33,17 @@ export class SignInComponent implements OnInit, OnDestroy {
   public hide: boolean = true;
   public showCheckYourSetDataAlert: boolean = false;
 
-  constructor(public storageService: StorageService,
-              private loginService: LoginService,
+  constructor(private loginService: LoginService,
+
+              public storageService: StorageService,
+              private currentLoginService: CurrentLoginService,
+              private currentUserService: CurrentUserService,
+
               private loadingService: LoadingService,
+
               private fb: FormBuilder,
               public formValidationService: FormValidationService,
+
               private router: Router,) { }
 
   ngOnInit(): void {
@@ -53,7 +61,7 @@ export class SignInComponent implements OnInit, OnDestroy {
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(15),
-          Validators.pattern(Validation.validatorsPatterns.username)
+          Validators.pattern(Validation.validatorsPatterns.cyrillic_latin_numbers)
         ]],
       password: ['',
         [
@@ -71,33 +79,29 @@ export class SignInComponent implements OnInit, OnDestroy {
 
       this.setTokenToStorage();
     }
-    else alert('Ах ты хитрый жук');
+    else alert('Oh, you sly beetle!');
   }
 
   private setTokenToStorage(): void {
     this._subscriptions.push(
       this.loginService.generateToken(this.login)
         .subscribe((authToken: StorageTokenModel) => {
-          if (authToken.token) {
-            this.storageService.setToken(authToken.token);
-            this.setCurrentLoginToStorage();
-          }
+          this.storageService.setToken(authToken.token);
+          this.setCurrentLogin();
         }, (error) => {
-          if (error.status === 401) {
-            this.showCheckYourSetDataAlert = true;
-          } else {
-            alert(error.message);
-          }
+          if (error.status === 401) this.showCheckYourSetDataAlert = true;
+          else alert(error.message);
           this.isLoading = this.loadingService.changeLoadingStatus(false);
         })
     );
   }
 
-  private setCurrentLoginToStorage(): void {
+  private setCurrentLogin(): void {
     this.loginService.getAuthorizedLogin()
       .subscribe((currentLogin: LoginModel) => {
         this.storageService.setCurrentLogin(currentLogin);
-        this.setCurrentUserToStorage(currentLogin.id);
+        this.currentLoginService.setCurrentLogin(currentLogin);
+        this.setCurrentUser(currentLogin.id);
       }, (error) => {
         alert(error.message);
         this.isLoading = this.loadingService.changeLoadingStatus(false);
@@ -105,13 +109,15 @@ export class SignInComponent implements OnInit, OnDestroy {
 
   }
 
-  private setCurrentUserToStorage(loginId: number): void {
+  private setCurrentUser(loginId: number): void {
     if(loginId != NaN) {
         this.loginService.getAuthorizedUser(loginId)
           .pipe(finalize(() => this.isLoading = this.loadingService.changeLoadingStatus(false)))
           .subscribe((currentUser: UserModel) => {
-            this.storageService.setCurrentUser(currentUser);
-            if (currentUser) this.router.navigate(['my-profile']);
+            if (currentUser) {
+              this.router.navigate(['my-profile']);
+              this.currentUserService.setCurrentUser(currentUser);
+            }
             else this.router.navigate(['create-user']);
           }, (error) => {
             if (error.status === 400) {

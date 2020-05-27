@@ -6,15 +6,13 @@ export class FullTicketModel {
   rowNumber: number;
   placeNumber: number;
   isSold: boolean;
-  cost: number;
   session: SessionModel;
   user: UserModel;
 
-  constructor(rowNumber: number, placeNumber: number, isSold: boolean, cost: number, session: SessionModel, user: UserModel, id?: number) {
+  constructor(rowNumber: number, placeNumber: number, isSold: boolean, session: SessionModel, user: UserModel, id?: number) {
     this.rowNumber = rowNumber;
     this.placeNumber = placeNumber;
     this.isSold = isSold;
-    this.cost = cost;
     this.session = session;
     this.user = user;
     if (id) this.id = id;
